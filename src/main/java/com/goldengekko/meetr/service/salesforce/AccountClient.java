@@ -5,6 +5,7 @@
 package com.goldengekko.meetr.service.salesforce;
 
 import com.goldengekko.meetr.domain.DmAccount;
+import com.goldengekko.meetr.domain.DmContact;
 import com.goldengekko.meetr.service.AccountService;
 import com.wadpam.open.exceptions.RestException;
 import java.io.OutputStream;
@@ -22,6 +23,9 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.social.salesforce.api.SalesforceAccount;
+import org.springframework.social.salesforce.api.SalesforceContact;
+import org.springframework.social.salesforce.api.impl.SalesforceTemplate;
 import org.springframework.web.client.DefaultResponseErrorHandler;
 import org.springframework.web.client.RestTemplate;
 
@@ -33,110 +37,100 @@ public class AccountClient implements AccountService {
     
     static final Logger LOG = LoggerFactory.getLogger(AccountClient.class);
 
-    private static final String BASE_PATH = "/services/data/v24.0";
-    
     private static final ThreadLocal<String> TOKEN = new ThreadLocal<String>();
+    private static final ThreadLocal<String> INSTANCE_URL = new ThreadLocal<String>();
     
-    private final RestTemplate restTemplate;
-    protected final String FIELDS = "Id,Name,Phone,ShippingCity,ShippingCountry,ShippingPostalCode,ShippingState,ShippingStreet";
-
-    public AccountClient() {
-        restTemplate = new RestTemplate();
-        restTemplate.setErrorHandler(new DefaultResponseErrorHandler() {
-            @Override
-            protected boolean hasError(HttpStatus statusCode) {
-                switch (statusCode.value()) {
-                    case 400:
-                    case 401:
-                    case 404:
-                        return false;
-                }
-                return super.hasError(statusCode);
-            }
-        });
-    }
-    
-    public static Entry<String, String> parseToken(String token) {
-        return ContactClient.parseToken(token);
-    }
-
     @Override
     public DmAccount get(String parentKeyString, String id) {
-        final Entry<String, String> cred = parseToken(TOKEN.get());
-        final String url = cred.getKey() + BASE_PATH + "/sobjects/Account/" + id;
-        HttpEntity requestEntity = getRequestEntity(cred.getValue());
-        ResponseEntity<JSalesforceAccount> response = restTemplate.exchange(url, HttpMethod.GET, requestEntity, JSalesforceAccount.class);
-        return convert(response.getBody());
+        throw new UnsupportedOperationException("Not supported yet.");
+//        final Entry<String, String> cred = parseToken(TOKEN.get());
+//        final String url = cred.getKey() + BASE_PATH + "/sobjects/Account/" + id;
+//        HttpEntity requestEntity = getRequestEntity(cred.getValue());
+//        ResponseEntity<JSalesforceAccount> response = restTemplate.exchange(url, HttpMethod.GET, requestEntity, JSalesforceAccount.class);
+//        return convert(response.getBody());
     }
     
     @Override
-    public CursorPage<DmAccount, String> getPage(int pageSize, Serializable cursorKey) {
-        final Entry<String, String> cred = parseToken(TOKEN.get());
-        final String url = cred.getKey() + BASE_PATH + "/query/?q={soql}";
-        HttpEntity requestEntity = getRequestEntity(cred.getValue());
-        int offset = null != cursorKey ? Integer.parseInt(cursorKey.toString()) : 0;
-        String soql = String.format("SELECT %s FROM Account ORDER BY Name LIMIT %d", FIELDS, pageSize);
-        if (0 < offset) {
-            soql = String.format("%s OFFSET %d", soql, offset);
+    public CursorPage<DmAccount, String> getPage(int pageSize, String cursorKey) {
+        SalesforceTemplate template = new SalesforceTemplate(TOKEN.get(), INSTANCE_URL.get());
+        Iterable<SalesforceAccount> response = template.basicOperations().getAccounts(pageSize, cursorKey);
+        
+        final CursorPage<DmAccount, String> page = new CursorPage<DmAccount, String>();
+        page.setRequestedPageSize(pageSize);
+        page.setItems(convert(response));
+        if (pageSize == page.getItems().size()) {
+            int offset = null != cursorKey ? Integer.parseInt(cursorKey.toString()) : 0;
+            page.setCursorKey(Integer.toString(offset + pageSize));
         }
-        LOG.debug("SOQL: {}", soql);
-        ResponseEntity<JAccountQueryResponse> response = restTemplate.exchange(url, HttpMethod.GET, requestEntity, JAccountQueryResponse.class, soql);
-        if (HttpStatus.OK.equals(response.getStatusCode())) {
-            final CursorPage<DmAccount, String> page = new CursorPage<DmAccount, String>();
-            page.setRequestedPageSize(pageSize);
-            page.setItems(convert(response.getBody().getRecords()));
-            if (pageSize == page.getItems().size()) {
-                page.setCursorKey(Integer.toString(offset + pageSize));
-            }
-            return page;
-        }
-        throw new RestException(92, response.getStatusCode(), soql);
+        
+        return page;
+//        final Entry<String, String> cred = parseToken(TOKEN.get());
+//        final String url = cred.getKey() + BASE_PATH + "/query/?q={soql}";
+//        HttpEntity requestEntity = getRequestEntity(cred.getValue());
+//        int offset = null != cursorKey ? Integer.parseInt(cursorKey.toString()) : 0;
+//        String soql = String.format("SELECT %s FROM Account ORDER BY Name LIMIT %d", FIELDS, pageSize);
+//        if (0 < offset) {
+//            soql = String.format("%s OFFSET %d", soql, offset);
+//        }
+//        LOG.debug("SOQL: {}", soql);
+//        ResponseEntity<JAccountQueryResponse> response = restTemplate.exchange(url, HttpMethod.GET, requestEntity, JAccountQueryResponse.class, soql);
+//        if (HttpStatus.OK.equals(response.getStatusCode())) {
+//            final CursorPage<DmAccount, String> page = new CursorPage<DmAccount, String>();
+//            page.setRequestedPageSize(pageSize);
+//            page.setItems(convert(response.getBody().getRecords()));
+//            if (pageSize == page.getItems().size()) {
+//                page.setCursorKey(Integer.toString(offset + pageSize));
+//            }
+//            return page;
+//        }
+//        throw new RestException(92, response.getStatusCode(), soql);
     }
 
     @Override
     public CursorPage<DmAccount, String> searchAccounts(String text, int pageSize, Serializable cursorKey) {
-        final Entry<String, String> cred = parseToken(TOKEN.get());
-        int offset = null != cursorKey ? Integer.parseInt(cursorKey.toString()) : 0;
-        final String url = cred.getKey() + BASE_PATH + "/search/?q={sosl}";
-        HttpEntity requestEntity = getRequestEntity(cred.getValue());
-        String sosl = String.format("FIND {%s} IN NAME FIELDS RETURNING Account(%s ORDER BY Name) LIMIT %d", text, FIELDS, offset+pageSize+1);
-        LOG.debug("SOSL: {}", sosl);
-        ResponseEntity<JSalesforceAccount[]> response = restTemplate.exchange(url, HttpMethod.GET, requestEntity, JSalesforceAccount[].class, sosl);
-        if (HttpStatus.OK.equals(response.getStatusCode())) {
-            JSalesforceAccount[] all = response.getBody();
-            JSalesforceAccount[] items = Arrays.copyOfRange(all, offset, Math.min(all.length, offset + pageSize));
-            final CursorPage<DmAccount, String> page = new CursorPage<DmAccount, String>();
-            page.setRequestedPageSize(pageSize);
-            page.setItems(convert(items));
-            if (offset + pageSize < all.length) {
-                page.setCursorKey(Integer.toString(offset+pageSize));
-            }
-            return page;
-        }
-        throw new RestException(93, response.getStatusCode(), sosl);
+        throw new UnsupportedOperationException("Not supported yet.");
+//        final Entry<String, String> cred = parseToken(TOKEN.get());
+//        int offset = null != cursorKey ? Integer.parseInt(cursorKey.toString()) : 0;
+//        final String url = cred.getKey() + BASE_PATH + "/search/?q={sosl}";
+//        HttpEntity requestEntity = getRequestEntity(cred.getValue());
+//        String sosl = String.format("FIND {%s} IN NAME FIELDS RETURNING Account(%s ORDER BY Name) LIMIT %d", text, FIELDS, offset+pageSize+1);
+//        LOG.debug("SOSL: {}", sosl);
+//        ResponseEntity<JSalesforceAccount[]> response = restTemplate.exchange(url, HttpMethod.GET, requestEntity, JSalesforceAccount[].class, sosl);
+//        if (HttpStatus.OK.equals(response.getStatusCode())) {
+//            JSalesforceAccount[] all = response.getBody();
+//            JSalesforceAccount[] items = Arrays.copyOfRange(all, offset, Math.min(all.length, offset + pageSize));
+//            final CursorPage<DmAccount, String> page = new CursorPage<DmAccount, String>();
+//            page.setRequestedPageSize(pageSize);
+//            page.setItems(convert(items));
+//            if (offset + pageSize < all.length) {
+//                page.setCursorKey(Integer.toString(offset+pageSize));
+//            }
+//            return page;
+//        }
+//        throw new RestException(93, response.getStatusCode(), sosl);
     }
     
     protected static HttpEntity getRequestEntity(String accessToken) {
         return ContactClient.getRequestEntity(accessToken);
     }
 
-    protected static Collection<DmAccount> convert(Iterable<JSalesforceAccount> contacts) {
+    protected static Collection<DmAccount> convert(Iterable<SalesforceAccount> contacts) {
         final Collection<DmAccount> to = new ArrayList<DmAccount>();
-        for (JSalesforceAccount con : contacts) {
+        for (SalesforceAccount con : contacts) {
             to.add(convert(con));
         }
         return to;
     }
 
-    protected static Collection<DmAccount> convert(JSalesforceAccount[] contacts) {
+    protected static Collection<DmAccount> convert(SalesforceAccount[] contacts) {
         final Collection<DmAccount> to = new ArrayList<DmAccount>();
-        for (JSalesforceAccount con : contacts) {
+        for (SalesforceAccount con : contacts) {
             to.add(convert(con));
         }
         return to;
     }
 
-    protected static DmAccount convert(JSalesforceAccount from) {
+    protected static DmAccount convert(SalesforceAccount from) {
         final DmAccount to = new DmAccount();
         
         to.setId(from.getId());
@@ -152,8 +146,13 @@ public class AccountClient implements AccountService {
     }
 
     @Override
-    public void setToken(String token) {
+    public void setAccountsToken(String token) {
         TOKEN.set(token);
+    }
+
+    @Override
+    public void setAccountsAppArg0(String instanceUrl) {
+        INSTANCE_URL.set(instanceUrl);
     }
 
     @Override
@@ -202,7 +201,7 @@ public class AccountClient implements AccountService {
     }
 
     @Override
-    public CursorPage<String, String> whatsChanged(Date since, int pageSize, Serializable cursorKey) {
+    public CursorPage<String, String> whatsChanged(Date since, int pageSize, String cursorKey) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 

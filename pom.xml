@@ -29,7 +29,7 @@
         <surefire.default.skip>true</surefire.default.skip>
 
         <mardao.version>2.2.0</mardao.version>
-        <openserver.version>16</openserver.version>
+        <openserver.version>17-SNAPSHOT</openserver.version>
         <opencomponents.version>1</opencomponents.version>
         <javadocExecutable>${java.home}/../bin/javadoc</javadocExecutable>
         <docrest.version>1.20</docrest.version>
@@ -39,7 +39,7 @@
         <email.from.name>Gekko</email.from.name>
 
         <!-- endpoints -->
-        <devserver.port>8800</devserver.port>
+        <devserver.port>9263</devserver.port>
         <endpoint.apiUrl>http://localhost:${devserver.port}/api/dmi</endpoint.apiUrl>
         <endpoint.signinUrl>http://localhost:${devserver.port}/signin/dmi</endpoint.signinUrl>
         <endpoint.oauthUrl>http://localhost:${devserver.port}/oauth/dmi</endpoint.oauthUrl>

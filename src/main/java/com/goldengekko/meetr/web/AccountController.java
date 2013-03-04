@@ -7,13 +7,15 @@ package com.goldengekko.meetr.web;
 import com.goldengekko.meetr.domain.DmAccount;
 import com.goldengekko.meetr.json.JAccount;
 import com.goldengekko.meetr.service.AccountServiceBean;
+import com.wadpam.oauth2.domain.DConnection;
 import com.wadpam.open.json.JCursorPage;
 import com.wadpam.open.mvc.CrudController;
+import com.wadpam.open.security.SecurityInterceptor;
 import java.io.Serializable;
+import javax.servlet.http.HttpServletRequest;
 import net.sf.mardao.core.CursorPage;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -33,19 +35,16 @@ public class AccountController extends CrudController<JAccount,
     public static final String AUTH_OAUTH_PREFIX = "OAuth ";
     
     @ModelAttribute(value="token")
-    public String populateToken(
-            @RequestParam(value="token", required=false) String token,
-            @RequestHeader(value="Authorization", required=false) String authorization) {
+    public DConnection populateToken(HttpServletRequest request) {
+        
+        final DConnection conn = (DConnection) request.getAttribute(SecurityInterceptor.AUTH_PARAM_OAUTH);
         
         // if present on the request, set the ThreadLocal in the service:
-        if (null != token) {
-            service.setToken(token);
+        if (null != conn) {
+            service.setAccountsToken(conn.getAccessToken());
+            service.setAccountsAppArg0(conn.getAppArg0());
         }
-        else if (null != authorization && authorization.startsWith(AUTH_OAUTH_PREFIX)) {
-            token = authorization.substring(AUTH_OAUTH_PREFIX.length());
-            service.setToken(token);
-        }
-        return token;
+        return conn;
     }
 
     @RequestMapping(value="v10", method= RequestMethod.GET, params={"searchText"})

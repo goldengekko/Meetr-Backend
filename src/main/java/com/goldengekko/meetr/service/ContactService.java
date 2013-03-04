@@ -15,8 +15,6 @@ import net.sf.mardao.core.CursorPage;
  */
 public interface ContactService extends CrudService<DmContact, String> {
     
-    String getContactsToken(String username, String password);
-
     CursorPage<DmContact, String> searchContacts(String searchText, int pageSize, Serializable cursorKey);
     
     /**
@@ -24,4 +22,10 @@ public interface ContactService extends CrudService<DmContact, String> {
      * @param token 
      */
     void setContactsToken(String token);
+    
+    /**
+     * Sets the appArg0 for this request / thread (ThreadLocal).
+     * @param appArg0 
+     */
+    void setContactsAppArg0(String appArg0);
 }

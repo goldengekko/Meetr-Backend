@@ -22,8 +22,13 @@ public class AccountServiceBean extends CrudServiceWrapper<DmAccount, String, Dm
     }
     
     @Override
-    public void setToken(String token) {
-        ((AccountService) delegate).setToken(token);
+    public void setAccountsToken(String token) {
+        ((AccountService) delegate).setAccountsToken(token);
+    }
+
+    @Override
+    public void setAccountsAppArg0(String appArg0) {
+        ((AccountService) delegate).setAccountsAppArg0(appArg0);
     }
 
 }

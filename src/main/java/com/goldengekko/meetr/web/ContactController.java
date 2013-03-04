@@ -7,15 +7,15 @@ package com.goldengekko.meetr.web;
 import com.goldengekko.meetr.service.ContactServiceBean;
 import com.goldengekko.meetr.domain.DmContact;
 import com.goldengekko.meetr.json.JContact;
+import com.wadpam.oauth2.domain.DConnection;
 import com.wadpam.open.json.JCursorPage;
 import com.wadpam.open.mvc.CrudController;
+import com.wadpam.open.security.SecurityInterceptor;
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
+import javax.servlet.http.HttpServletRequest;
 import net.sf.mardao.core.CursorPage;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -32,32 +32,17 @@ public class ContactController extends CrudController<JContact,
         String, 
         ContactServiceBean> {
     
-    public static final String AUTH_OAUTH_PREFIX = "OAuth ";
-    
-    @RequestMapping(value="v10/token", method= RequestMethod.GET, params={"username", "password"})
-    @ResponseBody
-    public Map<String, String> getContactsToken(@RequestParam("username") String instanceUrl,
-            @RequestParam("password") String accessToken) {
-        final String token = service.getContactsToken(instanceUrl, accessToken);
-        final HashMap<String, String> body = new HashMap<String, String>();
-        body.put("token", token);
-        return body;
-    }
-    
     @ModelAttribute(value="token")
-    public String populateToken(
-            @RequestParam(value="token", required=false) String token,
-            @RequestHeader(value="Authorization", required=false) String authorization) {
+    public DConnection populateToken(HttpServletRequest request) {
+        
+        final DConnection conn = (DConnection) request.getAttribute(SecurityInterceptor.AUTH_PARAM_OAUTH);
         
         // if present on the request, set the ThreadLocal in the service:
-        if (null != token) {
-            service.setContactsToken(token);
+        if (null != conn) {
+            service.setContactsToken(conn.getAccessToken());
+            service.setContactsAppArg0(conn.getAppArg0());
         }
-        else if (null != authorization && authorization.startsWith(AUTH_OAUTH_PREFIX)) {
-            token = authorization.substring(AUTH_OAUTH_PREFIX.length());
-            service.setContactsToken(token);
-        }
-        return token;
+        return conn;
     }
 
     @RequestMapping(value="v10", method= RequestMethod.GET, params={"searchText"})
@@ -74,11 +59,9 @@ public class ContactController extends CrudController<JContact,
 
     // ----------------- Converter and setters ---------------------------------
     
-    
     public ContactController() {
         super(JContact.class);
     }
-    
 
     @Override
     public void convertDomain(DmContact from, JContact to) {

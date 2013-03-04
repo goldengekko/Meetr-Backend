@@ -31,6 +31,8 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.social.salesforce.api.SalesforceContact;
+import org.springframework.social.salesforce.api.impl.SalesforceTemplate;
 import org.springframework.web.client.DefaultResponseErrorHandler;
 import org.springframework.web.client.RestTemplate;
 
@@ -42,120 +44,57 @@ public class ContactClient implements ContactService {
     
     static final Logger LOG = LoggerFactory.getLogger(ContactClient.class);
 
-    private static final String BASE_PATH = "/services/data/v24.0";
-    
     private static final ThreadLocal<String> TOKEN = new ThreadLocal<String>();
-    protected final String FIELDS = "Id,Email,Name,FirstName,LastName";
-    
-    private final RestTemplate restTemplate;
-
-    public ContactClient() {
-        restTemplate = new RestTemplate();
-        restTemplate.setErrorHandler(new DefaultResponseErrorHandler() {
-            @Override
-            protected boolean hasError(HttpStatus statusCode) {
-                switch (statusCode.value()) {
-                    case 400:
-                    case 401:
-                    case 404:
-                        return false;
-                }
-                return super.hasError(statusCode);
-            }
-        });
-    }
-    
-    public static String createToken(String instanceUrl, String accessToken) {
-        try {
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            DataOutputStream dos = new DataOutputStream(baos);
-            dos.writeUTF(instanceUrl);
-            dos.writeUTF(accessToken);
-            return Base64.encodeBase64URLSafeString(baos.toByteArray());
-        }
-        catch (IOException ex) {
-            throw new RestException(95, HttpStatus.SERVICE_UNAVAILABLE, ex.getMessage());
-        }
-    }
-    
-    public static Entry<String, String> parseToken(String token) {
-        if (null == token) {
-            throw new AuthenticationFailedException(96, "Access Token required");
-        }
-        try {
-            ByteArrayInputStream bais = new ByteArrayInputStream(Base64.decodeBase64(token));
-            DataInputStream dis = new DataInputStream(bais);
-            String instanceUrl = dis.readUTF();
-            String accessToken = dis.readUTF();
-            Entry<String, String> entry = new AbstractMap.SimpleImmutableEntry<String, String>(instanceUrl, accessToken);
-            return entry;
-        }
-        catch (IOException ex) {
-            throw new RestException(99, HttpStatus.SERVICE_UNAVAILABLE, ex.getMessage());
-        }
-    }
-
-    @Override
-    public String getContactsToken(String instanceUrl, String accessToken) {
-        final String returnValue = createToken(instanceUrl, accessToken);
-        LOG.info("Creating token for {}, returning {}", accessToken, returnValue);
-        return returnValue;
-    }
+    private static final ThreadLocal<String> INSTANCE_URL = new ThreadLocal<String>();
 
     @Override
     public DmContact get(String parentKeyString, String id) {
-        final Entry<String, String> cred = parseToken(TOKEN.get());
-        final String url = cred.getKey() + BASE_PATH + "/sobjects/Contact/" + id;
-        HttpEntity requestEntity = getRequestEntity(cred.getValue());
-        ResponseEntity<JSalesforceContact> response = restTemplate.exchange(url, HttpMethod.GET, requestEntity, JSalesforceContact.class);
-        return convert(response.getBody());
+        throw new UnsupportedOperationException("Not supported yet.");
+//        final Entry<String, String> cred = parseToken(TOKEN.get());
+//        final String url = cred.getKey() + BASE_PATH + "/sobjects/Contact/" + id;
+//        HttpEntity requestEntity = getRequestEntity(cred.getValue());
+//        ResponseEntity<JSalesforceContact> response = restTemplate.exchange(url, HttpMethod.GET, requestEntity, JSalesforceContact.class);
+//        return convert(response.getBody());
     }
     
     @Override
-    public CursorPage<DmContact, String> getPage(int pageSize, Serializable cursorKey) {
-        final Entry<String, String> cred = parseToken(TOKEN.get());
-        final String url = cred.getKey() + BASE_PATH + "/query/?q={soql}";
-        HttpEntity requestEntity = getRequestEntity(cred.getValue());
-        int offset = null != cursorKey ? Integer.parseInt(cursorKey.toString()) : 0;
-        String soql = String.format("SELECT %s FROM Contact ORDER BY Name LIMIT %d", FIELDS, pageSize);
-        if (0 < offset) {
-            soql = String.format("%s OFFSET %d", soql, offset);
+    public CursorPage<DmContact, String> getPage(int pageSize, String cursorKey) {
+        SalesforceTemplate template = new SalesforceTemplate(TOKEN.get(), INSTANCE_URL.get());
+        Iterable<SalesforceContact> response = template.basicOperations().getContacts(pageSize, cursorKey);
+        
+        final CursorPage<DmContact, String> page = new CursorPage<DmContact, String>();
+        page.setRequestedPageSize(pageSize);
+        page.setItems(convert(response));
+        if (pageSize == page.getItems().size()) {
+            int offset = null != cursorKey ? Integer.parseInt(cursorKey.toString()) : 0;
+            page.setCursorKey(Integer.toString(offset + pageSize));
         }
-        LOG.debug("SOQL: {}", soql);
-        ResponseEntity<JContactQueryResponse> response = restTemplate.exchange(url, HttpMethod.GET, requestEntity, JContactQueryResponse.class, soql);
-        if (HttpStatus.OK.equals(response.getStatusCode())) {
-            final CursorPage<DmContact, String> page = new CursorPage<DmContact, String>();
-            page.setRequestedPageSize(pageSize);
-            page.setItems(convert(response.getBody().getRecords()));
-            if (pageSize == page.getItems().size()) {
-                page.setCursorKey(Integer.toString(offset + pageSize));
-            }
-            return page;
-        }
-        throw new RestException(92, response.getStatusCode(), soql);
+        
+        return page;
     }
 
     @Override
     public CursorPage<DmContact, String> searchContacts(String text, int pageSize, Serializable cursorKey) {
-        final Entry<String, String> cred = parseToken(TOKEN.get());
-        int offset = null != cursorKey ? Integer.parseInt(cursorKey.toString()) : 0;
-        final String url = cred.getKey() + BASE_PATH + "/search/?q={sosl}";
-        HttpEntity requestEntity = getRequestEntity(cred.getValue());
-        String sosl = String.format("FIND {%s} IN NAME FIELDS RETURNING Contact(%s ORDER BY Name) LIMIT %d", text, FIELDS, offset+pageSize+1);
-        LOG.debug("SOSL: {}", sosl);
-        ResponseEntity<JSalesforceContact[]> response = restTemplate.exchange(url, HttpMethod.GET, requestEntity, JSalesforceContact[].class, sosl);
-        if (HttpStatus.OK.equals(response.getStatusCode())) {
-            JSalesforceContact[] all = response.getBody();
-            JSalesforceContact[] items = Arrays.copyOfRange(all, offset, Math.min(all.length, offset + pageSize));
-            final CursorPage<DmContact, String> page = new CursorPage<DmContact, String>();
-            page.setRequestedPageSize(pageSize);
-            page.setItems(convert(items));
-            if (offset + pageSize < all.length) {
-                page.setCursorKey(Integer.toString(offset+pageSize));
-            }
-            return page;
-        }
-        throw new RestException(93, response.getStatusCode(), sosl);
+        throw new UnsupportedOperationException("Not supported yet.");
+//        final Entry<String, String> cred = parseToken(TOKEN.get());
+//        int offset = null != cursorKey ? Integer.parseInt(cursorKey.toString()) : 0;
+//        final String url = cred.getKey() + BASE_PATH + "/search/?q={sosl}";
+//        HttpEntity requestEntity = getRequestEntity(cred.getValue());
+//        String sosl = String.format("FIND {%s} IN NAME FIELDS RETURNING Contact(%s ORDER BY Name) LIMIT %d", text, FIELDS, offset+pageSize+1);
+//        LOG.debug("SOSL: {}", sosl);
+//        ResponseEntity<JSalesforceContact[]> response = restTemplate.exchange(url, HttpMethod.GET, requestEntity, JSalesforceContact[].class, sosl);
+//        if (HttpStatus.OK.equals(response.getStatusCode())) {
+//            JSalesforceContact[] all = response.getBody();
+//            JSalesforceContact[] items = Arrays.copyOfRange(all, offset, Math.min(all.length, offset + pageSize));
+//            final CursorPage<DmContact, String> page = new CursorPage<DmContact, String>();
+//            page.setRequestedPageSize(pageSize);
+//            page.setItems(convert(items));
+//            if (offset + pageSize < all.length) {
+//                page.setCursorKey(Integer.toString(offset+pageSize));
+//            }
+//            return page;
+//        }
+//        throw new RestException(93, response.getStatusCode(), sosl);
     }
     
     protected static HttpEntity getRequestEntity(String accessToken) {
@@ -167,23 +106,23 @@ public class ContactClient implements ContactService {
         return requestEntity;
     }
 
-    protected static Collection<DmContact> convert(Iterable<JSalesforceContact> contacts) {
+    protected static Collection<DmContact> convert(Iterable<SalesforceContact> contacts) {
         final Collection<DmContact> to = new ArrayList<DmContact>();
-        for (JSalesforceContact con : contacts) {
+        for (SalesforceContact con : contacts) {
             to.add(convert(con));
         }
         return to;
     }
 
-    protected static Collection<DmContact> convert(JSalesforceContact[] contacts) {
+    protected static Collection<DmContact> convert(SalesforceContact[] contacts) {
         final Collection<DmContact> to = new ArrayList<DmContact>();
-        for (JSalesforceContact con : contacts) {
+        for (SalesforceContact con : contacts) {
             to.add(convert(con));
         }
         return to;
     }
 
-    protected static DmContact convert(JSalesforceContact from) {
+    protected static DmContact convert(SalesforceContact from) {
         final DmContact to = new DmContact();
         
         to.setId(from.getId());
@@ -199,6 +138,11 @@ public class ContactClient implements ContactService {
     @Override
     public void setContactsToken(String token) {
         TOKEN.set(token);
+    }
+
+    @Override
+    public void setContactsAppArg0(String instanceUrl) {
+        INSTANCE_URL.set(instanceUrl);
     }
 
     @Override
@@ -247,7 +191,7 @@ public class ContactClient implements ContactService {
     }
 
     @Override
-    public CursorPage<String, String> whatsChanged(Date since, int pageSize, Serializable cursorKey) {
+    public CursorPage<String, String> whatsChanged(Date since, int pageSize, String cursorKey) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
