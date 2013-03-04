@@ -1,0 +1,26 @@
+ 
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.goldengekko</groupId>
+        <artifactId>parent-jar</artifactId>
+        <version>1.9</version>
+    </parent>
+    <groupId>com.goldengekko.goodiez</groupId>
+    <artifactId>goodiez-backend-release</artifactId>
+    <version>1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>Telenor-Goodiez-Backend-RELEASE</name>
+
+    <modules>
+        <module>./pom.xml</module>
+        <module>./json-pom.xml.txt</module>
+    </modules>
+    
+    <scm>
+        <url>git:ssh://jandroid@gerrit.goldengekko.com:29418/Telenor-Goodiez-Backend</url>
+        <developerConnection>scm:git:ssh://jandroid@gerrit.goldengekko.com:29418/Telenor-Goodiez-Backend</developerConnection>
+    </scm>
+
+    
+</project>

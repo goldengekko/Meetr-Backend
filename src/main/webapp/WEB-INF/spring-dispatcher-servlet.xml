@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
+                http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd" 
+       xmlns:cache="http://www.springframework.org/schema/cache">
+    
+    <!-- enable @Autowired 
+    <context:annotation-config />
+    -->
+    
+    <!-- for JSON mapping without null properties -->
+    <bean id="jsonObjectMapper" class="com.wadpam.open.json.SkipNullObjectMapper" init-method="init" />
+    <mvc:annotation-driven>
+        <mvc:message-converters>
+            <bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+                <property name="objectMapper" ref="jsonObjectMapper"/>  
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+    
+    <mvc:resources mapping="/**/*.html" location="/static/" />
+
+    <mvc:default-servlet-handler />
+    
+    <context:property-placeholder location="classpath:/application.properties" />
+    
+    <!-- Dao -->
+    <bean id="dOpenUserDao"
+          class="com.wadpam.open.user.dao.DOpenUserDaoBean">
+    </bean>
+    
+    <!--           Services             -->
+    
+    <import resource="classpath:/domain-service.xml" />
+    <import resource="classpath:/oauth2-client-context.xml" />
+    
+    <bean id="openUserService" class="com.wadpam.open.user.service.OpenUserService">
+        <property name="dOpenUserDao" ref="dOpenUserDao" />
+    </bean>
+    
+    <bean id="oauth2UserService" class="com.wadpam.oauth2.service.OAuth2OpenUserService">
+        <property name="openUserService" ref="openUserService" />
+    </bean>
+    
+    <bean id="meetrService" class="com.goldengekko.meetr.service.MeetrService" init-method="init">
+        <property name="domainService" ref="domainService" />
+        <property name="factoryService" ref="factoryService" />
+    </bean>
+
+    <!--           Interceptors            -->
+    <import resource="interceptor-security.xml" />
+
+    <!--           Controllers             -->
+    
+    <bean id="endpointsController" class="com.goldengekko.meetr.web.EndpointsController">
+        <property name="apiUrl" value="${endpoint.apiUrl}" />
+        <property name="signinUrl" value="${endpoint.signinUrl}" />
+        <property name="oauthUrl" value="${endpoint.oauthUrl}" />
+        <property name="updatedYYYYMMddHHmmss" value="${endpoints.lastModified}" />
+    </bean>
+
+    <bean id="pingController" class="com.wadpam.open.task.PingController" />
+
+    <bean class="com.wadpam.open.user.web.OpenUserController">
+        <property name="openUserService" ref="openUserService" />
+    </bean>
+
+    <!--           View stuff             -->
+    
+    <bean id="restExceptionResolver" class="com.wadpam.open.web.RestJsonExceptionResolver">
+        <property name="order" value="100" />
+    </bean>
+        
+    <!--Basic application beans. -->
+    
+<!--    <bean id="userAgentSigninViewResolver" class="com.goldengekko.signin.web.UserAgentViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="prefix" value="/WEB-INF/jsp/" />
+        <property name="suffix" value=".jsp" />
+        <property name="order" value="9943" />
+        <property name="resolveUrls">
+            <list value-type="java.lang.String">
+                <value>login</value>
+                <value>/access_confirmation</value>
+            </list>
+        </property>
+    </bean>-->
+
+    <!--Basic application beans. -->
+    
+<!--    <bean id="signinViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="prefix" value="/WEB-INF/jsp/" />
+        <property name="suffix" value=".jsp" />
+    </bean>-->
+    
+    <bean id="htmlViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.InternalResourceView"/>
+        <property name="prefix" value="/internal/" />
+        <property name="suffix" value="" />
+        <property name="order" value="999" />
+    </bean>
+
+    <!-- Localization Configuration -->
+    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource" p:basenames="WEB-INF/i18n/messages" p:fallbackToSystemLocale="false" p:defaultEncoding="UTF-8"/>
+    
+    <beans profile="sugarcrm">
+        <bean id="contactsClient" class="com.goldengekko.meetr.service.ContactsClientMock" />
+
+        <bean id="contactService" class="com.goldengekko.meetr.service.ContactService">
+            <property name="contactsClient" ref="contactsClient" />
+        </bean>
+        
+        <bean id="contactController" class="com.goldengekko.meetr.web.ContactController">
+            <property name="contactService" ref="contactService" />
+        </bean>
+    </beans>
+
+    <beans profile="salesforce">
+        
+        <bean id="accountClient" class="com.goldengekko.meetr.service.salesforce.AccountClient" />
+        <bean id="accountService" class="com.goldengekko.meetr.service.AccountServiceBean">
+            <property name="delegate" ref="accountClient" />
+        </bean>
+        <bean id="accountController" class="com.goldengekko.meetr.web.AccountController">
+            <property name="accountService" ref="accountService" />
+        </bean>
+        
+        <bean id="contactClient" class="com.goldengekko.meetr.service.salesforce.ContactClient" />
+        <bean id="contactService" class="com.goldengekko.meetr.service.ContactServiceBean">
+            <property name="delegate" ref="contactClient" />
+        </bean>
+        <bean id="contactController" class="com.goldengekko.meetr.web.ContactController">
+            <property name="contactService" ref="contactService" />
+        </bean>
+    </beans>
+
+</beans>

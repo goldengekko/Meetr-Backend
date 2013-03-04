@@ -1,0 +1,54 @@
+ 
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.goldengekko</groupId>
+        <artifactId>parent-jar</artifactId>
+        <version>1.9</version>
+    </parent>
+    <groupId>com.goldengekko.goodiez</groupId>
+    <artifactId>telenor-goodiez-json</artifactId>
+    <version>1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>Telenor-Goodiez-JSON</name>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <includes>
+                        <include>**/json/*</include>
+                    </includes>
+                    <!-- to exclude testCompile -->
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <includes>
+                        <include>**/json/*</include>
+                    </includes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>net.sf.mardao</groupId>
+            <artifactId>mardao-core</artifactId>
+            <version>2.0.4</version>
+        </dependency>
+    </dependencies>
+
+</project>
