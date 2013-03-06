@@ -50,6 +50,7 @@
     <bean id="meetrService" class="com.goldengekko.meetr.service.MeetrService" init-method="init">
         <property name="domainService" ref="domainService" />
         <property name="factoryService" ref="factoryService" />
+        <property name="oauth2Service" ref="oauth2Service" />
     </bean>
 
     <!--           Interceptors            -->
