@@ -4,10 +4,11 @@ import com.wadpam.open.json.JBaseObject;
 
 /**
  * Json representation of contacts.
+ * 
  * @author mlv
  */
 public class JContact extends JBaseObject {
-    
+
     /** The contacts first name */
     private String firstName;
 
@@ -20,6 +21,28 @@ public class JContact extends JBaseObject {
     /** The contacts phone number */
     private String phoneNumber;
 
+    /** The contacts phone number */
+    private String mobilePhone;
+
+    // Address information
+
+    /** Street address */
+    private String street;
+
+    /** The city area or or district */
+    private String cityArea;
+
+    /** City, town, village */
+    private String city;
+
+    /** County */
+    private String county;
+
+    /** Country */
+    private String country;
+
+    /** Postal code */
+    private String postalCode;
 
     public String toString() {
         return String.format("{id:%s, first:%s, last: %s}", getId(), firstName, lastName);
@@ -56,4 +79,61 @@ public class JContact extends JBaseObject {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getCityArea() {
+        return cityArea;
+    }
+
+    public void setCityArea(String cityArea) {
+        this.cityArea = cityArea;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getCounty() {
+        return county;
+    }
+
+    public void setCounty(String county) {
+        this.county = county;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getPostalCode() {
+        return postalCode;
+    }
+
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
+    }
+
+    public String getMobilePhone() {
+        return mobilePhone;
+    }
+
+    public void setMobilePhone(String mobilePhone) {
+        this.mobilePhone = mobilePhone;
+    }
+
 }

@@ -4,6 +4,7 @@ import net.sf.mardao.core.domain.AbstractCreatedUpdatedEntity;
 
 /**
  * Domain object for contacts
+ * 
  * @author mlv
  */
 public class DmContact extends AbstractCreatedUpdatedEntity {
@@ -29,6 +30,9 @@ public class DmContact extends AbstractCreatedUpdatedEntity {
     /** The contacts phone number */
     private String phoneNumber;
 
+    /** The contacts phone number */
+    private String mobilePhone;
+
     // Address information
 
     /** Street address */
@@ -48,7 +52,6 @@ public class DmContact extends AbstractCreatedUpdatedEntity {
 
     /** Postal code */
     private String postalCode;
-
 
     public String getFirstName() {
         return firstName;
@@ -81,7 +84,6 @@ public class DmContact extends AbstractCreatedUpdatedEntity {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
-
 
     public String getStreet() {
         return street;
@@ -153,6 +155,14 @@ public class DmContact extends AbstractCreatedUpdatedEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getMobilePhone() {
+        return mobilePhone;
+    }
+
+    public void setMobilePhone(String mobilePhone) {
+        this.mobilePhone = mobilePhone;
     }
 
 }
