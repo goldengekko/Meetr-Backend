@@ -52,10 +52,10 @@ public class ContactClient implements ContactService {
 
         final CursorPage<DmContact, String> page = new CursorPage<DmContact, String>();
         page.setRequestedPageSize(pageSize);
-        page.setItems(convert(response));
-        if (pageSize == page.getItems().size()) {
-            int offset = null != cursorKey ? Integer.parseInt(cursorKey.toString()) : 0;
-            page.setCursorKey(Integer.toString(offset + pageSize));
+        ArrayList<DmContact> items = convert(response);
+        page.setItems(items);
+        if (pageSize == items.size()) {
+            page.setCursorKey(items.get(pageSize-1).getName());
         }
 
         return page;
@@ -96,9 +96,9 @@ public class ContactClient implements ContactService {
         return requestEntity;
     }
 
-    protected static Collection<DmContact> convert(Iterable<SalesforceContact> contacts) {
-        final Collection<DmContact> to = new ArrayList<DmContact>();
-        for(SalesforceContact con : contacts) {
+    protected static ArrayList<DmContact> convert(Iterable<SalesforceContact> contacts) {
+        final ArrayList<DmContact> to = new ArrayList<DmContact>();
+        for (SalesforceContact con : contacts) {
             to.add(convert(con));
         }
         return to;

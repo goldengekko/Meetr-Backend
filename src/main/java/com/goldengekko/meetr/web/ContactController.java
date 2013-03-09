@@ -45,6 +45,22 @@ public class ContactController extends CrudController<JContact, DmContact, Strin
         }
         return conn;
     }
+    
+    @RequestMapping(value="v10/all", method= RequestMethod.GET)
+    @ResponseBody
+    public Integer fetchAll(@RequestParam(defaultValue = "199") int pageSize) {
+        int count = 0;
+        
+        CursorPage<DmContact, String> page;
+        String cursorKey = null;
+        do {
+            page = service.getPage(pageSize, cursorKey);
+            cursorKey = page.getCursorKey();
+            count += page.getItems().size();
+            LOG.info("fetched page with cursorKey {}, count={}", cursorKey, count);
+        } while (null != cursorKey);
+        return count;
+    }
 
     @RequestMapping(value = "v10", method = RequestMethod.GET, params = {"searchText"})
     @ResponseBody
