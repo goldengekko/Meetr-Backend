@@ -19,9 +19,9 @@ public class JContact extends JBaseObject {
     private String email;
 
     /** The contacts phone number */
-    private String phoneNumber;
+    private String phone;
 
-    /** The contacts phone number */
+    /** The contacts mobile phone number */
     private String mobilePhone;
 
     // Address information
@@ -72,12 +72,12 @@ public class JContact extends JBaseObject {
         this.email = email;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setPhone(String phoneNumber) {
+        this.phone = phoneNumber;
     }
 
     public String getStreet() {

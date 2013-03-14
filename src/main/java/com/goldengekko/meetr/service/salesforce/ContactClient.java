@@ -120,7 +120,7 @@ public class ContactClient implements ContactService {
         to.setFirstName(from.getFirstName());
         to.setLastName(from.getLastName());
         to.setName(null != from.getName() ? from.getName() : String.format("%s, %s", from.getLastName(), from.getFirstName()));
-        to.setPhoneNumber(from.getPhone());
+        to.setPhone(from.getPhone());
         to.setMobilePhone(from.getMobilePhone());
 
         // convert Address

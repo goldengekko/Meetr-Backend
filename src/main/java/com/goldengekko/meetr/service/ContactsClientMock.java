@@ -44,7 +44,7 @@ public class ContactsClientMock implements ContactsClient {
         contact.setCity("Ankeborg");
         contact.setCountry("Finland");
         contact.setEmail("mathew.ranck@fake.com");
-        contact.setPhoneNumber("+8551234567");
+        contact.setPhone("+8551234567");
         CONTACTS.put(contact.getId(), contact);
 
         contact = new DmContact();
@@ -56,7 +56,7 @@ public class ContactsClientMock implements ContactsClient {
         contact.setCity("Ankeborg");
         contact.setCountry("Finland");
         contact.setEmail("dollie.castagna@fake.com");
-        contact.setPhoneNumber("+8551234567");
+        contact.setPhone("+8551234567");
         CONTACTS.put(contact.getId(), contact);
 
         contact = new DmContact();
@@ -68,7 +68,7 @@ public class ContactsClientMock implements ContactsClient {
         contact.setCity("Ankeborg");
         contact.setCountry("Finland");
         contact.setEmail("annabelle.tow@fake.com");
-        contact.setPhoneNumber("+8551234567");
+        contact.setPhone("+8551234567");
         CONTACTS.put(contact.getId(), contact);
 
         contact = new DmContact();
@@ -80,7 +80,7 @@ public class ContactsClientMock implements ContactsClient {
         contact.setCity("Ankeborg");
         contact.setCountry("Finland");
         contact.setEmail("louisa.northington@fake.com");
-        contact.setPhoneNumber("+8551234567");
+        contact.setPhone("+8551234567");
         CONTACTS.put(contact.getId(), contact);
 
         contact = new DmContact();
@@ -92,7 +92,7 @@ public class ContactsClientMock implements ContactsClient {
         contact.setCity("Ankeborg");
         contact.setCountry("Finland");
         contact.setEmail("allan.hosley@fake.com");
-        contact.setPhoneNumber("+8551234567");
+        contact.setPhone("+8551234567");
         CONTACTS.put(contact.getId(), contact);
 
         contact = new DmContact();
@@ -104,7 +104,7 @@ public class ContactsClientMock implements ContactsClient {
         contact.setCity("Ankeborg");
         contact.setCountry("Finland");
         contact.setEmail("allan.hosley@fake.com");
-        contact.setPhoneNumber("+8551234567");
+        contact.setPhone("+8551234567");
         CONTACTS.put(contact.getId(), contact);
 
         contact = new DmContact();
@@ -116,7 +116,7 @@ public class ContactsClientMock implements ContactsClient {
         contact.setCity("Ankeborg");
         contact.setCountry("Finland");
         contact.setEmail("carlene.bulow@fake.com");
-        contact.setPhoneNumber("+8551234567");
+        contact.setPhone("+8551234567");
         CONTACTS.put(contact.getId(), contact);
 
         contact = new DmContact();
@@ -128,7 +128,7 @@ public class ContactsClientMock implements ContactsClient {
         contact.setCity("Ankeborg");
         contact.setCountry("Finland");
         contact.setEmail("dona.montagna@fake.com");
-        contact.setPhoneNumber("+8551234567");
+        contact.setPhone("+8551234567");
         CONTACTS.put(contact.getId(), contact);
 
         contact = new DmContact();
@@ -140,7 +140,7 @@ public class ContactsClientMock implements ContactsClient {
         contact.setCity("Ankeborg");
         contact.setCountry("Finland");
         contact.setEmail("karina.vannest@fake.com");
-        contact.setPhoneNumber("+8551234567");
+        contact.setPhone("+8551234567");
         CONTACTS.put(contact.getId(), contact);
 
         contact = new DmContact();
@@ -152,7 +152,7 @@ public class ContactsClientMock implements ContactsClient {
         contact.setCity("Ankeborg");
         contact.setCountry("Finland");
         contact.setEmail("darryl.clutter@fake.com");
-        contact.setPhoneNumber("+8551234567");
+        contact.setPhone("+8551234567");
         CONTACTS.put(contact.getId(), contact);
 
         contact = new DmContact();
@@ -164,7 +164,7 @@ public class ContactsClientMock implements ContactsClient {
         contact.setCity("Ankeborg");
         contact.setCountry("Finland");
         contact.setEmail("darryl.eastham@fake.com");
-        contact.setPhoneNumber("+8551234567");
+        contact.setPhone("+8551234567");
         CONTACTS.put(contact.getId(), contact);
     }
     

@@ -245,7 +245,7 @@ public class SugarCRMClient implements ContactsClient {
             dmContact.setFirstName(entry.getName_value_list().getFirst_name().getValue());
             dmContact.setLastName(entry.getName_value_list().getLast_name().getValue());
             dmContact.setEmail(entry.getName_value_list().getEmail().getValue());
-            dmContact.setPhoneNumber(entry.getName_value_list().getPhone_work().getValue());
+            dmContact.setPhone(entry.getName_value_list().getPhone_work().getValue());
             dmContact.setStreet(entry.getName_value_list().getPrimary_address_street().getValue());
             dmContact.setCity(entry.getName_value_list().getPrimary_address_city().getValue());
             dmContact.setCountry(entry.getName_value_list().getPrimary_address_country().getValue());

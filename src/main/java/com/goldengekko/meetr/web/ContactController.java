@@ -90,7 +90,7 @@ public class ContactController extends CrudController<JContact, DmContact, Strin
         to.setFirstName(from.getFirstName());
         to.setLastName(from.getLastName());
         to.setEmail(from.getEmail());
-        to.setPhoneNumber(from.getPhoneNumber());
+        to.setPhone(from.getPhone());
         to.setMobilePhone(from.getMobilePhone());
 
         // convert Address
@@ -113,7 +113,7 @@ public class ContactController extends CrudController<JContact, DmContact, Strin
         to.setFirstName(from.getFirstName());
         to.setLastName(from.getLastName());
         to.setEmail(from.getEmail());
-        to.setPhoneNumber(from.getPhoneNumber());
+        to.setPhone(from.getPhone());
         to.setMobilePhone(from.getMobilePhone());
 
         // convert Address
