@@ -77,6 +77,13 @@ public class AccountController extends CrudController<JAccount,
 
         to.setName(from.getName());
         to.setPhone(from.getPhone());
+
+        to.setBillingCity(from.getBillingCity());
+        to.setBillingCountry(from.getBillingCountry());
+        to.setBillingPostalCode(from.getBillingPostalCode());
+        to.setBillingState(from.getBillingState());
+        to.setBillingStreet(from.getBillingStreet());
+        
         to.setShippingCity(from.getShippingCity());
         to.setShippingCountry(from.getShippingCountry());
         to.setShippingPostalCode(from.getShippingPostalCode());
@@ -95,6 +102,13 @@ public class AccountController extends CrudController<JAccount,
 
         to.setName(from.getName());
         to.setPhone(from.getPhone());
+
+        to.setBillingCity(from.getBillingCity());
+        to.setBillingCountry(from.getBillingCountry());
+        to.setBillingPostalCode(from.getBillingPostalCode());
+        to.setBillingState(from.getBillingState());
+        to.setBillingStreet(from.getBillingStreet());
+        
         to.setShippingCity(from.getShippingCity());
         to.setShippingCountry(from.getShippingCountry());
         to.setShippingPostalCode(from.getShippingPostalCode());

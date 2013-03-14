@@ -5,7 +5,6 @@
 package com.goldengekko.meetr.service;
 
 import com.goldengekko.meetr.domain.DmAccount;
-import com.goldengekko.meetr.domain.DmContact;
 import com.wadpam.open.mvc.CrudServiceWrapper;
 import java.io.Serializable;
 import net.sf.mardao.core.CursorPage;

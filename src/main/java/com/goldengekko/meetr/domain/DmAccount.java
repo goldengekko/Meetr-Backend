@@ -22,6 +22,17 @@ public class DmAccount extends AbstractStringEntity {
     private String phone;
     
     @Basic
+    private String billingCity;
+    @Basic
+    private String billingCountry;
+    @Basic
+    private String billingPostalCode;
+    @Basic
+    private String billingState;
+    @Basic
+    private String billingStreet;
+    
+    @Basic
     private String shippingCity;
     @Basic
     private String shippingCountry;
@@ -97,5 +108,45 @@ public class DmAccount extends AbstractStringEntity {
 
     public void setShippingStreet(String shippingStreet) {
         this.shippingStreet = shippingStreet;
+    }
+
+    public String getBillingCity() {
+        return billingCity;
+    }
+
+    public void setBillingCity(String billingCity) {
+        this.billingCity = billingCity;
+    }
+
+    public String getBillingCountry() {
+        return billingCountry;
+    }
+
+    public void setBillingCountry(String billingCountry) {
+        this.billingCountry = billingCountry;
+    }
+
+    public String getBillingPostalCode() {
+        return billingPostalCode;
+    }
+
+    public void setBillingPostalCode(String billingPostalCode) {
+        this.billingPostalCode = billingPostalCode;
+    }
+
+    public String getBillingState() {
+        return billingState;
+    }
+
+    public void setBillingState(String billingState) {
+        this.billingState = billingState;
+    }
+
+    public String getBillingStreet() {
+        return billingStreet;
+    }
+
+    public void setBillingStreet(String billingStreet) {
+        this.billingStreet = billingStreet;
     }
 }

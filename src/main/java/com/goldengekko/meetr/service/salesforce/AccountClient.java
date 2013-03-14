@@ -5,29 +5,19 @@
 package com.goldengekko.meetr.service.salesforce;
 
 import com.goldengekko.meetr.domain.DmAccount;
-import com.goldengekko.meetr.domain.DmContact;
 import com.goldengekko.meetr.service.AccountService;
-import com.wadpam.open.exceptions.RestException;
 import java.io.OutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Map;
-import java.util.Map.Entry;
 import net.sf.mardao.core.CursorPage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.social.salesforce.api.SalesforceAccount;
-import org.springframework.social.salesforce.api.SalesforceContact;
 import org.springframework.social.salesforce.api.impl.SalesforceTemplate;
-import org.springframework.web.client.DefaultResponseErrorHandler;
-import org.springframework.web.client.RestTemplate;
 
 /**
  *
@@ -114,18 +104,18 @@ public class AccountClient implements AccountService {
         return ContactClient.getRequestEntity(accessToken);
     }
 
-    protected static Collection<DmAccount> convert(Iterable<SalesforceAccount> contacts) {
+    protected static Collection<DmAccount> convert(Iterable<SalesforceAccount> from) {
         final Collection<DmAccount> to = new ArrayList<DmAccount>();
-        for (SalesforceAccount con : contacts) {
-            to.add(convert(con));
+        for (SalesforceAccount sf : from) {
+            to.add(convert(sf));
         }
         return to;
     }
 
-    protected static Collection<DmAccount> convert(SalesforceAccount[] contacts) {
+    protected static Collection<DmAccount> convert(SalesforceAccount[] from) {
         final Collection<DmAccount> to = new ArrayList<DmAccount>();
-        for (SalesforceAccount con : contacts) {
-            to.add(convert(con));
+        for (SalesforceAccount st : from) {
+            to.add(convert(st));
         }
         return to;
     }
@@ -136,6 +126,13 @@ public class AccountClient implements AccountService {
         to.setId(from.getId());
         to.setName(from.getName());
         to.setPhone(from.getPhone());
+        
+        to.setBillingCity(from.getBillingCity());
+        to.setBillingCountry(from.getBillingCountry());
+        to.setBillingPostalCode(from.getBillingPostalCode());
+        to.setBillingState(from.getBillingState());
+        to.setBillingStreet(from.getBillingStreet());
+        
         to.setShippingCity(from.getShippingCity());
         to.setShippingCountry(from.getShippingCountry());
         to.setShippingPostalCode(from.getShippingPostalCode());

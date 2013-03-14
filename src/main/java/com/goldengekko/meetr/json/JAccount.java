@@ -16,6 +16,12 @@ public class JAccount extends JBaseObject {
     
     private String phone;
     
+    private String billingCity;
+    private String billingCountry;
+    private String billingPostalCode;
+    private String billingState;
+    private String billingStreet;
+    
     private String shippingCity;
     private String shippingCountry;
     private String shippingPostalCode;
@@ -87,6 +93,45 @@ public class JAccount extends JBaseObject {
     public void setWwwUrl(String wwwUrl) {
         this.wwwUrl = wwwUrl;
     }
-    
+
+    public String getBillingCity() {
+        return billingCity;
+    }
+
+    public void setBillingCity(String billingCity) {
+        this.billingCity = billingCity;
+    }
+
+    public String getBillingCountry() {
+        return billingCountry;
+    }
+
+    public void setBillingCountry(String billingCountry) {
+        this.billingCountry = billingCountry;
+    }
+
+    public String getBillingPostalCode() {
+        return billingPostalCode;
+    }
+
+    public void setBillingPostalCode(String billingPostalCode) {
+        this.billingPostalCode = billingPostalCode;
+    }
+
+    public String getBillingState() {
+        return billingState;
+    }
+
+    public void setBillingState(String billingState) {
+        this.billingState = billingState;
+    }
+
+    public String getBillingStreet() {
+        return billingStreet;
+    }
+
+    public void setBillingStreet(String billingStreet) {
+        this.billingStreet = billingStreet;
+    }
     
 }
