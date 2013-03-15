@@ -46,16 +46,23 @@ public class ContactClient implements ContactService {
     }
 
     @Override
-    public CursorPage<DmContact, String> getPage(int pageSize, String cursorKey) {
+    public CursorPage<DmContact, String> getPage(int pageSize, final String cursorKey) {
         SalesforceTemplate template = new SalesforceTemplate(TOKEN.get(), INSTANCE_URL.get());
         Iterable<SalesforceContact> response = template.basicOperations().getContacts(pageSize, cursorKey);
 
         final CursorPage<DmContact, String> page = new CursorPage<DmContact, String>();
-        page.setRequestedPageSize(pageSize);
         ArrayList<DmContact> items = convert(response);
         page.setItems(items);
+        
+        // Salesforce uses Name as cursorKey
         if (pageSize == items.size()) {
             page.setCursorKey(items.get(pageSize-1).getName());
+        }
+        
+        // populate totalSize for first page
+        if (null == cursorKey) {
+            int count = template.basicOperations().getContactCount();
+            page.setTotalSize(count);
         }
 
         return page;

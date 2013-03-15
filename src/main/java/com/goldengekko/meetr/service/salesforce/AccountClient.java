@@ -41,39 +41,26 @@ public class AccountClient implements AccountService {
     }
     
     @Override
-    public CursorPage<DmAccount, String> getPage(int pageSize, String cursorKey) {
+    public CursorPage<DmAccount, String> getPage(int pageSize, final String cursorKey) {
         SalesforceTemplate template = new SalesforceTemplate(TOKEN.get(), INSTANCE_URL.get());
         Iterable<SalesforceAccount> response = template.basicOperations().getAccounts(pageSize, cursorKey);
         
         final CursorPage<DmAccount, String> page = new CursorPage<DmAccount, String>();
-        page.setRequestedPageSize(pageSize);
-        page.setItems(convert(response));
-        if (pageSize == page.getItems().size()) {
-            int offset = null != cursorKey ? Integer.parseInt(cursorKey.toString()) : 0;
-            page.setCursorKey(Integer.toString(offset + pageSize));
+        ArrayList<DmAccount> items = convert(response);
+        page.setItems(items);
+        
+        // salesforce uses Name as cursorKey
+        if (pageSize == items.size()) {
+            page.setCursorKey(items.get(pageSize-1).getName());
+        }
+        
+        // populate totalSize for first page
+        if (null == cursorKey) {
+            int count = template.basicOperations().getAccountCount();
+            page.setTotalSize(count);
         }
         
         return page;
-//        final Entry<String, String> cred = parseToken(TOKEN.get());
-//        final String url = cred.getKey() + BASE_PATH + "/query/?q={soql}";
-//        HttpEntity requestEntity = getRequestEntity(cred.getValue());
-//        int offset = null != cursorKey ? Integer.parseInt(cursorKey.toString()) : 0;
-//        String soql = String.format("SELECT %s FROM Account ORDER BY Name LIMIT %d", FIELDS, pageSize);
-//        if (0 < offset) {
-//            soql = String.format("%s OFFSET %d", soql, offset);
-//        }
-//        LOG.debug("SOQL: {}", soql);
-//        ResponseEntity<JAccountQueryResponse> response = restTemplate.exchange(url, HttpMethod.GET, requestEntity, JAccountQueryResponse.class, soql);
-//        if (HttpStatus.OK.equals(response.getStatusCode())) {
-//            final CursorPage<DmAccount, String> page = new CursorPage<DmAccount, String>();
-//            page.setRequestedPageSize(pageSize);
-//            page.setItems(convert(response.getBody().getRecords()));
-//            if (pageSize == page.getItems().size()) {
-//                page.setCursorKey(Integer.toString(offset + pageSize));
-//            }
-//            return page;
-//        }
-//        throw new RestException(92, response.getStatusCode(), soql);
     }
 
     @Override
@@ -104,16 +91,16 @@ public class AccountClient implements AccountService {
         return ContactClient.getRequestEntity(accessToken);
     }
 
-    protected static Collection<DmAccount> convert(Iterable<SalesforceAccount> from) {
-        final Collection<DmAccount> to = new ArrayList<DmAccount>();
+    protected static ArrayList<DmAccount> convert(Iterable<SalesforceAccount> from) {
+        final ArrayList<DmAccount> to = new ArrayList<DmAccount>();
         for (SalesforceAccount sf : from) {
             to.add(convert(sf));
         }
         return to;
     }
 
-    protected static Collection<DmAccount> convert(SalesforceAccount[] from) {
-        final Collection<DmAccount> to = new ArrayList<DmAccount>();
+    protected static ArrayList<DmAccount> convert(SalesforceAccount[] from) {
+        final ArrayList<DmAccount> to = new ArrayList<DmAccount>();
         for (SalesforceAccount st : from) {
             to.add(convert(st));
         }
