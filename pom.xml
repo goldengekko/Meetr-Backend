@@ -28,8 +28,8 @@
         <itest.include>**/*ITest.java</itest.include>
         <surefire.default.skip>true</surefire.default.skip>
 
-        <mardao.version>2.2.2-SNAPSHOT</mardao.version>
-        <openserver.version>18-SNAPSHOT</openserver.version>
+        <mardao.version>2.2.2</mardao.version>
+        <openserver.version>18</openserver.version>
         <opencomponents.version>1</opencomponents.version>
         <javadocExecutable>${java.home}/../bin/javadoc</javadocExecutable>
         <docrest.version>1.20</docrest.version>
@@ -107,7 +107,7 @@
         <dependency>
             <groupId>com.wadpam.oauth</groupId>
             <artifactId>oauth2-client</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>1.0</version>
         </dependency>
         
         <dependency>
