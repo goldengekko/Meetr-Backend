@@ -36,6 +36,7 @@ import org.springframework.social.salesforce.api.impl.SalesforceTemplate;
 
 import com.goldengekko.meetr.domain.DmContact;
 import com.goldengekko.meetr.service.ContactService;
+import java.util.List;
 
 /**
  * 
@@ -227,5 +228,15 @@ public class ContactClient implements ContactService {
     @Override
     public Map<String, Class> getTypeMap() {
         return null;
+    }
+
+    @Override
+    public void delete(String parentKeyString, String[] id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<String> upsert(Iterable<DmContact> domains) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

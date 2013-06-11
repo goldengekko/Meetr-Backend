@@ -25,6 +25,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 import net.sf.mardao.core.CursorPage;
 import org.slf4j.Logger;
@@ -216,5 +217,15 @@ public class AccountClient implements AccountService {
     @Override
     public Map<String, Class> getTypeMap() {
         return null;
+    }
+
+    @Override
+    public void delete(String parentKeyString, String[] id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<String> upsert(Iterable<DmAccount> domains) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
