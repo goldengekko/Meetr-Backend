@@ -345,7 +345,14 @@
                 <artifactId>maven-license-plugin</artifactId>
                 <version>1.9.0</version>
                 <configuration>
-                    <header>src/etc/license_header.txt</header>
+                    <header>${project.basedir}/src/etc/license_header.txt</header>
+                    <failIfMissing>true</failIfMissing>
+                    <aggregate>true</aggregate>
+                    <strictCheck>true</strictCheck>
+                    <excludes>
+                        <exclude>LICENSE</exclude>
+                        <exclude>**/src/test/resources/**</exclude>
+                    </excludes>
                 </configuration>
                 <executions>
                     <execution>
