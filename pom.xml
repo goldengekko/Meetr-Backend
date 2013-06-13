@@ -20,13 +20,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
-    <parent>
-        <groupId>com.goldengekko</groupId>
-        <artifactId>parent-war</artifactId>
-        <version>1.10</version>
-    </parent>
-
     <groupId>com.goldengekko.meetr</groupId>
     <artifactId>meetr-backend</artifactId>
     <version>2-SNAPSHOT</version>
@@ -139,6 +132,18 @@
             <groupId>com.wadpam.oauth</groupId>
             <artifactId>oauth2-client</artifactId>
             <version>1.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.social</groupId>
+                    <artifactId>spring-social-salesforce</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.goldengekko.social</groupId>
+            <artifactId>spring-social-salesforce</artifactId>
+            <version>1.1</version>
         </dependency>
         
         <dependency>
