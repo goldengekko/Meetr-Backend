@@ -237,6 +237,14 @@
     </dependencies>
 
     <build>
+        <extensions>  
+            <extension>  
+                <groupId>org.springframework.build</groupId>
+                <artifactId>aws-maven</artifactId>
+                <version>4.4.0.RELEASE</version>
+            </extension>  
+        </extensions> 
+        
         <resources>
             <!-- base set of resources -->
             <resource>
@@ -360,6 +368,7 @@
                         <exclude>LICENSE</exclude>
                         <exclude>json-pom.xml.txt</exclude>
                         <exclude>release-pom.xml.txt</exclude>
+                        <exclude>local-maven.settings.xml</exclude>
                         <exclude>**/css/bootstrap*.css</exclude>
                         <exclude>**/js/bootstrap*.js</exclude>
                         <exclude>**/js/jquery*.js</exclude>
@@ -497,6 +506,16 @@
         <url>https://github.com/goldengekko/Meetr-Backend</url>
         <developerConnection>scm:git:ssh://git@github.com/goldengekko/Meetr-Backend.git</developerConnection>
     </scm>
+
+    <repositories>
+         <repository>
+             <id>gg-s3-release</id>
+             <name>Gekko S3 Maven Release Repository</name>
+             <url>s3://gg-maven-repo/release</url>
+             <releases><enabled>true</enabled></releases>
+             <snapshots><enabled>false</enabled></snapshots>
+         </repository>
+    </repositories>
 
     <profiles>
         <profile>
