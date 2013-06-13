@@ -133,13 +133,13 @@
             <artifactId>oauth2-client</artifactId>
             <version>1.0</version>
             <exclusions>
+                <!-- could be fixed in goldengekko/spring-social-salesforce -->
                 <exclusion>
                     <groupId>org.springframework.social</groupId>
                     <artifactId>spring-social-salesforce</artifactId>
                 </exclusion>
             </exclusions>
         </dependency>
-        
         <dependency>
             <groupId>com.goldengekko.social</groupId>
             <artifactId>spring-social-salesforce</artifactId>
