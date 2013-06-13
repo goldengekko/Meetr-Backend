@@ -18,4 +18,12 @@
     along with Meetr.  If not, see <http://www.gnu.org/licenses />.
 -->
 <settings>
+    <mirrors>
+        <mirror>
+            <id>ppRepo</id>
+            <mirrorOf>central</mirrorOf>
+            <name>Inhouse Nexus</name>
+            <url>https://nexus.goldengekko.com/nexus/content/groups/public</url>
+        </mirror>
+    </mirrors>
 </settings>
