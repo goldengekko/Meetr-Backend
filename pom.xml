@@ -520,6 +520,19 @@
              <releases><enabled>true</enabled></releases>
              <snapshots><enabled>false</enabled></snapshots>
          </repository>
+        <repository>
+            <id>org.springframework.maven.milestone</id>
+            <name>Spring Maven Milestone Repository</name>
+            <url>http://maven.springframework.org/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>spring.social.google</id>
+            <name>Spring Social Google</name>
+            <url>https://github.com/GabiAxel/maven/raw/master/</url>
+        </repository>
     </repositories>
 
     <profiles>
