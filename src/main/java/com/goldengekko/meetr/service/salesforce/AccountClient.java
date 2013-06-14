@@ -176,11 +176,6 @@ public class AccountClient implements AccountService {
     }
 
     @Override
-    public Iterable<DmAccount> getByPrimaryKeys(Collection<String> ids) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
     public String getSimpleKey(DmAccount domain) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
@@ -221,12 +216,17 @@ public class AccountClient implements AccountService {
     }
 
     @Override
-    public void delete(String parentKeyString, String[] id) {
+    public List<String> upsert(Iterable<DmAccount> domains) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public List<String> upsert(Iterable<DmAccount> domains) {
+    public void delete(String parentKeyString, Iterable<String> ids) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Iterable<DmAccount> getByPrimaryKeys(Iterable<String> ids) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

@@ -187,11 +187,6 @@ public class ContactClient implements ContactService {
     }
 
     @Override
-    public Iterable<DmContact> getByPrimaryKeys(Collection<String> ids) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
     public String getSimpleKey(DmContact domain) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
@@ -232,12 +227,17 @@ public class ContactClient implements ContactService {
     }
 
     @Override
-    public void delete(String parentKeyString, String[] id) {
+    public List<String> upsert(Iterable<DmContact> domains) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public List<String> upsert(Iterable<DmContact> domains) {
+    public void delete(String parentKeyString, Iterable<String> ids) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Iterable<DmContact> getByPrimaryKeys(Iterable<String> ids) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
