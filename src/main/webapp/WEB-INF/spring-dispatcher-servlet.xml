@@ -131,7 +131,7 @@
     <!-- Localization Configuration -->
     <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource" p:basenames="WEB-INF/i18n/messages" p:fallbackToSystemLocale="false" p:defaultEncoding="UTF-8"/>
     
-    <beans profile="sugarcrm">
+    <beans profile="sugar">
         <bean id="contactsClient" class="com.goldengekko.meetr.service.ContactsClientMock" />
 
         <bean id="contactService" class="com.goldengekko.meetr.service.ContactService">
@@ -143,7 +143,7 @@
         </bean>
     </beans>
 
-    <beans profile="salesforce">
+    <beans profile="vanilla">
         
         <bean id="accountClient" class="com.goldengekko.meetr.service.salesforce.AccountClient" />
         <bean id="accountService" class="com.goldengekko.meetr.service.AccountServiceBean">
