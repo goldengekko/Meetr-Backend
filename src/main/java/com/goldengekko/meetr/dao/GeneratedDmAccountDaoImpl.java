@@ -20,7 +20,7 @@ import com.goldengekko.meetr.domain.DmAccount;
 /**
  * The DmAccount domain-object specific finders and methods go in this POJO.
  * 
- * Generated on 2013-06-14T16:24:55.160+0700.
+ * Generated on 2013-07-04T12:55:55.980+0700.
  * @author mardao DAO generator (net.sf.mardao.plugin.ProcessDomainMojo)
  */
 public class GeneratedDmAccountDaoImpl extends TypeDaoImpl<DmAccount, java.lang.String> 

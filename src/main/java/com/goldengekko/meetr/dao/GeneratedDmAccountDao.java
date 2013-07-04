@@ -12,7 +12,7 @@ import net.sf.mardao.core.geo.DLocation;
 /**
  * DAO interface with finder methods for DmAccount entities.
  *
- * Generated on 2013-06-14T16:24:55.160+0700.
+ * Generated on 2013-07-04T12:55:55.980+0700.
  * @author mardao DAO generator (net.sf.mardao.plugin.ProcessDomainMojo)
  */
 public interface GeneratedDmAccountDao extends Dao<DmAccount, java.lang.String> {

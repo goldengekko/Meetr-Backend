@@ -29,7 +29,7 @@ import net.sf.mardao.core.domain.AbstractLongEntity;
 
 /**
  * 
- * @author os
+ * @author sosandstrom
  */
 @Entity
 public class DmMeeting extends AbstractLongEntity {
@@ -65,15 +65,15 @@ public class DmMeeting extends AbstractLongEntity {
 
     /** The registered attendees for this meeting */
     @Basic
-    private Collection<Long>   attendeeIds;
+    private Collection<String>   attendeeIds;
     
     /** The external attendees for this meeting */
     @Basic
-    private Collection<String> extAttendeeNames;
+    private Collection<String> attendeeNames;
 
     /** The registered organizer of this meeting */
     @Basic
-    private Long               organizerId;
+    private String               organizerId;
 
     /** repeat mode can be NONE, DAILY, WORKING_DAYS, WEEKLY, BI-WEEKLY, MONTHLY, YEARLY */
     @Basic
@@ -83,9 +83,17 @@ public class DmMeeting extends AbstractLongEntity {
     @Basic
     private String             imageUrl;
 
-    /** Warburtons uses this for support materials which can be URLs, Dropbox paths, Blobstore keys, etc. */
+    /** Files related to this meeting. */
     @Basic
-    private Collection<String> resourceKeys;
+    private Collection<String> fileIds;
+
+    /** Files related to this meeting. */
+    @Basic
+    private Collection<String> fileNames;
+
+    /** Files for follow-up related to this meeting. */
+    @Basic
+    private Collection<String> followUpFileIds;
 
     public Long getActualDuration() {
         return actualDuration;
@@ -143,30 +151,6 @@ public class DmMeeting extends AbstractLongEntity {
         this.endDate = endDate;
     }
 
-    public Collection<Long> getAttendeeIds() {
-        return attendeeIds;
-    }
-
-    public void setAttendeeIds(Collection<Long> attendeeIds) {
-        this.attendeeIds = attendeeIds;
-    }
-
-    public Collection<String> getExtAttendeeNames() {
-        return extAttendeeNames;
-    }
-
-    public void setExtAttendeeNames(Collection<String> extAttendeeNames) {
-        this.extAttendeeNames = extAttendeeNames;
-    }
-
-    public Long getOrganizerId() {
-        return organizerId;
-    }
-
-    public void setOrganizerId(Long organizerId) {
-        this.organizerId = organizerId;
-    }
-
     public Integer getRepeatMode() {
         return repeatMode;
     }
@@ -183,11 +167,52 @@ public class DmMeeting extends AbstractLongEntity {
         this.imageUrl = imageUrl;
     }
 
-    public Collection<String> getResourceKeys() {
-        return resourceKeys;
+    public Collection<String> getAttendeeIds() {
+        return attendeeIds;
     }
 
-    public void setResourceKeys(Collection<String> resourceKeys) {
-        this.resourceKeys = resourceKeys;
+    public void setAttendeeIds(Collection<String> attendeeIds) {
+        this.attendeeIds = attendeeIds;
     }
+
+    public Collection<String> getAttendeeNames() {
+        return attendeeNames;
+    }
+
+    public void setAttendeeNames(Collection<String> attendeeNames) {
+        this.attendeeNames = attendeeNames;
+    }
+
+    public String getOrganizerId() {
+        return organizerId;
+    }
+
+    public void setOrganizerId(String organizerId) {
+        this.organizerId = organizerId;
+    }
+
+    public Collection<String> getFileIds() {
+        return fileIds;
+    }
+
+    public void setFileIds(Collection<String> fileIds) {
+        this.fileIds = fileIds;
+    }
+
+    public Collection<String> getFileNames() {
+        return fileNames;
+    }
+
+    public void setFileNames(Collection<String> fileNames) {
+        this.fileNames = fileNames;
+    }
+
+    public Collection<String> getFollowUpFileIds() {
+        return followUpFileIds;
+    }
+
+    public void setFollowUpFileIds(Collection<String> followUpFileIds) {
+        this.followUpFileIds = followUpFileIds;
+    }
+
 }

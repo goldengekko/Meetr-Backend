@@ -21,6 +21,7 @@ package com.goldengekko.meetr.json;
 
 import com.wadpam.open.json.JBaseObject;
 import java.util.Collection;
+import javax.persistence.Basic;
 
 /**
  *
@@ -86,13 +87,13 @@ public class JMeeting extends JBaseObject {
     private Long endDate;
     
     /** The registered attendees for this meeting */
-    private Collection<Long> attendeeIds;
+    private Collection<String> attendeeIds;
     
     /** The external attendees for this meeting */
-    private Collection<String> extAttendeeNames;
+    private Collection<String> attendeeNames;
 
     /** The registered organizer of this meeting */
-    private Long organizerId;
+    private String organizerId;
     
     /** repeat mode can be NONE, DAILY, WORKING_DAYS, WEEKLY, BI_WEEKLY, MONTHLY, YEARLY */
     private Integer repeatMode;
@@ -100,9 +101,15 @@ public class JMeeting extends JBaseObject {
     /** Meeting image URL */
     private String imageUrl;
     
-    /** Warburtons uses this for supporting materials which can be URLs, Dropbox paths, Blobstore keys, etc. */
-    private Collection<String> resourceKeys;
-    
+    /** Files related to this meeting. */
+    private Collection<String> fileIds;
+
+    /** Files related to this meeting. */
+    private Collection<String> fileNames;
+
+    /** Files for follow-up related to this meeting. */
+    private Collection<String> followUpFileIds;
+
     public Long getActualDuration() {
         return actualDuration;
     }
@@ -159,28 +166,12 @@ public class JMeeting extends JBaseObject {
         this.endDate = endDate;
     }
 
-    public Collection<Long> getAttendeeIds() {
+    public Collection<String> getAttendeeIds() {
         return attendeeIds;
     }
 
-    public void setAttendeeIds(Collection<Long> attendeeIds) {
+    public void setAttendeeIds(Collection<String> attendeeIds) {
         this.attendeeIds = attendeeIds;
-    }
-
-    public Collection<String> getExtAttendeeNames() {
-        return extAttendeeNames;
-    }
-
-    public void setExtAttendeeNames(Collection<String> extAttendeeNames) {
-        this.extAttendeeNames = extAttendeeNames;
-    }
-
-    public Long getOrganizerId() {
-        return organizerId;
-    }
-
-    public void setOrganizerId(Long organizerId) {
-        this.organizerId = organizerId;
     }
 
     public Integer getRepeatMode() {
@@ -199,12 +190,44 @@ public class JMeeting extends JBaseObject {
         this.imageUrl = imageUrl;
     }
 
-    public Collection<String> getResourceKeys() {
-        return resourceKeys;
+    public Collection<String> getAttendeeNames() {
+        return attendeeNames;
     }
 
-    public void setResourceKeys(Collection<String> resourceKeys) {
-        this.resourceKeys = resourceKeys;
+    public void setAttendeeNames(Collection<String> attendeeNames) {
+        this.attendeeNames = attendeeNames;
+    }
+
+    public String getOrganizerId() {
+        return organizerId;
+    }
+
+    public void setOrganizerId(String organizerId) {
+        this.organizerId = organizerId;
+    }
+
+    public Collection<String> getFileIds() {
+        return fileIds;
+    }
+
+    public void setFileIds(Collection<String> fileIds) {
+        this.fileIds = fileIds;
+    }
+
+    public Collection<String> getFileNames() {
+        return fileNames;
+    }
+
+    public void setFileNames(Collection<String> fileNames) {
+        this.fileNames = fileNames;
+    }
+
+    public Collection<String> getFollowUpFileIds() {
+        return followUpFileIds;
+    }
+
+    public void setFollowUpFileIds(Collection<String> followUpFileIds) {
+        this.followUpFileIds = followUpFileIds;
     }
 
 }

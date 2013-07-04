@@ -44,13 +44,15 @@ public class MeetingController extends CrudController<JMeeting, DmMeeting, Long,
         to.setActualStartDate(toLong(from.getActualStartDate()));
         to.setActualEndDate(toLong(from.getActualEndDate()));
         to.setAttendeeIds(from.getAttendeeIds());
-        to.setExtAttendeeNames(from.getExtAttendeeNames());
+        to.setAttendeeNames(from.getAttendeeNames());
         to.setEndDate(toLong(from.getEndDate()));
         to.setLocationId(from.getLocationId());
         to.setMeetingType(from.getMeetingType());
         to.setOrganizerId(from.getOrganizerId());
         to.setRepeatMode(from.getRepeatMode());
-        to.setResourceKeys(from.getResourceKeys());
+        to.setFileIds(from.getFileIds());
+        to.setFileNames(from.getFileNames());
+        to.setFollowUpFileIds(from.getFollowUpFileIds());
         to.setImageUrl(from.getImageUrl());
         to.setStartDate(toLong(from.getStartDate()));
     }
@@ -63,13 +65,15 @@ public class MeetingController extends CrudController<JMeeting, DmMeeting, Long,
         to.setActualStartDate(toDate(from.getActualStartDate()));
         to.setActualEndDate(toDate(from.getActualEndDate()));
         to.setAttendeeIds(from.getAttendeeIds());
-        to.setExtAttendeeNames(from.getExtAttendeeNames());
+        to.setAttendeeNames(from.getAttendeeNames());
         to.setEndDate(toDate(from.getEndDate()));
         to.setLocationId(from.getLocationId());
         to.setMeetingType(from.getMeetingType());
         to.setOrganizerId(from.getOrganizerId());
         to.setRepeatMode(from.getRepeatMode());
-        to.setResourceKeys(from.getResourceKeys());
+        to.setFileIds(from.getFileIds());
+        to.setFileNames(from.getFileNames());
+        to.setFollowUpFileIds(from.getFollowUpFileIds());
         to.setImageUrl(from.getImageUrl());
         to.setStartDate(toDate(from.getStartDate()));
     }
