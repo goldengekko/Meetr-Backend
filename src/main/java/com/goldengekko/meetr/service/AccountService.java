@@ -36,15 +36,4 @@ public interface AccountService extends CrudService<DmAccount, String> {
     
     CursorPage<DmAccount, String> searchAccounts(String searchText, int pageSize, Serializable cursorKey);
     
-    /**
-     * Sets the appArg0 for this request / thread (ThreadLocal).
-     * @param appArg0 
-     */
-    void setAccountsAppArg0(String appArg0);
-    
-    /**
-     * Sets the token for this request / thread (ThreadLocal).
-     * @param token 
-     */
-    void setAccountsToken(String token);
 }

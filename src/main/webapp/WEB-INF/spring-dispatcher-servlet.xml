@@ -68,6 +68,32 @@
         <property name="openUserService" ref="openUserService" />
     </bean>
     
+                <!-- Accounts -->
+                    <bean id="salesforceAccountClient" class="com.goldengekko.meetr.service.salesforce.AccountClient" />
+    <bean id="accountService" class="com.goldengekko.meetr.service.MultiplexCrudService">
+        <constructor-arg value="DmAccount" />
+        <property name="multiplexMap">
+            <map>
+                <entry key="Salesforce" value-ref="salesforceAccountClient" />
+            </map>
+        </property>
+    </bean>
+    
+                <!-- Contacts -->
+                    <bean id="salesforceContactClient" class="com.goldengekko.meetr.service.salesforce.ContactClient" />
+    <bean id="contactService" class="com.goldengekko.meetr.service.MultiplexCrudService">
+        <constructor-arg value="DmContact" />
+        <property name="multiplexMap">
+            <map>
+                <entry key="SugarCRM">
+                    <bean id="sugarContactsClient" class="com.goldengekko.meetr.service.ContactsClientMock" />
+                </entry>
+                <entry key="Salesforce" value-ref="salesforceContactClient" />
+            </map>
+        </property>
+    </bean>
+    
+    
     <bean id="meetrService" class="com.goldengekko.meetr.service.MeetrService" init-method="init">
         <property name="domainService" ref="domainService" />
         <property name="factoryService" ref="factoryService" />
@@ -92,7 +118,17 @@
         <property name="openUserService" ref="openUserService" />
     </bean>
 
-    <!--           View stuff             -->
+    <bean id="contactController" class="com.goldengekko.meetr.web.ContactController">
+        <property name="service" ref="contactService" />
+        <property name="salesforceService" ref="salesforceContactClient" />
+    </bean>
+    
+    <bean id="accountController" class="com.goldengekko.meetr.web.AccountController">
+        <property name="service" ref="accountService" />
+        <property name="salesforceService" ref="salesforceAccountClient" />
+    </bean>
+
+        <!--           View stuff             -->
     
     <bean id="restExceptionResolver" class="com.wadpam.open.web.RestJsonExceptionResolver">
         <property name="order" value="100" />
@@ -131,35 +167,4 @@
     <!-- Localization Configuration -->
     <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource" p:basenames="WEB-INF/i18n/messages" p:fallbackToSystemLocale="false" p:defaultEncoding="UTF-8"/>
     
-    <beans profile="sugar">
-        <bean id="contactsClient" class="com.goldengekko.meetr.service.ContactsClientMock" />
-
-        <bean id="contactService" class="com.goldengekko.meetr.service.ContactService">
-            <property name="contactsClient" ref="contactsClient" />
-        </bean>
-        
-        <bean id="contactController" class="com.goldengekko.meetr.web.ContactController">
-            <property name="contactService" ref="contactService" />
-        </bean>
-    </beans>
-
-    <beans profile="vanilla">
-        
-        <bean id="accountClient" class="com.goldengekko.meetr.service.salesforce.AccountClient" />
-        <bean id="accountService" class="com.goldengekko.meetr.service.AccountServiceBean">
-            <property name="delegate" ref="accountClient" />
-        </bean>
-        <bean id="accountController" class="com.goldengekko.meetr.web.AccountController">
-            <property name="accountService" ref="accountService" />
-        </bean>
-        
-        <bean id="contactClient" class="com.goldengekko.meetr.service.salesforce.ContactClient" />
-        <bean id="contactService" class="com.goldengekko.meetr.service.ContactServiceBean">
-            <property name="delegate" ref="contactClient" />
-        </bean>
-        <bean id="contactController" class="com.goldengekko.meetr.web.ContactController">
-            <property name="contactService" ref="contactService" />
-        </bean>
-    </beans>
-
 </beans>

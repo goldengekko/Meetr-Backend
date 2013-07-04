@@ -20,7 +20,7 @@
 package com.goldengekko.meetr.service.sugarcrm;
 
 import com.goldengekko.meetr.domain.DmContact;
-import com.goldengekko.meetr.service.ContactsClient;
+import com.goldengekko.meetr.service.ContactService;
 import com.wadpam.open.exceptions.BadRequestException;
 import com.wadpam.open.exceptions.RestException;
 import net.sf.mardao.core.CursorPage;
@@ -39,12 +39,16 @@ import org.springframework.web.client.ResponseExtractor;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Implements communication with a SugarCRM instance.
@@ -76,7 +80,7 @@ import java.util.Collection;
 // NOTE! The parameters seem to be position dependent and MUST follow a specific order
 // A PHP example can be found here http://support.sugarcrm.com/04_Find_Answers/03_Developers/100Web_Services/100REST_API/100Examples/100PHP/Retrieving_a_List_of_Records_With_Related_Info_-_REST_and_PHP
 
-public class SugarCRMClient implements ContactsClient {
+public class SugarCRMClient implements ContactService {
 
     static final Logger LOG = LoggerFactory.getLogger(SugarCRMClient.class);
 
@@ -106,7 +110,7 @@ public class SugarCRMClient implements ContactsClient {
         MAPPER.configure(DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     }
 
-    @Override
+//    @Override
     public String getToken(String user, String password) {
         LOG.debug("Get SugarCRM token");
 
@@ -180,12 +184,12 @@ public class SugarCRMClient implements ContactsClient {
     }
 
     @Override
-    public DmContact getContact(String id, String token) throws IOException {
+    public DmContact get(String parentKeyString, String id) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public CursorPage<DmContact, String> getContacts(int pageSize, Serializable cursorKey, String token) {
+    public CursorPage<DmContact, String> getPage(int pageSize, String cursorKey) {
         LOG.debug("SugarCRM client, get contacts. Token:{}", token);
 
         // Check that we have a token
@@ -277,7 +281,7 @@ public class SugarCRMClient implements ContactsClient {
     }
 
     @Override
-    public CursorPage<DmContact, String> searchContacts(String text, int pageSize, Serializable cursorKey, String token) throws IOException {
+    public CursorPage<DmContact, String> searchContacts(String text, int pageSize, Serializable cursorKey) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
@@ -306,6 +310,81 @@ public class SugarCRMClient implements ContactsClient {
 
     public void setSugarCRMUrl(String sugarCRMUrl) {
         this.sugarCRMUrl = sugarCRMUrl;
+    }
+
+    @Override
+    public DmContact createDomain() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String create(DmContact domain) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void delete(String parentKeyString, String id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void delete(String parentKeyString, Iterable<String> ids) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void exportCsv(OutputStream out, Long startDate, Long endDate) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Iterable<DmContact> getByPrimaryKeys(Iterable<String> ids) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getSimpleKey(DmContact domain) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getParentKeyString(DmContact domain) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getPrimaryKeyColumnName() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Class getPrimaryKeyColumnClass() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getTableName() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Map<String, Class> getTypeMap() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String update(DmContact domain) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<String> upsert(Iterable<DmContact> domains) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public CursorPage<String, String> whatsChanged(Date since, int pageSize, String cursorKey) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 

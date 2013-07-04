@@ -24,31 +24,22 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 import net.sf.mardao.core.CursorPage;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
 import org.springframework.social.salesforce.api.SalesforceContact;
 import org.springframework.social.salesforce.api.impl.SalesforceTemplate;
 
 import com.goldengekko.meetr.domain.DmContact;
 import com.goldengekko.meetr.service.ContactService;
-import java.util.List;
 
 /**
  * 
  * @author sosandstrom
  */
-public class ContactClient implements ContactService {
-
-    static final Logger                      LOG          = LoggerFactory.getLogger(ContactClient.class);
-
-    private static final ThreadLocal<String> TOKEN        = new ThreadLocal<String>();
-    private static final ThreadLocal<String> INSTANCE_URL = new ThreadLocal<String>();
+public class ContactClient extends SalesforceService implements ContactService {
 
     @Override
     public DmContact get(String parentKeyString, String id) {
@@ -110,15 +101,6 @@ public class ContactClient implements ContactService {
         // throw new RestException(93, response.getStatusCode(), sosl);
     }
 
-    protected static HttpEntity getRequestEntity(String accessToken) {
-        HttpHeaders headers = new HttpHeaders();
-        final String auth = String.format("OAuth %s", accessToken);
-        headers.add("Authorization", auth);
-        LOG.info("Salesforce Authorization: {}", auth);
-        final HttpEntity requestEntity = new HttpEntity(headers);
-        return requestEntity;
-    }
-
     protected static ArrayList<DmContact> convert(Iterable<SalesforceContact> contacts) {
         final ArrayList<DmContact> to = new ArrayList<DmContact>();
         for (SalesforceContact con : contacts) {
@@ -154,16 +136,6 @@ public class ContactClient implements ContactService {
         to.setCountry(from.getMailingCountry());
 
         return to;
-    }
-
-    @Override
-    public void setContactsToken(String token) {
-        TOKEN.set(token);
-    }
-
-    @Override
-    public void setContactsAppArg0(String instanceUrl) {
-        INSTANCE_URL.set(instanceUrl);
     }
 
     @Override

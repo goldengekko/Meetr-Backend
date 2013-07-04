@@ -34,10 +34,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.goldengekko.meetr.domain.DmContact;
 import com.goldengekko.meetr.json.JContact;
-import com.goldengekko.meetr.service.ContactServiceBean;
+import com.goldengekko.meetr.service.salesforce.SalesforceService;
 import com.wadpam.oauth2.domain.DConnection;
 import com.wadpam.open.json.JCursorPage;
 import com.wadpam.open.mvc.CrudController;
+import com.wadpam.open.mvc.CrudService;
 import com.wadpam.open.security.SecurityInterceptor;
 
 /**
@@ -46,7 +47,9 @@ import com.wadpam.open.security.SecurityInterceptor;
  */
 @Controller
 @RequestMapping("{domain}/contact")
-public class ContactController extends CrudController<JContact, DmContact, String, ContactServiceBean> {
+public class ContactController extends CrudController<JContact, DmContact, String, CrudService<DmContact, String>> {
+    
+    private SalesforceService salesforceService;
 
     @ModelAttribute(value = "token")
     public DConnection populateToken(HttpServletRequest request) {
@@ -55,8 +58,8 @@ public class ContactController extends CrudController<JContact, DmContact, Strin
 
         // if present on the request, set the ThreadLocal in the service:
         if (null != conn) {
-            service.setContactsToken(conn.getAccessToken());
-            service.setContactsAppArg0(conn.getAppArg0());
+            salesforceService.setToken(conn.getAccessToken());
+            salesforceService.setAppArg0(conn.getAppArg0());
         }
         return conn;
     }
@@ -77,16 +80,16 @@ public class ContactController extends CrudController<JContact, DmContact, Strin
         return count;
     }
 
-    @RequestMapping(value = "v10", method = RequestMethod.GET, params = {"searchText"})
-    @ResponseBody
-    public JCursorPage<JContact> search(@RequestParam String searchText, @RequestParam(defaultValue = "10") int pageSize,
-            @RequestParam(required = false) Serializable cursorKey) {
-
-        final CursorPage<DmContact, String> page = service.searchContacts(searchText, pageSize, cursorKey);
-        final JCursorPage body = convertPage(page);
-
-        return body;
-    }
+//    @RequestMapping(value = "v10", method = RequestMethod.GET, params = {"searchText"})
+//    @ResponseBody
+//    public JCursorPage<JContact> search(@RequestParam String searchText, @RequestParam(defaultValue = "10") int pageSize,
+//            @RequestParam(required = false) Serializable cursorKey) {
+//
+//        final CursorPage<DmContact, String> page = service.searchContacts(searchText, pageSize, cursorKey);
+//        final JCursorPage body = convertPage(page);
+//
+//        return body;
+//    }
 
     // ----------------- Converter and setters ---------------------------------
 
@@ -140,7 +143,8 @@ public class ContactController extends CrudController<JContact, DmContact, Strin
         to.setCountry(from.getCountry());
     }
 
-    public void setContactService(ContactServiceBean contactService) {
-        this.service = contactService;
+    public void setSalesforceService(SalesforceService salesforceService) {
+        this.salesforceService = salesforceService;
     }
+
 }

@@ -1,3 +1,22 @@
+/**
+ *     Copyright 2012, 2013 Golden Gekko
+ *
+ *     This file is part of Meetr.
+ *
+ *     Meetr is free software: you can use it, modify it and / or
+ *     redistribute it as is or with your changes under the terms of the
+ *     GNU General Public License as published by the Free Software
+ *     Foundation, either version 3 of the License, or (at your option)
+ *     any later version.
+ *
+ *     Meetr is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU General Public License for more details.
+ *
+ *     You should have received a copy of the GNU General Public License
+ *     along with Meetr.  If not, see <http://www.gnu.org/licenses />.
+ */
 package com.goldengekko.meetr.service;
 
 import com.wadpam.open.mvc.CrudService;
@@ -5,7 +24,6 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import net.sf.mardao.core.CursorPage;
@@ -24,7 +42,7 @@ public class MultiplexCrudService<T extends Object, ID extends Serializable>
     protected static final ObjectMapper MAPPER = new ObjectMapper();
     
     private final String serviceName;
-    private HashMap<String, CrudService<T, ID>> multiplexMap;
+    private Map<String, CrudService<T, ID>> multiplexMap;
     private CrudService<T, ID> defaultService;
 
     public MultiplexCrudService(String serviceName) {
@@ -69,7 +87,7 @@ public class MultiplexCrudService<T extends Object, ID extends Serializable>
         MULTIPLEX_VALUE.set(key);
     }
 
-    public void setMultiplexMap(HashMap<String, CrudService<T, ID>> multiplexMap) {
+    public void setMultiplexMap(Map<String, CrudService<T, ID>> multiplexMap) {
         this.multiplexMap = multiplexMap;
     }
 

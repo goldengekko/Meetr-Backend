@@ -36,15 +36,4 @@ public interface ContactService extends CrudService<DmContact, String> {
     
     CursorPage<DmContact, String> searchContacts(String searchText, int pageSize, Serializable cursorKey);
     
-    /**
-     * Sets the token for this request / thread (ThreadLocal).
-     * @param token 
-     */
-    void setContactsToken(String token);
-    
-    /**
-     * Sets the appArg0 for this request / thread (ThreadLocal).
-     * @param appArg0 
-     */
-    void setContactsAppArg0(String appArg0);
 }

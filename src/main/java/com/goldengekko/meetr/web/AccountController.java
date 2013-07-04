@@ -21,20 +21,15 @@ package com.goldengekko.meetr.web;
 
 import com.goldengekko.meetr.domain.DmAccount;
 import com.goldengekko.meetr.json.JAccount;
-import com.goldengekko.meetr.service.AccountServiceBean;
+import com.goldengekko.meetr.service.salesforce.SalesforceService;
 import com.wadpam.oauth2.domain.DConnection;
-import com.wadpam.open.json.JCursorPage;
 import com.wadpam.open.mvc.CrudController;
+import com.wadpam.open.mvc.CrudService;
 import com.wadpam.open.security.SecurityInterceptor;
-import java.io.Serializable;
 import javax.servlet.http.HttpServletRequest;
-import net.sf.mardao.core.CursorPage;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  *
@@ -45,9 +40,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class AccountController extends CrudController<JAccount, 
         DmAccount, 
         String, 
-        AccountServiceBean> {
+        CrudService<DmAccount,String>> {
     
     public static final String AUTH_OAUTH_PREFIX = "OAuth ";
+    
+    private SalesforceService salesforceService;
     
     @ModelAttribute(value="token")
     public DConnection populateToken(HttpServletRequest request) {
@@ -56,23 +53,23 @@ public class AccountController extends CrudController<JAccount,
         
         // if present on the request, set the ThreadLocal in the service:
         if (null != conn) {
-            service.setAccountsToken(conn.getAccessToken());
-            service.setAccountsAppArg0(conn.getAppArg0());
+            salesforceService.setToken(conn.getAccessToken());
+            salesforceService.setAppArg0(conn.getAppArg0());
         }
         return conn;
     }
 
-    @RequestMapping(value="v10", method= RequestMethod.GET, params={"searchText"})
-    @ResponseBody
-    public JCursorPage<JAccount> search(@RequestParam String searchText,
-            @RequestParam(defaultValue="10") int pageSize, 
-            @RequestParam(required=false) Serializable cursorKey) {
-        
-        final CursorPage<DmAccount, String> page = service.searchAccounts(searchText, pageSize, cursorKey);
-        final JCursorPage body = convertPage(page);
-
-        return body;
-    }
+//    @RequestMapping(value="v10", method= RequestMethod.GET, params={"searchText"})
+//    @ResponseBody
+//    public JCursorPage<JAccount> search(@RequestParam String searchText,
+//            @RequestParam(defaultValue="10") int pageSize, 
+//            @RequestParam(required=false) Serializable cursorKey) {
+//        
+//        final CursorPage<DmAccount, String> page = service.searchAccounts(searchText, pageSize, cursorKey);
+//        final JCursorPage body = convertPage(page);
+//
+//        return body;
+//    }
 
     // ----------------- Converter and setters ---------------------------------
     
@@ -131,8 +128,9 @@ public class AccountController extends CrudController<JAccount,
         to.setShippingStreet(from.getShippingStreet());
         to.setWwwUrl(from.getWwwUrl());
     }
-    
-    public void setAccountService(AccountServiceBean accountService) {
-        this.service = accountService;
+
+    public void setSalesforceService(SalesforceService salesforceService) {
+        this.salesforceService = salesforceService;
     }
+    
 }

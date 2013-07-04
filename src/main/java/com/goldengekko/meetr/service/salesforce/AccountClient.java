@@ -24,14 +24,10 @@ import com.goldengekko.meetr.service.AccountService;
 import java.io.OutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import net.sf.mardao.core.CursorPage;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpEntity;
 import org.springframework.social.salesforce.api.SalesforceAccount;
 import org.springframework.social.salesforce.api.impl.SalesforceTemplate;
 
@@ -39,12 +35,7 @@ import org.springframework.social.salesforce.api.impl.SalesforceTemplate;
  *
  * @author sosandstrom
  */
-public class AccountClient implements AccountService {
-    
-    static final Logger LOG = LoggerFactory.getLogger(AccountClient.class);
-
-    private static final ThreadLocal<String> TOKEN = new ThreadLocal<String>();
-    private static final ThreadLocal<String> INSTANCE_URL = new ThreadLocal<String>();
+public class AccountClient extends SalesforceService implements AccountService {
     
     @Override
     public DmAccount get(String parentKeyString, String id) {
@@ -103,10 +94,6 @@ public class AccountClient implements AccountService {
 //        throw new RestException(93, response.getStatusCode(), sosl);
     }
     
-    protected static HttpEntity getRequestEntity(String accessToken) {
-        return ContactClient.getRequestEntity(accessToken);
-    }
-
     protected static ArrayList<DmAccount> convert(Iterable<SalesforceAccount> from) {
         final ArrayList<DmAccount> to = new ArrayList<DmAccount>();
         for (SalesforceAccount sf : from) {
@@ -143,16 +130,6 @@ public class AccountClient implements AccountService {
         to.setShippingStreet(from.getShippingStreet());
         
         return to;
-    }
-
-    @Override
-    public void setAccountsToken(String token) {
-        TOKEN.set(token);
-    }
-
-    @Override
-    public void setAccountsAppArg0(String instanceUrl) {
-        INSTANCE_URL.set(instanceUrl);
     }
 
     @Override

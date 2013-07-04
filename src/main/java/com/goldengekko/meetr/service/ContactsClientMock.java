@@ -20,29 +20,21 @@
 package com.goldengekko.meetr.service;
 
 import com.goldengekko.meetr.domain.DmContact;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
+import java.io.OutputStream;
 import java.io.Serializable;
-import java.util.AbstractMap;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.Map.Entry;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
 import java.util.TreeMap;
 import net.sf.mardao.core.CursorPage;
-import org.apache.commons.codec.binary.Base64;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
 
 /**
  *
  * @author sosandstrom
  */
-public class ContactsClientMock implements ContactsClient {
+public class ContactsClientMock implements ContactService {
 
     private final TreeMap<String, DmContact> CONTACTS = new TreeMap<String, DmContact>();
     
@@ -183,35 +175,13 @@ public class ContactsClientMock implements ContactsClient {
         CONTACTS.put(contact.getId(), contact);
     }
     
-    public static String createToken(String username, String password) throws IOException {
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        DataOutputStream dos = new DataOutputStream(baos);
-        dos.writeUTF(username);
-        dos.writeUTF(password);
-        return Base64.encodeBase64URLSafeString(baos.toByteArray());
-    }
-    
-    public static Entry<String, String> parseToken(String token) throws IOException {
-        ByteArrayInputStream bais = new ByteArrayInputStream(Base64.decodeBase64(token));
-        DataInputStream dis = new DataInputStream(bais);
-        String instanceUrl = dis.readUTF();
-        String accessToken = dis.readUTF();
-        Entry<String, String> entry = new AbstractMap.SimpleImmutableEntry<String, String>(instanceUrl, accessToken);
-        return entry;
-    }
-
     @Override
-    public String getToken(String instanceUrl, String accessToken) throws IOException {
-        return createToken(instanceUrl, accessToken);
-    }
-
-    @Override
-    public DmContact getContact(String id, String token) throws IOException {
+    public DmContact get(String parentKeyString, String id) {
         return CONTACTS.get(id);
     }
     
     @Override
-    public CursorPage<DmContact, String> getContacts(int pageSize, Serializable cursorKey, String token) throws IOException {
+    public CursorPage<DmContact, String> getPage(int pageSize, String cursorKey) {
         CursorPage<DmContact, String> page = new CursorPage<DmContact, String>();
         page.setRequestedPageSize(pageSize);
         int offset = null != cursorKey ? Math.min(Integer.parseInt(cursorKey.toString()), CONTACTS.size()) : 0;
@@ -233,15 +203,83 @@ public class ContactsClientMock implements ContactsClient {
     }
 
     @Override
-    public CursorPage<DmContact, String> searchContacts(String text, int pageSize, Serializable cursorKey, String token) throws IOException {
+    public CursorPage<DmContact, String> searchContacts(String text, int pageSize, Serializable cursorKey) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-    
-    protected static HttpEntity getRequestEntity(String accessToken) {
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Authorization", String.format("OAuth %s", accessToken));
-        final HttpEntity requestEntity = new HttpEntity(headers);
-        return requestEntity;
+
+    @Override
+    public DmContact createDomain() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String create(DmContact domain) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void delete(String parentKeyString, String id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void delete(String parentKeyString, Iterable<String> ids) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void exportCsv(OutputStream out, Long startDate, Long endDate) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Iterable<DmContact> getByPrimaryKeys(Iterable<String> ids) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getSimpleKey(DmContact domain) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getParentKeyString(DmContact domain) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getPrimaryKeyColumnName() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Class getPrimaryKeyColumnClass() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getTableName() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Map<String, Class> getTypeMap() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String update(DmContact domain) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<String> upsert(Iterable<DmContact> domains) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public CursorPage<String, String> whatsChanged(Date since, int pageSize, String cursorKey) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
