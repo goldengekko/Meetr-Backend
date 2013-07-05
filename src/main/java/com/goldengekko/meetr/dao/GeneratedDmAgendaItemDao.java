@@ -12,7 +12,7 @@ import net.sf.mardao.core.geo.DLocation;
 /**
  * DAO interface with finder methods for DmAgendaItem entities.
  *
- * Generated on 2013-07-05T11:38:47.866+0700.
+ * Generated on 2013-07-05T14:18:25.213+0700.
  * @author mardao DAO generator (net.sf.mardao.plugin.ProcessDomainMojo)
  */
 public interface GeneratedDmAgendaItemDao extends Dao<DmAgendaItem, java.lang.Long> {

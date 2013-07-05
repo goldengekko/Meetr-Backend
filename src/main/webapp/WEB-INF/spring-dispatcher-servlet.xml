@@ -70,17 +70,24 @@
     </bean>
     
                 <!-- Accounts -->
+                <bean id="localAccountService" class="com.goldengekko.meetr.service.local.DatastoreAccountService">
+                    <property name="dao" ref="dmAccountDao" />
+                </bean>
                 <bean id="salesforceAccountClient" class="com.goldengekko.meetr.service.salesforce.AccountClient" />
     <bean id="accountService" class="com.goldengekko.meetr.service.MultiplexCrudService">
         <constructor-arg value="DmAccount" />
         <property name="multiplexMap">
             <map>
-                <entry key="Salesforce" value-ref="salesforceAccountClient" />
+                <entry key="local" value-ref="localAccountService" />
             </map>
         </property>
+        <property name="defaultService" ref="salesforceAccountClient"/>
     </bean>
     
                 <!-- Contacts -->
+                <bean id="localContactService" class="com.goldengekko.meetr.service.local.DatastoreContactService">
+                    <property name="dao" ref="dmContactDao" />
+                </bean>
                 <bean id="salesforceContactClient" class="com.goldengekko.meetr.service.salesforce.ContactClient" />
     <bean id="contactService" class="com.goldengekko.meetr.service.MultiplexCrudService">
         <constructor-arg value="DmContact" />
@@ -89,13 +96,14 @@
                 <entry key="SugarCRM">
                     <bean id="sugarContactsClient" class="com.goldengekko.meetr.service.ContactsClientMock" />
                 </entry>
-                <entry key="Salesforce" value-ref="salesforceContactClient" />
+                <entry key="local" value-ref="localContactService" />
             </map>
         </property>
+        <property name="defaultService" ref="salesforceContactClient"/>
     </bean>
     
                 <!-- Meetings -->
-                <bean id="localMeetingService" class="com.goldengekko.meetr.service.DatastoreMeetingService">
+                <bean id="localMeetingService" class="com.goldengekko.meetr.service.local.DatastoreMeetingService">
                     <property name="dao" ref="dmMeetingDao" />
                 </bean>
     <bean id="meetingService" class="com.goldengekko.meetr.service.MultiplexCrudService">

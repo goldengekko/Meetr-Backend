@@ -79,7 +79,7 @@ public class MeetrService extends CrudListenerAdapter {
         itest.setId("itest");
         itest.setUsername("itest");
         itest.setPassword("itest");
-        itest.setAppArg1("{\"DmMeeting\":\"local\"}");
+        itest.setAppArg1("{\"DmAccount\":\"local\",\"DmContact\":\"local\",\"DmMeeting\":\"local\"}");
         domainService.create(itest);
         
         DomainNamespaceFilter.doInNamespace("dmi", new Runnable() {
@@ -107,7 +107,8 @@ public class MeetrService extends CrudListenerAdapter {
     }
 
     /**
-     * Hook for registerFederated()
+     * Hook for registerFederated() and
+     * Hook for getAppDomain, to set MultiplexValue
      * 
      * @param controller
      * @param service
@@ -123,15 +124,17 @@ public class MeetrService extends CrudListenerAdapter {
             HttpServletRequest request, String namespace, int operation, 
             Object json, Serializable id, Object serviceResponse) {
         
-        if (OAuth2Service.OPERATION_REGISTER_FEDERATED == operation) {
-            DConnection conn = (DConnection)json;
-            UserProfile profile = (UserProfile) serviceResponse;
-            String userId = (String)id;
-            
-            if (null != conn && OAuth2Service.PROVIDER_ID_SALESFORCE.equals(conn.getProviderId())) {
-                String address = getEmailServiceAddress(conn.getAppArg0(), conn.getAccessToken());
-                conn.setSecret(address);
-            }
+        switch (operation) {
+            case OAuth2Service.OPERATION_REGISTER_FEDERATED:
+                DConnection conn = (DConnection)json;
+                UserProfile profile = (UserProfile) serviceResponse;
+                String userId = (String)id;
+
+                if (null != conn && OAuth2Service.PROVIDER_ID_SALESFORCE.equals(conn.getProviderId())) {
+                    String address = getEmailServiceAddress(conn.getAppArg0(), conn.getAccessToken());
+                    conn.setSecret(address);
+                }
+                break;
         }
     }
     

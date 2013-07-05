@@ -54,6 +54,10 @@
 		class="com.goldengekko.meetr.dao.DmAccountDaoBean"
                 >
 	</bean>
+	<bean id="dmContactDao" 
+		class="com.goldengekko.meetr.dao.DmContactDaoBean"
+                >
+	</bean>
     <!-- ============== DaoBeans for entities in package com.goldengekko.meetr.domain END ============ -->
 	
 </beans>

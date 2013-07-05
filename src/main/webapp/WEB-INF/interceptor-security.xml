@@ -38,11 +38,16 @@
         <property name="connectionService" ref="connectionService"/>
         <property name="oauth2Service" ref="oauth2Service" />
     </bean>
+    <bean id="multiplexInterceptor" class="com.goldengekko.meetr.web.MultiplexInterceptor" />
     
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
             <ref bean="basicInterceptor"/>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <ref bean="multiplexInterceptor"/>
         </mvc:interceptor>
         <mvc:interceptor>
             <mvc:mapping path="/**"/>

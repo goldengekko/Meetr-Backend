@@ -19,57 +19,70 @@
  */
 package com.goldengekko.meetr.domain;
 
-import net.sf.mardao.core.domain.AbstractCreatedUpdatedEntity;
+import javax.persistence.Basic;
+import javax.persistence.Entity;
+import net.sf.mardao.core.domain.AbstractStringEntity;
 
 /**
  * Domain object for contacts
  * 
  * @author mlv
  */
-public class DmContact extends AbstractCreatedUpdatedEntity {
-
-    /** Unique contact id */
-    private String id;
+@Entity
+public class DmContact extends AbstractStringEntity {
 
     /** The contacts name */
+    @Basic
     private String firstName;
 
     /** The contacts last name */
+    @Basic
     private String lastName;
 
     /** The contacts name */
+    @Basic
     private String name;
 
     /** The name of the company */
+    @Basic
     private String companyName;
 
     /** The contacts email */
+    @Basic
     private String email;
 
     /** The contacts phone number */
+    @Basic
     private String phone;
 
     /** The contacts mobile phone number */
+    @Basic
     private String mobilePhone;
 
     // Address information
 
     /** Street address */
+    @Basic
     private String street;
 
     /** The city area or or district */
+    @Basic
     private String cityArea;
 
     /** City, town, village */
+    @Basic
     private String city;
 
     /** County */
+    @Basic
     private String county;
 
     /** Country */
+    @Basic
     private String country;
 
     /** Postal code */
+    @Basic
     private String postalCode;
 
     public String getFirstName() {
@@ -150,14 +163,6 @@ public class DmContact extends AbstractCreatedUpdatedEntity {
 
     public void setCompanyName(String companyName) {
         this.companyName = companyName;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getPostalCode() {
