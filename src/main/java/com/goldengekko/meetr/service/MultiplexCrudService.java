@@ -101,27 +101,27 @@ public class MultiplexCrudService<T extends Object, ID extends Serializable>
 
     @Override
     public T createDomain() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return getService().createDomain();
     }
 
     @Override
     public ID create(T domain) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return getService().create(domain);
     }
 
     @Override
     public void delete(String parentKeyString, ID id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        getService().delete(parentKeyString, id);
     }
 
     @Override
     public void delete(String parentKeyString, Iterable<ID> ids) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        getService().delete(parentKeyString, ids);
     }
 
     @Override
     public void exportCsv(OutputStream out, Long startDate, Long endDate) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        getService().exportCsv(out, startDate, endDate);
     }
 
     @Override
@@ -131,7 +131,7 @@ public class MultiplexCrudService<T extends Object, ID extends Serializable>
 
     @Override
     public Iterable<T> getByPrimaryKeys(Iterable<ID> ids) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return getService().getByPrimaryKeys(ids);
     }
 
     @Override
@@ -141,46 +141,46 @@ public class MultiplexCrudService<T extends Object, ID extends Serializable>
 
     @Override
     public ID getSimpleKey(T domain) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return getService().getSimpleKey(domain);
     }
 
     @Override
     public String getParentKeyString(T domain) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return getService().getParentKeyString(domain);
     }
 
     @Override
     public String getPrimaryKeyColumnName() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return getService().getPrimaryKeyColumnName();
     }
 
     @Override
     public Class getPrimaryKeyColumnClass() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return getService().getPrimaryKeyColumnClass();
     }
 
     @Override
     public String getTableName() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return getService().getTableName();
     }
 
     @Override
     public Map<String, Class> getTypeMap() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return getService().getTypeMap();
     }
 
     @Override
     public ID update(T domain) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return getService().update(domain);
     }
 
     @Override
     public List<ID> upsert(Iterable<T> domains) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return getService().upsert(domains);
     }
 
     @Override
     public CursorPage<ID, ID> whatsChanged(Date since, int pageSize, String cursorKey) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return getService().whatsChanged(since, pageSize, cursorKey);
     }
 }

@@ -38,8 +38,9 @@ public class MultiplexInterceptor extends HandlerInterceptorAdapter {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        final DAppDomain domain = (DAppDomain) request.getAttribute(SecurityInterceptor.ATTR_NAME_PRINCIPAL);
-        if (null != domain) {
+        Object principal = request.getAttribute(SecurityInterceptor.ATTR_NAME_PRINCIPAL);
+        if (null != principal && principal instanceof DAppDomain) {
+            final DAppDomain domain = (DAppDomain) principal;
             final String mux = domain.getAppArg1();
             LOG.debug("Setting MUX to {}", mux);
             MultiplexCrudService.setMultiplexKey(mux);
