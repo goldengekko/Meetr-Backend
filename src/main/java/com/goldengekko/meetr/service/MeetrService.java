@@ -19,6 +19,7 @@
  */
 package com.goldengekko.meetr.service;
 
+import com.goldengekko.meetr.domain.DmMeeting;
 import com.google.appengine.api.utils.SystemProperty;
 import com.wadpam.oauth2.domain.DConnection;
 import com.wadpam.oauth2.domain.DFactory;
@@ -32,6 +33,7 @@ import com.wadpam.open.service.DomainService;
 import com.wadpam.open.web.DomainNamespaceFilter;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
@@ -50,6 +52,8 @@ public class MeetrService extends CrudListenerAdapter {
     private DomainService domainService;
     private FactoryService factoryService;
     private OAuth2Service oauth2Service;
+    
+    private CrudService<DmMeeting, Long> meetingService;
 
     public void init() throws IOException, ServletException {
         if (SystemProperty.Environment.Value.Development == SystemProperty.environment.value()) {
@@ -71,6 +75,13 @@ public class MeetrService extends CrudListenerAdapter {
         dmi.setPassword("dmi");
         domainService.create(dmi);
         
+        final DAppDomain itest = new DAppDomain();
+        itest.setId("itest");
+        itest.setUsername("itest");
+        itest.setPassword("itest");
+        itest.setAppArg1("{\"DmMeeting\":\"local\"}");
+        domainService.create(itest);
+        
         DomainNamespaceFilter.doInNamespace("dmi", new Runnable() {
             @Override
             public void run() {
@@ -79,6 +90,18 @@ public class MeetrService extends CrudListenerAdapter {
                 salesforce.setClientId("3MVG9Y6d_Btp4xp6Vx7Q48.faY7yxrHscdtZCIFbQaINzMKOCJutdGLe3xjOdvo0SEvGC52GCEWRKAES8nfS4");
                 salesforce.setClientSecret("5779430182160054773");
                 factoryService.create(salesforce);
+            }
+        });
+        DomainNamespaceFilter.doInNamespace("itest", new Runnable() {
+            @Override
+            public void run() {
+                DmMeeting m = new DmMeeting();
+                Date startDate = new Date(1368763200000L);
+                m.setStartDate(startDate);
+                m.setEndDate(new Date(startDate.getTime() + 3600L*1000L));
+                m.setActualStartDate(new Date(startDate.getTime() + 422L*1000L));
+                m.setActualEndDate(new Date(startDate.getTime() + 3500L*1000L));
+                meetingService.create(m);
             }
         });
     }
@@ -105,7 +128,7 @@ public class MeetrService extends CrudListenerAdapter {
             UserProfile profile = (UserProfile) serviceResponse;
             String userId = (String)id;
             
-            if (null != conn) {
+            if (null != conn && OAuth2Service.PROVIDER_ID_SALESFORCE.equals(conn.getProviderId())) {
                 String address = getEmailServiceAddress(conn.getAppArg0(), conn.getAccessToken());
                 conn.setSecret(address);
             }
@@ -130,6 +153,10 @@ public class MeetrService extends CrudListenerAdapter {
 
     public void setOauth2Service(OAuth2Service oauth2Service) {
         this.oauth2Service = oauth2Service;
+    }
+
+    public void setMeetingService(CrudService<DmMeeting, Long> meetingService) {
+        this.meetingService = meetingService;
     }
 
 }

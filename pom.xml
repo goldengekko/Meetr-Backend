@@ -44,7 +44,7 @@
         <gae.application.version>lab</gae.application.version>
         <gae.application.id>${project.artifactId}</gae.application.id>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring.version>3.1.1.RELEASE</spring.version>
+        <spring.version>3.2.1.RELEASE</spring.version>
         <spring.profiles.active>salesforce</spring.profiles.active>
         <downloadSources>true</downloadSources>
         <netbeans.hint.deploy.server>Tomcat</netbeans.hint.deploy.server>
@@ -127,7 +127,7 @@
         <dependency>
             <groupId>com.wadpam.oauth</groupId>
             <artifactId>oauth2-client</artifactId>
-            <version>1.0</version>
+            <version>1.5</version>
             <exclusions>
                 <!-- could be fixed in goldengekko/spring-social-salesforce -->
                 <exclusion>
@@ -251,19 +251,6 @@
             </extension>  
         </extensions> 
         
-        <resources>
-            <!-- base set of resources -->
-            <resource>
-                <directory>${project.basedir}/src/main/resources</directory>
-            </resource>
-
-            <!-- filter some files -->
-            <resource>
-                <directory>${project.basedir}/src/main/filtered</directory>
-                <filtering>true</filtering>
-            </resource>
-        </resources>
-
         <plugins>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
@@ -337,6 +324,7 @@
                             <directory>src/main/webapp</directory>
                             <filtering>true</filtering>
                             <includes>
+                                <include>**/logging.properties</include>
                                 <include>**/appengine-web.xml</include>
                                 <include>**/web.xml</include>
                             </includes>

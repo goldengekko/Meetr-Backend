@@ -26,7 +26,7 @@ xsi:schemaLocation="http://appengine.google.com/ns/1.0 http://googleappengine.go
     <version>${gae.application.version}</version>
 
     <system-properties>
-        <property name="java.util.logging.config.file" value="WEB-INF/classes/logging.properties"/>
+        <property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
         <property name="gae.application.version" value="${gae.application.version}"/>
         <property name="maven.application.version" value="${project.version}"/>
     </system-properties>

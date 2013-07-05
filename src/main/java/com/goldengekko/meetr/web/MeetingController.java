@@ -21,8 +21,8 @@ package com.goldengekko.meetr.web;
 
 import com.goldengekko.meetr.domain.DmMeeting;
 import com.goldengekko.meetr.json.JMeeting;
-import com.goldengekko.meetr.service.MeetingService;
 import com.wadpam.open.mvc.CrudController;
+import com.wadpam.open.mvc.CrudService;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -30,7 +30,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author sosandstrom
  */
 @RequestMapping("{domain}/meeting")
-public class MeetingController extends CrudController<JMeeting, DmMeeting, Long, MeetingService> {
+public class MeetingController extends CrudController<JMeeting, DmMeeting, Long, CrudService<DmMeeting, Long>> {
 
     public MeetingController() {
         super(JMeeting.class);

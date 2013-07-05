@@ -54,6 +54,7 @@
     <bean id="dOpenUserDao"
           class="com.wadpam.open.user.dao.DOpenUserDaoBean">
     </bean>
+    <import resource="classpath:/spring-dao.xml" />
     
     <!--           Services             -->
     
@@ -69,7 +70,7 @@
     </bean>
     
                 <!-- Accounts -->
-                    <bean id="salesforceAccountClient" class="com.goldengekko.meetr.service.salesforce.AccountClient" />
+                <bean id="salesforceAccountClient" class="com.goldengekko.meetr.service.salesforce.AccountClient" />
     <bean id="accountService" class="com.goldengekko.meetr.service.MultiplexCrudService">
         <constructor-arg value="DmAccount" />
         <property name="multiplexMap">
@@ -80,7 +81,7 @@
     </bean>
     
                 <!-- Contacts -->
-                    <bean id="salesforceContactClient" class="com.goldengekko.meetr.service.salesforce.ContactClient" />
+                <bean id="salesforceContactClient" class="com.goldengekko.meetr.service.salesforce.ContactClient" />
     <bean id="contactService" class="com.goldengekko.meetr.service.MultiplexCrudService">
         <constructor-arg value="DmContact" />
         <property name="multiplexMap">
@@ -93,11 +94,25 @@
         </property>
     </bean>
     
+                <!-- Meetings -->
+                <bean id="localMeetingService" class="com.goldengekko.meetr.service.DatastoreMeetingService">
+                    <property name="dao" ref="dmMeetingDao" />
+                </bean>
+    <bean id="meetingService" class="com.goldengekko.meetr.service.MultiplexCrudService">
+        <constructor-arg value="DmMeeting" />
+        <property name="multiplexMap">
+            <map>
+            </map>
+        </property>
+        <property name="defaultService" ref="localMeetingService" />
+    </bean>
+    
     
     <bean id="meetrService" class="com.goldengekko.meetr.service.MeetrService" init-method="init">
         <property name="domainService" ref="domainService" />
         <property name="factoryService" ref="factoryService" />
         <property name="oauth2Service" ref="oauth2Service" />
+        <property name="meetingService" ref="meetingService" />
     </bean>
 
     <!--           Interceptors            -->
@@ -118,14 +133,18 @@
         <property name="openUserService" ref="openUserService" />
     </bean>
 
+    <bean id="accountController" class="com.goldengekko.meetr.web.AccountController">
+        <property name="service" ref="accountService" />
+        <property name="salesforceService" ref="salesforceAccountClient" />
+    </bean>
+
     <bean id="contactController" class="com.goldengekko.meetr.web.ContactController">
         <property name="service" ref="contactService" />
         <property name="salesforceService" ref="salesforceContactClient" />
     </bean>
     
-    <bean id="accountController" class="com.goldengekko.meetr.web.AccountController">
-        <property name="service" ref="accountService" />
-        <property name="salesforceService" ref="salesforceAccountClient" />
+    <bean id="meetingController" class="com.goldengekko.meetr.web.MeetingController">
+        <property name="service" ref="meetingService" />
     </bean>
 
         <!--           View stuff             -->
