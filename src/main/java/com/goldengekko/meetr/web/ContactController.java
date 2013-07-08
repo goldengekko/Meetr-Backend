@@ -19,7 +19,6 @@
  */
 package com.goldengekko.meetr.web;
 
-import java.io.Serializable;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -36,7 +35,6 @@ import com.goldengekko.meetr.domain.DmContact;
 import com.goldengekko.meetr.json.JContact;
 import com.goldengekko.meetr.service.salesforce.SalesforceService;
 import com.wadpam.oauth2.domain.DConnection;
-import com.wadpam.open.json.JCursorPage;
 import com.wadpam.open.mvc.CrudController;
 import com.wadpam.open.mvc.CrudService;
 import com.wadpam.open.security.SecurityInterceptor;

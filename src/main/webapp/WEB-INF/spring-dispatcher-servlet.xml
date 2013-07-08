@@ -84,6 +84,19 @@
         <property name="defaultService" ref="salesforceAccountClient"/>
     </bean>
     
+                <!-- AgendaItem -->
+    <bean id="localAgendaItemService" class="com.goldengekko.meetr.service.local.DatastoreAgendaItemService">
+        <property name="dao" ref="dmAgendaItemDao" />
+    </bean>
+    <bean id="agendaItemService" class="com.goldengekko.meetr.service.MultiplexCrudService">
+        <constructor-arg value="DmAgendaItem" />
+        <property name="multiplexMap">
+            <map>
+            </map>
+        </property>
+        <property name="defaultService" ref="localAgendaItemService"/>
+    </bean>
+    
                 <!-- Contacts -->
                 <bean id="localContactService" class="com.goldengekko.meetr.service.local.DatastoreContactService">
                     <property name="dao" ref="dmContactDao" />
@@ -102,6 +115,19 @@
         <property name="defaultService" ref="salesforceContactClient"/>
     </bean>
     
+                <!-- File -->
+    <bean id="localFileService" class="com.goldengekko.meetr.service.local.DatastoreFileService">
+        <property name="dao" ref="dmFileDao" />
+    </bean>
+    <bean id="fileService" class="com.goldengekko.meetr.service.MultiplexCrudService">
+        <constructor-arg value="DmFile" />
+        <property name="multiplexMap">
+            <map>
+            </map>
+        </property>
+        <property name="defaultService" ref="localFileService"/>
+    </bean>
+    
                 <!-- Meetings -->
                 <bean id="localMeetingService" class="com.goldengekko.meetr.service.local.DatastoreMeetingService">
                     <property name="dao" ref="dmMeetingDao" />
@@ -113,6 +139,19 @@
             </map>
         </property>
         <property name="defaultService" ref="localMeetingService" />
+    </bean>
+    
+                <!-- Task -->
+    <bean id="localTaskService" class="com.goldengekko.meetr.service.local.DatastoreTaskService">
+        <property name="dao" ref="dmTaskDao" />
+    </bean>
+    <bean id="taskService" class="com.goldengekko.meetr.service.MultiplexCrudService">
+        <constructor-arg value="DmTask" />
+        <property name="multiplexMap">
+            <map>
+            </map>
+        </property>
+        <property name="defaultService" ref="localTaskService"/>
     </bean>
     
     
@@ -146,15 +185,27 @@
         <property name="salesforceService" ref="salesforceAccountClient" />
     </bean>
 
+    <bean id="agendaController" class="com.goldengekko.meetr.web.AgendaItemController">
+        <property name="service" ref="agendaItemService" />
+    </bean>
+    
     <bean id="contactController" class="com.goldengekko.meetr.web.ContactController">
         <property name="service" ref="contactService" />
         <property name="salesforceService" ref="salesforceContactClient" />
+    </bean>
+    
+    <bean id="fileController" class="com.goldengekko.meetr.web.FileController">
+        <property name="service" ref="fileService" />
     </bean>
     
     <bean id="meetingController" class="com.goldengekko.meetr.web.MeetingController">
         <property name="service" ref="meetingService" />
     </bean>
 
+    <bean id="taskController" class="com.goldengekko.meetr.web.TaskController">
+        <property name="service" ref="taskService" />
+    </bean>
+    
         <!--           View stuff             -->
     
     <bean id="restExceptionResolver" class="com.wadpam.open.web.RestJsonExceptionResolver">
