@@ -20,6 +20,7 @@
 package com.goldengekko.meetr.service;
 
 import com.goldengekko.meetr.domain.DmMeeting;
+import com.goldengekko.meetr.service.domain.DsTask;
 import com.google.appengine.api.utils.SystemProperty;
 import com.wadpam.oauth2.domain.DConnection;
 import com.wadpam.oauth2.domain.DFactory;
@@ -54,6 +55,7 @@ public class MeetrService extends CrudListenerAdapter {
     private OAuth2Service oauth2Service;
     
     private CrudService<DmMeeting, Long> meetingService;
+    private CrudService<DsTask, String> taskService;
 
     public void init() throws IOException, ServletException {
         if (SystemProperty.Environment.Value.Development == SystemProperty.environment.value()) {
@@ -82,6 +84,13 @@ public class MeetrService extends CrudListenerAdapter {
         itest.setAppArg1("{\"DmAccount\":\"local\",\"DmContact\":\"local\",\"DmMeeting\":\"local\"}");
         domainService.create(itest);
         
+        final DAppDomain dev = new DAppDomain();
+        dev.setId("dev");
+        dev.setUsername("dev");
+        dev.setPassword("dev");
+        dev.setAppArg1("{\"DmAccount\":\"local\",\"DmContact\":\"local\",\"DmMeeting\":\"local\"}");
+        domainService.create(dev);
+        
         DomainNamespaceFilter.doInNamespace("dmi", new Runnable() {
             @Override
             public void run() {
@@ -92,6 +101,7 @@ public class MeetrService extends CrudListenerAdapter {
                 factoryService.create(salesforce);
             }
         });
+        
         DomainNamespaceFilter.doInNamespace("itest", new Runnable() {
             @Override
             public void run() {
@@ -102,6 +112,17 @@ public class MeetrService extends CrudListenerAdapter {
                 m.setActualStartDate(new Date(startDate.getTime() + 422L*1000L));
                 m.setActualEndDate(new Date(startDate.getTime() + 3500L*1000L));
                 meetingService.create(m);
+            }
+        });
+        
+        DomainNamespaceFilter.doInNamespace("dev", new Runnable() {
+            @Override
+            public void run() {
+                DsTask t = new DsTask();
+                t.setDueDate(new Date(1368763200000L));
+                t.setMeetingId("4242");
+                t.setTitle("A dev Task");
+                taskService.create(t);
             }
         });
     }
@@ -160,6 +181,10 @@ public class MeetrService extends CrudListenerAdapter {
 
     public void setMeetingService(CrudService<DmMeeting, Long> meetingService) {
         this.meetingService = meetingService;
+    }
+
+    public void setTaskService(CrudService<DsTask, String> taskService) {
+        this.taskService = taskService;
     }
 
 }

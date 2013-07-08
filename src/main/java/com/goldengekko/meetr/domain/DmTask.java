@@ -19,49 +19,56 @@
  */
 package com.goldengekko.meetr.domain;
 
-import java.util.Date;
-import javax.persistence.Basic;
+import com.goldengekko.meetr.service.domain.DsTask;
+import com.goldengekko.meetr.service.domain.LongEntity;
+import com.goldengekko.meetr.service.local.MardaoLongCrudService;
 import javax.persistence.Entity;
-import net.sf.mardao.core.domain.AbstractLongEntity;
+import javax.persistence.Id;
 
 /**
  *
  * @author sosandstrom
  */
 @Entity
-public class DmTask extends AbstractLongEntity {
+public class DmTask extends DsTask implements LongEntity {
     
-    @Basic
-    private String title;
-
-    @Basic
-    private String meetingId;
-
-    @Basic
-    private Date dueDate;
-
-    public String getTitle() {
-        return title;
+    @Id
+    private Long longId;
+    
+//    public DmTask() {
+//    }
+//    
+//    public DmTask(DsTask from) {
+//        convertStringTask(from, this);
+//    }
+//    
+//    public static void convertStringTask(DsTask from, DmTask to) {
+//        if (null == from) {
+//            return;
+//        }
+//        
+//        MardaoLongCrudService.copyCreatedUpdatedEntity(from, to);
+//
+//        to.setLongId(MardaoLongCrudService.convertId(from.getId()));
+//        to.setId(from.getId());
+//        
+//        to.setDueDate(from.getDueDate());
+//        to.setMeetingId(from.getMeetingId());
+//        to.setTitle(from.getTitle());
+//    }
+//
+    @Override
+    public Long getLongId() {
+        return longId;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    @Override
+    public void setLongId(Long longId) {
+        this.longId = longId;
     }
 
-    public String getMeetingId() {
-        return meetingId;
+    public DsTask toStringTask() {
+        setId(MardaoLongCrudService.convertId(getLongId()));
+        return this;
     }
-
-    public void setMeetingId(String meetingId) {
-        this.meetingId = meetingId;
-    }
-
-    public Date getDueDate() {
-        return dueDate;
-    }
-
-    public void setDueDate(Date dueDate) {
-        this.dueDate = dueDate;
-    }
-
 }

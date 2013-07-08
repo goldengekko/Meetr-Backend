@@ -21,6 +21,7 @@ package com.goldengekko.meetr.web;
 
 import com.goldengekko.meetr.domain.DmTask;
 import com.goldengekko.meetr.json.JTask;
+import com.goldengekko.meetr.service.domain.DsTask;
 import com.wadpam.open.mvc.CrudController;
 import com.wadpam.open.mvc.CrudService;
 import org.springframework.stereotype.Controller;
@@ -32,23 +33,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @RequestMapping("{domain}/task")
-public class TaskController extends CrudController<JTask, DmTask, Long, CrudService<DmTask, Long>> {
+public class TaskController extends CrudController<JTask, DsTask, String, CrudService<DsTask, String>> {
 
     public TaskController() {
         super(JTask.class);
     }
     
     @Override
-    public void convertDomain(DmTask from, JTask to) {
-        convertLongEntity(from, to);
+    public void convertDomain(DsTask from, JTask to) {
+        convertStringEntity(from, to);
         to.setDueDate(toLong(from.getDueDate()));
         to.setMeetingId(from.getMeetingId());
         to.setTitle(from.getTitle());
     }
 
     @Override
-    public void convertJson(JTask from, DmTask to) {
-        convertJLong(from, to);
+    public void convertJson(JTask from, DsTask to) {
+        convertJString(from, to);
         to.setDueDate(toDate(from.getDueDate()));
         to.setMeetingId(from.getMeetingId());
         to.setTitle(from.getTitle());

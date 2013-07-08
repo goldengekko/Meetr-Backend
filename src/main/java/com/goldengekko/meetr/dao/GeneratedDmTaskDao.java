@@ -12,13 +12,13 @@ import net.sf.mardao.core.geo.DLocation;
 /**
  * DAO interface with finder methods for DmTask entities.
  *
- * Generated on 2013-07-05T14:18:25.213+0700.
+ * Generated on 2013-07-08T16:37:00.829+0700.
  * @author mardao DAO generator (net.sf.mardao.plugin.ProcessDomainMojo)
  */
 public interface GeneratedDmTaskDao extends Dao<DmTask, java.lang.Long> {
 
-	/** Column name for primary key attribute is "id" */
-	static final String COLUMN_NAME_ID = "id";
+	/** Column name for primary key attribute is "longId" */
+	static final String COLUMN_NAME_LONGID = "longId";
 
 
 	/** Column name for field createdBy is "createdBy" */
@@ -247,7 +247,7 @@ public interface GeneratedDmTaskDao extends Dao<DmTask, java.lang.Long> {
 	/**
 	 * Persist an entity given all attributes
 	 */
-	DmTask persist(		java.lang.Long id, 
+	DmTask persist(		java.lang.Long longId, 
 		java.util.Date dueDate, 
 		java.lang.String meetingId, 
 		java.lang.String title);	

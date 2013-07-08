@@ -20,7 +20,7 @@ import com.goldengekko.meetr.domain.DmTask;
 /**
  * The DmTask domain-object specific finders and methods go in this POJO.
  * 
- * Generated on 2013-07-05T14:18:25.213+0700.
+ * Generated on 2013-07-08T16:37:00.829+0700.
  * @author mardao DAO generator (net.sf.mardao.plugin.ProcessDomainMojo)
  */
 public class GeneratedDmTaskDaoImpl extends TypeDaoImpl<DmTask, java.lang.Long> 
@@ -49,7 +49,7 @@ public class GeneratedDmTaskDaoImpl extends TypeDaoImpl<DmTask, java.lang.Long>
    // ------ BEGIN DaoImpl overrides -----------------------------
    
    public String getPrimaryKeyColumnName() {
-   		return COLUMN_NAME_ID;
+   		return COLUMN_NAME_LONGID;
    }
    
    public List<String> getColumnNames() {
@@ -65,8 +65,8 @@ public class GeneratedDmTaskDaoImpl extends TypeDaoImpl<DmTask, java.lang.Long>
     protected Object getDomainProperty(DmTask domain, String name) {
         Object value;
         // simple key?
-        if (COLUMN_NAME_ID.equals(name)) {
-            value = domain.getId();
+        if (COLUMN_NAME_LONGID.equals(name)) {
+            value = domain.getLongId();
         }
         // fields
         else if (COLUMN_NAME_CREATEDBY.equals(name)) {
@@ -108,7 +108,7 @@ public class GeneratedDmTaskDaoImpl extends TypeDaoImpl<DmTask, java.lang.Long>
     public Class getColumnClass(String name) {
         Class clazz;
         // simple key?
-        if (COLUMN_NAME_ID.equals(name)) {
+        if (COLUMN_NAME_LONGID.equals(name)) {
             clazz = java.lang.Long.class;
         }
         // fields
@@ -146,8 +146,8 @@ public class GeneratedDmTaskDaoImpl extends TypeDaoImpl<DmTask, java.lang.Long>
     @Override
     protected void setDomainProperty(final DmTask domain, final String name, final Object value) {
         // simple key?
-        if (COLUMN_NAME_ID.equals(name)) {
-            domain.setId((java.lang.Long) value);
+        if (COLUMN_NAME_LONGID.equals(name)) {
+            domain.setLongId((java.lang.Long) value);
         }
         // fields
         else if (COLUMN_NAME_CREATEDBY.equals(name)) {
@@ -212,14 +212,14 @@ public class GeneratedDmTaskDaoImpl extends TypeDaoImpl<DmTask, java.lang.Long>
             if (null == domain) {
                 return null;
             }
-            return domain.getId();
+            return domain.getLongId();
         }
 
         /**
          * @return the simple key for specified DmTask domain object
          */
-        public void setSimpleKey(DmTask domain, Long id) {
-            domain.setId(id);
+        public void setSimpleKey(DmTask domain, Long longId) {
+            domain.setLongId(longId);
         }
 
         public String getCreatedByColumnName() {
@@ -520,23 +520,23 @@ public class GeneratedDmTaskDaoImpl extends TypeDaoImpl<DmTask, java.lang.Long>
 	/**
 	 * Persist an entity given all attributes
 	 */
-	public DmTask persist(		java.lang.Long id, 
+	public DmTask persist(		java.lang.Long longId, 
 		java.util.Date dueDate, 
 		java.lang.String meetingId, 
 		java.lang.String title) {
 
             DmTask domain = null;
             // if primaryKey specified, use it
-            if (null != id) {
-                    domain = findByPrimaryKey(id);
+            if (null != longId) {
+                    domain = findByPrimaryKey(longId);
             }
 		
             // create new?
             if (null == domain) {
                     domain = new DmTask();
                     // generate Id?
-                    if (null != id) {
-                            domain.setId(id);
+                    if (null != longId) {
+                            domain.setLongId(longId);
                     }
                     // fields
                     domain.setDueDate(dueDate);

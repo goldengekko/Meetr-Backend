@@ -19,15 +19,58 @@
  */
 package com.goldengekko.meetr.service.local;
 
-import com.goldengekko.meetr.dao.DmTaskDao;
 import com.goldengekko.meetr.domain.DmTask;
+import com.goldengekko.meetr.service.domain.DsTask;
 import com.wadpam.open.mvc.MardaoCrudService;
+import net.sf.mardao.core.dao.Dao;
 
 /**
  *
  * @author sosandstrom
  */
 public class DatastoreTaskService extends 
-        MardaoCrudService<DmTask, Long, DmTaskDao> {
+        MardaoLongCrudService<DsTask, DmTask> {
+
+    public DatastoreTaskService() {
+        super(new MardaoCrudService<DmTask, Long, Dao<DmTask, Long>>() {
+        });
+    }
+
+    @Override
+    public DsTask convertDomain(DmTask from) {
+        if (null == from) {
+            return null;
+        }
+        return from.toStringTask();
+    }
+
+    @Override
+    public DmTask convertDomain(DsTask from) {
+        if (null == from) {
+            return null;
+        }
+        DmTask to = new DmTask();
+        convertDomain(from, to);
+        return to;
+    }
+
+    @Override
+    public void convertDomain(DmTask from, DsTask to) {
+        convertLongEntity(from, to);
+
+        to.setDueDate(from.getDueDate());
+        to.setMeetingId(from.getMeetingId());
+        to.setTitle(from.getTitle());
+    }
+
+    @Override
+    public void convertDomain(DsTask from, DmTask to) {
+        convertStringEntity(from, to);
+        to.setId(from.getId());
+        
+        to.setDueDate(from.getDueDate());
+        to.setMeetingId(from.getMeetingId());
+        to.setTitle(from.getTitle());
+    }
 
 }

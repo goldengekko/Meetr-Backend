@@ -159,7 +159,9 @@
         <property name="domainService" ref="domainService" />
         <property name="factoryService" ref="factoryService" />
         <property name="oauth2Service" ref="oauth2Service" />
+        
         <property name="meetingService" ref="meetingService" />
+        <property name="taskService" ref="taskService" />
     </bean>
 
     <!--           Interceptors            -->
