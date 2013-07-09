@@ -36,12 +36,12 @@ import net.sf.mardao.core.domain.AbstractStringEntity;
  *
  * @author sosandstrom
  */
-public abstract class MardaoLongCrudService<S extends AbstractStringEntity, L extends LongEntity> 
+public abstract class StringWrappingCrudService<S extends AbstractStringEntity, L extends LongEntity> 
         implements CrudService<S, String> {
 
-    private final MardaoCrudService<L, Long, Dao<L, Long>> delegate;
+    private final CrudService<L, Long> delegate;
 
-    public MardaoLongCrudService(MardaoCrudService<L, Long, Dao<L, Long>> delegate) {
+    public StringWrappingCrudService(MardaoCrudService<L, Long, Dao<L, Long>> delegate) {
         this.delegate = delegate;
     }
 
@@ -201,7 +201,7 @@ public abstract class MardaoLongCrudService<S extends AbstractStringEntity, L ex
     }
     
     public void setDao(Dao<L, Long> dao) {
-        delegate.setDao(dao);
+        ((MardaoCrudService)delegate).setDao(dao);
     }
     
     @Override

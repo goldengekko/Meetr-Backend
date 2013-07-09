@@ -29,7 +29,7 @@ import net.sf.mardao.core.dao.Dao;
  * @author sosandstrom
  */
 public class DatastoreTaskService extends 
-        MardaoLongCrudService<DsTask, DmTask> {
+        StringWrappingCrudService<DsTask, DmTask> {
 
     public DatastoreTaskService() {
         super(new MardaoCrudService<DmTask, Long, Dao<DmTask, Long>>() {

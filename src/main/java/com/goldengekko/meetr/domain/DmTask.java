@@ -21,7 +21,6 @@ package com.goldengekko.meetr.domain;
 
 import com.goldengekko.meetr.service.domain.DsTask;
 import com.goldengekko.meetr.service.domain.LongEntity;
-import com.goldengekko.meetr.service.local.MardaoLongCrudService;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -35,28 +34,6 @@ public class DmTask extends DsTask implements LongEntity {
     @Id
     private Long longId;
     
-//    public DmTask() {
-//    }
-//    
-//    public DmTask(DsTask from) {
-//        convertStringTask(from, this);
-//    }
-//    
-//    public static void convertStringTask(DsTask from, DmTask to) {
-//        if (null == from) {
-//            return;
-//        }
-//        
-//        MardaoLongCrudService.copyCreatedUpdatedEntity(from, to);
-//
-//        to.setLongId(MardaoLongCrudService.convertId(from.getId()));
-//        to.setId(from.getId());
-//        
-//        to.setDueDate(from.getDueDate());
-//        to.setMeetingId(from.getMeetingId());
-//        to.setTitle(from.getTitle());
-//    }
-//
     @Override
     public Long getLongId() {
         return longId;
@@ -68,7 +45,7 @@ public class DmTask extends DsTask implements LongEntity {
     }
 
     public DsTask toStringTask() {
-        setId(MardaoLongCrudService.convertId(getLongId()));
+        setId(null == longId ? null : Long.toString(longId));
         return this;
     }
 }
