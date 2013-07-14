@@ -303,6 +303,7 @@
                         <exclude>**/js/jquery*.js</exclude>
                         <exclude>**/src/test/resources/**</exclude>
                         <exclude>**/src/main/java/**/dao/Generated*.java</exclude>
+                        <exclude>**/.idea/**</exclude>
                     </excludes>
                 </configuration>
                 <executions>
