@@ -43,7 +43,7 @@ public class TaskController extends CrudController<JTask, DsTask, String, CrudSe
     public void convertDomain(DsTask from, JTask to) {
         convertStringEntity(from, to);
         to.setDueDate(toLong(from.getDueDate()));
-        to.setMeetingId(from.getMeetingId());
+        to.setMeetingSynchId(from.getMeetingSyncId());
         to.setTitle(from.getTitle());
     }
 
@@ -51,7 +51,7 @@ public class TaskController extends CrudController<JTask, DsTask, String, CrudSe
     public void convertJson(JTask from, DsTask to) {
         convertJString(from, to);
         to.setDueDate(toDate(from.getDueDate()));
-        to.setMeetingId(from.getMeetingId());
+        to.setMeetingSyncId(from.getMeetingSynchId());
         to.setTitle(from.getTitle());
     }
 

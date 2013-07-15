@@ -21,15 +21,50 @@ package com.goldengekko.meetr.json;
 
 import com.wadpam.open.json.JBaseObject;
 
+import java.util.Collection;
+
 /**
  *
  * @author sosandstrom
  */
 public class JFile extends JBaseObject {
 
+    private String synchId;
+
     private String name;
 
-    private String extRef;
+    private String externalId;
+
+    private String externalSource;
+
+    private Collection<String> meetingSynchIds;
+
+
+    // Setters and getters
+
+    public String getExternalId() {
+        return externalId;
+    }
+
+    public void setExternalId(String externalId) {
+        this.externalId = externalId;
+    }
+
+    public String getExternalSource() {
+        return externalSource;
+    }
+
+    public void setExternalSource(String externalSource) {
+        this.externalSource = externalSource;
+    }
+
+    public Collection<String> getMeetingSynchIds() {
+        return meetingSynchIds;
+    }
+
+    public void setMeetingSynchIds(Collection<String> meetingSynchIds) {
+        this.meetingSynchIds = meetingSynchIds;
+    }
 
     public String getName() {
         return name;
@@ -39,13 +74,12 @@ public class JFile extends JBaseObject {
         this.name = name;
     }
 
-    public String getExtRef() {
-        return extRef;
+    public String getSynchId() {
+        return synchId;
     }
 
-    public void setExtRef(String extRef) {
-        this.extRef = extRef;
+    public void setSynchId(String synchId) {
+        this.synchId = synchId;
     }
-    
-    
+
 }

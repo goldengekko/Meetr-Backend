@@ -35,7 +35,7 @@ public class DsTask extends AbstractStringEntity {
     private String title;
 
     @Basic
-    private String meetingId;
+    private String meetingSyncId;
 
     @Basic
     private Date dueDate;
@@ -48,12 +48,12 @@ public class DsTask extends AbstractStringEntity {
         this.title = title;
     }
 
-    public String getMeetingId() {
-        return meetingId;
+    public String getMeetingSyncId() {
+        return meetingSyncId;
     }
 
-    public void setMeetingId(String meetingId) {
-        this.meetingId = meetingId;
+    public void setMeetingSyncId(String meetingSyncId) {
+        this.meetingSyncId = meetingSyncId;
     }
 
     public Date getDueDate() {

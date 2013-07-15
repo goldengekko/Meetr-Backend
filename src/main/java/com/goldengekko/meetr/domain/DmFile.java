@@ -23,18 +23,48 @@ import javax.persistence.Basic;
 import javax.persistence.Entity;
 import net.sf.mardao.core.domain.AbstractLongEntity;
 
+import java.util.Collection;
+
 /**
  *
  * @author sosandstrom
  */
 @Entity
 public class DmFile extends AbstractLongEntity {
+
+    @Basic
+    private String synchId;
     
     @Basic
     private String name;
 
     @Basic
-    private String extRef;
+    private String externalId;
+
+    @Basic
+    private String externalSource;
+
+    @Basic
+    Collection<String> meetingSynchIds;
+
+
+    // Setters and getters
+
+    public String getExternalId() {
+        return externalId;
+    }
+
+    public void setExternalId(String externalId) {
+        this.externalId = externalId;
+    }
+
+    public Collection<String> getMeetingSynchIds() {
+        return meetingSynchIds;
+    }
+
+    public void setMeetingSynchIds(Collection<String> meetingSynchIds) {
+        this.meetingSynchIds = meetingSynchIds;
+    }
 
     public String getName() {
         return name;
@@ -44,12 +74,19 @@ public class DmFile extends AbstractLongEntity {
         this.name = name;
     }
 
-    public String getExtRef() {
-        return extRef;
+    public String getExternalSource() {
+        return externalSource;
     }
 
-    public void setExtRef(String extRef) {
-        this.extRef = extRef;
+    public void setExternalSource(String externalSource) {
+        this.externalSource = externalSource;
     }
 
+    public String getSynchId() {
+        return synchId;
+    }
+
+    public void setSynchId(String synchId) {
+        this.synchId = synchId;
+    }
 }

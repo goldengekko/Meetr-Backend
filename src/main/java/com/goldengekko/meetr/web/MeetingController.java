@@ -21,6 +21,7 @@ package com.goldengekko.meetr.web;
 
 import com.goldengekko.meetr.domain.DmMeeting;
 import com.goldengekko.meetr.json.JMeeting;
+import com.google.appengine.api.datastore.GeoPt;
 import com.wadpam.open.mvc.CrudController;
 import com.wadpam.open.mvc.CrudService;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,43 +41,97 @@ public class MeetingController extends CrudController<JMeeting, DmMeeting, Long,
     public void convertDomain(DmMeeting from, JMeeting to) {
         convertLongEntity(from, to);
 
-        to.setActualDuration(from.getActualDuration());
-        to.setActualStartDate(toLong(from.getActualStartDate()));
-        to.setActualEndDate(toLong(from.getActualEndDate()));
-        to.setAttendeeIds(from.getAttendeeIds());
-        to.setAttendeeNames(from.getAttendeeNames());
-        to.setEndDate(toLong(from.getEndDate()));
-        to.setLocationId(from.getLocationId());
+        // Synch
+        to.setSynchId(from.getSynchId());
+
+        // Meeting details
+        to.setTitle(from.getTitle());
         to.setMeetingType(from.getMeetingType());
         to.setOrganizerId(from.getOrganizerId());
-        to.setRepeatMode(from.getRepeatMode());
-        to.setFileIds(from.getFileIds());
-        to.setFileNames(from.getFileNames());
-        to.setFollowUpFileIds(from.getFollowUpFileIds());
-        to.setImageUrl(from.getImageUrl());
+        to.setCompanyName(from.getCompanyName());
+        to.setCompanySynchId(from.getCompanySynchId());
+        to.setLocationId((from.getLocationId()));
+        to.setAttendeeNames(from.getAttendeeNames());
+        to.setAttendeeSynchIds(from.getAttendeeSynchIds());
         to.setStartDate(toLong(from.getStartDate()));
+        to.setEndDate(toLong(from.getEndDate()));
+        to.setRepeatMode(from.getRepeatMode());
+        to.setActualStartDate(toLong(from.getActualStartDate()));
+        to.setActualEndDate(toLong(from.getActualEndDate()));
+        to.setActualDuration(from.getActualDuration());
+        to.setAlertOffsetInMinutes(from.getAlertOffsetInMinutes());
+        to.setPhoneNumber(from.getPhoneNumber());
+        to.setAddress(from.getAddress());
+        if (null != from.getLocation()) {
+            to.setLatitude(from.getLocation().getLatitude());
+            to.setLongitude(from.getLocation().getLongitude());
+        }
+        to.setDetailsNotes(from.getDetailsNotes());
+        to.setImageUrl(from.getImageUrl());
+
+        // Agenda items
+        to.setAgendaItemSynchIds(from.getAgendaItemSynchIds());
+
+        // Documents and files
+        to.setFileNames(from.getFileNames());
+        to.setFileSynchIds(from.getFileSynchIds());
+
+        // Notes
+        to.setNotes(from.getNotes());
+
+        // Follow up
+        to.setFollowUpLastSentDate(toLong(from.getFollowUpLastSentDate()));
+        to.setFollowUpNotes(from.getFollowUpNotes());
+        to.setFollowUpIncludeAgenda(from.getFollowUpIncludeAgenda());
+        to.setFollowUpFileSynchIds(from.getFollowUpFileSynchIds());
     }
 
     @Override
     public void convertJson(JMeeting from, DmMeeting to) {
         convertJLong(from, to);
-        
-        to.setActualDuration(from.getActualDuration());
-        to.setActualStartDate(toDate(from.getActualStartDate()));
-        to.setActualEndDate(toDate(from.getActualEndDate()));
-        to.setAttendeeIds(from.getAttendeeIds());
-        to.setAttendeeNames(from.getAttendeeNames());
-        to.setEndDate(toDate(from.getEndDate()));
-        to.setLocationId(from.getLocationId());
+
+        // Synch
+        to.setSynchId(from.getSynchId());
+
+        // Meeting details
+        to.setTitle(from.getTitle());
         to.setMeetingType(from.getMeetingType());
         to.setOrganizerId(from.getOrganizerId());
-        to.setRepeatMode(from.getRepeatMode());
-        to.setFileIds(from.getFileIds());
-        to.setFileNames(from.getFileNames());
-        to.setFollowUpFileIds(from.getFollowUpFileIds());
-        to.setImageUrl(from.getImageUrl());
+        to.setCompanyName(from.getCompanyName());
+        to.setCompanySynchId(from.getCompanySynchId());
+        to.setLocationId((from.getLocationId()));
+        to.setAttendeeNames(from.getAttendeeNames());
+        to.setAttendeeSynchIds(from.getAttendeeSynchIds());
         to.setStartDate(toDate(from.getStartDate()));
+        to.setEndDate(toDate(from.getEndDate()));
+        to.setRepeatMode(from.getRepeatMode());
+        to.setActualStartDate(toDate(from.getActualStartDate()));
+        to.setActualEndDate(toDate(from.getActualEndDate()));
+        to.setActualDuration(from.getActualDuration());
+        to.setAlertOffsetInMinutes(from.getAlertOffsetInMinutes());
+        to.setPhoneNumber(from.getPhoneNumber());
+        to.setAddress(from.getAddress());
+        if (null != from.getLatitude() && null != from.getLongitude()) {
+            to.setLocation(new GeoPt(from.getLatitude(), from.getLongitude()));
+        }
+        to.setDetailsNotes(from.getDetailsNotes());
+        to.setImageUrl(from.getImageUrl());
+
+        // Agenda items
+        to.setAgendaItemSynchIds(from.getAgendaItemSynchIds());
+
+        // Documents and files
+        to.setFileNames(from.getFileNames());
+        to.setFileSynchIds(from.getFileSynchIds());
+
+        // Notes
+        to.setNotes(from.getNotes());
+
+        // Follow up
+        to.setFollowUpLastSentDate(toDate(from.getFollowUpLastSentDate()));
+        to.setFollowUpNotes(from.getFollowUpNotes());
+        to.setFollowUpIncludeAgenda(from.getFollowUpIncludeAgenda());
+        to.setFollowUpFileSynchIds(from.getFollowUpFileSynchIds());
     }
 
-    
 }
