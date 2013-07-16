@@ -67,7 +67,7 @@ public class ContactController extends CrudController<JContact, DmContact, Strin
     public Integer fetchAll(@RequestParam(defaultValue = "199") int pageSize) {
         int count = 0;
         
-        CursorPage<DmContact, String> page;
+        CursorPage<DmContact> page;
         String cursorKey = null;
         do {
             page = service.getPage(pageSize, cursorKey);

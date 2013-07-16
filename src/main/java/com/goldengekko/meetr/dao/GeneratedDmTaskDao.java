@@ -13,6 +13,7 @@ import net.sf.mardao.core.geo.DLocation;
  * DAO interface with finder methods for DmTask entities.
  *
  * Generated on 2013-07-18T11:30:21.619+0200.
+>>>>>>> WOFO switching to mardao-2.3.3 and CursorPage<T>
  * @author mardao DAO generator (net.sf.mardao.plugin.ProcessDomainMojo)
  */
 public interface GeneratedDmTaskDao extends Dao<DmTask, java.lang.Long> {
@@ -78,7 +79,7 @@ public interface GeneratedDmTaskDao extends Dao<DmTask, java.lang.Long> {
          * @param cursorString non-null if get next page
 	 * @return a Page of DmTasks for the specified createdBy
 	 */
-	CursorPage<DmTask, java.lang.Long> queryPageByCreatedBy(java.lang.String createdBy,
+	CursorPage<DmTask> queryPageByCreatedBy(java.lang.String createdBy,
             int pageSize, String cursorString);
 
 
@@ -103,7 +104,7 @@ public interface GeneratedDmTaskDao extends Dao<DmTask, java.lang.Long> {
          * @param cursorString non-null if get next page
 	 * @return a Page of DmTasks for the specified createdDate
 	 */
-	CursorPage<DmTask, java.lang.Long> queryPageByCreatedDate(java.util.Date createdDate,
+	CursorPage<DmTask> queryPageByCreatedDate(java.util.Date createdDate,
             int pageSize, String cursorString);
 
 
@@ -128,7 +129,7 @@ public interface GeneratedDmTaskDao extends Dao<DmTask, java.lang.Long> {
          * @param cursorString non-null if get next page
 	 * @return a Page of DmTasks for the specified dueDate
 	 */
-	CursorPage<DmTask, java.lang.Long> queryPageByDueDate(java.util.Date dueDate,
+	CursorPage<DmTask> queryPageByDueDate(java.util.Date dueDate,
             int pageSize, String cursorString);
 
 
@@ -153,7 +154,11 @@ public interface GeneratedDmTaskDao extends Dao<DmTask, java.lang.Long> {
          * @param cursorString non-null if get next page
 	 * @return a Page of DmTasks for the specified meetingSyncId
 	 */
+<<<<<<< HEAD
 	CursorPage<DmTask, java.lang.Long> queryPageByMeetingSyncId(java.lang.String meetingSyncId,
+=======
+	CursorPage<DmTask> queryPageByMeetingId(java.lang.String meetingId,
+>>>>>>> WOFO switching to mardao-2.3.3 and CursorPage<T>
             int pageSize, String cursorString);
 
 
@@ -178,7 +183,7 @@ public interface GeneratedDmTaskDao extends Dao<DmTask, java.lang.Long> {
          * @param cursorString non-null if get next page
 	 * @return a Page of DmTasks for the specified title
 	 */
-	CursorPage<DmTask, java.lang.Long> queryPageByTitle(java.lang.String title,
+	CursorPage<DmTask> queryPageByTitle(java.lang.String title,
             int pageSize, String cursorString);
 
 
@@ -203,7 +208,7 @@ public interface GeneratedDmTaskDao extends Dao<DmTask, java.lang.Long> {
          * @param cursorString non-null if get next page
 	 * @return a Page of DmTasks for the specified updatedBy
 	 */
-	CursorPage<DmTask, java.lang.Long> queryPageByUpdatedBy(java.lang.String updatedBy,
+	CursorPage<DmTask> queryPageByUpdatedBy(java.lang.String updatedBy,
             int pageSize, String cursorString);
 
 
@@ -228,7 +233,7 @@ public interface GeneratedDmTaskDao extends Dao<DmTask, java.lang.Long> {
          * @param cursorString non-null if get next page
 	 * @return a Page of DmTasks for the specified updatedDate
 	 */
-	CursorPage<DmTask, java.lang.Long> queryPageByUpdatedDate(java.util.Date updatedDate,
+	CursorPage<DmTask> queryPageByUpdatedDate(java.util.Date updatedDate,
             int pageSize, String cursorString);
 
 

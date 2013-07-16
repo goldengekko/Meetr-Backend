@@ -34,6 +34,6 @@ import net.sf.mardao.core.CursorPage;
  */
 public interface AccountService extends CrudService<DmAccount, String> {
     
-    CursorPage<DmAccount, String> searchAccounts(String searchText, int pageSize, Serializable cursorKey);
+    CursorPage<DmAccount> searchAccounts(String searchText, int pageSize, Serializable cursorKey);
     
 }

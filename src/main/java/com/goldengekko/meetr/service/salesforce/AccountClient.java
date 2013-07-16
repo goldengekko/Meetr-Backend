@@ -48,11 +48,11 @@ public class AccountClient extends SalesforceService implements AccountService {
     }
     
     @Override
-    public CursorPage<DmAccount, String> getPage(int pageSize, final String cursorKey) {
+    public CursorPage<DmAccount> getPage(int pageSize, final String cursorKey) {
         SalesforceTemplate template = new SalesforceTemplate(TOKEN.get(), INSTANCE_URL.get());
         Iterable<SalesforceAccount> response = template.basicOperations().getAccounts(pageSize, cursorKey);
         
-        final CursorPage<DmAccount, String> page = new CursorPage<DmAccount, String>();
+        final CursorPage<DmAccount> page = new CursorPage<DmAccount>();
         ArrayList<DmAccount> items = convert(response);
         page.setItems(items);
         
@@ -71,7 +71,7 @@ public class AccountClient extends SalesforceService implements AccountService {
     }
 
     @Override
-    public CursorPage<DmAccount, String> searchAccounts(String text, int pageSize, Serializable cursorKey) {
+    public CursorPage<DmAccount> searchAccounts(String text, int pageSize, Serializable cursorKey) {
         throw new UnsupportedOperationException("Not supported yet.");
 //        final Entry<String, String> cred = parseToken(TOKEN.get());
 //        int offset = null != cursorKey ? Integer.parseInt(cursorKey.toString()) : 0;
@@ -173,7 +173,7 @@ public class AccountClient extends SalesforceService implements AccountService {
     }
 
     @Override
-    public CursorPage<String, String> whatsChanged(Date since, int pageSize, String cursorKey) {
+    public CursorPage<String> whatsChanged(Date since, int pageSize, String cursorKey) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 

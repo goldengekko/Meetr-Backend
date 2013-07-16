@@ -118,7 +118,7 @@ public interface GeneratedDmContactDao extends Dao<DmContact, java.lang.String> 
          * @param cursorString non-null if get next page
 	 * @return a Page of DmContacts for the specified city
 	 */
-	CursorPage<DmContact, java.lang.String> queryPageByCity(java.lang.String city,
+	CursorPage<DmContact> queryPageByCity(java.lang.String city,
             int pageSize, String cursorString);
 
 
@@ -143,7 +143,7 @@ public interface GeneratedDmContactDao extends Dao<DmContact, java.lang.String> 
          * @param cursorString non-null if get next page
 	 * @return a Page of DmContacts for the specified cityArea
 	 */
-	CursorPage<DmContact, java.lang.String> queryPageByCityArea(java.lang.String cityArea,
+	CursorPage<DmContact> queryPageByCityArea(java.lang.String cityArea,
             int pageSize, String cursorString);
 
 
@@ -168,7 +168,7 @@ public interface GeneratedDmContactDao extends Dao<DmContact, java.lang.String> 
          * @param cursorString non-null if get next page
 	 * @return a Page of DmContacts for the specified companyName
 	 */
-	CursorPage<DmContact, java.lang.String> queryPageByCompanyName(java.lang.String companyName,
+	CursorPage<DmContact> queryPageByCompanyName(java.lang.String companyName,
             int pageSize, String cursorString);
 
 
@@ -193,7 +193,7 @@ public interface GeneratedDmContactDao extends Dao<DmContact, java.lang.String> 
          * @param cursorString non-null if get next page
 	 * @return a Page of DmContacts for the specified country
 	 */
-	CursorPage<DmContact, java.lang.String> queryPageByCountry(java.lang.String country,
+	CursorPage<DmContact> queryPageByCountry(java.lang.String country,
             int pageSize, String cursorString);
 
 
@@ -218,7 +218,7 @@ public interface GeneratedDmContactDao extends Dao<DmContact, java.lang.String> 
          * @param cursorString non-null if get next page
 	 * @return a Page of DmContacts for the specified county
 	 */
-	CursorPage<DmContact, java.lang.String> queryPageByCounty(java.lang.String county,
+	CursorPage<DmContact> queryPageByCounty(java.lang.String county,
             int pageSize, String cursorString);
 
 
@@ -243,7 +243,7 @@ public interface GeneratedDmContactDao extends Dao<DmContact, java.lang.String> 
          * @param cursorString non-null if get next page
 	 * @return a Page of DmContacts for the specified createdBy
 	 */
-	CursorPage<DmContact, java.lang.String> queryPageByCreatedBy(java.lang.String createdBy,
+	CursorPage<DmContact> queryPageByCreatedBy(java.lang.String createdBy,
             int pageSize, String cursorString);
 
 
@@ -268,7 +268,7 @@ public interface GeneratedDmContactDao extends Dao<DmContact, java.lang.String> 
          * @param cursorString non-null if get next page
 	 * @return a Page of DmContacts for the specified createdDate
 	 */
-	CursorPage<DmContact, java.lang.String> queryPageByCreatedDate(java.util.Date createdDate,
+	CursorPage<DmContact> queryPageByCreatedDate(java.util.Date createdDate,
             int pageSize, String cursorString);
 
 
@@ -293,7 +293,7 @@ public interface GeneratedDmContactDao extends Dao<DmContact, java.lang.String> 
          * @param cursorString non-null if get next page
 	 * @return a Page of DmContacts for the specified email
 	 */
-	CursorPage<DmContact, java.lang.String> queryPageByEmail(java.lang.String email,
+	CursorPage<DmContact> queryPageByEmail(java.lang.String email,
             int pageSize, String cursorString);
 
 
@@ -318,7 +318,7 @@ public interface GeneratedDmContactDao extends Dao<DmContact, java.lang.String> 
          * @param cursorString non-null if get next page
 	 * @return a Page of DmContacts for the specified firstName
 	 */
-	CursorPage<DmContact, java.lang.String> queryPageByFirstName(java.lang.String firstName,
+	CursorPage<DmContact> queryPageByFirstName(java.lang.String firstName,
             int pageSize, String cursorString);
 
 
@@ -343,7 +343,7 @@ public interface GeneratedDmContactDao extends Dao<DmContact, java.lang.String> 
          * @param cursorString non-null if get next page
 	 * @return a Page of DmContacts for the specified lastName
 	 */
-	CursorPage<DmContact, java.lang.String> queryPageByLastName(java.lang.String lastName,
+	CursorPage<DmContact> queryPageByLastName(java.lang.String lastName,
             int pageSize, String cursorString);
 
 
@@ -368,7 +368,7 @@ public interface GeneratedDmContactDao extends Dao<DmContact, java.lang.String> 
          * @param cursorString non-null if get next page
 	 * @return a Page of DmContacts for the specified mobilePhone
 	 */
-	CursorPage<DmContact, java.lang.String> queryPageByMobilePhone(java.lang.String mobilePhone,
+	CursorPage<DmContact> queryPageByMobilePhone(java.lang.String mobilePhone,
             int pageSize, String cursorString);
 
 
@@ -393,7 +393,7 @@ public interface GeneratedDmContactDao extends Dao<DmContact, java.lang.String> 
          * @param cursorString non-null if get next page
 	 * @return a Page of DmContacts for the specified name
 	 */
-	CursorPage<DmContact, java.lang.String> queryPageByName(java.lang.String name,
+	CursorPage<DmContact> queryPageByName(java.lang.String name,
             int pageSize, String cursorString);
 
 
@@ -418,7 +418,7 @@ public interface GeneratedDmContactDao extends Dao<DmContact, java.lang.String> 
          * @param cursorString non-null if get next page
 	 * @return a Page of DmContacts for the specified phone
 	 */
-	CursorPage<DmContact, java.lang.String> queryPageByPhone(java.lang.String phone,
+	CursorPage<DmContact> queryPageByPhone(java.lang.String phone,
             int pageSize, String cursorString);
 
 
@@ -443,7 +443,7 @@ public interface GeneratedDmContactDao extends Dao<DmContact, java.lang.String> 
          * @param cursorString non-null if get next page
 	 * @return a Page of DmContacts for the specified postalCode
 	 */
-	CursorPage<DmContact, java.lang.String> queryPageByPostalCode(java.lang.String postalCode,
+	CursorPage<DmContact> queryPageByPostalCode(java.lang.String postalCode,
             int pageSize, String cursorString);
 
 
@@ -468,7 +468,7 @@ public interface GeneratedDmContactDao extends Dao<DmContact, java.lang.String> 
          * @param cursorString non-null if get next page
 	 * @return a Page of DmContacts for the specified street
 	 */
-	CursorPage<DmContact, java.lang.String> queryPageByStreet(java.lang.String street,
+	CursorPage<DmContact> queryPageByStreet(java.lang.String street,
             int pageSize, String cursorString);
 
 
@@ -493,7 +493,7 @@ public interface GeneratedDmContactDao extends Dao<DmContact, java.lang.String> 
          * @param cursorString non-null if get next page
 	 * @return a Page of DmContacts for the specified updatedBy
 	 */
-	CursorPage<DmContact, java.lang.String> queryPageByUpdatedBy(java.lang.String updatedBy,
+	CursorPage<DmContact> queryPageByUpdatedBy(java.lang.String updatedBy,
             int pageSize, String cursorString);
 
 
@@ -518,7 +518,7 @@ public interface GeneratedDmContactDao extends Dao<DmContact, java.lang.String> 
          * @param cursorString non-null if get next page
 	 * @return a Page of DmContacts for the specified updatedDate
 	 */
-	CursorPage<DmContact, java.lang.String> queryPageByUpdatedDate(java.util.Date updatedDate,
+	CursorPage<DmContact> queryPageByUpdatedDate(java.util.Date updatedDate,
             int pageSize, String cursorString);
 
 

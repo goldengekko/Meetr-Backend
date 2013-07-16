@@ -34,6 +34,6 @@ import net.sf.mardao.core.CursorPage;
  */
 public interface ContactService extends CrudService<DmContact, String> {
     
-    CursorPage<DmContact, String> searchContacts(String searchText, int pageSize, Serializable cursorKey);
+    CursorPage<DmContact> searchContacts(String searchText, int pageSize, Serializable cursorKey);
     
 }

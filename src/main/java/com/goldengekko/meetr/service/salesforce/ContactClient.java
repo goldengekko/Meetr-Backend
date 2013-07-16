@@ -53,11 +53,11 @@ public class ContactClient extends SalesforceService implements ContactService {
     }
 
     @Override
-    public CursorPage<DmContact, String> getPage(int pageSize, final String cursorKey) {
+    public CursorPage<DmContact> getPage(int pageSize, final String cursorKey) {
         SalesforceTemplate template = new SalesforceTemplate(TOKEN.get(), INSTANCE_URL.get());
         Iterable<SalesforceContact> response = template.basicOperations().getContacts(pageSize, cursorKey);
 
-        final CursorPage<DmContact, String> page = new CursorPage<DmContact, String>();
+        final CursorPage<DmContact> page = new CursorPage<DmContact>();
         ArrayList<DmContact> items = convert(response);
         page.setItems(items);
         
@@ -76,7 +76,7 @@ public class ContactClient extends SalesforceService implements ContactService {
     }
 
     @Override
-    public CursorPage<DmContact, String> searchContacts(String text, int pageSize, Serializable cursorKey) {
+    public CursorPage<DmContact> searchContacts(String text, int pageSize, Serializable cursorKey) {
         throw new UnsupportedOperationException("Not supported yet.");
         // final Entry<String, String> cred = parseToken(TOKEN.get());
         // int offset = null != cursorKey ? Integer.parseInt(cursorKey.toString()) : 0;
@@ -179,7 +179,7 @@ public class ContactClient extends SalesforceService implements ContactService {
     }
 
     @Override
-    public CursorPage<String, String> whatsChanged(Date since, int pageSize, String cursorKey) {
+    public CursorPage<String> whatsChanged(Date since, int pageSize, String cursorKey) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 

@@ -308,7 +308,7 @@ public class GeneratedDmTaskDaoImpl extends TypeDaoImpl<DmTask, java.lang.Long>
          * @param cursorString non-null if get next page
 	 * @return a Page of DmTasks for the specified createdBy
 	 */
-	public final CursorPage<DmTask, java.lang.Long> queryPageByCreatedBy(java.lang.String createdBy,
+	public final CursorPage<DmTask> queryPageByCreatedBy(java.lang.String createdBy,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_CREATEDBY, createdBy);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -340,7 +340,7 @@ public class GeneratedDmTaskDaoImpl extends TypeDaoImpl<DmTask, java.lang.Long>
          * @param cursorString non-null if get next page
 	 * @return a Page of DmTasks for the specified createdDate
 	 */
-	public final CursorPage<DmTask, java.lang.Long> queryPageByCreatedDate(java.util.Date createdDate,
+	public final CursorPage<DmTask> queryPageByCreatedDate(java.util.Date createdDate,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_CREATEDDATE, createdDate);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -372,7 +372,7 @@ public class GeneratedDmTaskDaoImpl extends TypeDaoImpl<DmTask, java.lang.Long>
          * @param cursorString non-null if get next page
 	 * @return a Page of DmTasks for the specified dueDate
 	 */
-	public final CursorPage<DmTask, java.lang.Long> queryPageByDueDate(java.util.Date dueDate,
+	public final CursorPage<DmTask> queryPageByDueDate(java.util.Date dueDate,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_DUEDATE, dueDate);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -404,7 +404,11 @@ public class GeneratedDmTaskDaoImpl extends TypeDaoImpl<DmTask, java.lang.Long>
          * @param cursorString non-null if get next page
 	 * @return a Page of DmTasks for the specified meetingSyncId
 	 */
+<<<<<<< HEAD
 	public final CursorPage<DmTask, java.lang.Long> queryPageByMeetingSyncId(java.lang.String meetingSyncId,
+=======
+	public final CursorPage<DmTask> queryPageByMeetingId(java.lang.String meetingId,
+>>>>>>> WOFO switching to mardao-2.3.3 and CursorPage<T>
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_MEETINGSYNCID, meetingSyncId);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -436,7 +440,7 @@ public class GeneratedDmTaskDaoImpl extends TypeDaoImpl<DmTask, java.lang.Long>
          * @param cursorString non-null if get next page
 	 * @return a Page of DmTasks for the specified title
 	 */
-	public final CursorPage<DmTask, java.lang.Long> queryPageByTitle(java.lang.String title,
+	public final CursorPage<DmTask> queryPageByTitle(java.lang.String title,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_TITLE, title);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -468,7 +472,7 @@ public class GeneratedDmTaskDaoImpl extends TypeDaoImpl<DmTask, java.lang.Long>
          * @param cursorString non-null if get next page
 	 * @return a Page of DmTasks for the specified updatedBy
 	 */
-	public final CursorPage<DmTask, java.lang.Long> queryPageByUpdatedBy(java.lang.String updatedBy,
+	public final CursorPage<DmTask> queryPageByUpdatedBy(java.lang.String updatedBy,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_UPDATEDBY, updatedBy);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -500,7 +504,7 @@ public class GeneratedDmTaskDaoImpl extends TypeDaoImpl<DmTask, java.lang.Long>
          * @param cursorString non-null if get next page
 	 * @return a Page of DmTasks for the specified updatedDate
 	 */
-	public final CursorPage<DmTask, java.lang.Long> queryPageByUpdatedDate(java.util.Date updatedDate,
+	public final CursorPage<DmTask> queryPageByUpdatedDate(java.util.Date updatedDate,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_UPDATEDDATE, updatedDate);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);

@@ -308,7 +308,7 @@ public class GeneratedDmFileDaoImpl extends TypeDaoImpl<DmFile, java.lang.Long>
          * @param cursorString non-null if get next page
 	 * @return a Page of DmFiles for the specified createdBy
 	 */
-	public final CursorPage<DmFile, java.lang.Long> queryPageByCreatedBy(java.lang.String createdBy,
+	public final CursorPage<DmFile> queryPageByCreatedBy(java.lang.String createdBy,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_CREATEDBY, createdBy);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -340,7 +340,7 @@ public class GeneratedDmFileDaoImpl extends TypeDaoImpl<DmFile, java.lang.Long>
          * @param cursorString non-null if get next page
 	 * @return a Page of DmFiles for the specified createdDate
 	 */
-	public final CursorPage<DmFile, java.lang.Long> queryPageByCreatedDate(java.util.Date createdDate,
+	public final CursorPage<DmFile> queryPageByCreatedDate(java.util.Date createdDate,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_CREATEDDATE, createdDate);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -404,7 +404,11 @@ public class GeneratedDmFileDaoImpl extends TypeDaoImpl<DmFile, java.lang.Long>
          * @param cursorString non-null if get next page
 	 * @return a Page of DmFiles for the specified externalSource
 	 */
+<<<<<<< HEAD
 	public final CursorPage<DmFile, java.lang.Long> queryPageByExternalSource(java.lang.String externalSource,
+=======
+	public final CursorPage<DmFile> queryPageByExtRef(java.lang.String extRef,
+>>>>>>> WOFO switching to mardao-2.3.3 and CursorPage<T>
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_EXTERNALSOURCE, externalSource);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -436,7 +440,7 @@ public class GeneratedDmFileDaoImpl extends TypeDaoImpl<DmFile, java.lang.Long>
          * @param cursorString non-null if get next page
 	 * @return a Page of DmFiles for the specified name
 	 */
-	public final CursorPage<DmFile, java.lang.Long> queryPageByName(java.lang.String name,
+	public final CursorPage<DmFile> queryPageByName(java.lang.String name,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_NAME, name);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -468,7 +472,7 @@ public class GeneratedDmFileDaoImpl extends TypeDaoImpl<DmFile, java.lang.Long>
          * @param cursorString non-null if get next page
 	 * @return a Page of DmFiles for the specified updatedBy
 	 */
-	public final CursorPage<DmFile, java.lang.Long> queryPageByUpdatedBy(java.lang.String updatedBy,
+	public final CursorPage<DmFile> queryPageByUpdatedBy(java.lang.String updatedBy,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_UPDATEDBY, updatedBy);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -500,7 +504,7 @@ public class GeneratedDmFileDaoImpl extends TypeDaoImpl<DmFile, java.lang.Long>
          * @param cursorString non-null if get next page
 	 * @return a Page of DmFiles for the specified updatedDate
 	 */
-	public final CursorPage<DmFile, java.lang.Long> queryPageByUpdatedDate(java.util.Date updatedDate,
+	public final CursorPage<DmFile> queryPageByUpdatedDate(java.util.Date updatedDate,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_UPDATEDDATE, updatedDate);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);

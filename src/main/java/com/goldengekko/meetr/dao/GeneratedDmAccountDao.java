@@ -118,7 +118,7 @@ public interface GeneratedDmAccountDao extends Dao<DmAccount, java.lang.String> 
          * @param cursorString non-null if get next page
 	 * @return a Page of DmAccounts for the specified billingCity
 	 */
-	CursorPage<DmAccount, java.lang.String> queryPageByBillingCity(java.lang.String billingCity,
+	CursorPage<DmAccount> queryPageByBillingCity(java.lang.String billingCity,
             int pageSize, String cursorString);
 
 
@@ -143,7 +143,7 @@ public interface GeneratedDmAccountDao extends Dao<DmAccount, java.lang.String> 
          * @param cursorString non-null if get next page
 	 * @return a Page of DmAccounts for the specified billingCountry
 	 */
-	CursorPage<DmAccount, java.lang.String> queryPageByBillingCountry(java.lang.String billingCountry,
+	CursorPage<DmAccount> queryPageByBillingCountry(java.lang.String billingCountry,
             int pageSize, String cursorString);
 
 
@@ -168,7 +168,7 @@ public interface GeneratedDmAccountDao extends Dao<DmAccount, java.lang.String> 
          * @param cursorString non-null if get next page
 	 * @return a Page of DmAccounts for the specified billingPostalCode
 	 */
-	CursorPage<DmAccount, java.lang.String> queryPageByBillingPostalCode(java.lang.String billingPostalCode,
+	CursorPage<DmAccount> queryPageByBillingPostalCode(java.lang.String billingPostalCode,
             int pageSize, String cursorString);
 
 
@@ -193,7 +193,7 @@ public interface GeneratedDmAccountDao extends Dao<DmAccount, java.lang.String> 
          * @param cursorString non-null if get next page
 	 * @return a Page of DmAccounts for the specified billingState
 	 */
-	CursorPage<DmAccount, java.lang.String> queryPageByBillingState(java.lang.String billingState,
+	CursorPage<DmAccount> queryPageByBillingState(java.lang.String billingState,
             int pageSize, String cursorString);
 
 
@@ -218,7 +218,7 @@ public interface GeneratedDmAccountDao extends Dao<DmAccount, java.lang.String> 
          * @param cursorString non-null if get next page
 	 * @return a Page of DmAccounts for the specified billingStreet
 	 */
-	CursorPage<DmAccount, java.lang.String> queryPageByBillingStreet(java.lang.String billingStreet,
+	CursorPage<DmAccount> queryPageByBillingStreet(java.lang.String billingStreet,
             int pageSize, String cursorString);
 
 
@@ -243,7 +243,7 @@ public interface GeneratedDmAccountDao extends Dao<DmAccount, java.lang.String> 
          * @param cursorString non-null if get next page
 	 * @return a Page of DmAccounts for the specified createdBy
 	 */
-	CursorPage<DmAccount, java.lang.String> queryPageByCreatedBy(java.lang.String createdBy,
+	CursorPage<DmAccount> queryPageByCreatedBy(java.lang.String createdBy,
             int pageSize, String cursorString);
 
 
@@ -268,7 +268,7 @@ public interface GeneratedDmAccountDao extends Dao<DmAccount, java.lang.String> 
          * @param cursorString non-null if get next page
 	 * @return a Page of DmAccounts for the specified createdDate
 	 */
-	CursorPage<DmAccount, java.lang.String> queryPageByCreatedDate(java.util.Date createdDate,
+	CursorPage<DmAccount> queryPageByCreatedDate(java.util.Date createdDate,
             int pageSize, String cursorString);
 
 
@@ -293,7 +293,7 @@ public interface GeneratedDmAccountDao extends Dao<DmAccount, java.lang.String> 
          * @param cursorString non-null if get next page
 	 * @return a Page of DmAccounts for the specified name
 	 */
-	CursorPage<DmAccount, java.lang.String> queryPageByName(java.lang.String name,
+	CursorPage<DmAccount> queryPageByName(java.lang.String name,
             int pageSize, String cursorString);
 
 
@@ -318,7 +318,7 @@ public interface GeneratedDmAccountDao extends Dao<DmAccount, java.lang.String> 
          * @param cursorString non-null if get next page
 	 * @return a Page of DmAccounts for the specified phone
 	 */
-	CursorPage<DmAccount, java.lang.String> queryPageByPhone(java.lang.String phone,
+	CursorPage<DmAccount> queryPageByPhone(java.lang.String phone,
             int pageSize, String cursorString);
 
 
@@ -343,7 +343,7 @@ public interface GeneratedDmAccountDao extends Dao<DmAccount, java.lang.String> 
          * @param cursorString non-null if get next page
 	 * @return a Page of DmAccounts for the specified shippingCity
 	 */
-	CursorPage<DmAccount, java.lang.String> queryPageByShippingCity(java.lang.String shippingCity,
+	CursorPage<DmAccount> queryPageByShippingCity(java.lang.String shippingCity,
             int pageSize, String cursorString);
 
 
@@ -368,7 +368,7 @@ public interface GeneratedDmAccountDao extends Dao<DmAccount, java.lang.String> 
          * @param cursorString non-null if get next page
 	 * @return a Page of DmAccounts for the specified shippingCountry
 	 */
-	CursorPage<DmAccount, java.lang.String> queryPageByShippingCountry(java.lang.String shippingCountry,
+	CursorPage<DmAccount> queryPageByShippingCountry(java.lang.String shippingCountry,
             int pageSize, String cursorString);
 
 
@@ -393,7 +393,7 @@ public interface GeneratedDmAccountDao extends Dao<DmAccount, java.lang.String> 
          * @param cursorString non-null if get next page
 	 * @return a Page of DmAccounts for the specified shippingPostalCode
 	 */
-	CursorPage<DmAccount, java.lang.String> queryPageByShippingPostalCode(java.lang.String shippingPostalCode,
+	CursorPage<DmAccount> queryPageByShippingPostalCode(java.lang.String shippingPostalCode,
             int pageSize, String cursorString);
 
 
@@ -418,7 +418,7 @@ public interface GeneratedDmAccountDao extends Dao<DmAccount, java.lang.String> 
          * @param cursorString non-null if get next page
 	 * @return a Page of DmAccounts for the specified shippingState
 	 */
-	CursorPage<DmAccount, java.lang.String> queryPageByShippingState(java.lang.String shippingState,
+	CursorPage<DmAccount> queryPageByShippingState(java.lang.String shippingState,
             int pageSize, String cursorString);
 
 
@@ -443,7 +443,7 @@ public interface GeneratedDmAccountDao extends Dao<DmAccount, java.lang.String> 
          * @param cursorString non-null if get next page
 	 * @return a Page of DmAccounts for the specified shippingStreet
 	 */
-	CursorPage<DmAccount, java.lang.String> queryPageByShippingStreet(java.lang.String shippingStreet,
+	CursorPage<DmAccount> queryPageByShippingStreet(java.lang.String shippingStreet,
             int pageSize, String cursorString);
 
 
@@ -468,7 +468,7 @@ public interface GeneratedDmAccountDao extends Dao<DmAccount, java.lang.String> 
          * @param cursorString non-null if get next page
 	 * @return a Page of DmAccounts for the specified updatedBy
 	 */
-	CursorPage<DmAccount, java.lang.String> queryPageByUpdatedBy(java.lang.String updatedBy,
+	CursorPage<DmAccount> queryPageByUpdatedBy(java.lang.String updatedBy,
             int pageSize, String cursorString);
 
 
@@ -493,7 +493,7 @@ public interface GeneratedDmAccountDao extends Dao<DmAccount, java.lang.String> 
          * @param cursorString non-null if get next page
 	 * @return a Page of DmAccounts for the specified updatedDate
 	 */
-	CursorPage<DmAccount, java.lang.String> queryPageByUpdatedDate(java.util.Date updatedDate,
+	CursorPage<DmAccount> queryPageByUpdatedDate(java.util.Date updatedDate,
             int pageSize, String cursorString);
 
 
@@ -518,7 +518,7 @@ public interface GeneratedDmAccountDao extends Dao<DmAccount, java.lang.String> 
          * @param cursorString non-null if get next page
 	 * @return a Page of DmAccounts for the specified wwwUrl
 	 */
-	CursorPage<DmAccount, java.lang.String> queryPageByWwwUrl(java.lang.String wwwUrl,
+	CursorPage<DmAccount> queryPageByWwwUrl(java.lang.String wwwUrl,
             int pageSize, String cursorString);
 
 

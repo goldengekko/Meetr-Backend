@@ -181,8 +181,8 @@ public class ContactsClientMock implements ContactService {
     }
     
     @Override
-    public CursorPage<DmContact, String> getPage(int pageSize, String cursorKey) {
-        CursorPage<DmContact, String> page = new CursorPage<DmContact, String>();
+    public CursorPage<DmContact> getPage(int pageSize, String cursorKey) {
+        CursorPage<DmContact> page = new CursorPage<DmContact>();
         page.setRequestedPageSize(pageSize);
         int offset = null != cursorKey ? Math.min(Integer.parseInt(cursorKey.toString()), CONTACTS.size()) : 0;
         int size = Math.min(pageSize, CONTACTS.size()-offset);
@@ -203,7 +203,7 @@ public class ContactsClientMock implements ContactService {
     }
 
     @Override
-    public CursorPage<DmContact, String> searchContacts(String text, int pageSize, Serializable cursorKey) {
+    public CursorPage<DmContact> searchContacts(String text, int pageSize, Serializable cursorKey) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
@@ -278,7 +278,7 @@ public class ContactsClientMock implements ContactService {
     }
 
     @Override
-    public CursorPage<String, String> whatsChanged(Date since, int pageSize, String cursorKey) {
+    public CursorPage<String> whatsChanged(Date since, int pageSize, String cursorKey) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

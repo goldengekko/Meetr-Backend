@@ -78,7 +78,7 @@ public interface GeneratedDmFileDao extends Dao<DmFile, java.lang.Long> {
          * @param cursorString non-null if get next page
 	 * @return a Page of DmFiles for the specified createdBy
 	 */
-	CursorPage<DmFile, java.lang.Long> queryPageByCreatedBy(java.lang.String createdBy,
+	CursorPage<DmFile> queryPageByCreatedBy(java.lang.String createdBy,
             int pageSize, String cursorString);
 
 
@@ -103,7 +103,7 @@ public interface GeneratedDmFileDao extends Dao<DmFile, java.lang.Long> {
          * @param cursorString non-null if get next page
 	 * @return a Page of DmFiles for the specified createdDate
 	 */
-	CursorPage<DmFile, java.lang.Long> queryPageByCreatedDate(java.util.Date createdDate,
+	CursorPage<DmFile> queryPageByCreatedDate(java.util.Date createdDate,
             int pageSize, String cursorString);
 
 
@@ -128,6 +128,7 @@ public interface GeneratedDmFileDao extends Dao<DmFile, java.lang.Long> {
          * @param cursorString non-null if get next page
 	 * @return a Page of DmFiles for the specified externalId
 	 */
+<<<<<<< HEAD
 	CursorPage<DmFile, java.lang.Long> queryPageByExternalId(java.lang.String externalId,
             int pageSize, String cursorString);
 
@@ -154,6 +155,9 @@ public interface GeneratedDmFileDao extends Dao<DmFile, java.lang.Long> {
 	 * @return a Page of DmFiles for the specified externalSource
 	 */
 	CursorPage<DmFile, java.lang.Long> queryPageByExternalSource(java.lang.String externalSource,
+=======
+	CursorPage<DmFile> queryPageByExtRef(java.lang.String extRef,
+>>>>>>> WOFO switching to mardao-2.3.3 and CursorPage<T>
             int pageSize, String cursorString);
 
 
@@ -178,7 +182,7 @@ public interface GeneratedDmFileDao extends Dao<DmFile, java.lang.Long> {
          * @param cursorString non-null if get next page
 	 * @return a Page of DmFiles for the specified name
 	 */
-	CursorPage<DmFile, java.lang.Long> queryPageByName(java.lang.String name,
+	CursorPage<DmFile> queryPageByName(java.lang.String name,
             int pageSize, String cursorString);
 
 
@@ -203,7 +207,7 @@ public interface GeneratedDmFileDao extends Dao<DmFile, java.lang.Long> {
          * @param cursorString non-null if get next page
 	 * @return a Page of DmFiles for the specified updatedBy
 	 */
-	CursorPage<DmFile, java.lang.Long> queryPageByUpdatedBy(java.lang.String updatedBy,
+	CursorPage<DmFile> queryPageByUpdatedBy(java.lang.String updatedBy,
             int pageSize, String cursorString);
 
 
@@ -228,7 +232,7 @@ public interface GeneratedDmFileDao extends Dao<DmFile, java.lang.Long> {
          * @param cursorString non-null if get next page
 	 * @return a Page of DmFiles for the specified updatedDate
 	 */
-	CursorPage<DmFile, java.lang.Long> queryPageByUpdatedDate(java.util.Date updatedDate,
+	CursorPage<DmFile> queryPageByUpdatedDate(java.util.Date updatedDate,
             int pageSize, String cursorString);
 
 

@@ -74,7 +74,7 @@ public interface GeneratedDmAgendaItemDao extends Dao<DmAgendaItem, java.lang.Lo
          * @param cursorString non-null if get next page
 	 * @return a Page of DmAgendaItems for the specified createdBy
 	 */
-	CursorPage<DmAgendaItem, java.lang.Long> queryPageByCreatedBy(java.lang.String createdBy,
+	CursorPage<DmAgendaItem> queryPageByCreatedBy(java.lang.String createdBy,
             int pageSize, String cursorString);
 
 
@@ -99,7 +99,7 @@ public interface GeneratedDmAgendaItemDao extends Dao<DmAgendaItem, java.lang.Lo
          * @param cursorString non-null if get next page
 	 * @return a Page of DmAgendaItems for the specified createdDate
 	 */
-	CursorPage<DmAgendaItem, java.lang.Long> queryPageByCreatedDate(java.util.Date createdDate,
+	CursorPage<DmAgendaItem> queryPageByCreatedDate(java.util.Date createdDate,
             int pageSize, String cursorString);
 
 
@@ -124,11 +124,39 @@ public interface GeneratedDmAgendaItemDao extends Dao<DmAgendaItem, java.lang.Lo
          * @param cursorString non-null if get next page
 	 * @return a Page of DmAgendaItems for the specified isDone
 	 */
-	CursorPage<DmAgendaItem, java.lang.Long> queryPageByIsDone(java.lang.Boolean isDone,
+	CursorPage<DmAgendaItem> queryPageByIsDone(java.lang.Boolean isDone,
             int pageSize, String cursorString);
 
 
 	/**
+<<<<<<< HEAD
+=======
+	 * query-by method for field meetingId
+	 * @param meetingId the specified attribute
+	 * @return an Iterable of DmAgendaItems for the specified meetingId
+	 */
+	Iterable<DmAgendaItem> queryByMeetingId(java.lang.String meetingId);
+		
+	/**
+	 * query-keys-by method for field meetingId
+	 * @param meetingId the specified attribute
+	 * @return an Iterable of DmAgendaItems for the specified meetingId
+	 */
+	Iterable<java.lang.Long> queryKeysByMeetingId(java.lang.String meetingId);
+
+	/**
+	 * query-page-by method for field meetingId
+	 * @param meetingId the specified attribute
+         * @param pageSize the number of domain entities in the page
+         * @param cursorString non-null if get next page
+	 * @return a Page of DmAgendaItems for the specified meetingId
+	 */
+	CursorPage<DmAgendaItem> queryPageByMeetingId(java.lang.String meetingId,
+            int pageSize, String cursorString);
+
+
+	/**
+>>>>>>> WOFO switching to mardao-2.3.3 and CursorPage<T>
 	 * query-by method for field title
 	 * @param title the specified attribute
 	 * @return an Iterable of DmAgendaItems for the specified title
@@ -149,7 +177,7 @@ public interface GeneratedDmAgendaItemDao extends Dao<DmAgendaItem, java.lang.Lo
          * @param cursorString non-null if get next page
 	 * @return a Page of DmAgendaItems for the specified title
 	 */
-	CursorPage<DmAgendaItem, java.lang.Long> queryPageByTitle(java.lang.String title,
+	CursorPage<DmAgendaItem> queryPageByTitle(java.lang.String title,
             int pageSize, String cursorString);
 
 
@@ -174,7 +202,7 @@ public interface GeneratedDmAgendaItemDao extends Dao<DmAgendaItem, java.lang.Lo
          * @param cursorString non-null if get next page
 	 * @return a Page of DmAgendaItems for the specified updatedBy
 	 */
-	CursorPage<DmAgendaItem, java.lang.Long> queryPageByUpdatedBy(java.lang.String updatedBy,
+	CursorPage<DmAgendaItem> queryPageByUpdatedBy(java.lang.String updatedBy,
             int pageSize, String cursorString);
 
 
@@ -199,7 +227,7 @@ public interface GeneratedDmAgendaItemDao extends Dao<DmAgendaItem, java.lang.Lo
          * @param cursorString non-null if get next page
 	 * @return a Page of DmAgendaItems for the specified updatedDate
 	 */
-	CursorPage<DmAgendaItem, java.lang.Long> queryPageByUpdatedDate(java.util.Date updatedDate,
+	CursorPage<DmAgendaItem> queryPageByUpdatedDate(java.util.Date updatedDate,
             int pageSize, String cursorString);
 
 

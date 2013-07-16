@@ -398,7 +398,7 @@ public class GeneratedDmContactDaoImpl extends TypeDaoImpl<DmContact, java.lang.
          * @param cursorString non-null if get next page
 	 * @return a Page of DmContacts for the specified city
 	 */
-	public final CursorPage<DmContact, java.lang.String> queryPageByCity(java.lang.String city,
+	public final CursorPage<DmContact> queryPageByCity(java.lang.String city,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_CITY, city);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -430,7 +430,7 @@ public class GeneratedDmContactDaoImpl extends TypeDaoImpl<DmContact, java.lang.
          * @param cursorString non-null if get next page
 	 * @return a Page of DmContacts for the specified cityArea
 	 */
-	public final CursorPage<DmContact, java.lang.String> queryPageByCityArea(java.lang.String cityArea,
+	public final CursorPage<DmContact> queryPageByCityArea(java.lang.String cityArea,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_CITYAREA, cityArea);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -462,7 +462,7 @@ public class GeneratedDmContactDaoImpl extends TypeDaoImpl<DmContact, java.lang.
          * @param cursorString non-null if get next page
 	 * @return a Page of DmContacts for the specified companyName
 	 */
-	public final CursorPage<DmContact, java.lang.String> queryPageByCompanyName(java.lang.String companyName,
+	public final CursorPage<DmContact> queryPageByCompanyName(java.lang.String companyName,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_COMPANYNAME, companyName);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -494,7 +494,7 @@ public class GeneratedDmContactDaoImpl extends TypeDaoImpl<DmContact, java.lang.
          * @param cursorString non-null if get next page
 	 * @return a Page of DmContacts for the specified country
 	 */
-	public final CursorPage<DmContact, java.lang.String> queryPageByCountry(java.lang.String country,
+	public final CursorPage<DmContact> queryPageByCountry(java.lang.String country,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_COUNTRY, country);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -526,7 +526,7 @@ public class GeneratedDmContactDaoImpl extends TypeDaoImpl<DmContact, java.lang.
          * @param cursorString non-null if get next page
 	 * @return a Page of DmContacts for the specified county
 	 */
-	public final CursorPage<DmContact, java.lang.String> queryPageByCounty(java.lang.String county,
+	public final CursorPage<DmContact> queryPageByCounty(java.lang.String county,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_COUNTY, county);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -558,7 +558,7 @@ public class GeneratedDmContactDaoImpl extends TypeDaoImpl<DmContact, java.lang.
          * @param cursorString non-null if get next page
 	 * @return a Page of DmContacts for the specified createdBy
 	 */
-	public final CursorPage<DmContact, java.lang.String> queryPageByCreatedBy(java.lang.String createdBy,
+	public final CursorPage<DmContact> queryPageByCreatedBy(java.lang.String createdBy,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_CREATEDBY, createdBy);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -590,7 +590,7 @@ public class GeneratedDmContactDaoImpl extends TypeDaoImpl<DmContact, java.lang.
          * @param cursorString non-null if get next page
 	 * @return a Page of DmContacts for the specified createdDate
 	 */
-	public final CursorPage<DmContact, java.lang.String> queryPageByCreatedDate(java.util.Date createdDate,
+	public final CursorPage<DmContact> queryPageByCreatedDate(java.util.Date createdDate,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_CREATEDDATE, createdDate);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -622,7 +622,7 @@ public class GeneratedDmContactDaoImpl extends TypeDaoImpl<DmContact, java.lang.
          * @param cursorString non-null if get next page
 	 * @return a Page of DmContacts for the specified email
 	 */
-	public final CursorPage<DmContact, java.lang.String> queryPageByEmail(java.lang.String email,
+	public final CursorPage<DmContact> queryPageByEmail(java.lang.String email,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_EMAIL, email);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -654,7 +654,7 @@ public class GeneratedDmContactDaoImpl extends TypeDaoImpl<DmContact, java.lang.
          * @param cursorString non-null if get next page
 	 * @return a Page of DmContacts for the specified firstName
 	 */
-	public final CursorPage<DmContact, java.lang.String> queryPageByFirstName(java.lang.String firstName,
+	public final CursorPage<DmContact> queryPageByFirstName(java.lang.String firstName,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_FIRSTNAME, firstName);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -686,7 +686,7 @@ public class GeneratedDmContactDaoImpl extends TypeDaoImpl<DmContact, java.lang.
          * @param cursorString non-null if get next page
 	 * @return a Page of DmContacts for the specified lastName
 	 */
-	public final CursorPage<DmContact, java.lang.String> queryPageByLastName(java.lang.String lastName,
+	public final CursorPage<DmContact> queryPageByLastName(java.lang.String lastName,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_LASTNAME, lastName);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -718,7 +718,7 @@ public class GeneratedDmContactDaoImpl extends TypeDaoImpl<DmContact, java.lang.
          * @param cursorString non-null if get next page
 	 * @return a Page of DmContacts for the specified mobilePhone
 	 */
-	public final CursorPage<DmContact, java.lang.String> queryPageByMobilePhone(java.lang.String mobilePhone,
+	public final CursorPage<DmContact> queryPageByMobilePhone(java.lang.String mobilePhone,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_MOBILEPHONE, mobilePhone);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -750,7 +750,7 @@ public class GeneratedDmContactDaoImpl extends TypeDaoImpl<DmContact, java.lang.
          * @param cursorString non-null if get next page
 	 * @return a Page of DmContacts for the specified name
 	 */
-	public final CursorPage<DmContact, java.lang.String> queryPageByName(java.lang.String name,
+	public final CursorPage<DmContact> queryPageByName(java.lang.String name,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_NAME, name);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -782,7 +782,7 @@ public class GeneratedDmContactDaoImpl extends TypeDaoImpl<DmContact, java.lang.
          * @param cursorString non-null if get next page
 	 * @return a Page of DmContacts for the specified phone
 	 */
-	public final CursorPage<DmContact, java.lang.String> queryPageByPhone(java.lang.String phone,
+	public final CursorPage<DmContact> queryPageByPhone(java.lang.String phone,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_PHONE, phone);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -814,7 +814,7 @@ public class GeneratedDmContactDaoImpl extends TypeDaoImpl<DmContact, java.lang.
          * @param cursorString non-null if get next page
 	 * @return a Page of DmContacts for the specified postalCode
 	 */
-	public final CursorPage<DmContact, java.lang.String> queryPageByPostalCode(java.lang.String postalCode,
+	public final CursorPage<DmContact> queryPageByPostalCode(java.lang.String postalCode,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_POSTALCODE, postalCode);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -846,7 +846,7 @@ public class GeneratedDmContactDaoImpl extends TypeDaoImpl<DmContact, java.lang.
          * @param cursorString non-null if get next page
 	 * @return a Page of DmContacts for the specified street
 	 */
-	public final CursorPage<DmContact, java.lang.String> queryPageByStreet(java.lang.String street,
+	public final CursorPage<DmContact> queryPageByStreet(java.lang.String street,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_STREET, street);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -878,7 +878,7 @@ public class GeneratedDmContactDaoImpl extends TypeDaoImpl<DmContact, java.lang.
          * @param cursorString non-null if get next page
 	 * @return a Page of DmContacts for the specified updatedBy
 	 */
-	public final CursorPage<DmContact, java.lang.String> queryPageByUpdatedBy(java.lang.String updatedBy,
+	public final CursorPage<DmContact> queryPageByUpdatedBy(java.lang.String updatedBy,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_UPDATEDBY, updatedBy);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -910,7 +910,7 @@ public class GeneratedDmContactDaoImpl extends TypeDaoImpl<DmContact, java.lang.
          * @param cursorString non-null if get next page
 	 * @return a Page of DmContacts for the specified updatedDate
 	 */
-	public final CursorPage<DmContact, java.lang.String> queryPageByUpdatedDate(java.util.Date updatedDate,
+	public final CursorPage<DmContact> queryPageByUpdatedDate(java.util.Date updatedDate,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_UPDATEDDATE, updatedDate);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);

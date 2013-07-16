@@ -398,7 +398,7 @@ public class GeneratedDmAccountDaoImpl extends TypeDaoImpl<DmAccount, java.lang.
          * @param cursorString non-null if get next page
 	 * @return a Page of DmAccounts for the specified billingCity
 	 */
-	public final CursorPage<DmAccount, java.lang.String> queryPageByBillingCity(java.lang.String billingCity,
+	public final CursorPage<DmAccount> queryPageByBillingCity(java.lang.String billingCity,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_BILLINGCITY, billingCity);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -430,7 +430,7 @@ public class GeneratedDmAccountDaoImpl extends TypeDaoImpl<DmAccount, java.lang.
          * @param cursorString non-null if get next page
 	 * @return a Page of DmAccounts for the specified billingCountry
 	 */
-	public final CursorPage<DmAccount, java.lang.String> queryPageByBillingCountry(java.lang.String billingCountry,
+	public final CursorPage<DmAccount> queryPageByBillingCountry(java.lang.String billingCountry,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_BILLINGCOUNTRY, billingCountry);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -462,7 +462,7 @@ public class GeneratedDmAccountDaoImpl extends TypeDaoImpl<DmAccount, java.lang.
          * @param cursorString non-null if get next page
 	 * @return a Page of DmAccounts for the specified billingPostalCode
 	 */
-	public final CursorPage<DmAccount, java.lang.String> queryPageByBillingPostalCode(java.lang.String billingPostalCode,
+	public final CursorPage<DmAccount> queryPageByBillingPostalCode(java.lang.String billingPostalCode,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_BILLINGPOSTALCODE, billingPostalCode);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -494,7 +494,7 @@ public class GeneratedDmAccountDaoImpl extends TypeDaoImpl<DmAccount, java.lang.
          * @param cursorString non-null if get next page
 	 * @return a Page of DmAccounts for the specified billingState
 	 */
-	public final CursorPage<DmAccount, java.lang.String> queryPageByBillingState(java.lang.String billingState,
+	public final CursorPage<DmAccount> queryPageByBillingState(java.lang.String billingState,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_BILLINGSTATE, billingState);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -526,7 +526,7 @@ public class GeneratedDmAccountDaoImpl extends TypeDaoImpl<DmAccount, java.lang.
          * @param cursorString non-null if get next page
 	 * @return a Page of DmAccounts for the specified billingStreet
 	 */
-	public final CursorPage<DmAccount, java.lang.String> queryPageByBillingStreet(java.lang.String billingStreet,
+	public final CursorPage<DmAccount> queryPageByBillingStreet(java.lang.String billingStreet,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_BILLINGSTREET, billingStreet);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -558,7 +558,7 @@ public class GeneratedDmAccountDaoImpl extends TypeDaoImpl<DmAccount, java.lang.
          * @param cursorString non-null if get next page
 	 * @return a Page of DmAccounts for the specified createdBy
 	 */
-	public final CursorPage<DmAccount, java.lang.String> queryPageByCreatedBy(java.lang.String createdBy,
+	public final CursorPage<DmAccount> queryPageByCreatedBy(java.lang.String createdBy,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_CREATEDBY, createdBy);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -590,7 +590,7 @@ public class GeneratedDmAccountDaoImpl extends TypeDaoImpl<DmAccount, java.lang.
          * @param cursorString non-null if get next page
 	 * @return a Page of DmAccounts for the specified createdDate
 	 */
-	public final CursorPage<DmAccount, java.lang.String> queryPageByCreatedDate(java.util.Date createdDate,
+	public final CursorPage<DmAccount> queryPageByCreatedDate(java.util.Date createdDate,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_CREATEDDATE, createdDate);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -622,7 +622,7 @@ public class GeneratedDmAccountDaoImpl extends TypeDaoImpl<DmAccount, java.lang.
          * @param cursorString non-null if get next page
 	 * @return a Page of DmAccounts for the specified name
 	 */
-	public final CursorPage<DmAccount, java.lang.String> queryPageByName(java.lang.String name,
+	public final CursorPage<DmAccount> queryPageByName(java.lang.String name,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_NAME, name);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -654,7 +654,7 @@ public class GeneratedDmAccountDaoImpl extends TypeDaoImpl<DmAccount, java.lang.
          * @param cursorString non-null if get next page
 	 * @return a Page of DmAccounts for the specified phone
 	 */
-	public final CursorPage<DmAccount, java.lang.String> queryPageByPhone(java.lang.String phone,
+	public final CursorPage<DmAccount> queryPageByPhone(java.lang.String phone,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_PHONE, phone);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -686,7 +686,7 @@ public class GeneratedDmAccountDaoImpl extends TypeDaoImpl<DmAccount, java.lang.
          * @param cursorString non-null if get next page
 	 * @return a Page of DmAccounts for the specified shippingCity
 	 */
-	public final CursorPage<DmAccount, java.lang.String> queryPageByShippingCity(java.lang.String shippingCity,
+	public final CursorPage<DmAccount> queryPageByShippingCity(java.lang.String shippingCity,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_SHIPPINGCITY, shippingCity);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -718,7 +718,7 @@ public class GeneratedDmAccountDaoImpl extends TypeDaoImpl<DmAccount, java.lang.
          * @param cursorString non-null if get next page
 	 * @return a Page of DmAccounts for the specified shippingCountry
 	 */
-	public final CursorPage<DmAccount, java.lang.String> queryPageByShippingCountry(java.lang.String shippingCountry,
+	public final CursorPage<DmAccount> queryPageByShippingCountry(java.lang.String shippingCountry,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_SHIPPINGCOUNTRY, shippingCountry);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -750,7 +750,7 @@ public class GeneratedDmAccountDaoImpl extends TypeDaoImpl<DmAccount, java.lang.
          * @param cursorString non-null if get next page
 	 * @return a Page of DmAccounts for the specified shippingPostalCode
 	 */
-	public final CursorPage<DmAccount, java.lang.String> queryPageByShippingPostalCode(java.lang.String shippingPostalCode,
+	public final CursorPage<DmAccount> queryPageByShippingPostalCode(java.lang.String shippingPostalCode,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_SHIPPINGPOSTALCODE, shippingPostalCode);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -782,7 +782,7 @@ public class GeneratedDmAccountDaoImpl extends TypeDaoImpl<DmAccount, java.lang.
          * @param cursorString non-null if get next page
 	 * @return a Page of DmAccounts for the specified shippingState
 	 */
-	public final CursorPage<DmAccount, java.lang.String> queryPageByShippingState(java.lang.String shippingState,
+	public final CursorPage<DmAccount> queryPageByShippingState(java.lang.String shippingState,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_SHIPPINGSTATE, shippingState);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -814,7 +814,7 @@ public class GeneratedDmAccountDaoImpl extends TypeDaoImpl<DmAccount, java.lang.
          * @param cursorString non-null if get next page
 	 * @return a Page of DmAccounts for the specified shippingStreet
 	 */
-	public final CursorPage<DmAccount, java.lang.String> queryPageByShippingStreet(java.lang.String shippingStreet,
+	public final CursorPage<DmAccount> queryPageByShippingStreet(java.lang.String shippingStreet,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_SHIPPINGSTREET, shippingStreet);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -846,7 +846,7 @@ public class GeneratedDmAccountDaoImpl extends TypeDaoImpl<DmAccount, java.lang.
          * @param cursorString non-null if get next page
 	 * @return a Page of DmAccounts for the specified updatedBy
 	 */
-	public final CursorPage<DmAccount, java.lang.String> queryPageByUpdatedBy(java.lang.String updatedBy,
+	public final CursorPage<DmAccount> queryPageByUpdatedBy(java.lang.String updatedBy,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_UPDATEDBY, updatedBy);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -878,7 +878,7 @@ public class GeneratedDmAccountDaoImpl extends TypeDaoImpl<DmAccount, java.lang.
          * @param cursorString non-null if get next page
 	 * @return a Page of DmAccounts for the specified updatedDate
 	 */
-	public final CursorPage<DmAccount, java.lang.String> queryPageByUpdatedDate(java.util.Date updatedDate,
+	public final CursorPage<DmAccount> queryPageByUpdatedDate(java.util.Date updatedDate,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_UPDATEDDATE, updatedDate);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -910,7 +910,7 @@ public class GeneratedDmAccountDaoImpl extends TypeDaoImpl<DmAccount, java.lang.
          * @param cursorString non-null if get next page
 	 * @return a Page of DmAccounts for the specified wwwUrl
 	 */
-	public final CursorPage<DmAccount, java.lang.String> queryPageByWwwUrl(java.lang.String wwwUrl,
+	public final CursorPage<DmAccount> queryPageByWwwUrl(java.lang.String wwwUrl,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_WWWURL, wwwUrl);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
