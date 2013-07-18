@@ -42,16 +42,16 @@ public class TaskController extends CrudController<JTask, DsTask, String, CrudSe
     @Override
     public void convertDomain(DsTask from, JTask to) {
         convertStringEntity(from, to);
+
         to.setDueDate(toLong(from.getDueDate()));
-        to.setMeetingSynchId(from.getMeetingSyncId());
         to.setTitle(from.getTitle());
     }
 
     @Override
     public void convertJson(JTask from, DsTask to) {
         convertJString(from, to);
+
         to.setDueDate(toDate(from.getDueDate()));
-        to.setMeetingSyncId(from.getMeetingSynchId());
         to.setTitle(from.getTitle());
     }
 

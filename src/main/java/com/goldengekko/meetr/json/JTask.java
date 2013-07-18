@@ -29,28 +29,10 @@ public class JTask extends JBaseObject {
 
     private String title;
 
-    private String meetingSynchId;
-
     private Long dueDate;
-
-    public String getTitle() {
-        return title;
-    }
 
 
     // Setters and getters
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getMeetingSynchId() {
-        return meetingSynchId;
-    }
-
-    public void setMeetingSynchId(String meetingSynchId) {
-        this.meetingSynchId = meetingSynchId;
-    }
 
     public Long getDueDate() {
         return dueDate;
@@ -60,4 +42,11 @@ public class JTask extends JBaseObject {
         this.dueDate = dueDate;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 }

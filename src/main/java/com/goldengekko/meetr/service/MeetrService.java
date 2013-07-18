@@ -120,7 +120,7 @@ public class MeetrService extends CrudListenerAdapter {
             public void run() {
                 DsTask t = new DsTask();
                 t.setDueDate(new Date(1368763200000L));
-                t.setMeetingId("4242");
+//                t.setMeetingId("4242");
                 t.setTitle("A dev Task");
                 taskService.create(t);
             }

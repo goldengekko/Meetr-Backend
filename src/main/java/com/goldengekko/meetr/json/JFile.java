@@ -29,15 +29,11 @@ import java.util.Collection;
  */
 public class JFile extends JBaseObject {
 
-    private String synchId;
-
     private String name;
 
     private String externalId;
 
     private String externalSource;
-
-    private Collection<String> meetingSynchIds;
 
 
     // Setters and getters
@@ -58,14 +54,6 @@ public class JFile extends JBaseObject {
         this.externalSource = externalSource;
     }
 
-    public Collection<String> getMeetingSynchIds() {
-        return meetingSynchIds;
-    }
-
-    public void setMeetingSynchIds(Collection<String> meetingSynchIds) {
-        this.meetingSynchIds = meetingSynchIds;
-    }
-
     public String getName() {
         return name;
     }
@@ -73,13 +61,4 @@ public class JFile extends JBaseObject {
     public void setName(String name) {
         this.name = name;
     }
-
-    public String getSynchId() {
-        return synchId;
-    }
-
-    public void setSynchId(String synchId) {
-        this.synchId = synchId;
-    }
-
 }

@@ -39,9 +39,11 @@ public class MeetrSecurityConfig implements SecurityConfig {
     
     public void init() {
         Collection<Map.Entry<String, Collection<String>>> oauthWhitelist = WHITELIST_BUILDER
-            .with("\\A/api/[^/]+/federated/v", GET, POST)
-            .add("\\A/api/dev/meeting", GET, POST, DELETE)
-            .add("\\A/api/dev/task", GET, POST, DELETE)
+                .with("\\A/api/[^/]+/federated/v", GET, POST)
+                .add("\\A/api/dev/meeting", GET, POST, DELETE)
+                .add("\\A/api/dev/agenda", GET, POST, DELETE)
+                .add("\\A/api/dev/file", GET, POST, DELETE)
+                .add("\\A/api/dev/task", GET, POST, DELETE)
             .build();
 
         oauth2Interceptor.setWhitelistedMethods(oauthWhitelist);

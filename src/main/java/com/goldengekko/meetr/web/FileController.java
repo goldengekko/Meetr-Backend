@@ -41,15 +41,19 @@ public class FileController extends CrudController<JFile, DmFile, Long, CrudServ
     @Override
     public void convertDomain(DmFile from, JFile to) {
         convertLongEntity(from, to);
-        to.setExtRef(from.getExtRef());
+
         to.setName(from.getName());
+        to.setExternalSource(from.getExternalSource());
+        to.setExternalId(from.getExternalId());
     }
 
     @Override
     public void convertJson(JFile from, DmFile to) {
         convertJLong(from, to);
-        to.setExtRef(from.getExtRef());
+
         to.setName(from.getName());
+        to.setExternalSource(from.getExternalSource());
+        to.setExternalId(from.getExternalId());
     }
 
 }

@@ -12,7 +12,7 @@ import net.sf.mardao.core.geo.DLocation;
 /**
  * DAO interface with finder methods for DmAgendaItem entities.
  *
- * Generated on 2013-07-15T22:26:05.765+0200.
+ * Generated on 2013-07-18T10:23:37.942+0200.
  * @author mardao DAO generator (net.sf.mardao.plugin.ProcessDomainMojo)
  */
 public interface GeneratedDmAgendaItemDao extends Dao<DmAgendaItem, java.lang.Long> {
@@ -27,8 +27,6 @@ public interface GeneratedDmAgendaItemDao extends Dao<DmAgendaItem, java.lang.Lo
 	static final String COLUMN_NAME_CREATEDDATE = "createdDate";
 	/** Column name for field isDone is "isDone" */
 	static final String COLUMN_NAME_ISDONE = "isDone";
-	/** Column name for field meetingId is "meetingId" */
-	static final String COLUMN_NAME_MEETINGID = "meetingId";
 	/** Column name for field title is "title" */
 	static final String COLUMN_NAME_TITLE = "title";
 	/** Column name for field updatedBy is "updatedBy" */
@@ -40,7 +38,6 @@ public interface GeneratedDmAgendaItemDao extends Dao<DmAgendaItem, java.lang.Lo
 	static final List<String> COLUMN_NAMES = Arrays.asList(		COLUMN_NAME_CREATEDBY,
 		COLUMN_NAME_CREATEDDATE,
 		COLUMN_NAME_ISDONE,
-		COLUMN_NAME_MEETINGID,
 		COLUMN_NAME_TITLE,
 		COLUMN_NAME_UPDATEDBY,
 		COLUMN_NAME_UPDATEDDATE);
@@ -48,7 +45,6 @@ public interface GeneratedDmAgendaItemDao extends Dao<DmAgendaItem, java.lang.Lo
 	static final List<String> BASIC_NAMES = Arrays.asList(		COLUMN_NAME_CREATEDBY,
 		COLUMN_NAME_CREATEDDATE,
 		COLUMN_NAME_ISDONE,
-		COLUMN_NAME_MEETINGID,
 		COLUMN_NAME_TITLE,
 		COLUMN_NAME_UPDATEDBY,
 		COLUMN_NAME_UPDATEDDATE);
@@ -129,31 +125,6 @@ public interface GeneratedDmAgendaItemDao extends Dao<DmAgendaItem, java.lang.Lo
 	 * @return a Page of DmAgendaItems for the specified isDone
 	 */
 	CursorPage<DmAgendaItem, java.lang.Long> queryPageByIsDone(java.lang.Boolean isDone,
-            int pageSize, String cursorString);
-
-
-	/**
-	 * query-by method for field meetingId
-	 * @param meetingId the specified attribute
-	 * @return an Iterable of DmAgendaItems for the specified meetingId
-	 */
-	Iterable<DmAgendaItem> queryByMeetingId(java.lang.String meetingId);
-		
-	/**
-	 * query-keys-by method for field meetingId
-	 * @param meetingId the specified attribute
-	 * @return an Iterable of DmAgendaItems for the specified meetingId
-	 */
-	Iterable<java.lang.Long> queryKeysByMeetingId(java.lang.String meetingId);
-
-	/**
-	 * query-page-by method for field meetingId
-	 * @param meetingId the specified attribute
-         * @param pageSize the number of domain entities in the page
-         * @param cursorString non-null if get next page
-	 * @return a Page of DmAgendaItems for the specified meetingId
-	 */
-	CursorPage<DmAgendaItem, java.lang.Long> queryPageByMeetingId(java.lang.String meetingId,
             int pageSize, String cursorString);
 
 
@@ -249,7 +220,6 @@ public interface GeneratedDmAgendaItemDao extends Dao<DmAgendaItem, java.lang.Lo
 	 */
 	DmAgendaItem persist(		java.lang.Long id, 
 		java.lang.Boolean isDone, 
-		java.lang.String meetingId, 
 		java.lang.String title);	
 
 }

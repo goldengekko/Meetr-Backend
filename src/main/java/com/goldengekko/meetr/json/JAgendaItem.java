@@ -27,39 +27,19 @@ import com.wadpam.open.json.JBaseObject;
  */
 public class JAgendaItem extends JBaseObject {
 
-    private String synchId;
-
     private String title;
 
     private Boolean isDone;
 
-    private String meetingSynchId;
-
 
     // Getters and setters
 
-    public Boolean getDone() {
+    public Boolean getIsDone() {
         return isDone;
     }
 
-    public void setDone(Boolean done) {
+    public void setIsDone(Boolean done) {
         isDone = done;
-    }
-
-    public String getMeetingSynchId() {
-        return meetingSynchId;
-    }
-
-    public void setMeetingSynchId(String meetingSynchId) {
-        this.meetingSynchId = meetingSynchId;
-    }
-
-    public String getSynchId() {
-        return synchId;
-    }
-
-    public void setSynchId(String synchId) {
-        this.synchId = synchId;
     }
 
     public String getTitle() {
@@ -69,4 +49,5 @@ public class JAgendaItem extends JBaseObject {
     public void setTitle(String title) {
         this.title = title;
     }
+
 }

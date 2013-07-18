@@ -43,20 +43,16 @@ public class AgendaItemController extends
     public void convertDomain(DmAgendaItem from, JAgendaItem to) {
         convertLongEntity(from, to);
 
-        to.setSynchId(from.getSynchId());
         to.setTitle(from.getTitle());
-        to.setDone(from.getDone());
-        to.setMeetingSynchId(from.getMeetingSynchId());
+        to.setIsDone(from.getIsDone());
     }
 
     @Override
     public void convertJson(JAgendaItem from, DmAgendaItem to) {
         convertJLong(from, to);
 
-        to.setSynchId(from.getSynchId());
         to.setTitle(from.getTitle());
-        to.setDone(from.getDone());
-        to.setMeetingSynchId(from.getMeetingSynchId());
+        to.setIsDone(from.getIsDone());
     }
 
 }

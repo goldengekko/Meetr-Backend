@@ -59,7 +59,7 @@ public class DatastoreTaskService extends
         convertLongEntity(from, to);
 
         to.setDueDate(from.getDueDate());
-        to.setMeetingId(from.getMeetingId());
+//        to.setMeetingId(from.getMeetingId());
         to.setTitle(from.getTitle());
     }
 
@@ -69,7 +69,7 @@ public class DatastoreTaskService extends
         to.setId(from.getId());
         
         to.setDueDate(from.getDueDate());
-        to.setMeetingId(from.getMeetingId());
+//        to.setMeetingId(from.getMeetingId());
         to.setTitle(from.getTitle());
     }
 

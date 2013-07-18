@@ -24,6 +24,7 @@ import com.goldengekko.meetr.json.JMeeting;
 import com.google.appengine.api.datastore.GeoPt;
 import com.wadpam.open.mvc.CrudController;
 import com.wadpam.open.mvc.CrudService;
+import net.sf.mardao.core.geo.DLocation;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -41,18 +42,15 @@ public class MeetingController extends CrudController<JMeeting, DmMeeting, Long,
     public void convertDomain(DmMeeting from, JMeeting to) {
         convertLongEntity(from, to);
 
-        // Synch
-        to.setSynchId(from.getSynchId());
-
         // Meeting details
         to.setTitle(from.getTitle());
         to.setMeetingType(from.getMeetingType());
         to.setOrganizerId(from.getOrganizerId());
         to.setCompanyName(from.getCompanyName());
-        to.setCompanySynchId(from.getCompanySynchId());
+        to.setCompanyId(from.getCompanyId());
         to.setLocationId((from.getLocationId()));
         to.setAttendeeNames(from.getAttendeeNames());
-        to.setAttendeeSynchIds(from.getAttendeeSynchIds());
+        to.setAttendeeIds(from.getAttendeeIds());
         to.setStartDate(toLong(from.getStartDate()));
         to.setEndDate(toLong(from.getEndDate()));
         to.setRepeatMode(from.getRepeatMode());
@@ -62,19 +60,19 @@ public class MeetingController extends CrudController<JMeeting, DmMeeting, Long,
         to.setAlertOffsetInMinutes(from.getAlertOffsetInMinutes());
         to.setPhoneNumber(from.getPhoneNumber());
         to.setAddress(from.getAddress());
-        if (null != from.getLocation()) {
-            to.setLatitude(from.getLocation().getLatitude());
-            to.setLongitude(from.getLocation().getLongitude());
+        if (null != from.getMeetingLocation()) {
+            to.setLatitude(from.getMeetingLocation().getLatitude());
+            to.setLongitude(from.getMeetingLocation().getLongitude());
         }
         to.setDetailsNotes(from.getDetailsNotes());
         to.setImageUrl(from.getImageUrl());
 
         // Agenda items
-        to.setAgendaItemSynchIds(from.getAgendaItemSynchIds());
+        to.setAgendaItemIds(from.getAgendaItemIds());
 
         // Documents and files
         to.setFileNames(from.getFileNames());
-        to.setFileSynchIds(from.getFileSynchIds());
+        to.setFileIds(from.getFileIds());
 
         // Notes
         to.setNotes(from.getNotes());
@@ -83,25 +81,22 @@ public class MeetingController extends CrudController<JMeeting, DmMeeting, Long,
         to.setFollowUpLastSentDate(toLong(from.getFollowUpLastSentDate()));
         to.setFollowUpNotes(from.getFollowUpNotes());
         to.setFollowUpIncludeAgenda(from.getFollowUpIncludeAgenda());
-        to.setFollowUpFileSynchIds(from.getFollowUpFileSynchIds());
+        to.setFollowUpFileIds(from.getFollowUpFileIds());
     }
 
     @Override
     public void convertJson(JMeeting from, DmMeeting to) {
         convertJLong(from, to);
 
-        // Synch
-        to.setSynchId(from.getSynchId());
-
         // Meeting details
         to.setTitle(from.getTitle());
         to.setMeetingType(from.getMeetingType());
         to.setOrganizerId(from.getOrganizerId());
         to.setCompanyName(from.getCompanyName());
-        to.setCompanySynchId(from.getCompanySynchId());
+        to.setCompanyId(from.getCompanyId());
         to.setLocationId((from.getLocationId()));
         to.setAttendeeNames(from.getAttendeeNames());
-        to.setAttendeeSynchIds(from.getAttendeeSynchIds());
+        to.setAttendeeIds(from.getAttendeeIds());
         to.setStartDate(toDate(from.getStartDate()));
         to.setEndDate(toDate(from.getEndDate()));
         to.setRepeatMode(from.getRepeatMode());
@@ -112,17 +107,17 @@ public class MeetingController extends CrudController<JMeeting, DmMeeting, Long,
         to.setPhoneNumber(from.getPhoneNumber());
         to.setAddress(from.getAddress());
         if (null != from.getLatitude() && null != from.getLongitude()) {
-            to.setLocation(new GeoPt(from.getLatitude(), from.getLongitude()));
+            to.setMeetingLocation(new DLocation(from.getLatitude(),from.getLongitude()));
         }
         to.setDetailsNotes(from.getDetailsNotes());
         to.setImageUrl(from.getImageUrl());
 
         // Agenda items
-        to.setAgendaItemSynchIds(from.getAgendaItemSynchIds());
+        to.setAgendaItemIds(from.getAgendaItemIds());
 
         // Documents and files
         to.setFileNames(from.getFileNames());
-        to.setFileSynchIds(from.getFileSynchIds());
+        to.setFileIds(from.getFileIds());
 
         // Notes
         to.setNotes(from.getNotes());
@@ -131,7 +126,7 @@ public class MeetingController extends CrudController<JMeeting, DmMeeting, Long,
         to.setFollowUpLastSentDate(toDate(from.getFollowUpLastSentDate()));
         to.setFollowUpNotes(from.getFollowUpNotes());
         to.setFollowUpIncludeAgenda(from.getFollowUpIncludeAgenda());
-        to.setFollowUpFileSynchIds(from.getFollowUpFileSynchIds());
+        to.setFollowUpFileIds(from.getFollowUpFileIds());
     }
 
 }

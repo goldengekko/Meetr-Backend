@@ -31,9 +31,6 @@ import java.util.Collection;
  */
 @Entity
 public class DmFile extends AbstractLongEntity {
-
-    @Basic
-    private String synchId;
     
     @Basic
     private String name;
@@ -43,9 +40,6 @@ public class DmFile extends AbstractLongEntity {
 
     @Basic
     private String externalSource;
-
-    @Basic
-    Collection<String> meetingSynchIds;
 
 
     // Setters and getters
@@ -58,22 +52,6 @@ public class DmFile extends AbstractLongEntity {
         this.externalId = externalId;
     }
 
-    public Collection<String> getMeetingSynchIds() {
-        return meetingSynchIds;
-    }
-
-    public void setMeetingSynchIds(Collection<String> meetingSynchIds) {
-        this.meetingSynchIds = meetingSynchIds;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getExternalSource() {
         return externalSource;
     }
@@ -82,11 +60,11 @@ public class DmFile extends AbstractLongEntity {
         this.externalSource = externalSource;
     }
 
-    public String getSynchId() {
-        return synchId;
+    public String getName() {
+        return name;
     }
 
-    public void setSynchId(String synchId) {
-        this.synchId = synchId;
+    public void setName(String name) {
+        this.name = name;
     }
 }

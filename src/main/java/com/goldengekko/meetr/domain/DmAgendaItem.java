@@ -31,42 +31,20 @@ import net.sf.mardao.core.domain.AbstractLongEntity;
 public class DmAgendaItem extends AbstractLongEntity {
 
     @Basic
-    private String synchId;
-
-    @Basic
     private String title;
 
     @Basic
     private Boolean isDone;
 
-    @Basic
-    private String meetingSynchId;
-
 
     // Setters and getters
 
-    public Boolean getDone() {
+    public Boolean getIsDone() {
         return isDone;
     }
 
-    public void setDone(Boolean done) {
+    public void setIsDone(Boolean done) {
         isDone = done;
-    }
-
-    public String getMeetingSynchId() {
-        return meetingSynchId;
-    }
-
-    public void setMeetingSynchId(String meetingSynchId) {
-        this.meetingSynchId = meetingSynchId;
-    }
-
-    public String getSynchId() {
-        return synchId;
-    }
-
-    public void setSynchId(String synchId) {
-        this.synchId = synchId;
     }
 
     public String getTitle() {

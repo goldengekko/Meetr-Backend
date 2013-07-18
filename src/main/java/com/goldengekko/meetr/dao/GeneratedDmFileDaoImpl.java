@@ -20,7 +20,7 @@ import com.goldengekko.meetr.domain.DmFile;
 /**
  * The DmFile domain-object specific finders and methods go in this POJO.
  * 
- * Generated on 2013-07-15T22:26:05.765+0200.
+ * Generated on 2013-07-18T10:23:37.942+0200.
  * @author mardao DAO generator (net.sf.mardao.plugin.ProcessDomainMojo)
  */
 public class GeneratedDmFileDaoImpl extends TypeDaoImpl<DmFile, java.lang.Long> 
@@ -75,8 +75,11 @@ public class GeneratedDmFileDaoImpl extends TypeDaoImpl<DmFile, java.lang.Long>
         else if (COLUMN_NAME_CREATEDDATE.equals(name)) {
             value = domain.getCreatedDate();
         }
-        else if (COLUMN_NAME_EXTREF.equals(name)) {
-            value = domain.getExtRef();
+        else if (COLUMN_NAME_EXTERNALID.equals(name)) {
+            value = domain.getExternalId();
+        }
+        else if (COLUMN_NAME_EXTERNALSOURCE.equals(name)) {
+            value = domain.getExternalSource();
         }
         else if (COLUMN_NAME_NAME.equals(name)) {
             value = domain.getName();
@@ -115,7 +118,10 @@ public class GeneratedDmFileDaoImpl extends TypeDaoImpl<DmFile, java.lang.Long>
         else if (COLUMN_NAME_CREATEDDATE.equals(name)) {
             clazz = java.util.Date.class;
         }
-        else if (COLUMN_NAME_EXTREF.equals(name)) {
+        else if (COLUMN_NAME_EXTERNALID.equals(name)) {
+            clazz = java.lang.String.class;
+        }
+        else if (COLUMN_NAME_EXTERNALSOURCE.equals(name)) {
             clazz = java.lang.String.class;
         }
         else if (COLUMN_NAME_NAME.equals(name)) {
@@ -150,8 +156,11 @@ public class GeneratedDmFileDaoImpl extends TypeDaoImpl<DmFile, java.lang.Long>
         else if (COLUMN_NAME_CREATEDDATE.equals(name)) {
             domain.setCreatedDate((java.util.Date) value);
         }
-        else if (COLUMN_NAME_EXTREF.equals(name)) {
-            domain.setExtRef((java.lang.String) value);
+        else if (COLUMN_NAME_EXTERNALID.equals(name)) {
+            domain.setExternalId((java.lang.String) value);
+        }
+        else if (COLUMN_NAME_EXTERNALSOURCE.equals(name)) {
+            domain.setExternalSource((java.lang.String) value);
         }
         else if (COLUMN_NAME_NAME.equals(name)) {
             domain.setName((java.lang.String) value);
@@ -341,31 +350,63 @@ public class GeneratedDmFileDaoImpl extends TypeDaoImpl<DmFile, java.lang.Long>
 	/**
          * {@inheritDoc}
 	 */
-	public final Iterable<DmFile> queryByExtRef(java.lang.String extRef) {
-            final Filter filter = createEqualsFilter(COLUMN_NAME_EXTREF, extRef);
+	public final Iterable<DmFile> queryByExternalId(java.lang.String externalId) {
+            final Filter filter = createEqualsFilter(COLUMN_NAME_EXTERNALID, externalId);
             return queryIterable(false, 0, -1, null, null, null, false, null, false, filter);
 	}
 	
 	/**
-	 * query-key-by method for attribute field extRef
-	 * @param extRef the specified attribute
+	 * query-key-by method for attribute field externalId
+	 * @param externalId the specified attribute
 	 * @return an Iterable of keys to the DmFiles with the specified attribute
 	 */
-	public final Iterable<java.lang.Long> queryKeysByExtRef(java.lang.String extRef) {
-            final Filter filter = createEqualsFilter(COLUMN_NAME_EXTREF, extRef);
+	public final Iterable<java.lang.Long> queryKeysByExternalId(java.lang.String externalId) {
+            final Filter filter = createEqualsFilter(COLUMN_NAME_EXTERNALID, externalId);
             return queryIterableKeys(0, -1, null, null, null, false, null, false, filter);
 	}
 
 	/**
-	 * query-page-by method for field extRef
-	 * @param extRef the specified attribute
+	 * query-page-by method for field externalId
+	 * @param externalId the specified attribute
          * @param pageSize the number of domain entities in the page
          * @param cursorString non-null if get next page
-	 * @return a Page of DmFiles for the specified extRef
+	 * @return a Page of DmFiles for the specified externalId
 	 */
-	public final CursorPage<DmFile, java.lang.Long> queryPageByExtRef(java.lang.String extRef,
+	public final CursorPage<DmFile, java.lang.Long> queryPageByExternalId(java.lang.String externalId,
             int pageSize, String cursorString) {
-            final Filter filter = createEqualsFilter(COLUMN_NAME_EXTREF, extRef);
+            final Filter filter = createEqualsFilter(COLUMN_NAME_EXTERNALID, externalId);
+            return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
+        }
+
+	 
+	/**
+         * {@inheritDoc}
+	 */
+	public final Iterable<DmFile> queryByExternalSource(java.lang.String externalSource) {
+            final Filter filter = createEqualsFilter(COLUMN_NAME_EXTERNALSOURCE, externalSource);
+            return queryIterable(false, 0, -1, null, null, null, false, null, false, filter);
+	}
+	
+	/**
+	 * query-key-by method for attribute field externalSource
+	 * @param externalSource the specified attribute
+	 * @return an Iterable of keys to the DmFiles with the specified attribute
+	 */
+	public final Iterable<java.lang.Long> queryKeysByExternalSource(java.lang.String externalSource) {
+            final Filter filter = createEqualsFilter(COLUMN_NAME_EXTERNALSOURCE, externalSource);
+            return queryIterableKeys(0, -1, null, null, null, false, null, false, filter);
+	}
+
+	/**
+	 * query-page-by method for field externalSource
+	 * @param externalSource the specified attribute
+         * @param pageSize the number of domain entities in the page
+         * @param cursorString non-null if get next page
+	 * @return a Page of DmFiles for the specified externalSource
+	 */
+	public final CursorPage<DmFile, java.lang.Long> queryPageByExternalSource(java.lang.String externalSource,
+            int pageSize, String cursorString) {
+            final Filter filter = createEqualsFilter(COLUMN_NAME_EXTERNALSOURCE, externalSource);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
         }
 
@@ -480,7 +521,8 @@ public class GeneratedDmFileDaoImpl extends TypeDaoImpl<DmFile, java.lang.Long>
 	 * Persist an entity given all attributes
 	 */
 	public DmFile persist(		java.lang.Long id, 
-		java.lang.String extRef, 
+		java.lang.String externalId, 
+		java.lang.String externalSource, 
 		java.lang.String name) {
 
             DmFile domain = null;
@@ -497,7 +539,8 @@ public class GeneratedDmFileDaoImpl extends TypeDaoImpl<DmFile, java.lang.Long>
                             domain.setId(id);
                     }
                     // fields
-                    domain.setExtRef(extRef);
+                    domain.setExternalId(externalId);
+                    domain.setExternalSource(externalSource);
                     domain.setName(name);
                     // one-to-ones
                     // many-to-ones

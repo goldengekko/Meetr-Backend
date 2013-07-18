@@ -85,8 +85,8 @@ public class JMeeting extends JBaseObject {
     /** The name of the company this meeting relates to */
     private String companyName;
 
-    /** Synch ref to the companyId. This id only make sense to the client */
-    private String companySynchId;
+    /** Reference to the company this meeting of organised for/with */
+    private String companyId;
 
     /** References the location this meeting took place at */
     private Long locationId;
@@ -94,8 +94,8 @@ public class JMeeting extends JBaseObject {
     /** The external attendees for this meeting */
     private Collection<String> attendeeNames;
 
-    /** The registered attendees for this meeting */
-    private Collection<String> attendeeSynchIds;
+    /** Reference to attendees for this meeting */
+    private Collection<String> attendeeIds;
 
     /** Date and time this meeting will start */
     private Long startDate;
@@ -107,10 +107,10 @@ public class JMeeting extends JBaseObject {
     private Integer repeatMode;
 
     /** Date and time this meeting is started */
-    private Long               actualStartDate;
+    private Long actualStartDate;
 
     /** Date and time this meeting is ended */
-    private Long               actualEndDate;
+    private Long actualEndDate;
 
     /** Meeting actual duration in milliseconds
      * - this cannot indicate actual start/end datetime as user may pause the meeting.*/
@@ -138,8 +138,8 @@ public class JMeeting extends JBaseObject {
 
     // Agenda Items
 
-    /** Synch ref to the agenda items. This ids only make sense to the client */
-    private Collection<String> agendaItemSynchIds;
+    /** Reference to the agenda items */
+    private Collection<String> agendaItemIds;
 
 
     // Documents and files
@@ -147,8 +147,8 @@ public class JMeeting extends JBaseObject {
     /** Files related to this meeting. */
     private Collection<String> fileNames;
 
-    /** Files related to this meeting. */
-    private Collection<String> fileSynchIds;
+    /** Reference to files related to this meeting. */
+    private Collection<String> fileIds;
 
 
     // Notes (from the meeting)
@@ -168,11 +168,13 @@ public class JMeeting extends JBaseObject {
     /** Did the follow up email include the agenda points */
     private Boolean followUpIncludeAgenda;
 
-    /** Files for follow-up related to this meeting. */
-    private Collection<String> followUpFileSynchIds;
+    /** Reference to files included in sent follow-up email */
+    private Collection<String> followUpFileIds;
 
 
     // Setters and getters
+
+
     public Long getActualDuration() {
         return actualDuration;
     }
@@ -205,12 +207,12 @@ public class JMeeting extends JBaseObject {
         this.address = address;
     }
 
-    public Collection<String> getAgendaItemSynchIds() {
-        return agendaItemSynchIds;
+    public Collection<String> getAgendaItemIds() {
+        return agendaItemIds;
     }
 
-    public void setAgendaItemSynchIds(Collection<String> agendaItemSynchIds) {
-        this.agendaItemSynchIds = agendaItemSynchIds;
+    public void setAgendaItemIds(Collection<String> agendaItemIds) {
+        this.agendaItemIds = agendaItemIds;
     }
 
     public Integer getAlertOffsetInMinutes() {
@@ -221,6 +223,14 @@ public class JMeeting extends JBaseObject {
         this.alertOffsetInMinutes = alertOffsetInMinutes;
     }
 
+    public Collection<String> getAttendeeIds() {
+        return attendeeIds;
+    }
+
+    public void setAttendeeIds(Collection<String> attendeeIds) {
+        this.attendeeIds = attendeeIds;
+    }
+
     public Collection<String> getAttendeeNames() {
         return attendeeNames;
     }
@@ -229,12 +239,12 @@ public class JMeeting extends JBaseObject {
         this.attendeeNames = attendeeNames;
     }
 
-    public Collection<String> getAttendeeSynchIds() {
-        return attendeeSynchIds;
+    public String getCompanyId() {
+        return companyId;
     }
 
-    public void setAttendeeSynchIds(Collection<String> attendeeSynchIds) {
-        this.attendeeSynchIds = attendeeSynchIds;
+    public void setCompanyId(String companyId) {
+        this.companyId = companyId;
     }
 
     public String getCompanyName() {
@@ -243,14 +253,6 @@ public class JMeeting extends JBaseObject {
 
     public void setCompanyName(String companyName) {
         this.companyName = companyName;
-    }
-
-    public String getCompanySynchId() {
-        return companySynchId;
-    }
-
-    public void setCompanySynchId(String companySynchId) {
-        this.companySynchId = companySynchId;
     }
 
     public String getDetailsNotes() {
@@ -269,6 +271,14 @@ public class JMeeting extends JBaseObject {
         this.endDate = endDate;
     }
 
+    public Collection<String> getFileIds() {
+        return fileIds;
+    }
+
+    public void setFileIds(Collection<String> fileIds) {
+        this.fileIds = fileIds;
+    }
+
     public Collection<String> getFileNames() {
         return fileNames;
     }
@@ -277,20 +287,12 @@ public class JMeeting extends JBaseObject {
         this.fileNames = fileNames;
     }
 
-    public Collection<String> getFileSynchIds() {
-        return fileSynchIds;
+    public Collection<String> getFollowUpFileIds() {
+        return followUpFileIds;
     }
 
-    public void setFileSynchIds(Collection<String> fileSynchIds) {
-        this.fileSynchIds = fileSynchIds;
-    }
-
-    public Collection<String> getFollowUpFileSynchIds() {
-        return followUpFileSynchIds;
-    }
-
-    public void setFollowUpFileSynchIds(Collection<String> followUpFileSynchIds) {
-        this.followUpFileSynchIds = followUpFileSynchIds;
+    public void setFollowUpFileIds(Collection<String> followUpFileIds) {
+        this.followUpFileIds = followUpFileIds;
     }
 
     public Boolean getFollowUpIncludeAgenda() {
@@ -333,20 +335,20 @@ public class JMeeting extends JBaseObject {
         this.latitude = latitude;
     }
 
-    public Float getLongitude() {
-        return longitude;
-    }
-
-    public void setLongitude(Float longitude) {
-        this.longitude = longitude;
-    }
-
     public Long getLocationId() {
         return locationId;
     }
 
     public void setLocationId(Long locationId) {
         this.locationId = locationId;
+    }
+
+    public Float getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Float longitude) {
+        this.longitude = longitude;
     }
 
     public Long getMeetingType() {

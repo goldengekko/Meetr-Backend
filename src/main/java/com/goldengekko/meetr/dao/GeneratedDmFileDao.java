@@ -12,7 +12,7 @@ import net.sf.mardao.core.geo.DLocation;
 /**
  * DAO interface with finder methods for DmFile entities.
  *
- * Generated on 2013-07-15T22:26:05.765+0200.
+ * Generated on 2013-07-18T10:23:37.942+0200.
  * @author mardao DAO generator (net.sf.mardao.plugin.ProcessDomainMojo)
  */
 public interface GeneratedDmFileDao extends Dao<DmFile, java.lang.Long> {
@@ -25,8 +25,10 @@ public interface GeneratedDmFileDao extends Dao<DmFile, java.lang.Long> {
 	static final String COLUMN_NAME_CREATEDBY = "createdBy";
 	/** Column name for field createdDate is "createdDate" */
 	static final String COLUMN_NAME_CREATEDDATE = "createdDate";
-	/** Column name for field extRef is "extRef" */
-	static final String COLUMN_NAME_EXTREF = "extRef";
+	/** Column name for field externalId is "externalId" */
+	static final String COLUMN_NAME_EXTERNALID = "externalId";
+	/** Column name for field externalSource is "externalSource" */
+	static final String COLUMN_NAME_EXTERNALSOURCE = "externalSource";
 	/** Column name for field name is "name" */
 	static final String COLUMN_NAME_NAME = "name";
 	/** Column name for field updatedBy is "updatedBy" */
@@ -37,14 +39,16 @@ public interface GeneratedDmFileDao extends Dao<DmFile, java.lang.Long> {
 	/** The list of attribute names */
 	static final List<String> COLUMN_NAMES = Arrays.asList(		COLUMN_NAME_CREATEDBY,
 		COLUMN_NAME_CREATEDDATE,
-		COLUMN_NAME_EXTREF,
+		COLUMN_NAME_EXTERNALID,
+		COLUMN_NAME_EXTERNALSOURCE,
 		COLUMN_NAME_NAME,
 		COLUMN_NAME_UPDATEDBY,
 		COLUMN_NAME_UPDATEDDATE);
 	/** The list of Basic attribute names */
 	static final List<String> BASIC_NAMES = Arrays.asList(		COLUMN_NAME_CREATEDBY,
 		COLUMN_NAME_CREATEDDATE,
-		COLUMN_NAME_EXTREF,
+		COLUMN_NAME_EXTERNALID,
+		COLUMN_NAME_EXTERNALSOURCE,
 		COLUMN_NAME_NAME,
 		COLUMN_NAME_UPDATEDBY,
 		COLUMN_NAME_UPDATEDDATE);
@@ -104,27 +108,52 @@ public interface GeneratedDmFileDao extends Dao<DmFile, java.lang.Long> {
 
 
 	/**
-	 * query-by method for field extRef
-	 * @param extRef the specified attribute
-	 * @return an Iterable of DmFiles for the specified extRef
+	 * query-by method for field externalId
+	 * @param externalId the specified attribute
+	 * @return an Iterable of DmFiles for the specified externalId
 	 */
-	Iterable<DmFile> queryByExtRef(java.lang.String extRef);
+	Iterable<DmFile> queryByExternalId(java.lang.String externalId);
 		
 	/**
-	 * query-keys-by method for field extRef
-	 * @param extRef the specified attribute
-	 * @return an Iterable of DmFiles for the specified extRef
+	 * query-keys-by method for field externalId
+	 * @param externalId the specified attribute
+	 * @return an Iterable of DmFiles for the specified externalId
 	 */
-	Iterable<java.lang.Long> queryKeysByExtRef(java.lang.String extRef);
+	Iterable<java.lang.Long> queryKeysByExternalId(java.lang.String externalId);
 
 	/**
-	 * query-page-by method for field extRef
-	 * @param extRef the specified attribute
+	 * query-page-by method for field externalId
+	 * @param externalId the specified attribute
          * @param pageSize the number of domain entities in the page
          * @param cursorString non-null if get next page
-	 * @return a Page of DmFiles for the specified extRef
+	 * @return a Page of DmFiles for the specified externalId
 	 */
-	CursorPage<DmFile, java.lang.Long> queryPageByExtRef(java.lang.String extRef,
+	CursorPage<DmFile, java.lang.Long> queryPageByExternalId(java.lang.String externalId,
+            int pageSize, String cursorString);
+
+
+	/**
+	 * query-by method for field externalSource
+	 * @param externalSource the specified attribute
+	 * @return an Iterable of DmFiles for the specified externalSource
+	 */
+	Iterable<DmFile> queryByExternalSource(java.lang.String externalSource);
+		
+	/**
+	 * query-keys-by method for field externalSource
+	 * @param externalSource the specified attribute
+	 * @return an Iterable of DmFiles for the specified externalSource
+	 */
+	Iterable<java.lang.Long> queryKeysByExternalSource(java.lang.String externalSource);
+
+	/**
+	 * query-page-by method for field externalSource
+	 * @param externalSource the specified attribute
+         * @param pageSize the number of domain entities in the page
+         * @param cursorString non-null if get next page
+	 * @return a Page of DmFiles for the specified externalSource
+	 */
+	CursorPage<DmFile, java.lang.Long> queryPageByExternalSource(java.lang.String externalSource,
             int pageSize, String cursorString);
 
 
@@ -219,7 +248,8 @@ public interface GeneratedDmFileDao extends Dao<DmFile, java.lang.Long> {
 	 * Persist an entity given all attributes
 	 */
 	DmFile persist(		java.lang.Long id, 
-		java.lang.String extRef, 
+		java.lang.String externalId, 
+		java.lang.String externalSource, 
 		java.lang.String name);	
 
 }

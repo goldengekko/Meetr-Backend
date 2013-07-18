@@ -20,7 +20,7 @@ import com.goldengekko.meetr.domain.DmTask;
 /**
  * The DmTask domain-object specific finders and methods go in this POJO.
  * 
- * Generated on 2013-07-15T22:26:05.765+0200.
+ * Generated on 2013-07-18T10:23:37.942+0200.
  * @author mardao DAO generator (net.sf.mardao.plugin.ProcessDomainMojo)
  */
 public class GeneratedDmTaskDaoImpl extends TypeDaoImpl<DmTask, java.lang.Long> 
@@ -78,8 +78,8 @@ public class GeneratedDmTaskDaoImpl extends TypeDaoImpl<DmTask, java.lang.Long>
         else if (COLUMN_NAME_DUEDATE.equals(name)) {
             value = domain.getDueDate();
         }
-        else if (COLUMN_NAME_MEETINGID.equals(name)) {
-            value = domain.getMeetingId();
+        else if (COLUMN_NAME_MEETINGSYNCID.equals(name)) {
+            value = domain.getMeetingSyncId();
         }
         else if (COLUMN_NAME_TITLE.equals(name)) {
             value = domain.getTitle();
@@ -121,7 +121,7 @@ public class GeneratedDmTaskDaoImpl extends TypeDaoImpl<DmTask, java.lang.Long>
         else if (COLUMN_NAME_DUEDATE.equals(name)) {
             clazz = java.util.Date.class;
         }
-        else if (COLUMN_NAME_MEETINGID.equals(name)) {
+        else if (COLUMN_NAME_MEETINGSYNCID.equals(name)) {
             clazz = java.lang.String.class;
         }
         else if (COLUMN_NAME_TITLE.equals(name)) {
@@ -159,8 +159,8 @@ public class GeneratedDmTaskDaoImpl extends TypeDaoImpl<DmTask, java.lang.Long>
         else if (COLUMN_NAME_DUEDATE.equals(name)) {
             domain.setDueDate((java.util.Date) value);
         }
-        else if (COLUMN_NAME_MEETINGID.equals(name)) {
-            domain.setMeetingId((java.lang.String) value);
+        else if (COLUMN_NAME_MEETINGSYNCID.equals(name)) {
+            domain.setMeetingSyncId((java.lang.String) value);
         }
         else if (COLUMN_NAME_TITLE.equals(name)) {
             domain.setTitle((java.lang.String) value);
@@ -382,31 +382,31 @@ public class GeneratedDmTaskDaoImpl extends TypeDaoImpl<DmTask, java.lang.Long>
 	/**
          * {@inheritDoc}
 	 */
-	public final Iterable<DmTask> queryByMeetingId(java.lang.String meetingId) {
-            final Filter filter = createEqualsFilter(COLUMN_NAME_MEETINGID, meetingId);
+	public final Iterable<DmTask> queryByMeetingSyncId(java.lang.String meetingSyncId) {
+            final Filter filter = createEqualsFilter(COLUMN_NAME_MEETINGSYNCID, meetingSyncId);
             return queryIterable(false, 0, -1, null, null, null, false, null, false, filter);
 	}
 	
 	/**
-	 * query-key-by method for attribute field meetingId
-	 * @param meetingId the specified attribute
+	 * query-key-by method for attribute field meetingSyncId
+	 * @param meetingSyncId the specified attribute
 	 * @return an Iterable of keys to the DmTasks with the specified attribute
 	 */
-	public final Iterable<java.lang.Long> queryKeysByMeetingId(java.lang.String meetingId) {
-            final Filter filter = createEqualsFilter(COLUMN_NAME_MEETINGID, meetingId);
+	public final Iterable<java.lang.Long> queryKeysByMeetingSyncId(java.lang.String meetingSyncId) {
+            final Filter filter = createEqualsFilter(COLUMN_NAME_MEETINGSYNCID, meetingSyncId);
             return queryIterableKeys(0, -1, null, null, null, false, null, false, filter);
 	}
 
 	/**
-	 * query-page-by method for field meetingId
-	 * @param meetingId the specified attribute
+	 * query-page-by method for field meetingSyncId
+	 * @param meetingSyncId the specified attribute
          * @param pageSize the number of domain entities in the page
          * @param cursorString non-null if get next page
-	 * @return a Page of DmTasks for the specified meetingId
+	 * @return a Page of DmTasks for the specified meetingSyncId
 	 */
-	public final CursorPage<DmTask, java.lang.Long> queryPageByMeetingId(java.lang.String meetingId,
+	public final CursorPage<DmTask, java.lang.Long> queryPageByMeetingSyncId(java.lang.String meetingSyncId,
             int pageSize, String cursorString) {
-            final Filter filter = createEqualsFilter(COLUMN_NAME_MEETINGID, meetingId);
+            final Filter filter = createEqualsFilter(COLUMN_NAME_MEETINGSYNCID, meetingSyncId);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
         }
 
@@ -522,7 +522,7 @@ public class GeneratedDmTaskDaoImpl extends TypeDaoImpl<DmTask, java.lang.Long>
 	 */
 	public DmTask persist(		java.lang.Long longId, 
 		java.util.Date dueDate, 
-		java.lang.String meetingId, 
+		java.lang.String meetingSyncId, 
 		java.lang.String title) {
 
             DmTask domain = null;
@@ -540,7 +540,7 @@ public class GeneratedDmTaskDaoImpl extends TypeDaoImpl<DmTask, java.lang.Long>
                     }
                     // fields
                     domain.setDueDate(dueDate);
-                    domain.setMeetingId(meetingId);
+                    domain.setMeetingSyncId(meetingSyncId);
                     domain.setTitle(title);
                     // one-to-ones
                     // many-to-ones
