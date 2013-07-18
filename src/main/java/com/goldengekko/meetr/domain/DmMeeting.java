@@ -31,7 +31,7 @@ import net.sf.mardao.core.domain.AbstractLongEntity;
 import net.sf.mardao.core.geo.DLocation;
 
 /**
- * 
+ *
  * @author sosandstrom
  */
 @Entity
@@ -56,14 +56,27 @@ public class DmMeeting extends AbstractLongEntity {
     @Basic
     private String companyName;
 
+    /** Customers phone number */
+    @Basic
+    private String companyPhoneNumber;
+
+    /** The address where the meeting tak place, often the company address */
+    @Basic
+    private String companyAddress;
+
+    /** The geographical point of the meeting in latitude and longitude */
+    @Basic
+    @GeoLocation
+    private DLocation companyLocation;
+
     /** Reference to company entity */
     @Basic
     private String companyId;
 
-    /** A reference to the store where this visit took place
+    /** A reference to the store/place where this visit took place
      * Not used by Meetr, replaced by companyId*/
     @Basic
-    private Long locationId;
+    private String locationId;
 
     /** The external attendees for this meeting */
     @Basic
@@ -106,22 +119,9 @@ public class DmMeeting extends AbstractLongEntity {
     @Basic
     private Integer alertOffsetInMinutes;
 
-    /** Customers phone number */
+    /** Meeting planning notes written before the meeting take place, during the meeting creation */
     @Basic
-    private String phoneNumber;
-
-    /** The address where the meeting tak place, often the company address */
-    @Basic
-    private String address;
-
-    /** The geographical point of the meeting in latitude and longitude */
-    @Basic
-    @GeoLocation
-    private DLocation meetingLocation;
-
-    /** Meeting details notes */
-    @Basic
-    private String detailsNotes;
+    private String meetingPlanningNotes;
 
     /** Meeting image URL
      * Not used by Meetr */
@@ -140,33 +140,33 @@ public class DmMeeting extends AbstractLongEntity {
 
     /** Files related to this meeting. */
     @Basic
-    private Collection<String> fileNames;
+    private Collection<String> meetingFileNames;
 
     /** Files related to this meeting. */
     @Basic
-    private Collection<String> fileIds;
+    private Collection<String> meetingFileIds;
 
 
     // Notes (from the meeting)
 
-    /** Meeting notes */
+    /** Notes created during the meeting */
     @Basic
-    private String notes;
+    private String meetingNotes;
 
 
     // Follow up
 
-    /** The date then the last followup email were sent */
+    /** The date when the last followup email was sent */
     @Basic
     private Date followUpLastSentDate;
 
-    /** Notes included in the followup email */
+    /** Notes created after the meeting when sending the followup email */
     @Basic
     private String followUpNotes;
 
     /** Did the follow up email include the agenda points */
     @Basic
-    private Boolean followUpIncludeAgenda;
+    private Boolean followUpIncludesAgenda;
 
     /** References to files included in sent follow up emails */
     @Basic
@@ -174,6 +174,7 @@ public class DmMeeting extends AbstractLongEntity {
 
 
     // Getter and setters
+
 
     public Long getActualDuration() {
         return actualDuration;
@@ -197,14 +198,6 @@ public class DmMeeting extends AbstractLongEntity {
 
     public void setActualStartDate(Date actualStartDate) {
         this.actualStartDate = actualStartDate;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 
     public Collection<String> getAgendaItemIds() {
@@ -239,12 +232,28 @@ public class DmMeeting extends AbstractLongEntity {
         this.attendeeNames = attendeeNames;
     }
 
+    public String getCompanyAddress() {
+        return companyAddress;
+    }
+
+    public void setCompanyAddress(String companyAddress) {
+        this.companyAddress = companyAddress;
+    }
+
     public String getCompanyId() {
         return companyId;
     }
 
     public void setCompanyId(String companyId) {
         this.companyId = companyId;
+    }
+
+    public DLocation getCompanyLocation() {
+        return companyLocation;
+    }
+
+    public void setCompanyLocation(DLocation companyLocation) {
+        this.companyLocation = companyLocation;
     }
 
     public String getCompanyName() {
@@ -255,12 +264,12 @@ public class DmMeeting extends AbstractLongEntity {
         this.companyName = companyName;
     }
 
-    public String getDetailsNotes() {
-        return detailsNotes;
+    public String getCompanyPhoneNumber() {
+        return companyPhoneNumber;
     }
 
-    public void setDetailsNotes(String detailsNotes) {
-        this.detailsNotes = detailsNotes;
+    public void setCompanyPhoneNumber(String companyPhoneNumber) {
+        this.companyPhoneNumber = companyPhoneNumber;
     }
 
     public Date getEndDate() {
@@ -271,22 +280,6 @@ public class DmMeeting extends AbstractLongEntity {
         this.endDate = endDate;
     }
 
-    public Collection<String> getFileIds() {
-        return fileIds;
-    }
-
-    public void setFileIds(Collection<String> fileIds) {
-        this.fileIds = fileIds;
-    }
-
-    public Collection<String> getFileNames() {
-        return fileNames;
-    }
-
-    public void setFileNames(Collection<String> fileNames) {
-        this.fileNames = fileNames;
-    }
-
     public Collection<String> getFollowUpFileIds() {
         return followUpFileIds;
     }
@@ -295,12 +288,12 @@ public class DmMeeting extends AbstractLongEntity {
         this.followUpFileIds = followUpFileIds;
     }
 
-    public Boolean getFollowUpIncludeAgenda() {
-        return followUpIncludeAgenda;
+    public Boolean getFollowUpIncludesAgenda() {
+        return followUpIncludesAgenda;
     }
 
-    public void setFollowUpIncludeAgenda(Boolean followUpIncludeAgenda) {
-        this.followUpIncludeAgenda = followUpIncludeAgenda;
+    public void setFollowUpIncludesAgenda(Boolean followUpIncludesAgenda) {
+        this.followUpIncludesAgenda = followUpIncludesAgenda;
     }
 
     public Date getFollowUpLastSentDate() {
@@ -327,20 +320,44 @@ public class DmMeeting extends AbstractLongEntity {
         this.imageUrl = imageUrl;
     }
 
-    public Long getLocationId() {
+    public String getLocationId() {
         return locationId;
     }
 
-    public void setLocationId(Long locationId) {
+    public void setLocationId(String locationId) {
         this.locationId = locationId;
     }
 
-    public DLocation getMeetingLocation() {
-        return meetingLocation;
+    public Collection<String> getMeetingFileIds() {
+        return meetingFileIds;
     }
 
-    public void setMeetingLocation(DLocation meetingLocation) {
-        this.meetingLocation = meetingLocation;
+    public void setMeetingFileIds(Collection<String> meetingFileIds) {
+        this.meetingFileIds = meetingFileIds;
+    }
+
+    public Collection<String> getMeetingFileNames() {
+        return meetingFileNames;
+    }
+
+    public void setMeetingFileNames(Collection<String> meetingFileNames) {
+        this.meetingFileNames = meetingFileNames;
+    }
+
+    public String getMeetingNotes() {
+        return meetingNotes;
+    }
+
+    public void setMeetingNotes(String meetingNotes) {
+        this.meetingNotes = meetingNotes;
+    }
+
+    public String getMeetingPlanningNotes() {
+        return meetingPlanningNotes;
+    }
+
+    public void setMeetingPlanningNotes(String meetingPlanningNotes) {
+        this.meetingPlanningNotes = meetingPlanningNotes;
     }
 
     public Long getMeetingType() {
@@ -351,28 +368,12 @@ public class DmMeeting extends AbstractLongEntity {
         this.meetingType = meetingType;
     }
 
-    public String getNotes() {
-        return notes;
-    }
-
-    public void setNotes(String notes) {
-        this.notes = notes;
-    }
-
     public String getOrganizerId() {
         return organizerId;
     }
 
     public void setOrganizerId(String organizerId) {
         this.organizerId = organizerId;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
     }
 
     public Integer getRepeatMode() {

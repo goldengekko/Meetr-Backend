@@ -12,7 +12,7 @@ import net.sf.mardao.core.geo.DLocation;
 /**
  * DAO interface with finder methods for DmMeeting entities.
  *
- * Generated on 2013-07-18T10:23:37.942+0200.
+ * Generated on 2013-07-18T11:30:21.619+0200.
  * @author mardao DAO generator (net.sf.mardao.plugin.ProcessDomainMojo)
  */
 public interface GeneratedDmMeetingDao extends Dao<DmMeeting, java.lang.Long> {
@@ -27,8 +27,6 @@ public interface GeneratedDmMeetingDao extends Dao<DmMeeting, java.lang.Long> {
 	static final String COLUMN_NAME_ACTUALENDDATE = "actualEndDate";
 	/** Column name for field actualStartDate is "actualStartDate" */
 	static final String COLUMN_NAME_ACTUALSTARTDATE = "actualStartDate";
-	/** Column name for field address is "address" */
-	static final String COLUMN_NAME_ADDRESS = "address";
 	/** Column name for field agendaItemIds is "agendaItemIds" */
 	static final String COLUMN_NAME_AGENDAITEMIDS = "agendaItemIds";
 	/** Column name for field alertOffsetInMinutes is "alertOffsetInMinutes" */
@@ -37,26 +35,26 @@ public interface GeneratedDmMeetingDao extends Dao<DmMeeting, java.lang.Long> {
 	static final String COLUMN_NAME_ATTENDEEIDS = "attendeeIds";
 	/** Column name for field attendeeNames is "attendeeNames" */
 	static final String COLUMN_NAME_ATTENDEENAMES = "attendeeNames";
+	/** Column name for field companyAddress is "companyAddress" */
+	static final String COLUMN_NAME_COMPANYADDRESS = "companyAddress";
 	/** Column name for field companyId is "companyId" */
 	static final String COLUMN_NAME_COMPANYID = "companyId";
+	/** Column name for field companyLocation is "companyLocation" */
+	static final String COLUMN_NAME_COMPANYLOCATION = "companyLocation";
 	/** Column name for field companyName is "companyName" */
 	static final String COLUMN_NAME_COMPANYNAME = "companyName";
+	/** Column name for field companyPhoneNumber is "companyPhoneNumber" */
+	static final String COLUMN_NAME_COMPANYPHONENUMBER = "companyPhoneNumber";
 	/** Column name for field createdBy is "createdBy" */
 	static final String COLUMN_NAME_CREATEDBY = "createdBy";
 	/** Column name for field createdDate is "createdDate" */
 	static final String COLUMN_NAME_CREATEDDATE = "createdDate";
-	/** Column name for field detailsNotes is "detailsNotes" */
-	static final String COLUMN_NAME_DETAILSNOTES = "detailsNotes";
 	/** Column name for field endDate is "endDate" */
 	static final String COLUMN_NAME_ENDDATE = "endDate";
-	/** Column name for field fileIds is "fileIds" */
-	static final String COLUMN_NAME_FILEIDS = "fileIds";
-	/** Column name for field fileNames is "fileNames" */
-	static final String COLUMN_NAME_FILENAMES = "fileNames";
 	/** Column name for field followUpFileIds is "followUpFileIds" */
 	static final String COLUMN_NAME_FOLLOWUPFILEIDS = "followUpFileIds";
-	/** Column name for field followUpIncludeAgenda is "followUpIncludeAgenda" */
-	static final String COLUMN_NAME_FOLLOWUPINCLUDEAGENDA = "followUpIncludeAgenda";
+	/** Column name for field followUpIncludesAgenda is "followUpIncludesAgenda" */
+	static final String COLUMN_NAME_FOLLOWUPINCLUDESAGENDA = "followUpIncludesAgenda";
 	/** Column name for field followUpLastSentDate is "followUpLastSentDate" */
 	static final String COLUMN_NAME_FOLLOWUPLASTSENTDATE = "followUpLastSentDate";
 	/** Column name for field followUpNotes is "followUpNotes" */
@@ -65,16 +63,18 @@ public interface GeneratedDmMeetingDao extends Dao<DmMeeting, java.lang.Long> {
 	static final String COLUMN_NAME_IMAGEURL = "imageUrl";
 	/** Column name for field locationId is "locationId" */
 	static final String COLUMN_NAME_LOCATIONID = "locationId";
-	/** Column name for field meetingLocation is "meetingLocation" */
-	static final String COLUMN_NAME_MEETINGLOCATION = "meetingLocation";
+	/** Column name for field meetingFileIds is "meetingFileIds" */
+	static final String COLUMN_NAME_MEETINGFILEIDS = "meetingFileIds";
+	/** Column name for field meetingFileNames is "meetingFileNames" */
+	static final String COLUMN_NAME_MEETINGFILENAMES = "meetingFileNames";
+	/** Column name for field meetingNotes is "meetingNotes" */
+	static final String COLUMN_NAME_MEETINGNOTES = "meetingNotes";
+	/** Column name for field meetingPlanningNotes is "meetingPlanningNotes" */
+	static final String COLUMN_NAME_MEETINGPLANNINGNOTES = "meetingPlanningNotes";
 	/** Column name for field meetingType is "meetingType" */
 	static final String COLUMN_NAME_MEETINGTYPE = "meetingType";
-	/** Column name for field notes is "notes" */
-	static final String COLUMN_NAME_NOTES = "notes";
 	/** Column name for field organizerId is "organizerId" */
 	static final String COLUMN_NAME_ORGANIZERID = "organizerId";
-	/** Column name for field phoneNumber is "phoneNumber" */
-	static final String COLUMN_NAME_PHONENUMBER = "phoneNumber";
 	/** Column name for field repeatMode is "repeatMode" */
 	static final String COLUMN_NAME_REPEATMODE = "repeatMode";
 	/** Column name for field startDate is "startDate" */
@@ -90,30 +90,30 @@ public interface GeneratedDmMeetingDao extends Dao<DmMeeting, java.lang.Long> {
 	static final List<String> COLUMN_NAMES = Arrays.asList(		COLUMN_NAME_ACTUALDURATION,
 		COLUMN_NAME_ACTUALENDDATE,
 		COLUMN_NAME_ACTUALSTARTDATE,
-		COLUMN_NAME_ADDRESS,
 		COLUMN_NAME_AGENDAITEMIDS,
 		COLUMN_NAME_ALERTOFFSETINMINUTES,
 		COLUMN_NAME_ATTENDEEIDS,
 		COLUMN_NAME_ATTENDEENAMES,
+		COLUMN_NAME_COMPANYADDRESS,
 		COLUMN_NAME_COMPANYID,
+		COLUMN_NAME_COMPANYLOCATION,
 		COLUMN_NAME_COMPANYNAME,
+		COLUMN_NAME_COMPANYPHONENUMBER,
 		COLUMN_NAME_CREATEDBY,
 		COLUMN_NAME_CREATEDDATE,
-		COLUMN_NAME_DETAILSNOTES,
 		COLUMN_NAME_ENDDATE,
-		COLUMN_NAME_FILEIDS,
-		COLUMN_NAME_FILENAMES,
 		COLUMN_NAME_FOLLOWUPFILEIDS,
-		COLUMN_NAME_FOLLOWUPINCLUDEAGENDA,
+		COLUMN_NAME_FOLLOWUPINCLUDESAGENDA,
 		COLUMN_NAME_FOLLOWUPLASTSENTDATE,
 		COLUMN_NAME_FOLLOWUPNOTES,
 		COLUMN_NAME_IMAGEURL,
 		COLUMN_NAME_LOCATIONID,
-		COLUMN_NAME_MEETINGLOCATION,
+		COLUMN_NAME_MEETINGFILEIDS,
+		COLUMN_NAME_MEETINGFILENAMES,
+		COLUMN_NAME_MEETINGNOTES,
+		COLUMN_NAME_MEETINGPLANNINGNOTES,
 		COLUMN_NAME_MEETINGTYPE,
-		COLUMN_NAME_NOTES,
 		COLUMN_NAME_ORGANIZERID,
-		COLUMN_NAME_PHONENUMBER,
 		COLUMN_NAME_REPEATMODE,
 		COLUMN_NAME_STARTDATE,
 		COLUMN_NAME_TITLE,
@@ -123,30 +123,30 @@ public interface GeneratedDmMeetingDao extends Dao<DmMeeting, java.lang.Long> {
 	static final List<String> BASIC_NAMES = Arrays.asList(		COLUMN_NAME_ACTUALDURATION,
 		COLUMN_NAME_ACTUALENDDATE,
 		COLUMN_NAME_ACTUALSTARTDATE,
-		COLUMN_NAME_ADDRESS,
 		COLUMN_NAME_AGENDAITEMIDS,
 		COLUMN_NAME_ALERTOFFSETINMINUTES,
 		COLUMN_NAME_ATTENDEEIDS,
 		COLUMN_NAME_ATTENDEENAMES,
+		COLUMN_NAME_COMPANYADDRESS,
 		COLUMN_NAME_COMPANYID,
+		COLUMN_NAME_COMPANYLOCATION,
 		COLUMN_NAME_COMPANYNAME,
+		COLUMN_NAME_COMPANYPHONENUMBER,
 		COLUMN_NAME_CREATEDBY,
 		COLUMN_NAME_CREATEDDATE,
-		COLUMN_NAME_DETAILSNOTES,
 		COLUMN_NAME_ENDDATE,
-		COLUMN_NAME_FILEIDS,
-		COLUMN_NAME_FILENAMES,
 		COLUMN_NAME_FOLLOWUPFILEIDS,
-		COLUMN_NAME_FOLLOWUPINCLUDEAGENDA,
+		COLUMN_NAME_FOLLOWUPINCLUDESAGENDA,
 		COLUMN_NAME_FOLLOWUPLASTSENTDATE,
 		COLUMN_NAME_FOLLOWUPNOTES,
 		COLUMN_NAME_IMAGEURL,
 		COLUMN_NAME_LOCATIONID,
-		COLUMN_NAME_MEETINGLOCATION,
+		COLUMN_NAME_MEETINGFILEIDS,
+		COLUMN_NAME_MEETINGFILENAMES,
+		COLUMN_NAME_MEETINGNOTES,
+		COLUMN_NAME_MEETINGPLANNINGNOTES,
 		COLUMN_NAME_MEETINGTYPE,
-		COLUMN_NAME_NOTES,
 		COLUMN_NAME_ORGANIZERID,
-		COLUMN_NAME_PHONENUMBER,
 		COLUMN_NAME_REPEATMODE,
 		COLUMN_NAME_STARTDATE,
 		COLUMN_NAME_TITLE,
@@ -229,31 +229,6 @@ public interface GeneratedDmMeetingDao extends Dao<DmMeeting, java.lang.Long> {
 	 * @return a Page of DmMeetings for the specified actualStartDate
 	 */
 	CursorPage<DmMeeting, java.lang.Long> queryPageByActualStartDate(java.util.Date actualStartDate,
-            int pageSize, String cursorString);
-
-
-	/**
-	 * query-by method for field address
-	 * @param address the specified attribute
-	 * @return an Iterable of DmMeetings for the specified address
-	 */
-	Iterable<DmMeeting> queryByAddress(java.lang.String address);
-		
-	/**
-	 * query-keys-by method for field address
-	 * @param address the specified attribute
-	 * @return an Iterable of DmMeetings for the specified address
-	 */
-	Iterable<java.lang.Long> queryKeysByAddress(java.lang.String address);
-
-	/**
-	 * query-page-by method for field address
-	 * @param address the specified attribute
-         * @param pageSize the number of domain entities in the page
-         * @param cursorString non-null if get next page
-	 * @return a Page of DmMeetings for the specified address
-	 */
-	CursorPage<DmMeeting, java.lang.Long> queryPageByAddress(java.lang.String address,
             int pageSize, String cursorString);
 
 
@@ -358,6 +333,31 @@ public interface GeneratedDmMeetingDao extends Dao<DmMeeting, java.lang.Long> {
 
 
 	/**
+	 * query-by method for field companyAddress
+	 * @param companyAddress the specified attribute
+	 * @return an Iterable of DmMeetings for the specified companyAddress
+	 */
+	Iterable<DmMeeting> queryByCompanyAddress(java.lang.String companyAddress);
+		
+	/**
+	 * query-keys-by method for field companyAddress
+	 * @param companyAddress the specified attribute
+	 * @return an Iterable of DmMeetings for the specified companyAddress
+	 */
+	Iterable<java.lang.Long> queryKeysByCompanyAddress(java.lang.String companyAddress);
+
+	/**
+	 * query-page-by method for field companyAddress
+	 * @param companyAddress the specified attribute
+         * @param pageSize the number of domain entities in the page
+         * @param cursorString non-null if get next page
+	 * @return a Page of DmMeetings for the specified companyAddress
+	 */
+	CursorPage<DmMeeting, java.lang.Long> queryPageByCompanyAddress(java.lang.String companyAddress,
+            int pageSize, String cursorString);
+
+
+	/**
 	 * query-by method for field companyId
 	 * @param companyId the specified attribute
 	 * @return an Iterable of DmMeetings for the specified companyId
@@ -383,6 +383,31 @@ public interface GeneratedDmMeetingDao extends Dao<DmMeeting, java.lang.Long> {
 
 
 	/**
+	 * query-by method for field companyLocation
+	 * @param companyLocation the specified attribute
+	 * @return an Iterable of DmMeetings for the specified companyLocation
+	 */
+	Iterable<DmMeeting> queryByCompanyLocation(net.sf.mardao.core.geo.DLocation companyLocation);
+		
+	/**
+	 * query-keys-by method for field companyLocation
+	 * @param companyLocation the specified attribute
+	 * @return an Iterable of DmMeetings for the specified companyLocation
+	 */
+	Iterable<java.lang.Long> queryKeysByCompanyLocation(net.sf.mardao.core.geo.DLocation companyLocation);
+
+	/**
+	 * query-page-by method for field companyLocation
+	 * @param companyLocation the specified attribute
+         * @param pageSize the number of domain entities in the page
+         * @param cursorString non-null if get next page
+	 * @return a Page of DmMeetings for the specified companyLocation
+	 */
+	CursorPage<DmMeeting, java.lang.Long> queryPageByCompanyLocation(net.sf.mardao.core.geo.DLocation companyLocation,
+            int pageSize, String cursorString);
+
+
+	/**
 	 * query-by method for field companyName
 	 * @param companyName the specified attribute
 	 * @return an Iterable of DmMeetings for the specified companyName
@@ -404,6 +429,31 @@ public interface GeneratedDmMeetingDao extends Dao<DmMeeting, java.lang.Long> {
 	 * @return a Page of DmMeetings for the specified companyName
 	 */
 	CursorPage<DmMeeting, java.lang.Long> queryPageByCompanyName(java.lang.String companyName,
+            int pageSize, String cursorString);
+
+
+	/**
+	 * query-by method for field companyPhoneNumber
+	 * @param companyPhoneNumber the specified attribute
+	 * @return an Iterable of DmMeetings for the specified companyPhoneNumber
+	 */
+	Iterable<DmMeeting> queryByCompanyPhoneNumber(java.lang.String companyPhoneNumber);
+		
+	/**
+	 * query-keys-by method for field companyPhoneNumber
+	 * @param companyPhoneNumber the specified attribute
+	 * @return an Iterable of DmMeetings for the specified companyPhoneNumber
+	 */
+	Iterable<java.lang.Long> queryKeysByCompanyPhoneNumber(java.lang.String companyPhoneNumber);
+
+	/**
+	 * query-page-by method for field companyPhoneNumber
+	 * @param companyPhoneNumber the specified attribute
+         * @param pageSize the number of domain entities in the page
+         * @param cursorString non-null if get next page
+	 * @return a Page of DmMeetings for the specified companyPhoneNumber
+	 */
+	CursorPage<DmMeeting, java.lang.Long> queryPageByCompanyPhoneNumber(java.lang.String companyPhoneNumber,
             int pageSize, String cursorString);
 
 
@@ -458,31 +508,6 @@ public interface GeneratedDmMeetingDao extends Dao<DmMeeting, java.lang.Long> {
 
 
 	/**
-	 * query-by method for field detailsNotes
-	 * @param detailsNotes the specified attribute
-	 * @return an Iterable of DmMeetings for the specified detailsNotes
-	 */
-	Iterable<DmMeeting> queryByDetailsNotes(java.lang.String detailsNotes);
-		
-	/**
-	 * query-keys-by method for field detailsNotes
-	 * @param detailsNotes the specified attribute
-	 * @return an Iterable of DmMeetings for the specified detailsNotes
-	 */
-	Iterable<java.lang.Long> queryKeysByDetailsNotes(java.lang.String detailsNotes);
-
-	/**
-	 * query-page-by method for field detailsNotes
-	 * @param detailsNotes the specified attribute
-         * @param pageSize the number of domain entities in the page
-         * @param cursorString non-null if get next page
-	 * @return a Page of DmMeetings for the specified detailsNotes
-	 */
-	CursorPage<DmMeeting, java.lang.Long> queryPageByDetailsNotes(java.lang.String detailsNotes,
-            int pageSize, String cursorString);
-
-
-	/**
 	 * query-by method for field endDate
 	 * @param endDate the specified attribute
 	 * @return an Iterable of DmMeetings for the specified endDate
@@ -504,56 +529,6 @@ public interface GeneratedDmMeetingDao extends Dao<DmMeeting, java.lang.Long> {
 	 * @return a Page of DmMeetings for the specified endDate
 	 */
 	CursorPage<DmMeeting, java.lang.Long> queryPageByEndDate(java.util.Date endDate,
-            int pageSize, String cursorString);
-
-
-	/**
-	 * query-by method for field fileIds
-	 * @param fileIds the specified attribute
-	 * @return an Iterable of DmMeetings for the specified fileIds
-	 */
-	Iterable<DmMeeting> queryByFileIds(java.lang.Object fileIds);
-		
-	/**
-	 * query-keys-by method for field fileIds
-	 * @param fileIds the specified attribute
-	 * @return an Iterable of DmMeetings for the specified fileIds
-	 */
-	Iterable<java.lang.Long> queryKeysByFileIds(java.lang.Object fileIds);
-
-	/**
-	 * query-page-by method for field fileIds
-	 * @param fileIds the specified attribute
-         * @param pageSize the number of domain entities in the page
-         * @param cursorString non-null if get next page
-	 * @return a Page of DmMeetings for the specified fileIds
-	 */
-	CursorPage<DmMeeting, java.lang.Long> queryPageByFileIds(java.lang.Object fileIds,
-            int pageSize, String cursorString);
-
-
-	/**
-	 * query-by method for field fileNames
-	 * @param fileNames the specified attribute
-	 * @return an Iterable of DmMeetings for the specified fileNames
-	 */
-	Iterable<DmMeeting> queryByFileNames(java.lang.Object fileNames);
-		
-	/**
-	 * query-keys-by method for field fileNames
-	 * @param fileNames the specified attribute
-	 * @return an Iterable of DmMeetings for the specified fileNames
-	 */
-	Iterable<java.lang.Long> queryKeysByFileNames(java.lang.Object fileNames);
-
-	/**
-	 * query-page-by method for field fileNames
-	 * @param fileNames the specified attribute
-         * @param pageSize the number of domain entities in the page
-         * @param cursorString non-null if get next page
-	 * @return a Page of DmMeetings for the specified fileNames
-	 */
-	CursorPage<DmMeeting, java.lang.Long> queryPageByFileNames(java.lang.Object fileNames,
             int pageSize, String cursorString);
 
 
@@ -583,27 +558,27 @@ public interface GeneratedDmMeetingDao extends Dao<DmMeeting, java.lang.Long> {
 
 
 	/**
-	 * query-by method for field followUpIncludeAgenda
-	 * @param followUpIncludeAgenda the specified attribute
-	 * @return an Iterable of DmMeetings for the specified followUpIncludeAgenda
+	 * query-by method for field followUpIncludesAgenda
+	 * @param followUpIncludesAgenda the specified attribute
+	 * @return an Iterable of DmMeetings for the specified followUpIncludesAgenda
 	 */
-	Iterable<DmMeeting> queryByFollowUpIncludeAgenda(java.lang.Boolean followUpIncludeAgenda);
+	Iterable<DmMeeting> queryByFollowUpIncludesAgenda(java.lang.Boolean followUpIncludesAgenda);
 		
 	/**
-	 * query-keys-by method for field followUpIncludeAgenda
-	 * @param followUpIncludeAgenda the specified attribute
-	 * @return an Iterable of DmMeetings for the specified followUpIncludeAgenda
+	 * query-keys-by method for field followUpIncludesAgenda
+	 * @param followUpIncludesAgenda the specified attribute
+	 * @return an Iterable of DmMeetings for the specified followUpIncludesAgenda
 	 */
-	Iterable<java.lang.Long> queryKeysByFollowUpIncludeAgenda(java.lang.Boolean followUpIncludeAgenda);
+	Iterable<java.lang.Long> queryKeysByFollowUpIncludesAgenda(java.lang.Boolean followUpIncludesAgenda);
 
 	/**
-	 * query-page-by method for field followUpIncludeAgenda
-	 * @param followUpIncludeAgenda the specified attribute
+	 * query-page-by method for field followUpIncludesAgenda
+	 * @param followUpIncludesAgenda the specified attribute
          * @param pageSize the number of domain entities in the page
          * @param cursorString non-null if get next page
-	 * @return a Page of DmMeetings for the specified followUpIncludeAgenda
+	 * @return a Page of DmMeetings for the specified followUpIncludesAgenda
 	 */
-	CursorPage<DmMeeting, java.lang.Long> queryPageByFollowUpIncludeAgenda(java.lang.Boolean followUpIncludeAgenda,
+	CursorPage<DmMeeting, java.lang.Long> queryPageByFollowUpIncludesAgenda(java.lang.Boolean followUpIncludesAgenda,
             int pageSize, String cursorString);
 
 
@@ -687,14 +662,14 @@ public interface GeneratedDmMeetingDao extends Dao<DmMeeting, java.lang.Long> {
 	 * @param locationId the specified attribute
 	 * @return an Iterable of DmMeetings for the specified locationId
 	 */
-	Iterable<DmMeeting> queryByLocationId(java.lang.Long locationId);
+	Iterable<DmMeeting> queryByLocationId(java.lang.String locationId);
 		
 	/**
 	 * query-keys-by method for field locationId
 	 * @param locationId the specified attribute
 	 * @return an Iterable of DmMeetings for the specified locationId
 	 */
-	Iterable<java.lang.Long> queryKeysByLocationId(java.lang.Long locationId);
+	Iterable<java.lang.Long> queryKeysByLocationId(java.lang.String locationId);
 
 	/**
 	 * query-page-by method for field locationId
@@ -703,32 +678,107 @@ public interface GeneratedDmMeetingDao extends Dao<DmMeeting, java.lang.Long> {
          * @param cursorString non-null if get next page
 	 * @return a Page of DmMeetings for the specified locationId
 	 */
-	CursorPage<DmMeeting, java.lang.Long> queryPageByLocationId(java.lang.Long locationId,
+	CursorPage<DmMeeting, java.lang.Long> queryPageByLocationId(java.lang.String locationId,
             int pageSize, String cursorString);
 
 
 	/**
-	 * query-by method for field meetingLocation
-	 * @param meetingLocation the specified attribute
-	 * @return an Iterable of DmMeetings for the specified meetingLocation
+	 * query-by method for field meetingFileIds
+	 * @param meetingFileIds the specified attribute
+	 * @return an Iterable of DmMeetings for the specified meetingFileIds
 	 */
-	Iterable<DmMeeting> queryByMeetingLocation(net.sf.mardao.core.geo.DLocation meetingLocation);
+	Iterable<DmMeeting> queryByMeetingFileIds(java.lang.Object meetingFileIds);
 		
 	/**
-	 * query-keys-by method for field meetingLocation
-	 * @param meetingLocation the specified attribute
-	 * @return an Iterable of DmMeetings for the specified meetingLocation
+	 * query-keys-by method for field meetingFileIds
+	 * @param meetingFileIds the specified attribute
+	 * @return an Iterable of DmMeetings for the specified meetingFileIds
 	 */
-	Iterable<java.lang.Long> queryKeysByMeetingLocation(net.sf.mardao.core.geo.DLocation meetingLocation);
+	Iterable<java.lang.Long> queryKeysByMeetingFileIds(java.lang.Object meetingFileIds);
 
 	/**
-	 * query-page-by method for field meetingLocation
-	 * @param meetingLocation the specified attribute
+	 * query-page-by method for field meetingFileIds
+	 * @param meetingFileIds the specified attribute
          * @param pageSize the number of domain entities in the page
          * @param cursorString non-null if get next page
-	 * @return a Page of DmMeetings for the specified meetingLocation
+	 * @return a Page of DmMeetings for the specified meetingFileIds
 	 */
-	CursorPage<DmMeeting, java.lang.Long> queryPageByMeetingLocation(net.sf.mardao.core.geo.DLocation meetingLocation,
+	CursorPage<DmMeeting, java.lang.Long> queryPageByMeetingFileIds(java.lang.Object meetingFileIds,
+            int pageSize, String cursorString);
+
+
+	/**
+	 * query-by method for field meetingFileNames
+	 * @param meetingFileNames the specified attribute
+	 * @return an Iterable of DmMeetings for the specified meetingFileNames
+	 */
+	Iterable<DmMeeting> queryByMeetingFileNames(java.lang.Object meetingFileNames);
+		
+	/**
+	 * query-keys-by method for field meetingFileNames
+	 * @param meetingFileNames the specified attribute
+	 * @return an Iterable of DmMeetings for the specified meetingFileNames
+	 */
+	Iterable<java.lang.Long> queryKeysByMeetingFileNames(java.lang.Object meetingFileNames);
+
+	/**
+	 * query-page-by method for field meetingFileNames
+	 * @param meetingFileNames the specified attribute
+         * @param pageSize the number of domain entities in the page
+         * @param cursorString non-null if get next page
+	 * @return a Page of DmMeetings for the specified meetingFileNames
+	 */
+	CursorPage<DmMeeting, java.lang.Long> queryPageByMeetingFileNames(java.lang.Object meetingFileNames,
+            int pageSize, String cursorString);
+
+
+	/**
+	 * query-by method for field meetingNotes
+	 * @param meetingNotes the specified attribute
+	 * @return an Iterable of DmMeetings for the specified meetingNotes
+	 */
+	Iterable<DmMeeting> queryByMeetingNotes(java.lang.String meetingNotes);
+		
+	/**
+	 * query-keys-by method for field meetingNotes
+	 * @param meetingNotes the specified attribute
+	 * @return an Iterable of DmMeetings for the specified meetingNotes
+	 */
+	Iterable<java.lang.Long> queryKeysByMeetingNotes(java.lang.String meetingNotes);
+
+	/**
+	 * query-page-by method for field meetingNotes
+	 * @param meetingNotes the specified attribute
+         * @param pageSize the number of domain entities in the page
+         * @param cursorString non-null if get next page
+	 * @return a Page of DmMeetings for the specified meetingNotes
+	 */
+	CursorPage<DmMeeting, java.lang.Long> queryPageByMeetingNotes(java.lang.String meetingNotes,
+            int pageSize, String cursorString);
+
+
+	/**
+	 * query-by method for field meetingPlanningNotes
+	 * @param meetingPlanningNotes the specified attribute
+	 * @return an Iterable of DmMeetings for the specified meetingPlanningNotes
+	 */
+	Iterable<DmMeeting> queryByMeetingPlanningNotes(java.lang.String meetingPlanningNotes);
+		
+	/**
+	 * query-keys-by method for field meetingPlanningNotes
+	 * @param meetingPlanningNotes the specified attribute
+	 * @return an Iterable of DmMeetings for the specified meetingPlanningNotes
+	 */
+	Iterable<java.lang.Long> queryKeysByMeetingPlanningNotes(java.lang.String meetingPlanningNotes);
+
+	/**
+	 * query-page-by method for field meetingPlanningNotes
+	 * @param meetingPlanningNotes the specified attribute
+         * @param pageSize the number of domain entities in the page
+         * @param cursorString non-null if get next page
+	 * @return a Page of DmMeetings for the specified meetingPlanningNotes
+	 */
+	CursorPage<DmMeeting, java.lang.Long> queryPageByMeetingPlanningNotes(java.lang.String meetingPlanningNotes,
             int pageSize, String cursorString);
 
 
@@ -758,31 +808,6 @@ public interface GeneratedDmMeetingDao extends Dao<DmMeeting, java.lang.Long> {
 
 
 	/**
-	 * query-by method for field notes
-	 * @param notes the specified attribute
-	 * @return an Iterable of DmMeetings for the specified notes
-	 */
-	Iterable<DmMeeting> queryByNotes(java.lang.String notes);
-		
-	/**
-	 * query-keys-by method for field notes
-	 * @param notes the specified attribute
-	 * @return an Iterable of DmMeetings for the specified notes
-	 */
-	Iterable<java.lang.Long> queryKeysByNotes(java.lang.String notes);
-
-	/**
-	 * query-page-by method for field notes
-	 * @param notes the specified attribute
-         * @param pageSize the number of domain entities in the page
-         * @param cursorString non-null if get next page
-	 * @return a Page of DmMeetings for the specified notes
-	 */
-	CursorPage<DmMeeting, java.lang.Long> queryPageByNotes(java.lang.String notes,
-            int pageSize, String cursorString);
-
-
-	/**
 	 * query-by method for field organizerId
 	 * @param organizerId the specified attribute
 	 * @return an Iterable of DmMeetings for the specified organizerId
@@ -804,31 +829,6 @@ public interface GeneratedDmMeetingDao extends Dao<DmMeeting, java.lang.Long> {
 	 * @return a Page of DmMeetings for the specified organizerId
 	 */
 	CursorPage<DmMeeting, java.lang.Long> queryPageByOrganizerId(java.lang.String organizerId,
-            int pageSize, String cursorString);
-
-
-	/**
-	 * query-by method for field phoneNumber
-	 * @param phoneNumber the specified attribute
-	 * @return an Iterable of DmMeetings for the specified phoneNumber
-	 */
-	Iterable<DmMeeting> queryByPhoneNumber(java.lang.String phoneNumber);
-		
-	/**
-	 * query-keys-by method for field phoneNumber
-	 * @param phoneNumber the specified attribute
-	 * @return an Iterable of DmMeetings for the specified phoneNumber
-	 */
-	Iterable<java.lang.Long> queryKeysByPhoneNumber(java.lang.String phoneNumber);
-
-	/**
-	 * query-page-by method for field phoneNumber
-	 * @param phoneNumber the specified attribute
-         * @param pageSize the number of domain entities in the page
-         * @param cursorString non-null if get next page
-	 * @return a Page of DmMeetings for the specified phoneNumber
-	 */
-	CursorPage<DmMeeting, java.lang.Long> queryPageByPhoneNumber(java.lang.String phoneNumber,
             int pageSize, String cursorString);
 
 
@@ -976,28 +976,28 @@ public interface GeneratedDmMeetingDao extends Dao<DmMeeting, java.lang.Long> {
 		java.lang.Long actualDuration, 
 		java.util.Date actualEndDate, 
 		java.util.Date actualStartDate, 
-		java.lang.String address, 
 		java.util.Collection agendaItemIds, 
 		java.lang.Integer alertOffsetInMinutes, 
 		java.util.Collection attendeeIds, 
 		java.util.Collection attendeeNames, 
+		java.lang.String companyAddress, 
 		java.lang.String companyId, 
+		net.sf.mardao.core.geo.DLocation companyLocation, 
 		java.lang.String companyName, 
-		java.lang.String detailsNotes, 
+		java.lang.String companyPhoneNumber, 
 		java.util.Date endDate, 
-		java.util.Collection fileIds, 
-		java.util.Collection fileNames, 
 		java.util.Collection followUpFileIds, 
-		java.lang.Boolean followUpIncludeAgenda, 
+		java.lang.Boolean followUpIncludesAgenda, 
 		java.util.Date followUpLastSentDate, 
 		java.lang.String followUpNotes, 
 		java.lang.String imageUrl, 
-		java.lang.Long locationId, 
-		net.sf.mardao.core.geo.DLocation meetingLocation, 
+		java.lang.String locationId, 
+		java.util.Collection meetingFileIds, 
+		java.util.Collection meetingFileNames, 
+		java.lang.String meetingNotes, 
+		java.lang.String meetingPlanningNotes, 
 		java.lang.Long meetingType, 
-		java.lang.String notes, 
 		java.lang.String organizerId, 
-		java.lang.String phoneNumber, 
 		java.lang.Integer repeatMode, 
 		java.util.Date startDate, 
 		java.lang.String title);	

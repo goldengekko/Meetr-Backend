@@ -22,6 +22,7 @@ package com.goldengekko.meetr.web;
 import com.goldengekko.meetr.domain.DmMeeting;
 import com.goldengekko.meetr.json.JMeeting;
 import com.google.appengine.api.datastore.GeoPt;
+import com.wadpam.open.json.JLocation;
 import com.wadpam.open.mvc.CrudController;
 import com.wadpam.open.mvc.CrudService;
 import net.sf.mardao.core.geo.DLocation;
@@ -58,29 +59,31 @@ public class MeetingController extends CrudController<JMeeting, DmMeeting, Long,
         to.setActualEndDate(toLong(from.getActualEndDate()));
         to.setActualDuration(from.getActualDuration());
         to.setAlertOffsetInMinutes(from.getAlertOffsetInMinutes());
-        to.setPhoneNumber(from.getPhoneNumber());
-        to.setAddress(from.getAddress());
-        if (null != from.getMeetingLocation()) {
-            to.setLatitude(from.getMeetingLocation().getLatitude());
-            to.setLongitude(from.getMeetingLocation().getLongitude());
+        to.setCompanyPhoneNumber(from.getCompanyPhoneNumber());
+        to.setCompanyAddress(from.getCompanyAddress());
+        if (null != from.getCompanyLocation()) {
+            to.setCompanyLocation(new JLocation(
+                    from.getCompanyLocation().getLatitude(),
+                    from.getCompanyLocation().getLongitude()
+            ));
         }
-        to.setDetailsNotes(from.getDetailsNotes());
+        to.setMeetingPlanningNotes(from.getMeetingPlanningNotes());
         to.setImageUrl(from.getImageUrl());
 
         // Agenda items
         to.setAgendaItemIds(from.getAgendaItemIds());
 
         // Documents and files
-        to.setFileNames(from.getFileNames());
-        to.setFileIds(from.getFileIds());
+        to.setMeetingFileNames(from.getMeetingFileNames());
+        to.setMeetingFileIds(from.getMeetingFileIds());
 
         // Notes
-        to.setNotes(from.getNotes());
+        to.setMeetingNotes(from.getMeetingNotes());
 
         // Follow up
         to.setFollowUpLastSentDate(toLong(from.getFollowUpLastSentDate()));
         to.setFollowUpNotes(from.getFollowUpNotes());
-        to.setFollowUpIncludeAgenda(from.getFollowUpIncludeAgenda());
+        to.setFollowUpIncludesAgenda(from.getFollowUpIncludesAgenda());
         to.setFollowUpFileIds(from.getFollowUpFileIds());
     }
 
@@ -104,28 +107,31 @@ public class MeetingController extends CrudController<JMeeting, DmMeeting, Long,
         to.setActualEndDate(toDate(from.getActualEndDate()));
         to.setActualDuration(from.getActualDuration());
         to.setAlertOffsetInMinutes(from.getAlertOffsetInMinutes());
-        to.setPhoneNumber(from.getPhoneNumber());
-        to.setAddress(from.getAddress());
-        if (null != from.getLatitude() && null != from.getLongitude()) {
-            to.setMeetingLocation(new DLocation(from.getLatitude(),from.getLongitude()));
+        to.setCompanyPhoneNumber(from.getCompanyPhoneNumber());
+        to.setCompanyAddress(from.getCompanyAddress());
+        if (null != from.getCompanyLocation().getLatitude() && null != from.getCompanyLocation().getLongitude()) {
+            to.setCompanyLocation(new DLocation(
+                    from.getCompanyLocation().getLatitude(),
+                    from.getCompanyLocation().getLongitude()
+            ));
         }
-        to.setDetailsNotes(from.getDetailsNotes());
+        to.setMeetingPlanningNotes(from.getMeetingPlanningNotes());
         to.setImageUrl(from.getImageUrl());
 
         // Agenda items
         to.setAgendaItemIds(from.getAgendaItemIds());
 
         // Documents and files
-        to.setFileNames(from.getFileNames());
-        to.setFileIds(from.getFileIds());
+        to.setMeetingFileNames(from.getMeetingFileNames());
+        to.setMeetingFileIds(from.getMeetingFileIds());
 
         // Notes
-        to.setNotes(from.getNotes());
+        to.setMeetingNotes(from.getMeetingNotes());
 
         // Follow up
         to.setFollowUpLastSentDate(toDate(from.getFollowUpLastSentDate()));
         to.setFollowUpNotes(from.getFollowUpNotes());
-        to.setFollowUpIncludeAgenda(from.getFollowUpIncludeAgenda());
+        to.setFollowUpIncludesAgenda(from.getFollowUpIncludesAgenda());
         to.setFollowUpFileIds(from.getFollowUpFileIds());
     }
 

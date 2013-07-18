@@ -20,7 +20,7 @@ import com.goldengekko.meetr.domain.DmMeeting;
 /**
  * The DmMeeting domain-object specific finders and methods go in this POJO.
  * 
- * Generated on 2013-07-18T10:23:37.942+0200.
+ * Generated on 2013-07-18T11:30:21.619+0200.
  * @author mardao DAO generator (net.sf.mardao.plugin.ProcessDomainMojo)
  */
 public class GeneratedDmMeetingDaoImpl extends TypeDaoImpl<DmMeeting, java.lang.Long> 
@@ -78,9 +78,6 @@ public class GeneratedDmMeetingDaoImpl extends TypeDaoImpl<DmMeeting, java.lang.
         else if (COLUMN_NAME_ACTUALSTARTDATE.equals(name)) {
             value = domain.getActualStartDate();
         }
-        else if (COLUMN_NAME_ADDRESS.equals(name)) {
-            value = domain.getAddress();
-        }
         else if (COLUMN_NAME_AGENDAITEMIDS.equals(name)) {
             value = domain.getAgendaItemIds();
         }
@@ -93,11 +90,20 @@ public class GeneratedDmMeetingDaoImpl extends TypeDaoImpl<DmMeeting, java.lang.
         else if (COLUMN_NAME_ATTENDEENAMES.equals(name)) {
             value = domain.getAttendeeNames();
         }
+        else if (COLUMN_NAME_COMPANYADDRESS.equals(name)) {
+            value = domain.getCompanyAddress();
+        }
         else if (COLUMN_NAME_COMPANYID.equals(name)) {
             value = domain.getCompanyId();
         }
+        else if (COLUMN_NAME_COMPANYLOCATION.equals(name)) {
+            value = domain.getCompanyLocation();
+        }
         else if (COLUMN_NAME_COMPANYNAME.equals(name)) {
             value = domain.getCompanyName();
+        }
+        else if (COLUMN_NAME_COMPANYPHONENUMBER.equals(name)) {
+            value = domain.getCompanyPhoneNumber();
         }
         else if (COLUMN_NAME_CREATEDBY.equals(name)) {
             value = domain.getCreatedBy();
@@ -105,23 +111,14 @@ public class GeneratedDmMeetingDaoImpl extends TypeDaoImpl<DmMeeting, java.lang.
         else if (COLUMN_NAME_CREATEDDATE.equals(name)) {
             value = domain.getCreatedDate();
         }
-        else if (COLUMN_NAME_DETAILSNOTES.equals(name)) {
-            value = domain.getDetailsNotes();
-        }
         else if (COLUMN_NAME_ENDDATE.equals(name)) {
             value = domain.getEndDate();
-        }
-        else if (COLUMN_NAME_FILEIDS.equals(name)) {
-            value = domain.getFileIds();
-        }
-        else if (COLUMN_NAME_FILENAMES.equals(name)) {
-            value = domain.getFileNames();
         }
         else if (COLUMN_NAME_FOLLOWUPFILEIDS.equals(name)) {
             value = domain.getFollowUpFileIds();
         }
-        else if (COLUMN_NAME_FOLLOWUPINCLUDEAGENDA.equals(name)) {
-            value = domain.getFollowUpIncludeAgenda();
+        else if (COLUMN_NAME_FOLLOWUPINCLUDESAGENDA.equals(name)) {
+            value = domain.getFollowUpIncludesAgenda();
         }
         else if (COLUMN_NAME_FOLLOWUPLASTSENTDATE.equals(name)) {
             value = domain.getFollowUpLastSentDate();
@@ -135,20 +132,23 @@ public class GeneratedDmMeetingDaoImpl extends TypeDaoImpl<DmMeeting, java.lang.
         else if (COLUMN_NAME_LOCATIONID.equals(name)) {
             value = domain.getLocationId();
         }
-        else if (COLUMN_NAME_MEETINGLOCATION.equals(name)) {
-            value = domain.getMeetingLocation();
+        else if (COLUMN_NAME_MEETINGFILEIDS.equals(name)) {
+            value = domain.getMeetingFileIds();
+        }
+        else if (COLUMN_NAME_MEETINGFILENAMES.equals(name)) {
+            value = domain.getMeetingFileNames();
+        }
+        else if (COLUMN_NAME_MEETINGNOTES.equals(name)) {
+            value = domain.getMeetingNotes();
+        }
+        else if (COLUMN_NAME_MEETINGPLANNINGNOTES.equals(name)) {
+            value = domain.getMeetingPlanningNotes();
         }
         else if (COLUMN_NAME_MEETINGTYPE.equals(name)) {
             value = domain.getMeetingType();
         }
-        else if (COLUMN_NAME_NOTES.equals(name)) {
-            value = domain.getNotes();
-        }
         else if (COLUMN_NAME_ORGANIZERID.equals(name)) {
             value = domain.getOrganizerId();
-        }
-        else if (COLUMN_NAME_PHONENUMBER.equals(name)) {
-            value = domain.getPhoneNumber();
         }
         else if (COLUMN_NAME_REPEATMODE.equals(name)) {
             value = domain.getRepeatMode();
@@ -196,9 +196,6 @@ public class GeneratedDmMeetingDaoImpl extends TypeDaoImpl<DmMeeting, java.lang.
         else if (COLUMN_NAME_ACTUALSTARTDATE.equals(name)) {
             clazz = java.util.Date.class;
         }
-        else if (COLUMN_NAME_ADDRESS.equals(name)) {
-            clazz = java.lang.String.class;
-        }
         else if (COLUMN_NAME_AGENDAITEMIDS.equals(name)) {
             clazz = java.util.Collection.class;
         }
@@ -211,10 +208,19 @@ public class GeneratedDmMeetingDaoImpl extends TypeDaoImpl<DmMeeting, java.lang.
         else if (COLUMN_NAME_ATTENDEENAMES.equals(name)) {
             clazz = java.util.Collection.class;
         }
+        else if (COLUMN_NAME_COMPANYADDRESS.equals(name)) {
+            clazz = java.lang.String.class;
+        }
         else if (COLUMN_NAME_COMPANYID.equals(name)) {
             clazz = java.lang.String.class;
         }
+        else if (COLUMN_NAME_COMPANYLOCATION.equals(name)) {
+            clazz = net.sf.mardao.core.geo.DLocation.class;
+        }
         else if (COLUMN_NAME_COMPANYNAME.equals(name)) {
+            clazz = java.lang.String.class;
+        }
+        else if (COLUMN_NAME_COMPANYPHONENUMBER.equals(name)) {
             clazz = java.lang.String.class;
         }
         else if (COLUMN_NAME_CREATEDBY.equals(name)) {
@@ -223,22 +229,13 @@ public class GeneratedDmMeetingDaoImpl extends TypeDaoImpl<DmMeeting, java.lang.
         else if (COLUMN_NAME_CREATEDDATE.equals(name)) {
             clazz = java.util.Date.class;
         }
-        else if (COLUMN_NAME_DETAILSNOTES.equals(name)) {
-            clazz = java.lang.String.class;
-        }
         else if (COLUMN_NAME_ENDDATE.equals(name)) {
             clazz = java.util.Date.class;
-        }
-        else if (COLUMN_NAME_FILEIDS.equals(name)) {
-            clazz = java.util.Collection.class;
-        }
-        else if (COLUMN_NAME_FILENAMES.equals(name)) {
-            clazz = java.util.Collection.class;
         }
         else if (COLUMN_NAME_FOLLOWUPFILEIDS.equals(name)) {
             clazz = java.util.Collection.class;
         }
-        else if (COLUMN_NAME_FOLLOWUPINCLUDEAGENDA.equals(name)) {
+        else if (COLUMN_NAME_FOLLOWUPINCLUDESAGENDA.equals(name)) {
             clazz = java.lang.Boolean.class;
         }
         else if (COLUMN_NAME_FOLLOWUPLASTSENTDATE.equals(name)) {
@@ -251,21 +248,24 @@ public class GeneratedDmMeetingDaoImpl extends TypeDaoImpl<DmMeeting, java.lang.
             clazz = java.lang.String.class;
         }
         else if (COLUMN_NAME_LOCATIONID.equals(name)) {
-            clazz = java.lang.Long.class;
+            clazz = java.lang.String.class;
         }
-        else if (COLUMN_NAME_MEETINGLOCATION.equals(name)) {
-            clazz = net.sf.mardao.core.geo.DLocation.class;
+        else if (COLUMN_NAME_MEETINGFILEIDS.equals(name)) {
+            clazz = java.util.Collection.class;
+        }
+        else if (COLUMN_NAME_MEETINGFILENAMES.equals(name)) {
+            clazz = java.util.Collection.class;
+        }
+        else if (COLUMN_NAME_MEETINGNOTES.equals(name)) {
+            clazz = java.lang.String.class;
+        }
+        else if (COLUMN_NAME_MEETINGPLANNINGNOTES.equals(name)) {
+            clazz = java.lang.String.class;
         }
         else if (COLUMN_NAME_MEETINGTYPE.equals(name)) {
             clazz = java.lang.Long.class;
         }
-        else if (COLUMN_NAME_NOTES.equals(name)) {
-            clazz = java.lang.String.class;
-        }
         else if (COLUMN_NAME_ORGANIZERID.equals(name)) {
-            clazz = java.lang.String.class;
-        }
-        else if (COLUMN_NAME_PHONENUMBER.equals(name)) {
             clazz = java.lang.String.class;
         }
         else if (COLUMN_NAME_REPEATMODE.equals(name)) {
@@ -309,9 +309,6 @@ public class GeneratedDmMeetingDaoImpl extends TypeDaoImpl<DmMeeting, java.lang.
         else if (COLUMN_NAME_ACTUALSTARTDATE.equals(name)) {
             domain.setActualStartDate((java.util.Date) value);
         }
-        else if (COLUMN_NAME_ADDRESS.equals(name)) {
-            domain.setAddress((java.lang.String) value);
-        }
         else if (COLUMN_NAME_AGENDAITEMIDS.equals(name)) {
             domain.setAgendaItemIds((java.util.Collection) value);
         }
@@ -324,11 +321,20 @@ public class GeneratedDmMeetingDaoImpl extends TypeDaoImpl<DmMeeting, java.lang.
         else if (COLUMN_NAME_ATTENDEENAMES.equals(name)) {
             domain.setAttendeeNames((java.util.Collection) value);
         }
+        else if (COLUMN_NAME_COMPANYADDRESS.equals(name)) {
+            domain.setCompanyAddress((java.lang.String) value);
+        }
         else if (COLUMN_NAME_COMPANYID.equals(name)) {
             domain.setCompanyId((java.lang.String) value);
         }
+        else if (COLUMN_NAME_COMPANYLOCATION.equals(name)) {
+            domain.setCompanyLocation((net.sf.mardao.core.geo.DLocation) value);
+        }
         else if (COLUMN_NAME_COMPANYNAME.equals(name)) {
             domain.setCompanyName((java.lang.String) value);
+        }
+        else if (COLUMN_NAME_COMPANYPHONENUMBER.equals(name)) {
+            domain.setCompanyPhoneNumber((java.lang.String) value);
         }
         else if (COLUMN_NAME_CREATEDBY.equals(name)) {
             domain.setCreatedBy((java.lang.String) value);
@@ -336,23 +342,14 @@ public class GeneratedDmMeetingDaoImpl extends TypeDaoImpl<DmMeeting, java.lang.
         else if (COLUMN_NAME_CREATEDDATE.equals(name)) {
             domain.setCreatedDate((java.util.Date) value);
         }
-        else if (COLUMN_NAME_DETAILSNOTES.equals(name)) {
-            domain.setDetailsNotes((java.lang.String) value);
-        }
         else if (COLUMN_NAME_ENDDATE.equals(name)) {
             domain.setEndDate((java.util.Date) value);
-        }
-        else if (COLUMN_NAME_FILEIDS.equals(name)) {
-            domain.setFileIds((java.util.Collection) value);
-        }
-        else if (COLUMN_NAME_FILENAMES.equals(name)) {
-            domain.setFileNames((java.util.Collection) value);
         }
         else if (COLUMN_NAME_FOLLOWUPFILEIDS.equals(name)) {
             domain.setFollowUpFileIds((java.util.Collection) value);
         }
-        else if (COLUMN_NAME_FOLLOWUPINCLUDEAGENDA.equals(name)) {
-            domain.setFollowUpIncludeAgenda((java.lang.Boolean) value);
+        else if (COLUMN_NAME_FOLLOWUPINCLUDESAGENDA.equals(name)) {
+            domain.setFollowUpIncludesAgenda((java.lang.Boolean) value);
         }
         else if (COLUMN_NAME_FOLLOWUPLASTSENTDATE.equals(name)) {
             domain.setFollowUpLastSentDate((java.util.Date) value);
@@ -364,22 +361,25 @@ public class GeneratedDmMeetingDaoImpl extends TypeDaoImpl<DmMeeting, java.lang.
             domain.setImageUrl((java.lang.String) value);
         }
         else if (COLUMN_NAME_LOCATIONID.equals(name)) {
-            domain.setLocationId((java.lang.Long) value);
+            domain.setLocationId((java.lang.String) value);
         }
-        else if (COLUMN_NAME_MEETINGLOCATION.equals(name)) {
-            domain.setMeetingLocation((net.sf.mardao.core.geo.DLocation) value);
+        else if (COLUMN_NAME_MEETINGFILEIDS.equals(name)) {
+            domain.setMeetingFileIds((java.util.Collection) value);
+        }
+        else if (COLUMN_NAME_MEETINGFILENAMES.equals(name)) {
+            domain.setMeetingFileNames((java.util.Collection) value);
+        }
+        else if (COLUMN_NAME_MEETINGNOTES.equals(name)) {
+            domain.setMeetingNotes((java.lang.String) value);
+        }
+        else if (COLUMN_NAME_MEETINGPLANNINGNOTES.equals(name)) {
+            domain.setMeetingPlanningNotes((java.lang.String) value);
         }
         else if (COLUMN_NAME_MEETINGTYPE.equals(name)) {
             domain.setMeetingType((java.lang.Long) value);
         }
-        else if (COLUMN_NAME_NOTES.equals(name)) {
-            domain.setNotes((java.lang.String) value);
-        }
         else if (COLUMN_NAME_ORGANIZERID.equals(name)) {
             domain.setOrganizerId((java.lang.String) value);
-        }
-        else if (COLUMN_NAME_PHONENUMBER.equals(name)) {
-            domain.setPhoneNumber((java.lang.String) value);
         }
         else if (COLUMN_NAME_REPEATMODE.equals(name)) {
             domain.setRepeatMode((java.lang.Integer) value);
@@ -508,14 +508,14 @@ public class GeneratedDmMeetingDaoImpl extends TypeDaoImpl<DmMeeting, java.lang.
         }
 
         public String getGeoLocationColumnName() {
-            return COLUMN_NAME_MEETINGLOCATION;
+            return COLUMN_NAME_COMPANYLOCATION;
         }
 
         public DLocation getGeoLocation(DmMeeting domain) {
             if (null == domain) {
                 return null;
             }
-            return domain.getMeetingLocation();
+            return domain.getCompanyLocation();
         }
 
 	// ----------------------- field finders -------------------------------
@@ -611,38 +611,6 @@ public class GeneratedDmMeetingDaoImpl extends TypeDaoImpl<DmMeeting, java.lang.
 	public final CursorPage<DmMeeting, java.lang.Long> queryPageByActualStartDate(java.util.Date actualStartDate,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_ACTUALSTARTDATE, actualStartDate);
-            return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
-        }
-
-	 
-	/**
-         * {@inheritDoc}
-	 */
-	public final Iterable<DmMeeting> queryByAddress(java.lang.String address) {
-            final Filter filter = createEqualsFilter(COLUMN_NAME_ADDRESS, address);
-            return queryIterable(false, 0, -1, null, null, null, false, null, false, filter);
-	}
-	
-	/**
-	 * query-key-by method for attribute field address
-	 * @param address the specified attribute
-	 * @return an Iterable of keys to the DmMeetings with the specified attribute
-	 */
-	public final Iterable<java.lang.Long> queryKeysByAddress(java.lang.String address) {
-            final Filter filter = createEqualsFilter(COLUMN_NAME_ADDRESS, address);
-            return queryIterableKeys(0, -1, null, null, null, false, null, false, filter);
-	}
-
-	/**
-	 * query-page-by method for field address
-	 * @param address the specified attribute
-         * @param pageSize the number of domain entities in the page
-         * @param cursorString non-null if get next page
-	 * @return a Page of DmMeetings for the specified address
-	 */
-	public final CursorPage<DmMeeting, java.lang.Long> queryPageByAddress(java.lang.String address,
-            int pageSize, String cursorString) {
-            final Filter filter = createEqualsFilter(COLUMN_NAME_ADDRESS, address);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
         }
 
@@ -778,6 +746,38 @@ public class GeneratedDmMeetingDaoImpl extends TypeDaoImpl<DmMeeting, java.lang.
 	/**
          * {@inheritDoc}
 	 */
+	public final Iterable<DmMeeting> queryByCompanyAddress(java.lang.String companyAddress) {
+            final Filter filter = createEqualsFilter(COLUMN_NAME_COMPANYADDRESS, companyAddress);
+            return queryIterable(false, 0, -1, null, null, null, false, null, false, filter);
+	}
+	
+	/**
+	 * query-key-by method for attribute field companyAddress
+	 * @param companyAddress the specified attribute
+	 * @return an Iterable of keys to the DmMeetings with the specified attribute
+	 */
+	public final Iterable<java.lang.Long> queryKeysByCompanyAddress(java.lang.String companyAddress) {
+            final Filter filter = createEqualsFilter(COLUMN_NAME_COMPANYADDRESS, companyAddress);
+            return queryIterableKeys(0, -1, null, null, null, false, null, false, filter);
+	}
+
+	/**
+	 * query-page-by method for field companyAddress
+	 * @param companyAddress the specified attribute
+         * @param pageSize the number of domain entities in the page
+         * @param cursorString non-null if get next page
+	 * @return a Page of DmMeetings for the specified companyAddress
+	 */
+	public final CursorPage<DmMeeting, java.lang.Long> queryPageByCompanyAddress(java.lang.String companyAddress,
+            int pageSize, String cursorString) {
+            final Filter filter = createEqualsFilter(COLUMN_NAME_COMPANYADDRESS, companyAddress);
+            return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
+        }
+
+	 
+	/**
+         * {@inheritDoc}
+	 */
 	public final Iterable<DmMeeting> queryByCompanyId(java.lang.String companyId) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_COMPANYID, companyId);
             return queryIterable(false, 0, -1, null, null, null, false, null, false, filter);
@@ -810,6 +810,38 @@ public class GeneratedDmMeetingDaoImpl extends TypeDaoImpl<DmMeeting, java.lang.
 	/**
          * {@inheritDoc}
 	 */
+	public final Iterable<DmMeeting> queryByCompanyLocation(net.sf.mardao.core.geo.DLocation companyLocation) {
+            final Filter filter = createEqualsFilter(COLUMN_NAME_COMPANYLOCATION, companyLocation);
+            return queryIterable(false, 0, -1, null, null, null, false, null, false, filter);
+	}
+	
+	/**
+	 * query-key-by method for attribute field companyLocation
+	 * @param companyLocation the specified attribute
+	 * @return an Iterable of keys to the DmMeetings with the specified attribute
+	 */
+	public final Iterable<java.lang.Long> queryKeysByCompanyLocation(net.sf.mardao.core.geo.DLocation companyLocation) {
+            final Filter filter = createEqualsFilter(COLUMN_NAME_COMPANYLOCATION, companyLocation);
+            return queryIterableKeys(0, -1, null, null, null, false, null, false, filter);
+	}
+
+	/**
+	 * query-page-by method for field companyLocation
+	 * @param companyLocation the specified attribute
+         * @param pageSize the number of domain entities in the page
+         * @param cursorString non-null if get next page
+	 * @return a Page of DmMeetings for the specified companyLocation
+	 */
+	public final CursorPage<DmMeeting, java.lang.Long> queryPageByCompanyLocation(net.sf.mardao.core.geo.DLocation companyLocation,
+            int pageSize, String cursorString) {
+            final Filter filter = createEqualsFilter(COLUMN_NAME_COMPANYLOCATION, companyLocation);
+            return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
+        }
+
+	 
+	/**
+         * {@inheritDoc}
+	 */
 	public final Iterable<DmMeeting> queryByCompanyName(java.lang.String companyName) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_COMPANYNAME, companyName);
             return queryIterable(false, 0, -1, null, null, null, false, null, false, filter);
@@ -835,6 +867,38 @@ public class GeneratedDmMeetingDaoImpl extends TypeDaoImpl<DmMeeting, java.lang.
 	public final CursorPage<DmMeeting, java.lang.Long> queryPageByCompanyName(java.lang.String companyName,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_COMPANYNAME, companyName);
+            return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
+        }
+
+	 
+	/**
+         * {@inheritDoc}
+	 */
+	public final Iterable<DmMeeting> queryByCompanyPhoneNumber(java.lang.String companyPhoneNumber) {
+            final Filter filter = createEqualsFilter(COLUMN_NAME_COMPANYPHONENUMBER, companyPhoneNumber);
+            return queryIterable(false, 0, -1, null, null, null, false, null, false, filter);
+	}
+	
+	/**
+	 * query-key-by method for attribute field companyPhoneNumber
+	 * @param companyPhoneNumber the specified attribute
+	 * @return an Iterable of keys to the DmMeetings with the specified attribute
+	 */
+	public final Iterable<java.lang.Long> queryKeysByCompanyPhoneNumber(java.lang.String companyPhoneNumber) {
+            final Filter filter = createEqualsFilter(COLUMN_NAME_COMPANYPHONENUMBER, companyPhoneNumber);
+            return queryIterableKeys(0, -1, null, null, null, false, null, false, filter);
+	}
+
+	/**
+	 * query-page-by method for field companyPhoneNumber
+	 * @param companyPhoneNumber the specified attribute
+         * @param pageSize the number of domain entities in the page
+         * @param cursorString non-null if get next page
+	 * @return a Page of DmMeetings for the specified companyPhoneNumber
+	 */
+	public final CursorPage<DmMeeting, java.lang.Long> queryPageByCompanyPhoneNumber(java.lang.String companyPhoneNumber,
+            int pageSize, String cursorString) {
+            final Filter filter = createEqualsFilter(COLUMN_NAME_COMPANYPHONENUMBER, companyPhoneNumber);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
         }
 
@@ -906,38 +970,6 @@ public class GeneratedDmMeetingDaoImpl extends TypeDaoImpl<DmMeeting, java.lang.
 	/**
          * {@inheritDoc}
 	 */
-	public final Iterable<DmMeeting> queryByDetailsNotes(java.lang.String detailsNotes) {
-            final Filter filter = createEqualsFilter(COLUMN_NAME_DETAILSNOTES, detailsNotes);
-            return queryIterable(false, 0, -1, null, null, null, false, null, false, filter);
-	}
-	
-	/**
-	 * query-key-by method for attribute field detailsNotes
-	 * @param detailsNotes the specified attribute
-	 * @return an Iterable of keys to the DmMeetings with the specified attribute
-	 */
-	public final Iterable<java.lang.Long> queryKeysByDetailsNotes(java.lang.String detailsNotes) {
-            final Filter filter = createEqualsFilter(COLUMN_NAME_DETAILSNOTES, detailsNotes);
-            return queryIterableKeys(0, -1, null, null, null, false, null, false, filter);
-	}
-
-	/**
-	 * query-page-by method for field detailsNotes
-	 * @param detailsNotes the specified attribute
-         * @param pageSize the number of domain entities in the page
-         * @param cursorString non-null if get next page
-	 * @return a Page of DmMeetings for the specified detailsNotes
-	 */
-	public final CursorPage<DmMeeting, java.lang.Long> queryPageByDetailsNotes(java.lang.String detailsNotes,
-            int pageSize, String cursorString) {
-            final Filter filter = createEqualsFilter(COLUMN_NAME_DETAILSNOTES, detailsNotes);
-            return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
-        }
-
-	 
-	/**
-         * {@inheritDoc}
-	 */
 	public final Iterable<DmMeeting> queryByEndDate(java.util.Date endDate) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_ENDDATE, endDate);
             return queryIterable(false, 0, -1, null, null, null, false, null, false, filter);
@@ -963,70 +995,6 @@ public class GeneratedDmMeetingDaoImpl extends TypeDaoImpl<DmMeeting, java.lang.
 	public final CursorPage<DmMeeting, java.lang.Long> queryPageByEndDate(java.util.Date endDate,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_ENDDATE, endDate);
-            return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
-        }
-
-	 
-	/**
-         * {@inheritDoc}
-	 */
-	public final Iterable<DmMeeting> queryByFileIds(java.lang.Object fileIds) {
-            final Filter filter = createEqualsFilter(COLUMN_NAME_FILEIDS, fileIds);
-            return queryIterable(false, 0, -1, null, null, null, false, null, false, filter);
-	}
-	
-	/**
-	 * query-key-by method for attribute field fileIds
-	 * @param fileIds the specified attribute
-	 * @return an Iterable of keys to the DmMeetings with the specified attribute
-	 */
-	public final Iterable<java.lang.Long> queryKeysByFileIds(java.lang.Object fileIds) {
-            final Filter filter = createEqualsFilter(COLUMN_NAME_FILEIDS, fileIds);
-            return queryIterableKeys(0, -1, null, null, null, false, null, false, filter);
-	}
-
-	/**
-	 * query-page-by method for field fileIds
-	 * @param fileIds the specified attribute
-         * @param pageSize the number of domain entities in the page
-         * @param cursorString non-null if get next page
-	 * @return a Page of DmMeetings for the specified fileIds
-	 */
-	public final CursorPage<DmMeeting, java.lang.Long> queryPageByFileIds(java.lang.Object fileIds,
-            int pageSize, String cursorString) {
-            final Filter filter = createEqualsFilter(COLUMN_NAME_FILEIDS, fileIds);
-            return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
-        }
-
-	 
-	/**
-         * {@inheritDoc}
-	 */
-	public final Iterable<DmMeeting> queryByFileNames(java.lang.Object fileNames) {
-            final Filter filter = createEqualsFilter(COLUMN_NAME_FILENAMES, fileNames);
-            return queryIterable(false, 0, -1, null, null, null, false, null, false, filter);
-	}
-	
-	/**
-	 * query-key-by method for attribute field fileNames
-	 * @param fileNames the specified attribute
-	 * @return an Iterable of keys to the DmMeetings with the specified attribute
-	 */
-	public final Iterable<java.lang.Long> queryKeysByFileNames(java.lang.Object fileNames) {
-            final Filter filter = createEqualsFilter(COLUMN_NAME_FILENAMES, fileNames);
-            return queryIterableKeys(0, -1, null, null, null, false, null, false, filter);
-	}
-
-	/**
-	 * query-page-by method for field fileNames
-	 * @param fileNames the specified attribute
-         * @param pageSize the number of domain entities in the page
-         * @param cursorString non-null if get next page
-	 * @return a Page of DmMeetings for the specified fileNames
-	 */
-	public final CursorPage<DmMeeting, java.lang.Long> queryPageByFileNames(java.lang.Object fileNames,
-            int pageSize, String cursorString) {
-            final Filter filter = createEqualsFilter(COLUMN_NAME_FILENAMES, fileNames);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
         }
 
@@ -1066,31 +1034,31 @@ public class GeneratedDmMeetingDaoImpl extends TypeDaoImpl<DmMeeting, java.lang.
 	/**
          * {@inheritDoc}
 	 */
-	public final Iterable<DmMeeting> queryByFollowUpIncludeAgenda(java.lang.Boolean followUpIncludeAgenda) {
-            final Filter filter = createEqualsFilter(COLUMN_NAME_FOLLOWUPINCLUDEAGENDA, followUpIncludeAgenda);
+	public final Iterable<DmMeeting> queryByFollowUpIncludesAgenda(java.lang.Boolean followUpIncludesAgenda) {
+            final Filter filter = createEqualsFilter(COLUMN_NAME_FOLLOWUPINCLUDESAGENDA, followUpIncludesAgenda);
             return queryIterable(false, 0, -1, null, null, null, false, null, false, filter);
 	}
 	
 	/**
-	 * query-key-by method for attribute field followUpIncludeAgenda
-	 * @param followUpIncludeAgenda the specified attribute
+	 * query-key-by method for attribute field followUpIncludesAgenda
+	 * @param followUpIncludesAgenda the specified attribute
 	 * @return an Iterable of keys to the DmMeetings with the specified attribute
 	 */
-	public final Iterable<java.lang.Long> queryKeysByFollowUpIncludeAgenda(java.lang.Boolean followUpIncludeAgenda) {
-            final Filter filter = createEqualsFilter(COLUMN_NAME_FOLLOWUPINCLUDEAGENDA, followUpIncludeAgenda);
+	public final Iterable<java.lang.Long> queryKeysByFollowUpIncludesAgenda(java.lang.Boolean followUpIncludesAgenda) {
+            final Filter filter = createEqualsFilter(COLUMN_NAME_FOLLOWUPINCLUDESAGENDA, followUpIncludesAgenda);
             return queryIterableKeys(0, -1, null, null, null, false, null, false, filter);
 	}
 
 	/**
-	 * query-page-by method for field followUpIncludeAgenda
-	 * @param followUpIncludeAgenda the specified attribute
+	 * query-page-by method for field followUpIncludesAgenda
+	 * @param followUpIncludesAgenda the specified attribute
          * @param pageSize the number of domain entities in the page
          * @param cursorString non-null if get next page
-	 * @return a Page of DmMeetings for the specified followUpIncludeAgenda
+	 * @return a Page of DmMeetings for the specified followUpIncludesAgenda
 	 */
-	public final CursorPage<DmMeeting, java.lang.Long> queryPageByFollowUpIncludeAgenda(java.lang.Boolean followUpIncludeAgenda,
+	public final CursorPage<DmMeeting, java.lang.Long> queryPageByFollowUpIncludesAgenda(java.lang.Boolean followUpIncludesAgenda,
             int pageSize, String cursorString) {
-            final Filter filter = createEqualsFilter(COLUMN_NAME_FOLLOWUPINCLUDEAGENDA, followUpIncludeAgenda);
+            final Filter filter = createEqualsFilter(COLUMN_NAME_FOLLOWUPINCLUDESAGENDA, followUpIncludesAgenda);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
         }
 
@@ -1194,7 +1162,7 @@ public class GeneratedDmMeetingDaoImpl extends TypeDaoImpl<DmMeeting, java.lang.
 	/**
          * {@inheritDoc}
 	 */
-	public final Iterable<DmMeeting> queryByLocationId(java.lang.Long locationId) {
+	public final Iterable<DmMeeting> queryByLocationId(java.lang.String locationId) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_LOCATIONID, locationId);
             return queryIterable(false, 0, -1, null, null, null, false, null, false, filter);
 	}
@@ -1204,7 +1172,7 @@ public class GeneratedDmMeetingDaoImpl extends TypeDaoImpl<DmMeeting, java.lang.
 	 * @param locationId the specified attribute
 	 * @return an Iterable of keys to the DmMeetings with the specified attribute
 	 */
-	public final Iterable<java.lang.Long> queryKeysByLocationId(java.lang.Long locationId) {
+	public final Iterable<java.lang.Long> queryKeysByLocationId(java.lang.String locationId) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_LOCATIONID, locationId);
             return queryIterableKeys(0, -1, null, null, null, false, null, false, filter);
 	}
@@ -1216,7 +1184,7 @@ public class GeneratedDmMeetingDaoImpl extends TypeDaoImpl<DmMeeting, java.lang.
          * @param cursorString non-null if get next page
 	 * @return a Page of DmMeetings for the specified locationId
 	 */
-	public final CursorPage<DmMeeting, java.lang.Long> queryPageByLocationId(java.lang.Long locationId,
+	public final CursorPage<DmMeeting, java.lang.Long> queryPageByLocationId(java.lang.String locationId,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_LOCATIONID, locationId);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -1226,31 +1194,127 @@ public class GeneratedDmMeetingDaoImpl extends TypeDaoImpl<DmMeeting, java.lang.
 	/**
          * {@inheritDoc}
 	 */
-	public final Iterable<DmMeeting> queryByMeetingLocation(net.sf.mardao.core.geo.DLocation meetingLocation) {
-            final Filter filter = createEqualsFilter(COLUMN_NAME_MEETINGLOCATION, meetingLocation);
+	public final Iterable<DmMeeting> queryByMeetingFileIds(java.lang.Object meetingFileIds) {
+            final Filter filter = createEqualsFilter(COLUMN_NAME_MEETINGFILEIDS, meetingFileIds);
             return queryIterable(false, 0, -1, null, null, null, false, null, false, filter);
 	}
 	
 	/**
-	 * query-key-by method for attribute field meetingLocation
-	 * @param meetingLocation the specified attribute
+	 * query-key-by method for attribute field meetingFileIds
+	 * @param meetingFileIds the specified attribute
 	 * @return an Iterable of keys to the DmMeetings with the specified attribute
 	 */
-	public final Iterable<java.lang.Long> queryKeysByMeetingLocation(net.sf.mardao.core.geo.DLocation meetingLocation) {
-            final Filter filter = createEqualsFilter(COLUMN_NAME_MEETINGLOCATION, meetingLocation);
+	public final Iterable<java.lang.Long> queryKeysByMeetingFileIds(java.lang.Object meetingFileIds) {
+            final Filter filter = createEqualsFilter(COLUMN_NAME_MEETINGFILEIDS, meetingFileIds);
             return queryIterableKeys(0, -1, null, null, null, false, null, false, filter);
 	}
 
 	/**
-	 * query-page-by method for field meetingLocation
-	 * @param meetingLocation the specified attribute
+	 * query-page-by method for field meetingFileIds
+	 * @param meetingFileIds the specified attribute
          * @param pageSize the number of domain entities in the page
          * @param cursorString non-null if get next page
-	 * @return a Page of DmMeetings for the specified meetingLocation
+	 * @return a Page of DmMeetings for the specified meetingFileIds
 	 */
-	public final CursorPage<DmMeeting, java.lang.Long> queryPageByMeetingLocation(net.sf.mardao.core.geo.DLocation meetingLocation,
+	public final CursorPage<DmMeeting, java.lang.Long> queryPageByMeetingFileIds(java.lang.Object meetingFileIds,
             int pageSize, String cursorString) {
-            final Filter filter = createEqualsFilter(COLUMN_NAME_MEETINGLOCATION, meetingLocation);
+            final Filter filter = createEqualsFilter(COLUMN_NAME_MEETINGFILEIDS, meetingFileIds);
+            return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
+        }
+
+	 
+	/**
+         * {@inheritDoc}
+	 */
+	public final Iterable<DmMeeting> queryByMeetingFileNames(java.lang.Object meetingFileNames) {
+            final Filter filter = createEqualsFilter(COLUMN_NAME_MEETINGFILENAMES, meetingFileNames);
+            return queryIterable(false, 0, -1, null, null, null, false, null, false, filter);
+	}
+	
+	/**
+	 * query-key-by method for attribute field meetingFileNames
+	 * @param meetingFileNames the specified attribute
+	 * @return an Iterable of keys to the DmMeetings with the specified attribute
+	 */
+	public final Iterable<java.lang.Long> queryKeysByMeetingFileNames(java.lang.Object meetingFileNames) {
+            final Filter filter = createEqualsFilter(COLUMN_NAME_MEETINGFILENAMES, meetingFileNames);
+            return queryIterableKeys(0, -1, null, null, null, false, null, false, filter);
+	}
+
+	/**
+	 * query-page-by method for field meetingFileNames
+	 * @param meetingFileNames the specified attribute
+         * @param pageSize the number of domain entities in the page
+         * @param cursorString non-null if get next page
+	 * @return a Page of DmMeetings for the specified meetingFileNames
+	 */
+	public final CursorPage<DmMeeting, java.lang.Long> queryPageByMeetingFileNames(java.lang.Object meetingFileNames,
+            int pageSize, String cursorString) {
+            final Filter filter = createEqualsFilter(COLUMN_NAME_MEETINGFILENAMES, meetingFileNames);
+            return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
+        }
+
+	 
+	/**
+         * {@inheritDoc}
+	 */
+	public final Iterable<DmMeeting> queryByMeetingNotes(java.lang.String meetingNotes) {
+            final Filter filter = createEqualsFilter(COLUMN_NAME_MEETINGNOTES, meetingNotes);
+            return queryIterable(false, 0, -1, null, null, null, false, null, false, filter);
+	}
+	
+	/**
+	 * query-key-by method for attribute field meetingNotes
+	 * @param meetingNotes the specified attribute
+	 * @return an Iterable of keys to the DmMeetings with the specified attribute
+	 */
+	public final Iterable<java.lang.Long> queryKeysByMeetingNotes(java.lang.String meetingNotes) {
+            final Filter filter = createEqualsFilter(COLUMN_NAME_MEETINGNOTES, meetingNotes);
+            return queryIterableKeys(0, -1, null, null, null, false, null, false, filter);
+	}
+
+	/**
+	 * query-page-by method for field meetingNotes
+	 * @param meetingNotes the specified attribute
+         * @param pageSize the number of domain entities in the page
+         * @param cursorString non-null if get next page
+	 * @return a Page of DmMeetings for the specified meetingNotes
+	 */
+	public final CursorPage<DmMeeting, java.lang.Long> queryPageByMeetingNotes(java.lang.String meetingNotes,
+            int pageSize, String cursorString) {
+            final Filter filter = createEqualsFilter(COLUMN_NAME_MEETINGNOTES, meetingNotes);
+            return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
+        }
+
+	 
+	/**
+         * {@inheritDoc}
+	 */
+	public final Iterable<DmMeeting> queryByMeetingPlanningNotes(java.lang.String meetingPlanningNotes) {
+            final Filter filter = createEqualsFilter(COLUMN_NAME_MEETINGPLANNINGNOTES, meetingPlanningNotes);
+            return queryIterable(false, 0, -1, null, null, null, false, null, false, filter);
+	}
+	
+	/**
+	 * query-key-by method for attribute field meetingPlanningNotes
+	 * @param meetingPlanningNotes the specified attribute
+	 * @return an Iterable of keys to the DmMeetings with the specified attribute
+	 */
+	public final Iterable<java.lang.Long> queryKeysByMeetingPlanningNotes(java.lang.String meetingPlanningNotes) {
+            final Filter filter = createEqualsFilter(COLUMN_NAME_MEETINGPLANNINGNOTES, meetingPlanningNotes);
+            return queryIterableKeys(0, -1, null, null, null, false, null, false, filter);
+	}
+
+	/**
+	 * query-page-by method for field meetingPlanningNotes
+	 * @param meetingPlanningNotes the specified attribute
+         * @param pageSize the number of domain entities in the page
+         * @param cursorString non-null if get next page
+	 * @return a Page of DmMeetings for the specified meetingPlanningNotes
+	 */
+	public final CursorPage<DmMeeting, java.lang.Long> queryPageByMeetingPlanningNotes(java.lang.String meetingPlanningNotes,
+            int pageSize, String cursorString) {
+            final Filter filter = createEqualsFilter(COLUMN_NAME_MEETINGPLANNINGNOTES, meetingPlanningNotes);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
         }
 
@@ -1290,38 +1354,6 @@ public class GeneratedDmMeetingDaoImpl extends TypeDaoImpl<DmMeeting, java.lang.
 	/**
          * {@inheritDoc}
 	 */
-	public final Iterable<DmMeeting> queryByNotes(java.lang.String notes) {
-            final Filter filter = createEqualsFilter(COLUMN_NAME_NOTES, notes);
-            return queryIterable(false, 0, -1, null, null, null, false, null, false, filter);
-	}
-	
-	/**
-	 * query-key-by method for attribute field notes
-	 * @param notes the specified attribute
-	 * @return an Iterable of keys to the DmMeetings with the specified attribute
-	 */
-	public final Iterable<java.lang.Long> queryKeysByNotes(java.lang.String notes) {
-            final Filter filter = createEqualsFilter(COLUMN_NAME_NOTES, notes);
-            return queryIterableKeys(0, -1, null, null, null, false, null, false, filter);
-	}
-
-	/**
-	 * query-page-by method for field notes
-	 * @param notes the specified attribute
-         * @param pageSize the number of domain entities in the page
-         * @param cursorString non-null if get next page
-	 * @return a Page of DmMeetings for the specified notes
-	 */
-	public final CursorPage<DmMeeting, java.lang.Long> queryPageByNotes(java.lang.String notes,
-            int pageSize, String cursorString) {
-            final Filter filter = createEqualsFilter(COLUMN_NAME_NOTES, notes);
-            return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
-        }
-
-	 
-	/**
-         * {@inheritDoc}
-	 */
 	public final Iterable<DmMeeting> queryByOrganizerId(java.lang.String organizerId) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_ORGANIZERID, organizerId);
             return queryIterable(false, 0, -1, null, null, null, false, null, false, filter);
@@ -1347,38 +1379,6 @@ public class GeneratedDmMeetingDaoImpl extends TypeDaoImpl<DmMeeting, java.lang.
 	public final CursorPage<DmMeeting, java.lang.Long> queryPageByOrganizerId(java.lang.String organizerId,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_ORGANIZERID, organizerId);
-            return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
-        }
-
-	 
-	/**
-         * {@inheritDoc}
-	 */
-	public final Iterable<DmMeeting> queryByPhoneNumber(java.lang.String phoneNumber) {
-            final Filter filter = createEqualsFilter(COLUMN_NAME_PHONENUMBER, phoneNumber);
-            return queryIterable(false, 0, -1, null, null, null, false, null, false, filter);
-	}
-	
-	/**
-	 * query-key-by method for attribute field phoneNumber
-	 * @param phoneNumber the specified attribute
-	 * @return an Iterable of keys to the DmMeetings with the specified attribute
-	 */
-	public final Iterable<java.lang.Long> queryKeysByPhoneNumber(java.lang.String phoneNumber) {
-            final Filter filter = createEqualsFilter(COLUMN_NAME_PHONENUMBER, phoneNumber);
-            return queryIterableKeys(0, -1, null, null, null, false, null, false, filter);
-	}
-
-	/**
-	 * query-page-by method for field phoneNumber
-	 * @param phoneNumber the specified attribute
-         * @param pageSize the number of domain entities in the page
-         * @param cursorString non-null if get next page
-	 * @return a Page of DmMeetings for the specified phoneNumber
-	 */
-	public final CursorPage<DmMeeting, java.lang.Long> queryPageByPhoneNumber(java.lang.String phoneNumber,
-            int pageSize, String cursorString) {
-            final Filter filter = createEqualsFilter(COLUMN_NAME_PHONENUMBER, phoneNumber);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
         }
 
@@ -1560,28 +1560,28 @@ public class GeneratedDmMeetingDaoImpl extends TypeDaoImpl<DmMeeting, java.lang.
 		java.lang.Long actualDuration, 
 		java.util.Date actualEndDate, 
 		java.util.Date actualStartDate, 
-		java.lang.String address, 
 		java.util.Collection agendaItemIds, 
 		java.lang.Integer alertOffsetInMinutes, 
 		java.util.Collection attendeeIds, 
 		java.util.Collection attendeeNames, 
+		java.lang.String companyAddress, 
 		java.lang.String companyId, 
+		net.sf.mardao.core.geo.DLocation companyLocation, 
 		java.lang.String companyName, 
-		java.lang.String detailsNotes, 
+		java.lang.String companyPhoneNumber, 
 		java.util.Date endDate, 
-		java.util.Collection fileIds, 
-		java.util.Collection fileNames, 
 		java.util.Collection followUpFileIds, 
-		java.lang.Boolean followUpIncludeAgenda, 
+		java.lang.Boolean followUpIncludesAgenda, 
 		java.util.Date followUpLastSentDate, 
 		java.lang.String followUpNotes, 
 		java.lang.String imageUrl, 
-		java.lang.Long locationId, 
-		net.sf.mardao.core.geo.DLocation meetingLocation, 
+		java.lang.String locationId, 
+		java.util.Collection meetingFileIds, 
+		java.util.Collection meetingFileNames, 
+		java.lang.String meetingNotes, 
+		java.lang.String meetingPlanningNotes, 
 		java.lang.Long meetingType, 
-		java.lang.String notes, 
 		java.lang.String organizerId, 
-		java.lang.String phoneNumber, 
 		java.lang.Integer repeatMode, 
 		java.util.Date startDate, 
 		java.lang.String title) {
@@ -1603,28 +1603,28 @@ public class GeneratedDmMeetingDaoImpl extends TypeDaoImpl<DmMeeting, java.lang.
                     domain.setActualDuration(actualDuration);
                     domain.setActualEndDate(actualEndDate);
                     domain.setActualStartDate(actualStartDate);
-                    domain.setAddress(address);
                     domain.setAgendaItemIds(agendaItemIds);
                     domain.setAlertOffsetInMinutes(alertOffsetInMinutes);
                     domain.setAttendeeIds(attendeeIds);
                     domain.setAttendeeNames(attendeeNames);
+                    domain.setCompanyAddress(companyAddress);
                     domain.setCompanyId(companyId);
+                    domain.setCompanyLocation(companyLocation);
                     domain.setCompanyName(companyName);
-                    domain.setDetailsNotes(detailsNotes);
+                    domain.setCompanyPhoneNumber(companyPhoneNumber);
                     domain.setEndDate(endDate);
-                    domain.setFileIds(fileIds);
-                    domain.setFileNames(fileNames);
                     domain.setFollowUpFileIds(followUpFileIds);
-                    domain.setFollowUpIncludeAgenda(followUpIncludeAgenda);
+                    domain.setFollowUpIncludesAgenda(followUpIncludesAgenda);
                     domain.setFollowUpLastSentDate(followUpLastSentDate);
                     domain.setFollowUpNotes(followUpNotes);
                     domain.setImageUrl(imageUrl);
                     domain.setLocationId(locationId);
-                    domain.setMeetingLocation(meetingLocation);
+                    domain.setMeetingFileIds(meetingFileIds);
+                    domain.setMeetingFileNames(meetingFileNames);
+                    domain.setMeetingNotes(meetingNotes);
+                    domain.setMeetingPlanningNotes(meetingPlanningNotes);
                     domain.setMeetingType(meetingType);
-                    domain.setNotes(notes);
                     domain.setOrganizerId(organizerId);
-                    domain.setPhoneNumber(phoneNumber);
                     domain.setRepeatMode(repeatMode);
                     domain.setStartDate(startDate);
                     domain.setTitle(title);
