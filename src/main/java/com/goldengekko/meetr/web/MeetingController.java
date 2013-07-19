@@ -109,7 +109,7 @@ public class MeetingController extends CrudController<JMeeting, DmMeeting, Long,
         to.setAlertOffsetInMinutes(from.getAlertOffsetInMinutes());
         to.setCompanyPhoneNumber(from.getCompanyPhoneNumber());
         to.setCompanyAddress(from.getCompanyAddress());
-        if (null != from.getCompanyLocation().getLatitude() && null != from.getCompanyLocation().getLongitude()) {
+        if (null != from.getCompanyLocation() && null != from.getCompanyLocation().getLatitude() && null != from.getCompanyLocation().getLongitude()) {
             to.setCompanyLocation(new DLocation(
                     from.getCompanyLocation().getLatitude(),
                     from.getCompanyLocation().getLongitude()
