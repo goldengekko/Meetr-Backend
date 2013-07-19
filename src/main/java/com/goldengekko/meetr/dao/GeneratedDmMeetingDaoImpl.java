@@ -20,7 +20,7 @@ import com.goldengekko.meetr.domain.DmMeeting;
 /**
  * The DmMeeting domain-object specific finders and methods go in this POJO.
  * 
- * Generated on 2013-07-18T11:30:21.619+0200.
+ * Generated on 2013-07-19T15:33:33.389+0700.
  * @author mardao DAO generator (net.sf.mardao.plugin.ProcessDomainMojo)
  */
 public class GeneratedDmMeetingDaoImpl extends TypeDaoImpl<DmMeeting, java.lang.Long> 
@@ -640,7 +640,7 @@ public class GeneratedDmMeetingDaoImpl extends TypeDaoImpl<DmMeeting, java.lang.
          * @param cursorString non-null if get next page
 	 * @return a Page of DmMeetings for the specified agendaItemIds
 	 */
-	public final CursorPage<DmMeeting, java.lang.Long> queryPageByAgendaItemIds(java.lang.Object agendaItemIds,
+	public final CursorPage<DmMeeting> queryPageByAgendaItemIds(java.lang.Object agendaItemIds,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_AGENDAITEMIDS, agendaItemIds);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -672,7 +672,7 @@ public class GeneratedDmMeetingDaoImpl extends TypeDaoImpl<DmMeeting, java.lang.
          * @param cursorString non-null if get next page
 	 * @return a Page of DmMeetings for the specified alertOffsetInMinutes
 	 */
-	public final CursorPage<DmMeeting, java.lang.Long> queryPageByAlertOffsetInMinutes(java.lang.Integer alertOffsetInMinutes,
+	public final CursorPage<DmMeeting> queryPageByAlertOffsetInMinutes(java.lang.Integer alertOffsetInMinutes,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_ALERTOFFSETINMINUTES, alertOffsetInMinutes);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -768,7 +768,7 @@ public class GeneratedDmMeetingDaoImpl extends TypeDaoImpl<DmMeeting, java.lang.
          * @param cursorString non-null if get next page
 	 * @return a Page of DmMeetings for the specified companyAddress
 	 */
-	public final CursorPage<DmMeeting, java.lang.Long> queryPageByCompanyAddress(java.lang.String companyAddress,
+	public final CursorPage<DmMeeting> queryPageByCompanyAddress(java.lang.String companyAddress,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_COMPANYADDRESS, companyAddress);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -800,7 +800,7 @@ public class GeneratedDmMeetingDaoImpl extends TypeDaoImpl<DmMeeting, java.lang.
          * @param cursorString non-null if get next page
 	 * @return a Page of DmMeetings for the specified companyId
 	 */
-	public final CursorPage<DmMeeting, java.lang.Long> queryPageByCompanyId(java.lang.String companyId,
+	public final CursorPage<DmMeeting> queryPageByCompanyId(java.lang.String companyId,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_COMPANYID, companyId);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -832,7 +832,7 @@ public class GeneratedDmMeetingDaoImpl extends TypeDaoImpl<DmMeeting, java.lang.
          * @param cursorString non-null if get next page
 	 * @return a Page of DmMeetings for the specified companyLocation
 	 */
-	public final CursorPage<DmMeeting, java.lang.Long> queryPageByCompanyLocation(net.sf.mardao.core.geo.DLocation companyLocation,
+	public final CursorPage<DmMeeting> queryPageByCompanyLocation(net.sf.mardao.core.geo.DLocation companyLocation,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_COMPANYLOCATION, companyLocation);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -864,7 +864,7 @@ public class GeneratedDmMeetingDaoImpl extends TypeDaoImpl<DmMeeting, java.lang.
          * @param cursorString non-null if get next page
 	 * @return a Page of DmMeetings for the specified companyName
 	 */
-	public final CursorPage<DmMeeting, java.lang.Long> queryPageByCompanyName(java.lang.String companyName,
+	public final CursorPage<DmMeeting> queryPageByCompanyName(java.lang.String companyName,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_COMPANYNAME, companyName);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -896,7 +896,7 @@ public class GeneratedDmMeetingDaoImpl extends TypeDaoImpl<DmMeeting, java.lang.
          * @param cursorString non-null if get next page
 	 * @return a Page of DmMeetings for the specified companyPhoneNumber
 	 */
-	public final CursorPage<DmMeeting, java.lang.Long> queryPageByCompanyPhoneNumber(java.lang.String companyPhoneNumber,
+	public final CursorPage<DmMeeting> queryPageByCompanyPhoneNumber(java.lang.String companyPhoneNumber,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_COMPANYPHONENUMBER, companyPhoneNumber);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -1024,7 +1024,7 @@ public class GeneratedDmMeetingDaoImpl extends TypeDaoImpl<DmMeeting, java.lang.
          * @param cursorString non-null if get next page
 	 * @return a Page of DmMeetings for the specified followUpFileIds
 	 */
-	public final CursorPage<DmMeeting, java.lang.Long> queryPageByFollowUpFileIds(java.lang.Object followUpFileIds,
+	public final CursorPage<DmMeeting> queryPageByFollowUpFileIds(java.lang.Object followUpFileIds,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_FOLLOWUPFILEIDS, followUpFileIds);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -1056,11 +1056,7 @@ public class GeneratedDmMeetingDaoImpl extends TypeDaoImpl<DmMeeting, java.lang.
          * @param cursorString non-null if get next page
 	 * @return a Page of DmMeetings for the specified followUpIncludesAgenda
 	 */
-<<<<<<< HEAD
-	public final CursorPage<DmMeeting, java.lang.Long> queryPageByFollowUpIncludesAgenda(java.lang.Boolean followUpIncludesAgenda,
-=======
-	public final CursorPage<DmMeeting> queryPageByFileIds(java.lang.Object fileIds,
->>>>>>> WOFO switching to mardao-2.3.3 and CursorPage<T>
+	public final CursorPage<DmMeeting> queryPageByFollowUpIncludesAgenda(java.lang.Boolean followUpIncludesAgenda,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_FOLLOWUPINCLUDESAGENDA, followUpIncludesAgenda);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -1092,11 +1088,7 @@ public class GeneratedDmMeetingDaoImpl extends TypeDaoImpl<DmMeeting, java.lang.
          * @param cursorString non-null if get next page
 	 * @return a Page of DmMeetings for the specified followUpLastSentDate
 	 */
-<<<<<<< HEAD
-	public final CursorPage<DmMeeting, java.lang.Long> queryPageByFollowUpLastSentDate(java.util.Date followUpLastSentDate,
-=======
-	public final CursorPage<DmMeeting> queryPageByFileNames(java.lang.Object fileNames,
->>>>>>> WOFO switching to mardao-2.3.3 and CursorPage<T>
+	public final CursorPage<DmMeeting> queryPageByFollowUpLastSentDate(java.util.Date followUpLastSentDate,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_FOLLOWUPLASTSENTDATE, followUpLastSentDate);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -1128,11 +1120,7 @@ public class GeneratedDmMeetingDaoImpl extends TypeDaoImpl<DmMeeting, java.lang.
          * @param cursorString non-null if get next page
 	 * @return a Page of DmMeetings for the specified followUpNotes
 	 */
-<<<<<<< HEAD
-	public final CursorPage<DmMeeting, java.lang.Long> queryPageByFollowUpNotes(java.lang.String followUpNotes,
-=======
-	public final CursorPage<DmMeeting> queryPageByFollowUpFileIds(java.lang.Object followUpFileIds,
->>>>>>> WOFO switching to mardao-2.3.3 and CursorPage<T>
+	public final CursorPage<DmMeeting> queryPageByFollowUpNotes(java.lang.String followUpNotes,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_FOLLOWUPNOTES, followUpNotes);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -1196,11 +1184,7 @@ public class GeneratedDmMeetingDaoImpl extends TypeDaoImpl<DmMeeting, java.lang.
          * @param cursorString non-null if get next page
 	 * @return a Page of DmMeetings for the specified locationId
 	 */
-<<<<<<< HEAD
-	public final CursorPage<DmMeeting, java.lang.Long> queryPageByLocationId(java.lang.String locationId,
-=======
-	public final CursorPage<DmMeeting> queryPageByLocationId(java.lang.Long locationId,
->>>>>>> WOFO switching to mardao-2.3.3 and CursorPage<T>
+	public final CursorPage<DmMeeting> queryPageByLocationId(java.lang.String locationId,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_LOCATIONID, locationId);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -1232,7 +1216,7 @@ public class GeneratedDmMeetingDaoImpl extends TypeDaoImpl<DmMeeting, java.lang.
          * @param cursorString non-null if get next page
 	 * @return a Page of DmMeetings for the specified meetingFileIds
 	 */
-	public final CursorPage<DmMeeting, java.lang.Long> queryPageByMeetingFileIds(java.lang.Object meetingFileIds,
+	public final CursorPage<DmMeeting> queryPageByMeetingFileIds(java.lang.Object meetingFileIds,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_MEETINGFILEIDS, meetingFileIds);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -1264,7 +1248,7 @@ public class GeneratedDmMeetingDaoImpl extends TypeDaoImpl<DmMeeting, java.lang.
          * @param cursorString non-null if get next page
 	 * @return a Page of DmMeetings for the specified meetingFileNames
 	 */
-	public final CursorPage<DmMeeting, java.lang.Long> queryPageByMeetingFileNames(java.lang.Object meetingFileNames,
+	public final CursorPage<DmMeeting> queryPageByMeetingFileNames(java.lang.Object meetingFileNames,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_MEETINGFILENAMES, meetingFileNames);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -1296,7 +1280,7 @@ public class GeneratedDmMeetingDaoImpl extends TypeDaoImpl<DmMeeting, java.lang.
          * @param cursorString non-null if get next page
 	 * @return a Page of DmMeetings for the specified meetingNotes
 	 */
-	public final CursorPage<DmMeeting, java.lang.Long> queryPageByMeetingNotes(java.lang.String meetingNotes,
+	public final CursorPage<DmMeeting> queryPageByMeetingNotes(java.lang.String meetingNotes,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_MEETINGNOTES, meetingNotes);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -1328,7 +1312,7 @@ public class GeneratedDmMeetingDaoImpl extends TypeDaoImpl<DmMeeting, java.lang.
          * @param cursorString non-null if get next page
 	 * @return a Page of DmMeetings for the specified meetingPlanningNotes
 	 */
-	public final CursorPage<DmMeeting, java.lang.Long> queryPageByMeetingPlanningNotes(java.lang.String meetingPlanningNotes,
+	public final CursorPage<DmMeeting> queryPageByMeetingPlanningNotes(java.lang.String meetingPlanningNotes,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_MEETINGPLANNINGNOTES, meetingPlanningNotes);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -1488,7 +1472,7 @@ public class GeneratedDmMeetingDaoImpl extends TypeDaoImpl<DmMeeting, java.lang.
          * @param cursorString non-null if get next page
 	 * @return a Page of DmMeetings for the specified title
 	 */
-	public final CursorPage<DmMeeting, java.lang.Long> queryPageByTitle(java.lang.String title,
+	public final CursorPage<DmMeeting> queryPageByTitle(java.lang.String title,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_TITLE, title);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);

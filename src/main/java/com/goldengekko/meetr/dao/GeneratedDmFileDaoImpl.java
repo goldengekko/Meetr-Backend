@@ -20,7 +20,7 @@ import com.goldengekko.meetr.domain.DmFile;
 /**
  * The DmFile domain-object specific finders and methods go in this POJO.
  * 
- * Generated on 2013-07-18T11:30:21.619+0200.
+ * Generated on 2013-07-19T15:33:33.389+0700.
  * @author mardao DAO generator (net.sf.mardao.plugin.ProcessDomainMojo)
  */
 public class GeneratedDmFileDaoImpl extends TypeDaoImpl<DmFile, java.lang.Long> 
@@ -372,7 +372,7 @@ public class GeneratedDmFileDaoImpl extends TypeDaoImpl<DmFile, java.lang.Long>
          * @param cursorString non-null if get next page
 	 * @return a Page of DmFiles for the specified externalId
 	 */
-	public final CursorPage<DmFile, java.lang.Long> queryPageByExternalId(java.lang.String externalId,
+	public final CursorPage<DmFile> queryPageByExternalId(java.lang.String externalId,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_EXTERNALID, externalId);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
@@ -404,11 +404,7 @@ public class GeneratedDmFileDaoImpl extends TypeDaoImpl<DmFile, java.lang.Long>
          * @param cursorString non-null if get next page
 	 * @return a Page of DmFiles for the specified externalSource
 	 */
-<<<<<<< HEAD
-	public final CursorPage<DmFile, java.lang.Long> queryPageByExternalSource(java.lang.String externalSource,
-=======
-	public final CursorPage<DmFile> queryPageByExtRef(java.lang.String extRef,
->>>>>>> WOFO switching to mardao-2.3.3 and CursorPage<T>
+	public final CursorPage<DmFile> queryPageByExternalSource(java.lang.String externalSource,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_EXTERNALSOURCE, externalSource);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);

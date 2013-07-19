@@ -12,7 +12,7 @@ import net.sf.mardao.core.geo.DLocation;
 /**
  * DAO interface with finder methods for DmFile entities.
  *
- * Generated on 2013-07-18T11:30:21.619+0200.
+ * Generated on 2013-07-19T15:33:33.389+0700.
  * @author mardao DAO generator (net.sf.mardao.plugin.ProcessDomainMojo)
  */
 public interface GeneratedDmFileDao extends Dao<DmFile, java.lang.Long> {
@@ -128,8 +128,7 @@ public interface GeneratedDmFileDao extends Dao<DmFile, java.lang.Long> {
          * @param cursorString non-null if get next page
 	 * @return a Page of DmFiles for the specified externalId
 	 */
-<<<<<<< HEAD
-	CursorPage<DmFile, java.lang.Long> queryPageByExternalId(java.lang.String externalId,
+	CursorPage<DmFile> queryPageByExternalId(java.lang.String externalId,
             int pageSize, String cursorString);
 
 
@@ -154,10 +153,7 @@ public interface GeneratedDmFileDao extends Dao<DmFile, java.lang.Long> {
          * @param cursorString non-null if get next page
 	 * @return a Page of DmFiles for the specified externalSource
 	 */
-	CursorPage<DmFile, java.lang.Long> queryPageByExternalSource(java.lang.String externalSource,
-=======
-	CursorPage<DmFile> queryPageByExtRef(java.lang.String extRef,
->>>>>>> WOFO switching to mardao-2.3.3 and CursorPage<T>
+	CursorPage<DmFile> queryPageByExternalSource(java.lang.String externalSource,
             int pageSize, String cursorString);
 
 

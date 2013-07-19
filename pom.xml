@@ -127,7 +127,7 @@
         <dependency>
             <groupId>com.wadpam.oauth</groupId>
             <artifactId>oauth2-client</artifactId>
-            <version>1.5-SNAPSHOT</version>
+            <version>1.5</version>
             <exclusions>
                 <!-- could be fixed in goldengekko/spring-social-salesforce -->
                 <exclusion>

@@ -12,8 +12,7 @@ import net.sf.mardao.core.geo.DLocation;
 /**
  * DAO interface with finder methods for DmTask entities.
  *
- * Generated on 2013-07-18T11:30:21.619+0200.
->>>>>>> WOFO switching to mardao-2.3.3 and CursorPage<T>
+ * Generated on 2013-07-19T15:33:33.389+0700.
  * @author mardao DAO generator (net.sf.mardao.plugin.ProcessDomainMojo)
  */
 public interface GeneratedDmTaskDao extends Dao<DmTask, java.lang.Long> {
@@ -154,11 +153,7 @@ public interface GeneratedDmTaskDao extends Dao<DmTask, java.lang.Long> {
          * @param cursorString non-null if get next page
 	 * @return a Page of DmTasks for the specified meetingSyncId
 	 */
-<<<<<<< HEAD
-	CursorPage<DmTask, java.lang.Long> queryPageByMeetingSyncId(java.lang.String meetingSyncId,
-=======
-	CursorPage<DmTask> queryPageByMeetingId(java.lang.String meetingId,
->>>>>>> WOFO switching to mardao-2.3.3 and CursorPage<T>
+	CursorPage<DmTask> queryPageByMeetingSyncId(java.lang.String meetingSyncId,
             int pageSize, String cursorString);
 
 

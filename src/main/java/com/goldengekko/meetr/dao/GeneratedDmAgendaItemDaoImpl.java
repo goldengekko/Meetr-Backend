@@ -20,7 +20,7 @@ import com.goldengekko.meetr.domain.DmAgendaItem;
 /**
  * The DmAgendaItem domain-object specific finders and methods go in this POJO.
  * 
- * Generated on 2013-07-18T11:30:21.619+0200.
+ * Generated on 2013-07-19T15:33:33.389+0700.
  * @author mardao DAO generator (net.sf.mardao.plugin.ProcessDomainMojo)
  */
 public class GeneratedDmAgendaItemDaoImpl extends TypeDaoImpl<DmAgendaItem, java.lang.Long> 
@@ -373,41 +373,6 @@ public class GeneratedDmAgendaItemDaoImpl extends TypeDaoImpl<DmAgendaItem, java
 	/**
          * {@inheritDoc}
 	 */
-<<<<<<< HEAD
-=======
-	public final Iterable<DmAgendaItem> queryByMeetingId(java.lang.String meetingId) {
-            final Filter filter = createEqualsFilter(COLUMN_NAME_MEETINGID, meetingId);
-            return queryIterable(false, 0, -1, null, null, null, false, null, false, filter);
-	}
-	
-	/**
-	 * query-key-by method for attribute field meetingId
-	 * @param meetingId the specified attribute
-	 * @return an Iterable of keys to the DmAgendaItems with the specified attribute
-	 */
-	public final Iterable<java.lang.Long> queryKeysByMeetingId(java.lang.String meetingId) {
-            final Filter filter = createEqualsFilter(COLUMN_NAME_MEETINGID, meetingId);
-            return queryIterableKeys(0, -1, null, null, null, false, null, false, filter);
-	}
-
-	/**
-	 * query-page-by method for field meetingId
-	 * @param meetingId the specified attribute
-         * @param pageSize the number of domain entities in the page
-         * @param cursorString non-null if get next page
-	 * @return a Page of DmAgendaItems for the specified meetingId
-	 */
-	public final CursorPage<DmAgendaItem> queryPageByMeetingId(java.lang.String meetingId,
-            int pageSize, String cursorString) {
-            final Filter filter = createEqualsFilter(COLUMN_NAME_MEETINGID, meetingId);
-            return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
-        }
-
-	 
-	/**
-         * {@inheritDoc}
-	 */
->>>>>>> WOFO switching to mardao-2.3.3 and CursorPage<T>
 	public final Iterable<DmAgendaItem> queryByTitle(java.lang.String title) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_TITLE, title);
             return queryIterable(false, 0, -1, null, null, null, false, null, false, filter);

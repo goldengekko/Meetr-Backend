@@ -12,7 +12,7 @@ import net.sf.mardao.core.geo.DLocation;
 /**
  * DAO interface with finder methods for DmMeeting entities.
  *
- * Generated on 2013-07-18T11:30:21.619+0200.
+ * Generated on 2013-07-19T15:33:33.389+0700.
  * @author mardao DAO generator (net.sf.mardao.plugin.ProcessDomainMojo)
  */
 public interface GeneratedDmMeetingDao extends Dao<DmMeeting, java.lang.Long> {
@@ -253,7 +253,7 @@ public interface GeneratedDmMeetingDao extends Dao<DmMeeting, java.lang.Long> {
          * @param cursorString non-null if get next page
 	 * @return a Page of DmMeetings for the specified agendaItemIds
 	 */
-	CursorPage<DmMeeting, java.lang.Long> queryPageByAgendaItemIds(java.lang.Object agendaItemIds,
+	CursorPage<DmMeeting> queryPageByAgendaItemIds(java.lang.Object agendaItemIds,
             int pageSize, String cursorString);
 
 
@@ -278,7 +278,7 @@ public interface GeneratedDmMeetingDao extends Dao<DmMeeting, java.lang.Long> {
          * @param cursorString non-null if get next page
 	 * @return a Page of DmMeetings for the specified alertOffsetInMinutes
 	 */
-	CursorPage<DmMeeting, java.lang.Long> queryPageByAlertOffsetInMinutes(java.lang.Integer alertOffsetInMinutes,
+	CursorPage<DmMeeting> queryPageByAlertOffsetInMinutes(java.lang.Integer alertOffsetInMinutes,
             int pageSize, String cursorString);
 
 
@@ -353,7 +353,7 @@ public interface GeneratedDmMeetingDao extends Dao<DmMeeting, java.lang.Long> {
          * @param cursorString non-null if get next page
 	 * @return a Page of DmMeetings for the specified companyAddress
 	 */
-	CursorPage<DmMeeting, java.lang.Long> queryPageByCompanyAddress(java.lang.String companyAddress,
+	CursorPage<DmMeeting> queryPageByCompanyAddress(java.lang.String companyAddress,
             int pageSize, String cursorString);
 
 
@@ -378,7 +378,7 @@ public interface GeneratedDmMeetingDao extends Dao<DmMeeting, java.lang.Long> {
          * @param cursorString non-null if get next page
 	 * @return a Page of DmMeetings for the specified companyId
 	 */
-	CursorPage<DmMeeting, java.lang.Long> queryPageByCompanyId(java.lang.String companyId,
+	CursorPage<DmMeeting> queryPageByCompanyId(java.lang.String companyId,
             int pageSize, String cursorString);
 
 
@@ -403,7 +403,7 @@ public interface GeneratedDmMeetingDao extends Dao<DmMeeting, java.lang.Long> {
          * @param cursorString non-null if get next page
 	 * @return a Page of DmMeetings for the specified companyLocation
 	 */
-	CursorPage<DmMeeting, java.lang.Long> queryPageByCompanyLocation(net.sf.mardao.core.geo.DLocation companyLocation,
+	CursorPage<DmMeeting> queryPageByCompanyLocation(net.sf.mardao.core.geo.DLocation companyLocation,
             int pageSize, String cursorString);
 
 
@@ -428,7 +428,7 @@ public interface GeneratedDmMeetingDao extends Dao<DmMeeting, java.lang.Long> {
          * @param cursorString non-null if get next page
 	 * @return a Page of DmMeetings for the specified companyName
 	 */
-	CursorPage<DmMeeting, java.lang.Long> queryPageByCompanyName(java.lang.String companyName,
+	CursorPage<DmMeeting> queryPageByCompanyName(java.lang.String companyName,
             int pageSize, String cursorString);
 
 
@@ -453,7 +453,7 @@ public interface GeneratedDmMeetingDao extends Dao<DmMeeting, java.lang.Long> {
          * @param cursorString non-null if get next page
 	 * @return a Page of DmMeetings for the specified companyPhoneNumber
 	 */
-	CursorPage<DmMeeting, java.lang.Long> queryPageByCompanyPhoneNumber(java.lang.String companyPhoneNumber,
+	CursorPage<DmMeeting> queryPageByCompanyPhoneNumber(java.lang.String companyPhoneNumber,
             int pageSize, String cursorString);
 
 
@@ -553,11 +553,7 @@ public interface GeneratedDmMeetingDao extends Dao<DmMeeting, java.lang.Long> {
          * @param cursorString non-null if get next page
 	 * @return a Page of DmMeetings for the specified followUpFileIds
 	 */
-<<<<<<< HEAD
-	CursorPage<DmMeeting, java.lang.Long> queryPageByFollowUpFileIds(java.lang.Object followUpFileIds,
-=======
-	CursorPage<DmMeeting> queryPageByFileIds(java.lang.Object fileIds,
->>>>>>> WOFO switching to mardao-2.3.3 and CursorPage<T>
+	CursorPage<DmMeeting> queryPageByFollowUpFileIds(java.lang.Object followUpFileIds,
             int pageSize, String cursorString);
 
 
@@ -582,11 +578,7 @@ public interface GeneratedDmMeetingDao extends Dao<DmMeeting, java.lang.Long> {
          * @param cursorString non-null if get next page
 	 * @return a Page of DmMeetings for the specified followUpIncludesAgenda
 	 */
-<<<<<<< HEAD
-	CursorPage<DmMeeting, java.lang.Long> queryPageByFollowUpIncludesAgenda(java.lang.Boolean followUpIncludesAgenda,
-=======
-	CursorPage<DmMeeting> queryPageByFileNames(java.lang.Object fileNames,
->>>>>>> WOFO switching to mardao-2.3.3 and CursorPage<T>
+	CursorPage<DmMeeting> queryPageByFollowUpIncludesAgenda(java.lang.Boolean followUpIncludesAgenda,
             int pageSize, String cursorString);
 
 
@@ -611,8 +603,7 @@ public interface GeneratedDmMeetingDao extends Dao<DmMeeting, java.lang.Long> {
          * @param cursorString non-null if get next page
 	 * @return a Page of DmMeetings for the specified followUpLastSentDate
 	 */
-<<<<<<< HEAD
-	CursorPage<DmMeeting, java.lang.Long> queryPageByFollowUpLastSentDate(java.util.Date followUpLastSentDate,
+	CursorPage<DmMeeting> queryPageByFollowUpLastSentDate(java.util.Date followUpLastSentDate,
             int pageSize, String cursorString);
 
 
@@ -637,10 +628,7 @@ public interface GeneratedDmMeetingDao extends Dao<DmMeeting, java.lang.Long> {
          * @param cursorString non-null if get next page
 	 * @return a Page of DmMeetings for the specified followUpNotes
 	 */
-	CursorPage<DmMeeting, java.lang.Long> queryPageByFollowUpNotes(java.lang.String followUpNotes,
-=======
-	CursorPage<DmMeeting> queryPageByFollowUpFileIds(java.lang.Object followUpFileIds,
->>>>>>> WOFO switching to mardao-2.3.3 and CursorPage<T>
+	CursorPage<DmMeeting> queryPageByFollowUpNotes(java.lang.String followUpNotes,
             int pageSize, String cursorString);
 
 
@@ -690,8 +678,7 @@ public interface GeneratedDmMeetingDao extends Dao<DmMeeting, java.lang.Long> {
          * @param cursorString non-null if get next page
 	 * @return a Page of DmMeetings for the specified locationId
 	 */
-<<<<<<< HEAD
-	CursorPage<DmMeeting, java.lang.Long> queryPageByLocationId(java.lang.String locationId,
+	CursorPage<DmMeeting> queryPageByLocationId(java.lang.String locationId,
             int pageSize, String cursorString);
 
 
@@ -716,7 +703,7 @@ public interface GeneratedDmMeetingDao extends Dao<DmMeeting, java.lang.Long> {
          * @param cursorString non-null if get next page
 	 * @return a Page of DmMeetings for the specified meetingFileIds
 	 */
-	CursorPage<DmMeeting, java.lang.Long> queryPageByMeetingFileIds(java.lang.Object meetingFileIds,
+	CursorPage<DmMeeting> queryPageByMeetingFileIds(java.lang.Object meetingFileIds,
             int pageSize, String cursorString);
 
 
@@ -741,7 +728,7 @@ public interface GeneratedDmMeetingDao extends Dao<DmMeeting, java.lang.Long> {
          * @param cursorString non-null if get next page
 	 * @return a Page of DmMeetings for the specified meetingFileNames
 	 */
-	CursorPage<DmMeeting, java.lang.Long> queryPageByMeetingFileNames(java.lang.Object meetingFileNames,
+	CursorPage<DmMeeting> queryPageByMeetingFileNames(java.lang.Object meetingFileNames,
             int pageSize, String cursorString);
 
 
@@ -766,7 +753,7 @@ public interface GeneratedDmMeetingDao extends Dao<DmMeeting, java.lang.Long> {
          * @param cursorString non-null if get next page
 	 * @return a Page of DmMeetings for the specified meetingNotes
 	 */
-	CursorPage<DmMeeting, java.lang.Long> queryPageByMeetingNotes(java.lang.String meetingNotes,
+	CursorPage<DmMeeting> queryPageByMeetingNotes(java.lang.String meetingNotes,
             int pageSize, String cursorString);
 
 
@@ -791,10 +778,7 @@ public interface GeneratedDmMeetingDao extends Dao<DmMeeting, java.lang.Long> {
          * @param cursorString non-null if get next page
 	 * @return a Page of DmMeetings for the specified meetingPlanningNotes
 	 */
-	CursorPage<DmMeeting, java.lang.Long> queryPageByMeetingPlanningNotes(java.lang.String meetingPlanningNotes,
-=======
-	CursorPage<DmMeeting> queryPageByLocationId(java.lang.Long locationId,
->>>>>>> WOFO switching to mardao-2.3.3 and CursorPage<T>
+	CursorPage<DmMeeting> queryPageByMeetingPlanningNotes(java.lang.String meetingPlanningNotes,
             int pageSize, String cursorString);
 
 
@@ -919,7 +903,7 @@ public interface GeneratedDmMeetingDao extends Dao<DmMeeting, java.lang.Long> {
          * @param cursorString non-null if get next page
 	 * @return a Page of DmMeetings for the specified title
 	 */
-	CursorPage<DmMeeting, java.lang.Long> queryPageByTitle(java.lang.String title,
+	CursorPage<DmMeeting> queryPageByTitle(java.lang.String title,
             int pageSize, String cursorString);
 
 

@@ -12,7 +12,7 @@ import net.sf.mardao.core.geo.DLocation;
 /**
  * DAO interface with finder methods for DmAgendaItem entities.
  *
- * Generated on 2013-07-18T11:30:21.619+0200.
+ * Generated on 2013-07-19T15:33:33.389+0700.
  * @author mardao DAO generator (net.sf.mardao.plugin.ProcessDomainMojo)
  */
 public interface GeneratedDmAgendaItemDao extends Dao<DmAgendaItem, java.lang.Long> {
@@ -129,34 +129,6 @@ public interface GeneratedDmAgendaItemDao extends Dao<DmAgendaItem, java.lang.Lo
 
 
 	/**
-<<<<<<< HEAD
-=======
-	 * query-by method for field meetingId
-	 * @param meetingId the specified attribute
-	 * @return an Iterable of DmAgendaItems for the specified meetingId
-	 */
-	Iterable<DmAgendaItem> queryByMeetingId(java.lang.String meetingId);
-		
-	/**
-	 * query-keys-by method for field meetingId
-	 * @param meetingId the specified attribute
-	 * @return an Iterable of DmAgendaItems for the specified meetingId
-	 */
-	Iterable<java.lang.Long> queryKeysByMeetingId(java.lang.String meetingId);
-
-	/**
-	 * query-page-by method for field meetingId
-	 * @param meetingId the specified attribute
-         * @param pageSize the number of domain entities in the page
-         * @param cursorString non-null if get next page
-	 * @return a Page of DmAgendaItems for the specified meetingId
-	 */
-	CursorPage<DmAgendaItem> queryPageByMeetingId(java.lang.String meetingId,
-            int pageSize, String cursorString);
-
-
-	/**
->>>>>>> WOFO switching to mardao-2.3.3 and CursorPage<T>
 	 * query-by method for field title
 	 * @param title the specified attribute
 	 * @return an Iterable of DmAgendaItems for the specified title

@@ -20,7 +20,7 @@ import com.goldengekko.meetr.domain.DmTask;
 /**
  * The DmTask domain-object specific finders and methods go in this POJO.
  * 
- * Generated on 2013-07-18T11:30:21.619+0200.
+ * Generated on 2013-07-19T15:33:33.389+0700.
  * @author mardao DAO generator (net.sf.mardao.plugin.ProcessDomainMojo)
  */
 public class GeneratedDmTaskDaoImpl extends TypeDaoImpl<DmTask, java.lang.Long> 
@@ -404,11 +404,7 @@ public class GeneratedDmTaskDaoImpl extends TypeDaoImpl<DmTask, java.lang.Long>
          * @param cursorString non-null if get next page
 	 * @return a Page of DmTasks for the specified meetingSyncId
 	 */
-<<<<<<< HEAD
-	public final CursorPage<DmTask, java.lang.Long> queryPageByMeetingSyncId(java.lang.String meetingSyncId,
-=======
-	public final CursorPage<DmTask> queryPageByMeetingId(java.lang.String meetingId,
->>>>>>> WOFO switching to mardao-2.3.3 and CursorPage<T>
+	public final CursorPage<DmTask> queryPageByMeetingSyncId(java.lang.String meetingSyncId,
             int pageSize, String cursorString) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_MEETINGSYNCID, meetingSyncId);
             return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
