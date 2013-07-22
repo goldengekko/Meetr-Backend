@@ -20,7 +20,7 @@ import com.goldengekko.meetr.domain.DmFile;
 /**
  * The DmFile domain-object specific finders and methods go in this POJO.
  * 
- * Generated on 2013-07-19T15:33:33.389+0700.
+ * Generated on 2013-07-22T13:43:46.529+0200.
  * @author mardao DAO generator (net.sf.mardao.plugin.ProcessDomainMojo)
  */
 public class GeneratedDmFileDaoImpl extends TypeDaoImpl<DmFile, java.lang.Long> 
@@ -78,6 +78,9 @@ public class GeneratedDmFileDaoImpl extends TypeDaoImpl<DmFile, java.lang.Long>
         else if (COLUMN_NAME_EXTERNALID.equals(name)) {
             value = domain.getExternalId();
         }
+        else if (COLUMN_NAME_EXTERNALPARENTFOLDERID.equals(name)) {
+            value = domain.getExternalParentFolderId();
+        }
         else if (COLUMN_NAME_EXTERNALSOURCE.equals(name)) {
             value = domain.getExternalSource();
         }
@@ -121,6 +124,9 @@ public class GeneratedDmFileDaoImpl extends TypeDaoImpl<DmFile, java.lang.Long>
         else if (COLUMN_NAME_EXTERNALID.equals(name)) {
             clazz = java.lang.String.class;
         }
+        else if (COLUMN_NAME_EXTERNALPARENTFOLDERID.equals(name)) {
+            clazz = java.lang.String.class;
+        }
         else if (COLUMN_NAME_EXTERNALSOURCE.equals(name)) {
             clazz = java.lang.String.class;
         }
@@ -158,6 +164,9 @@ public class GeneratedDmFileDaoImpl extends TypeDaoImpl<DmFile, java.lang.Long>
         }
         else if (COLUMN_NAME_EXTERNALID.equals(name)) {
             domain.setExternalId((java.lang.String) value);
+        }
+        else if (COLUMN_NAME_EXTERNALPARENTFOLDERID.equals(name)) {
+            domain.setExternalParentFolderId((java.lang.String) value);
         }
         else if (COLUMN_NAME_EXTERNALSOURCE.equals(name)) {
             domain.setExternalSource((java.lang.String) value);
@@ -382,6 +391,38 @@ public class GeneratedDmFileDaoImpl extends TypeDaoImpl<DmFile, java.lang.Long>
 	/**
          * {@inheritDoc}
 	 */
+	public final Iterable<DmFile> queryByExternalParentFolderId(java.lang.String externalParentFolderId) {
+            final Filter filter = createEqualsFilter(COLUMN_NAME_EXTERNALPARENTFOLDERID, externalParentFolderId);
+            return queryIterable(false, 0, -1, null, null, null, false, null, false, filter);
+	}
+	
+	/**
+	 * query-key-by method for attribute field externalParentFolderId
+	 * @param externalParentFolderId the specified attribute
+	 * @return an Iterable of keys to the DmFiles with the specified attribute
+	 */
+	public final Iterable<java.lang.Long> queryKeysByExternalParentFolderId(java.lang.String externalParentFolderId) {
+            final Filter filter = createEqualsFilter(COLUMN_NAME_EXTERNALPARENTFOLDERID, externalParentFolderId);
+            return queryIterableKeys(0, -1, null, null, null, false, null, false, filter);
+	}
+
+	/**
+	 * query-page-by method for field externalParentFolderId
+	 * @param externalParentFolderId the specified attribute
+         * @param pageSize the number of domain entities in the page
+         * @param cursorString non-null if get next page
+	 * @return a Page of DmFiles for the specified externalParentFolderId
+	 */
+	public final CursorPage<DmFile> queryPageByExternalParentFolderId(java.lang.String externalParentFolderId,
+            int pageSize, String cursorString) {
+            final Filter filter = createEqualsFilter(COLUMN_NAME_EXTERNALPARENTFOLDERID, externalParentFolderId);
+            return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
+        }
+
+	 
+	/**
+         * {@inheritDoc}
+	 */
 	public final Iterable<DmFile> queryByExternalSource(java.lang.String externalSource) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_EXTERNALSOURCE, externalSource);
             return queryIterable(false, 0, -1, null, null, null, false, null, false, filter);
@@ -522,6 +563,7 @@ public class GeneratedDmFileDaoImpl extends TypeDaoImpl<DmFile, java.lang.Long>
 	 */
 	public DmFile persist(		java.lang.Long id, 
 		java.lang.String externalId, 
+		java.lang.String externalParentFolderId, 
 		java.lang.String externalSource, 
 		java.lang.String name) {
 
@@ -540,6 +582,7 @@ public class GeneratedDmFileDaoImpl extends TypeDaoImpl<DmFile, java.lang.Long>
                     }
                     // fields
                     domain.setExternalId(externalId);
+                    domain.setExternalParentFolderId(externalParentFolderId);
                     domain.setExternalSource(externalSource);
                     domain.setName(name);
                     // one-to-ones

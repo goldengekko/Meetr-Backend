@@ -29,10 +29,17 @@ import java.util.Collection;
  */
 public class JFile extends JBaseObject {
 
+    /** The display name of the file */
     private String name;
 
+    /** The external Id of the file. Unique per file provider */
     private String externalId;
 
+    /** The external Id of the files parent folder
+     * Needed to to retain hierarchy and mark a file a downloaded when browsing a particular folder */
+    private String externalParentFolderId;
+
+    /** The external file provider where the file can be fetched */
     private String externalSource;
 
 
@@ -60,5 +67,13 @@ public class JFile extends JBaseObject {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getExternalParentFolderId() {
+        return externalParentFolderId;
+    }
+
+    public void setExternalParentFolderId(String externalParentFolderId) {
+        this.externalParentFolderId = externalParentFolderId;
     }
 }

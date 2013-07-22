@@ -12,7 +12,7 @@ import net.sf.mardao.core.geo.DLocation;
 /**
  * DAO interface with finder methods for DmFile entities.
  *
- * Generated on 2013-07-19T15:33:33.389+0700.
+ * Generated on 2013-07-22T13:43:46.529+0200.
  * @author mardao DAO generator (net.sf.mardao.plugin.ProcessDomainMojo)
  */
 public interface GeneratedDmFileDao extends Dao<DmFile, java.lang.Long> {
@@ -27,6 +27,8 @@ public interface GeneratedDmFileDao extends Dao<DmFile, java.lang.Long> {
 	static final String COLUMN_NAME_CREATEDDATE = "createdDate";
 	/** Column name for field externalId is "externalId" */
 	static final String COLUMN_NAME_EXTERNALID = "externalId";
+	/** Column name for field externalParentFolderId is "externalParentFolderId" */
+	static final String COLUMN_NAME_EXTERNALPARENTFOLDERID = "externalParentFolderId";
 	/** Column name for field externalSource is "externalSource" */
 	static final String COLUMN_NAME_EXTERNALSOURCE = "externalSource";
 	/** Column name for field name is "name" */
@@ -40,6 +42,7 @@ public interface GeneratedDmFileDao extends Dao<DmFile, java.lang.Long> {
 	static final List<String> COLUMN_NAMES = Arrays.asList(		COLUMN_NAME_CREATEDBY,
 		COLUMN_NAME_CREATEDDATE,
 		COLUMN_NAME_EXTERNALID,
+		COLUMN_NAME_EXTERNALPARENTFOLDERID,
 		COLUMN_NAME_EXTERNALSOURCE,
 		COLUMN_NAME_NAME,
 		COLUMN_NAME_UPDATEDBY,
@@ -48,6 +51,7 @@ public interface GeneratedDmFileDao extends Dao<DmFile, java.lang.Long> {
 	static final List<String> BASIC_NAMES = Arrays.asList(		COLUMN_NAME_CREATEDBY,
 		COLUMN_NAME_CREATEDDATE,
 		COLUMN_NAME_EXTERNALID,
+		COLUMN_NAME_EXTERNALPARENTFOLDERID,
 		COLUMN_NAME_EXTERNALSOURCE,
 		COLUMN_NAME_NAME,
 		COLUMN_NAME_UPDATEDBY,
@@ -129,6 +133,31 @@ public interface GeneratedDmFileDao extends Dao<DmFile, java.lang.Long> {
 	 * @return a Page of DmFiles for the specified externalId
 	 */
 	CursorPage<DmFile> queryPageByExternalId(java.lang.String externalId,
+            int pageSize, String cursorString);
+
+
+	/**
+	 * query-by method for field externalParentFolderId
+	 * @param externalParentFolderId the specified attribute
+	 * @return an Iterable of DmFiles for the specified externalParentFolderId
+	 */
+	Iterable<DmFile> queryByExternalParentFolderId(java.lang.String externalParentFolderId);
+		
+	/**
+	 * query-keys-by method for field externalParentFolderId
+	 * @param externalParentFolderId the specified attribute
+	 * @return an Iterable of DmFiles for the specified externalParentFolderId
+	 */
+	Iterable<java.lang.Long> queryKeysByExternalParentFolderId(java.lang.String externalParentFolderId);
+
+	/**
+	 * query-page-by method for field externalParentFolderId
+	 * @param externalParentFolderId the specified attribute
+         * @param pageSize the number of domain entities in the page
+         * @param cursorString non-null if get next page
+	 * @return a Page of DmFiles for the specified externalParentFolderId
+	 */
+	CursorPage<DmFile> queryPageByExternalParentFolderId(java.lang.String externalParentFolderId,
             int pageSize, String cursorString);
 
 
@@ -249,6 +278,7 @@ public interface GeneratedDmFileDao extends Dao<DmFile, java.lang.Long> {
 	 */
 	DmFile persist(		java.lang.Long id, 
 		java.lang.String externalId, 
+		java.lang.String externalParentFolderId, 
 		java.lang.String externalSource, 
 		java.lang.String name);	
 

@@ -39,6 +39,9 @@ public class DmFile extends AbstractLongEntity {
     private String externalId;
 
     @Basic
+    private String externalParentFolderId;
+
+    @Basic
     private String externalSource;
 
 
@@ -66,5 +69,13 @@ public class DmFile extends AbstractLongEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getExternalParentFolderId() {
+        return externalParentFolderId;
+    }
+
+    public void setExternalParentFolderId(String externalParentFolderId) {
+        this.externalParentFolderId = externalParentFolderId;
     }
 }

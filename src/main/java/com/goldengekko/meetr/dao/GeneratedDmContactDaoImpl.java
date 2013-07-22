@@ -20,7 +20,7 @@ import com.goldengekko.meetr.domain.DmContact;
 /**
  * The DmContact domain-object specific finders and methods go in this POJO.
  * 
- * Generated on 2013-07-19T15:33:33.389+0700.
+ * Generated on 2013-07-22T13:43:46.529+0200.
  * @author mardao DAO generator (net.sf.mardao.plugin.ProcessDomainMojo)
  */
 public class GeneratedDmContactDaoImpl extends TypeDaoImpl<DmContact, java.lang.String> 

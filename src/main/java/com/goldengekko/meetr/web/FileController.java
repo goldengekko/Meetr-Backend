@@ -43,8 +43,9 @@ public class FileController extends CrudController<JFile, DmFile, Long, CrudServ
         convertLongEntity(from, to);
 
         to.setName(from.getName());
-        to.setExternalSource(from.getExternalSource());
         to.setExternalId(from.getExternalId());
+        to.setExternalParentFolderId(from.getExternalParentFolderId());
+        to.setExternalSource(from.getExternalSource());
     }
 
     @Override
@@ -52,8 +53,9 @@ public class FileController extends CrudController<JFile, DmFile, Long, CrudServ
         convertJLong(from, to);
 
         to.setName(from.getName());
-        to.setExternalSource(from.getExternalSource());
         to.setExternalId(from.getExternalId());
+        to.setExternalParentFolderId(from.getExternalParentFolderId());
+        to.setExternalSource(from.getExternalSource());
     }
 
 }
