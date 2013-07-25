@@ -180,7 +180,8 @@ public class MultiplexCrudService<T extends Object, ID extends Serializable>
     }
 
     @Override
-    public CursorPage<ID> whatsChanged(Date since, int pageSize, String cursorKey) {
-        return getService().whatsChanged(since, pageSize, cursorKey);
+    public CursorPage<ID> whatsChanged(Date since, String createdBy, String updatedBy, 
+            int pageSize, String cursorKey) {
+        return getService().whatsChanged(since, createdBy, updatedBy, pageSize, cursorKey);
     }
 }

@@ -173,7 +173,8 @@ public class AccountClient extends SalesforceService implements AccountService {
     }
 
     @Override
-    public CursorPage<String> whatsChanged(Date since, int pageSize, String cursorKey) {
+    public CursorPage<String> whatsChanged(Date since, String createdBy, String updatedBy, 
+            int pageSize, String cursorKey) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 

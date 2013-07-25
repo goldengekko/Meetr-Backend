@@ -54,7 +54,7 @@
         <surefire.default.skip>true</surefire.default.skip>
 
         <mardao.version>2.3.3</mardao.version>
-        <openserver.version>29-SNAPSHOT</openserver.version>
+        <openserver.version>29</openserver.version>
         <opencomponents.version>1</opencomponents.version>
         <javadocExecutable>${java.home}/../bin/javadoc</javadocExecutable>
         <docrest.version>1.20</docrest.version>
@@ -127,7 +127,7 @@
         <dependency>
             <groupId>com.wadpam.oauth</groupId>
             <artifactId>oauth2-client</artifactId>
-            <version>1.5</version>
+            <version>1.9</version>
             <exclusions>
                 <!-- could be fixed in goldengekko/spring-social-salesforce -->
                 <exclusion>
