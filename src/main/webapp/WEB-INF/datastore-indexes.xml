@@ -21,7 +21,29 @@
 
 -->
 <datastore-indexes autoGenerate="true">
+
     <datastore-index kind="DAudit" ancestor="true" source="manual">
         <property name="updatedDate" direction="asc"/>
     </datastore-index>
+
+    <datastore-index kind="DmMeeting" ancestor="false" source="manual">
+        <property name="createdBy" direction="asc"/>
+        <property name="updatedDate" direction="asc"/>
+    </datastore-index>
+
+    <datastore-index kind="DmAgendaItem" ancestor="false" source="manual">
+        <property name="createdBy" direction="asc"/>
+        <property name="updatedDate" direction="asc"/>
+    </datastore-index>
+
+    <datastore-index kind="DmFile" ancestor="false" source="manual">
+        <property name="createdBy" direction="asc"/>
+        <property name="updatedDate" direction="asc"/>
+    </datastore-index>
+
+    <datastore-index kind="DmTask" ancestor="false" source="manual">
+        <property name="createdBy" direction="asc"/>
+        <property name="updatedDate" direction="asc"/>
+    </datastore-index>
+
 </datastore-indexes>
