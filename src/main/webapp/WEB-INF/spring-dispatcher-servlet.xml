@@ -68,12 +68,14 @@
     <bean id="oauth2UserService" class="com.wadpam.oauth2.service.OAuth2OpenUserService">
         <property name="openUserService" ref="openUserService" />
     </bean>
-    
-                <!-- Accounts -->
-                <bean id="localAccountService" class="com.goldengekko.meetr.service.local.DatastoreAccountService">
-                    <property name="dao" ref="dmAccountDao" />
-                </bean>
-                <bean id="salesforceAccountClient" class="com.goldengekko.meetr.service.salesforce.AccountClient" />
+
+    <!-- Accounts -->
+    <bean id="localAccountService" class="com.goldengekko.meetr.service.local.DatastoreAccountService">
+        <property name="dao" ref="dmAccountDao" />
+    </bean>
+
+    <bean id="salesforceAccountClient" class="com.goldengekko.meetr.service.salesforce.AccountClient" />
+
     <bean id="accountService" class="com.goldengekko.meetr.service.MultiplexCrudService">
         <constructor-arg value="DmAccount" />
         <property name="multiplexMap">
@@ -96,12 +98,12 @@
         </property>
         <property name="defaultService" ref="localAgendaItemService"/>
     </bean>
-    
-                <!-- Contacts -->
-                <bean id="localContactService" class="com.goldengekko.meetr.service.local.DatastoreContactService">
-                    <property name="dao" ref="dmContactDao" />
-                </bean>
-                <bean id="salesforceContactClient" class="com.goldengekko.meetr.service.salesforce.ContactClient" />
+
+    <!-- Contacts -->
+    <bean id="localContactService" class="com.goldengekko.meetr.service.local.DatastoreContactService">
+        <property name="dao" ref="dmContactDao" />
+    </bean>
+    <bean id="salesforceContactClient" class="com.goldengekko.meetr.service.salesforce.ContactClient" />
     <bean id="contactService" class="com.goldengekko.meetr.service.MultiplexCrudService">
         <constructor-arg value="DmContact" />
         <property name="multiplexMap">
@@ -127,11 +129,11 @@
         </property>
         <property name="defaultService" ref="localFileService"/>
     </bean>
-    
-                <!-- Meetings -->
-                <bean id="localMeetingService" class="com.goldengekko.meetr.service.local.DatastoreMeetingService">
-                    <property name="dao" ref="dmMeetingDao" />
-                </bean>
+
+    <!-- Meetings -->
+    <bean id="localMeetingService" class="com.goldengekko.meetr.service.local.DatastoreMeetingService">
+        <property name="dao" ref="dmMeetingDao" />
+    </bean>
     <bean id="meetingService" class="com.goldengekko.meetr.service.MultiplexCrudService">
         <constructor-arg value="DmMeeting" />
         <property name="multiplexMap">
@@ -141,7 +143,7 @@
         <property name="defaultService" ref="localMeetingService" />
     </bean>
     
-                <!-- Task -->
+    <!-- Task -->
     <bean id="localTaskService" class="com.goldengekko.meetr.service.local.DatastoreTaskService">
         <property name="dao" ref="dmTaskDao" />
     </bean>
