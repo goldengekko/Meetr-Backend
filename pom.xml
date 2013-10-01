@@ -48,7 +48,7 @@
         <spring.version>3.2.1.RELEASE</spring.version>
         <mardao.version>2.3.3</mardao.version>
         <openserver.version>29</openserver.version>
-        <opencomponents.version>6-SNAPSHOT</opencomponents.version>
+        <opencomponents.version>7</opencomponents.version>
         <docrest.version>1.20</docrest.version>
         <oauth2-client.version>1.9</oauth2-client.version>
         <spring-social-salesforce.version>1.1</spring-social-salesforce.version>
