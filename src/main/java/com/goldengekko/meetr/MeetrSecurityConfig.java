@@ -45,6 +45,7 @@ public class MeetrSecurityConfig implements SecurityConfig {
                 .add("\\A/api/dev/file", GET, POST, DELETE)
                 .add("\\A/api/dev/task", GET, POST, DELETE)
             .build();
+        // TODO Remove whitelisted paths. Possibly whitelist dev namespace
 
         oauth2Interceptor.setWhitelistedMethods(oauthWhitelist);
     }

@@ -32,13 +32,13 @@ import org.springframework.web.context.ConfigurableWebApplicationContext;
 public class ContextProfileInitializer implements ApplicationContextInitializer<ConfigurableWebApplicationContext> {
     
     static final Logger LOG = LoggerFactory.getLogger(ContextProfileInitializer.class);
-	
-	public void initialize(ConfigurableWebApplicationContext ctx) {
-		ConfigurableEnvironment environment = ctx.getEnvironment();
-                final String activeProfiles = ctx.getServletContext().getInitParameter("contxt.profile.initializer.active");
-                final String[] profiles = activeProfiles.split(",");
-                LOG.info("activating profiles {} from {}", profiles, activeProfiles);
-		environment.setActiveProfiles(profiles);
-	}
+
+    public void initialize(ConfigurableWebApplicationContext ctx) {
+        ConfigurableEnvironment environment = ctx.getEnvironment();
+        final String activeProfiles = ctx.getServletContext().getInitParameter("contxt.profile.initializer.active");
+        final String[] profiles = activeProfiles.split(",");
+        LOG.info("activating profiles {} from {}", profiles, activeProfiles);
+        environment.setActiveProfiles(profiles);
+    }
 	
 }

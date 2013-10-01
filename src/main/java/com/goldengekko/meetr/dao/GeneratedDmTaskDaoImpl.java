@@ -20,7 +20,7 @@ import com.goldengekko.meetr.domain.DmTask;
 /**
  * The DmTask domain-object specific finders and methods go in this POJO.
  * 
- * Generated on 2013-07-22T13:43:46.529+0200.
+ * Generated on 2013-09-30T18:18:09.100+0200.
  * @author mardao DAO generator (net.sf.mardao.plugin.ProcessDomainMojo)
  */
 public class GeneratedDmTaskDaoImpl extends TypeDaoImpl<DmTask, java.lang.Long> 
@@ -78,9 +78,6 @@ public class GeneratedDmTaskDaoImpl extends TypeDaoImpl<DmTask, java.lang.Long>
         else if (COLUMN_NAME_DUEDATE.equals(name)) {
             value = domain.getDueDate();
         }
-        else if (COLUMN_NAME_MEETINGSYNCID.equals(name)) {
-            value = domain.getMeetingSyncId();
-        }
         else if (COLUMN_NAME_TITLE.equals(name)) {
             value = domain.getTitle();
         }
@@ -121,9 +118,6 @@ public class GeneratedDmTaskDaoImpl extends TypeDaoImpl<DmTask, java.lang.Long>
         else if (COLUMN_NAME_DUEDATE.equals(name)) {
             clazz = java.util.Date.class;
         }
-        else if (COLUMN_NAME_MEETINGSYNCID.equals(name)) {
-            clazz = java.lang.String.class;
-        }
         else if (COLUMN_NAME_TITLE.equals(name)) {
             clazz = java.lang.String.class;
         }
@@ -158,9 +152,6 @@ public class GeneratedDmTaskDaoImpl extends TypeDaoImpl<DmTask, java.lang.Long>
         }
         else if (COLUMN_NAME_DUEDATE.equals(name)) {
             domain.setDueDate((java.util.Date) value);
-        }
-        else if (COLUMN_NAME_MEETINGSYNCID.equals(name)) {
-            domain.setMeetingSyncId((java.lang.String) value);
         }
         else if (COLUMN_NAME_TITLE.equals(name)) {
             domain.setTitle((java.lang.String) value);
@@ -382,38 +373,6 @@ public class GeneratedDmTaskDaoImpl extends TypeDaoImpl<DmTask, java.lang.Long>
 	/**
          * {@inheritDoc}
 	 */
-	public final Iterable<DmTask> queryByMeetingSyncId(java.lang.String meetingSyncId) {
-            final Filter filter = createEqualsFilter(COLUMN_NAME_MEETINGSYNCID, meetingSyncId);
-            return queryIterable(false, 0, -1, null, null, null, false, null, false, filter);
-	}
-	
-	/**
-	 * query-key-by method for attribute field meetingSyncId
-	 * @param meetingSyncId the specified attribute
-	 * @return an Iterable of keys to the DmTasks with the specified attribute
-	 */
-	public final Iterable<java.lang.Long> queryKeysByMeetingSyncId(java.lang.String meetingSyncId) {
-            final Filter filter = createEqualsFilter(COLUMN_NAME_MEETINGSYNCID, meetingSyncId);
-            return queryIterableKeys(0, -1, null, null, null, false, null, false, filter);
-	}
-
-	/**
-	 * query-page-by method for field meetingSyncId
-	 * @param meetingSyncId the specified attribute
-         * @param pageSize the number of domain entities in the page
-         * @param cursorString non-null if get next page
-	 * @return a Page of DmTasks for the specified meetingSyncId
-	 */
-	public final CursorPage<DmTask> queryPageByMeetingSyncId(java.lang.String meetingSyncId,
-            int pageSize, String cursorString) {
-            final Filter filter = createEqualsFilter(COLUMN_NAME_MEETINGSYNCID, meetingSyncId);
-            return queryPage(false, pageSize, null, null, null, false, null, false, cursorString, filter);
-        }
-
-	 
-	/**
-         * {@inheritDoc}
-	 */
 	public final Iterable<DmTask> queryByTitle(java.lang.String title) {
             final Filter filter = createEqualsFilter(COLUMN_NAME_TITLE, title);
             return queryIterable(false, 0, -1, null, null, null, false, null, false, filter);
@@ -522,7 +481,6 @@ public class GeneratedDmTaskDaoImpl extends TypeDaoImpl<DmTask, java.lang.Long>
 	 */
 	public DmTask persist(		java.lang.Long longId, 
 		java.util.Date dueDate, 
-		java.lang.String meetingSyncId, 
 		java.lang.String title) {
 
             DmTask domain = null;
@@ -540,7 +498,6 @@ public class GeneratedDmTaskDaoImpl extends TypeDaoImpl<DmTask, java.lang.Long>
                     }
                     // fields
                     domain.setDueDate(dueDate);
-                    domain.setMeetingSyncId(meetingSyncId);
                     domain.setTitle(title);
                     // one-to-ones
                     // many-to-ones

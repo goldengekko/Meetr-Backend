@@ -68,8 +68,8 @@
         <endpoint.apiUrl>http://localhost:${devserver.port}/api/example</endpoint.apiUrl>
         <endpoint.signinUrl>N/A</endpoint.signinUrl>
         <endpoint.oauthUrl>http://localhost:${devserver.port}/oauth/example</endpoint.oauthUrl>
-        <!-- yyyyMMdd HHmmss -->
         <endpoints.lastModified>20121002 022901</endpoints.lastModified>
+
         <swagger.basePath>http://localhost:${devserver.port}/apidocs</swagger.basePath>
         <swagger.clientId>localhost.app-generic</swagger.clientId>
     </properties>
@@ -431,6 +431,20 @@
             </roles>
             <timezone>GMT+7</timezone>
             <url>http://www.linkedin.com/in/sosandstrom</url>
+        </developer>
+        <developer>
+            <id>mlv</id>
+            <email>mlv@goldengekko.com</email>
+            <name>Mattias Levin</name>
+            <organization>Golden Gekko</organization>
+            <organizationUrl>http://www.goldengekko.com</organizationUrl>
+            <roles>
+                <role>Solution Architect</role>
+                <role>Backend Developer</role>
+                <role>iOS Developer</role>
+            </roles>
+            <timezone>GMT+7</timezone>
+            <url>http://www.linkedin.com/in/mattiaslevin</url>
         </developer>
     </developers>
 

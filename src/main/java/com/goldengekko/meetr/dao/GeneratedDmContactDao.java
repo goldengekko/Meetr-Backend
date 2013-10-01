@@ -12,7 +12,7 @@ import net.sf.mardao.core.geo.DLocation;
 /**
  * DAO interface with finder methods for DmContact entities.
  *
- * Generated on 2013-07-22T13:43:46.529+0200.
+ * Generated on 2013-09-30T18:18:09.100+0200.
  * @author mardao DAO generator (net.sf.mardao.plugin.ProcessDomainMojo)
  */
 public interface GeneratedDmContactDao extends Dao<DmContact, java.lang.String> {

@@ -77,6 +77,8 @@ public class ContactController extends CrudController<JContact, DmContact, Strin
         } while (null != cursorKey);
         return count;
     }
+    // TODO Is this method used?
+
 
 //    @RequestMapping(value = "v10", method = RequestMethod.GET, params = {"searchText"})
 //    @ResponseBody
@@ -88,6 +90,7 @@ public class ContactController extends CrudController<JContact, DmContact, Strin
 //
 //        return body;
 //    }
+    // TODO We should remove this?
 
     // ----------------- Converter and setters ---------------------------------
 

@@ -60,6 +60,7 @@ public class MeetrService extends CrudListenerAdapter {
     public void init() throws IOException, ServletException {
         if (SystemProperty.Environment.Value.Development == SystemProperty.environment.value()) {
             populate();
+            // TODO Always run?
         }
         oauth2Service.addListener(this);
     }
@@ -76,6 +77,8 @@ public class MeetrService extends CrudListenerAdapter {
         dmi.setUsername("dmi");
         dmi.setPassword("dmi");
         domainService.create(dmi);
+
+        // TODO Add TMO
         
         final DAppDomain itest = new DAppDomain();
         itest.setId("itest");
@@ -101,6 +104,8 @@ public class MeetrService extends CrudListenerAdapter {
                 factoryService.create(salesforce);
             }
         });
+
+        // TODO Need TMO client id and secret
         
         DomainNamespaceFilter.doInNamespace("itest", new Runnable() {
             @Override

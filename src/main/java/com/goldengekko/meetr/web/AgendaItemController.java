@@ -43,8 +43,12 @@ public class AgendaItemController extends
     public void convertDomain(DmAgendaItem from, JAgendaItem to) {
         convertLongEntity(from, to);
 
+
         to.setTitle(from.getTitle());
         to.setIsDone(from.getIsDone());
+
+ //       throw new NullPointerException("This is just a test");
+
     }
 
     @Override

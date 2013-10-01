@@ -20,7 +20,7 @@ import com.goldengekko.meetr.domain.DmMeeting;
 /**
  * The DmMeeting domain-object specific finders and methods go in this POJO.
  * 
- * Generated on 2013-07-22T13:43:46.529+0200.
+ * Generated on 2013-09-30T18:18:09.100+0200.
  * @author mardao DAO generator (net.sf.mardao.plugin.ProcessDomainMojo)
  */
 public class GeneratedDmMeetingDaoImpl extends TypeDaoImpl<DmMeeting, java.lang.Long> 

@@ -12,7 +12,7 @@ import net.sf.mardao.core.geo.DLocation;
 /**
  * DAO interface with finder methods for DmTask entities.
  *
- * Generated on 2013-07-22T13:43:46.529+0200.
+ * Generated on 2013-09-30T18:18:09.100+0200.
  * @author mardao DAO generator (net.sf.mardao.plugin.ProcessDomainMojo)
  */
 public interface GeneratedDmTaskDao extends Dao<DmTask, java.lang.Long> {
@@ -27,8 +27,6 @@ public interface GeneratedDmTaskDao extends Dao<DmTask, java.lang.Long> {
 	static final String COLUMN_NAME_CREATEDDATE = "createdDate";
 	/** Column name for field dueDate is "dueDate" */
 	static final String COLUMN_NAME_DUEDATE = "dueDate";
-	/** Column name for field meetingSyncId is "meetingSyncId" */
-	static final String COLUMN_NAME_MEETINGSYNCID = "meetingSyncId";
 	/** Column name for field title is "title" */
 	static final String COLUMN_NAME_TITLE = "title";
 	/** Column name for field updatedBy is "updatedBy" */
@@ -40,7 +38,6 @@ public interface GeneratedDmTaskDao extends Dao<DmTask, java.lang.Long> {
 	static final List<String> COLUMN_NAMES = Arrays.asList(		COLUMN_NAME_CREATEDBY,
 		COLUMN_NAME_CREATEDDATE,
 		COLUMN_NAME_DUEDATE,
-		COLUMN_NAME_MEETINGSYNCID,
 		COLUMN_NAME_TITLE,
 		COLUMN_NAME_UPDATEDBY,
 		COLUMN_NAME_UPDATEDDATE);
@@ -48,7 +45,6 @@ public interface GeneratedDmTaskDao extends Dao<DmTask, java.lang.Long> {
 	static final List<String> BASIC_NAMES = Arrays.asList(		COLUMN_NAME_CREATEDBY,
 		COLUMN_NAME_CREATEDDATE,
 		COLUMN_NAME_DUEDATE,
-		COLUMN_NAME_MEETINGSYNCID,
 		COLUMN_NAME_TITLE,
 		COLUMN_NAME_UPDATEDBY,
 		COLUMN_NAME_UPDATEDDATE);
@@ -129,31 +125,6 @@ public interface GeneratedDmTaskDao extends Dao<DmTask, java.lang.Long> {
 	 * @return a Page of DmTasks for the specified dueDate
 	 */
 	CursorPage<DmTask> queryPageByDueDate(java.util.Date dueDate,
-            int pageSize, String cursorString);
-
-
-	/**
-	 * query-by method for field meetingSyncId
-	 * @param meetingSyncId the specified attribute
-	 * @return an Iterable of DmTasks for the specified meetingSyncId
-	 */
-	Iterable<DmTask> queryByMeetingSyncId(java.lang.String meetingSyncId);
-		
-	/**
-	 * query-keys-by method for field meetingSyncId
-	 * @param meetingSyncId the specified attribute
-	 * @return an Iterable of DmTasks for the specified meetingSyncId
-	 */
-	Iterable<java.lang.Long> queryKeysByMeetingSyncId(java.lang.String meetingSyncId);
-
-	/**
-	 * query-page-by method for field meetingSyncId
-	 * @param meetingSyncId the specified attribute
-         * @param pageSize the number of domain entities in the page
-         * @param cursorString non-null if get next page
-	 * @return a Page of DmTasks for the specified meetingSyncId
-	 */
-	CursorPage<DmTask> queryPageByMeetingSyncId(java.lang.String meetingSyncId,
             int pageSize, String cursorString);
 
 
@@ -249,7 +220,6 @@ public interface GeneratedDmTaskDao extends Dao<DmTask, java.lang.Long> {
 	 */
 	DmTask persist(		java.lang.Long longId, 
 		java.util.Date dueDate, 
-		java.lang.String meetingSyncId, 
 		java.lang.String title);	
 
 }
