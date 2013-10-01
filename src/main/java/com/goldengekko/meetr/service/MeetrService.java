@@ -58,10 +58,10 @@ public class MeetrService extends CrudListenerAdapter {
     private CrudService<DsTask, String> taskService;
 
     public void init() throws IOException, ServletException {
-        if (SystemProperty.Environment.Value.Development == SystemProperty.environment.value()) {
-            populate();
-            // TODO Always run?
-        }
+
+        // Always configure the domains if they do not already exist
+        populate();
+
         oauth2Service.addListener(this);
     }
 
@@ -72,28 +72,51 @@ public class MeetrService extends CrudListenerAdapter {
     }
     
     protected void populate() throws IOException, ServletException {
-        final DAppDomain dmi = new DAppDomain();
-        dmi.setId("dmi");
-        dmi.setUsername("dmi");
-        dmi.setPassword("dmi");
-        domainService.create(dmi);
 
-        // TODO Add TMO
-        
+        // Create domains
+
         final DAppDomain itest = new DAppDomain();
         itest.setId("itest");
         itest.setUsername("itest");
         itest.setPassword("itest");
+        // Only local backing (no SalesForce connection)
         itest.setAppArg1("{\"DmAccount\":\"local\",\"DmContact\":\"local\",\"DmMeeting\":\"local\"}");
         domainService.create(itest);
-        
+
         final DAppDomain dev = new DAppDomain();
         dev.setId("dev");
         dev.setUsername("dev");
-        dev.setPassword("dev");
-        dev.setAppArg1("{\"DmAccount\":\"local\",\"DmContact\":\"local\",\"DmMeeting\":\"local\"}");
+        dev.setPassword("dev104982");
+        // Use default backing (see the spring dispatcher servlet configuration)
         domainService.create(dev);
-        
+
+        final DAppDomain dmi = new DAppDomain();
+        dmi.setId("dmi");
+        dmi.setUsername("dmi");
+        dmi.setPassword("dmi748923");
+        // Use default backing (see the spring dispatcher servlet configuration)
+        domainService.create(dmi);
+
+        final DAppDomain tmo = new DAppDomain();
+        tmo.setId("tmo");
+        tmo.setUsername("tmo");
+        tmo.setPassword("tmo109384");
+        // Use default backing (see the spring dispatcher servlet configuration)
+        domainService.create(tmo);
+
+        // Create SalesForce connectors
+
+        DomainNamespaceFilter.doInNamespace("dev", new Runnable() {
+            @Override
+            public void run() {
+                DFactory salesforce = new DFactory();
+                salesforce.setId(OAuth2Service.PROVIDER_ID_SALESFORCE);
+                salesforce.setClientId("3MVG9Y6d_Btp4xp6Vx7Q48.faY7yxrHscdtZCIFbQaINzMKOCJutdGLe3xjOdvo0SEvGC52GCEWRKAES8nfS4");
+                salesforce.setClientSecret("5779430182160054773");
+                factoryService.create(salesforce);
+            }
+        });
+
         DomainNamespaceFilter.doInNamespace("dmi", new Runnable() {
             @Override
             public void run() {
@@ -105,8 +128,21 @@ public class MeetrService extends CrudListenerAdapter {
             }
         });
 
-        // TODO Need TMO client id and secret
-        
+        DomainNamespaceFilter.doInNamespace("tmo", new Runnable() {
+            @Override
+            public void run() {
+                DFactory salesforce = new DFactory();
+                salesforce.setId(OAuth2Service.PROVIDER_ID_SALESFORCE);
+                // TODO client id and secret with TMO values
+                salesforce.setClientId("3MVG9Y6d_Btp4xp6Vx7Q48.faY7yxrHscdtZCIFbQaINzMKOCJutdGLe3xjOdvo0SEvGC52GCEWRKAES8nfS4");
+                salesforce.setClientSecret("5779430182160054773");
+                factoryService.create(salesforce);
+            }
+        });
+
+
+        // Create test data
+
         DomainNamespaceFilter.doInNamespace("itest", new Runnable() {
             @Override
             public void run() {
@@ -119,31 +155,12 @@ public class MeetrService extends CrudListenerAdapter {
                 meetingService.create(m);
             }
         });
-        
-        DomainNamespaceFilter.doInNamespace("dev", new Runnable() {
-            @Override
-            public void run() {
-                DsTask t = new DsTask();
-                t.setDueDate(new Date(1368763200000L));
-//                t.setMeetingId("4242");
-                t.setTitle("A dev Task");
-                taskService.create(t);
-            }
-        });
+
     }
 
     /**
-     * Hook for registerFederated() and
-     * Hook for getAppDomain, to set MultiplexValue
-     * 
-     * @param controller
-     * @param service
-     * @param request
-     * @param namespace
-     * @param operation
-     * @param json the DConnection being returned to the client
-     * @param id the userId
-     * @param serviceResponse the UserProfile from the federated service
+     * Hook for registerFederated()
+     * Set the "email to SalesForce" on the connection after a user registered
      */
     @Override
     public void postService(CrudController controller, CrudService service, 
